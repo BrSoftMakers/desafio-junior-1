@@ -16,4 +16,4 @@ Você deverá desenvolver um projeto no padrão MVC utilizando PHP ou Node.js co
 > - Cada animal de estimação precisa ter um identificador único, nome, idade, se é gato ou cachorro e sua respectiva raça; Além do nome e telefone para contato de seu dono.
 
 ## Diferenciais
-Serão considerados diferenciais o uso de qualquer tipo de framework utilizados no front-end ou no back-end da aplicação.
+Serão considerados diferenciais o uso de qualquer tipo de framework utilizados no front-end (utilizamos ReactJS por aqui) ou no back-end da aplicação.
