@@ -1,0 +1,18 @@
+<%- contentFor('body') %>
+
+    <div class="row petDetail">
+       
+            <% data.map(pet =>{ %> 
+                <h2><%= pet.name %></h2>
+                <p>Idade: <%= pet.age %></p>
+                <p> Gato ou Cachorro: <%= pet.type %></p>
+                <p> Raça: <%= pet.breed  %></p>
+                <p>Responsável: <%= pet.owner %></p>
+                <p>Telefone do responsável: <%= pet.owner_tel %></p>
+                <a href="/edit/<%=pet._id%>"><button class="button-edit">Editar</button></a>
+                <a href="/delete/<%= pet._id%>"><button class="button-delete">Deletar</button></a>
+
+            <% }) %>
+           
+       
+    </div>

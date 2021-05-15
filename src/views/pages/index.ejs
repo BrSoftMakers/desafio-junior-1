@@ -1,0 +1,34 @@
+<%- contentFor('body') %>
+
+
+    <div class="row">
+        <div class="pets">
+            
+            <div class="com-md-10 pet-list">
+              
+                    
+                    
+                    <% data.map(pet =>{ %>
+                    
+                    
+                        <a href="/<%= pet._id %>"> 
+                                <h2><%= pet.name %></h2>
+                                <p>Responsável: <%= pet.owner %></p>
+                                <p>Telefone do responsável: <%= pet.owner_tel %></p>
+
+                            
+                           </a>
+        
+                        <% }) %>
+                   
+                
+                
+                
+            </div>
+            <div class="col-md-2">
+    
+                <a href="/create"><button class="pets-add">Cadastrar</button></a>    
+            </div>
+        </div>
+        </div>
+    </div>

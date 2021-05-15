@@ -1,0 +1,42 @@
+<%- contentFor('body') %>
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-add">
+        
+                <% data.map(pet => { %>
+                <form action="/editPet/<%= pet._id %>" method="POST">
+                <div class="col-md-12 pet-inputs">
+                    <p> Nome do pet:</p>
+                    <input type="String" name="petName" value="<%= pet.name %>">
+                    <p>Idade do pet:</p>
+                    <input type="number" name="petAge" value="<%= pet.age %>">
+
+                </div>
+                <div class="col-md-12 pet-inputs">
+                    <p>Gato ou Cachorro?</p>
+                        <select name="typePet" id="" value="<%= pet.type %>">
+                            <option value="cachorro"> Cachorro</option>
+                            <option value="gato"> Gato</option>
+                        </select>
+                        <p>Qual é a raça do pet?</p>
+                        <input type="text" name="petRaca" value="<%= pet.breed %>">
+                </div>
+                <div class="col-md-12 pet-inputs">
+                    <h2>Conte-nos do dono agora:</h2>
+                    <p>Nome do responsável:</p>
+                    <input type="text" name="petResponsavel" value="<%= pet.owner %>">
+                    <p>Telefone do responsável:</p>
+                    <input type="text" name="petTelResponsavel" value="<%= pet.owner_tel %>">
+
+                </div>
+                <button class="button-edit">Editar</button>
+                <% }) %>
+            </form>
+            
+        </div>
+    </div>
+
+</div>
+
+
+  

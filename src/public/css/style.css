@@ -1,0 +1,169 @@
+.header{
+    background-color: aliceblue;
+}
+.header img{
+    width: 50%;
+    padding: 5%;
+}
+.footer-contato{
+    background-color: aliceblue;
+    color: #3b5999;
+    padding: 5%;
+}
+
+.footer-contato a{
+    color: #3b5999;
+    font-size: 15px;
+    text-decoration: none;
+}
+.footer-contato a:hover{
+    color: #3b5999;
+    font-size: 15px;
+    text-decoration: none;
+}
+.pets-add{
+    border-radius: 20px;
+    border: inherit;
+    color: #fff;
+    font-size: 15px;
+    margin: 2%;
+    background-color: #349938;
+    width: 100%;
+}
+.pets{
+    display: flex;
+    flex-direction: row;
+    padding: 2%;
+    background-color: aliceblue;
+}
+.sucess{
+    display: flex;
+    flex-direction: row;
+    padding: 2%;
+    background-color: aliceblue;
+}
+.deleted{
+    display: flex;
+    flex-direction: row;
+    padding: 2%;
+    background-color: aliceblue;
+}
+.deleted h2{
+    padding: 5%;
+    font-size: 30px;
+    color: red;
+    width: 100%;
+    text-align: center;
+}
+.sucess h2{
+    padding: 5%;
+    font-size: 30px;
+    color: #349938;
+   width: 100%;
+   text-align: center;
+}
+.pet-list{
+    width: 100%;
+    background-color: #3b5999;
+    padding: 3%;
+    
+    margin: 5%;
+    
+    
+
+}
+.petDetail{
+    width: 100%;
+    color: #3b5999;
+    background-color: aliceblue;
+    padding: 10%;
+
+}
+.petDetail h2{
+    font-size: 40px;
+}
+.petDetail p{
+    font-size: 20px;
+}
+.pet-list a{
+    text-decoration: none;
+    margin: 5%;
+    
+}
+.pet-list a h2{
+    color: #fff;
+    text-decoration: none;
+}
+.pet-list a p{
+    color: #fff;
+    text-decoration: none;
+}
+.pet-list a h2:hover{
+    color: #fff;
+    text-decoration: none;
+}
+.pet-list a p:hover{
+    color: #fff;
+    text-decoration: none;
+}
+.form-add{
+    background-color: #3b5999;
+    padding: 10%;
+    align-items: center;
+    color: #fff;
+}
+.pet-inputs input{ 
+    width: 100%;
+    border: inherit;
+    font-size: 15px;
+    border-radius: 15px;
+    color: #3b5999;
+}
+.pet-inputs p{
+    font-size: 15px;
+    margin-top: 2%;
+    
+
+}
+.pet-inputs h2{
+    font-size: 20px;
+    margin-top: 2%; 
+}
+.pet-inputs select{
+    width: 100%;
+    border: inherit;
+    font-size: 15px;
+    border-radius: 15px;   
+    color: #3b5999; 
+}
+.button-cadastro{
+    border-radius: 20px;
+    border: inherit;
+    color: #3b5999;
+    font-size: 15px;
+    margin-top: 2%;
+    background-color: #fff;
+    width: 50%;
+   
+    
+}
+.button-edit{
+    border-radius: 20px;
+    border: inherit;
+    color: #fff;
+    font-size: 15px;
+    margin-top: 2%;
+    background-color: #ffd900;
+    width: 25%;
+
+}
+.button-delete{
+    border-radius: 20px;
+    border: inherit;
+    color: #fff;
+    font-size: 15px;
+    margin-top: 2%;
+    background-color: red;
+    width: 25%;
+
+}
