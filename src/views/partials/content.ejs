@@ -1,0 +1,75 @@
+<div id="content-container">
+    <div id="filter-container">
+        <h2>Filtrar</h2>
+
+        <a href="/pets"><i class="fas fa-paw fa-3x" id="icon1"></i></a>
+        <a href="/pets/dogs"><i class="fas fa-dog fa-3x" id="icon2"></i></a>
+        <a href="/pets/cats"> <i class="fas fa-cat fa-3x" id="icon3"></i></a>
+    </div>
+    <div id="content">
+        <% pets.forEach(pet=> { %>
+            <div class="card-pet">
+                <div class="image-cropper">
+                    <img src=<%=pet.img %> >
+                </div>
+
+
+
+                <div class="container-info">
+                    <div class="container-icons">
+                        <i class="fas fa-pencil-alt fa-2x" data-toggle="modal" data-target="#exampleModal"
+                            onclick="petData(`<%=pet._id %>`,`<%=pet.name%>`,`<%=pet.age%>`,`<%=pet.race%>`,`<%=pet.owner%>`,`<%=pet.contactOwner%>`)"></i>
+                        <button
+                        data-toggle="modal" data-target="#deleteModal"
+                        onclick="petDataDelete(`<%=pet._id%>`)"  id="remove">X</button>
+                    </div>
+                    <div class="name-race-container">
+                        <h4 class="">
+                            <%= pet.name %>
+                        </h4>
+                        <span>
+                            <%= pet.race %>
+                        </span>
+                    </div>
+                    <div class="">
+                        <div class="span-info-container">
+                            <div class="color-span">
+                                <% if (pet.age> 1) { %>
+                                    Anos
+                                    <% } else { %>
+                                        Ano
+                                        <% }%>
+                            </div>
+                            <div class="non-color-span">
+                                <%= pet.age %>
+                            </div>
+                        </div>
+
+                        <div class="span-info-container">
+                            <div class="color-span">Dono</div>
+                            <div class="non-color-span">
+                                <%=pet.owner%>
+                            </div>
+                        </div>
+                        <div class="telefone-container">
+                            <div class="color-span">Telefone</div>
+                            <div class="non-color-span">
+                                <%=pet.contactOwner%>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=''>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+    </div>
+</div>
+</div>
+
+<script>
+    $('.fas').click(function () {
+        $('.fas').removeClass('teste')
+        $(this).toggleClass('teste')
+    });
+</script>

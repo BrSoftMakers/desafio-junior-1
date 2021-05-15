@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+    <link rel="shortcut icon" href="/images/favicon-16x16.png" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+    
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/styles/main.css">
+    <title>PetShop</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <%- include('../partials/sidebar.ejs') %>
+            <div id="main">
+                <%- include('../partials/header.ejs') %>
+                    <div class="h-100" id="container-geral">
+
+                        <form>
+                            <div id="form-header">
+                                <h1>Cadastrar Pet</h1>
+                            </div>
+
+                            <div id="form-inputs">
+                                <div>
+                                    <div class="input-container">
+                                        <label for="">Qual o nome do Pet?</label>
+                                        <input type="text" id="name">
+                                    </div>
+
+                                    <div class="input-container">
+                                        <label for="">Quantos anos o Pet tem?</label>
+                                        <input type="number" id="age" max="25">
+                                    </div>
+
+
+                                    <div class="input-container">
+                                        <label for="">Ele é um</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" checked name="animal" value="Cachorro">
+                                            <label class="form-check-label" for="animal">
+                                                Cachorro
+                                            </label>
+                                        </div>
+
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" id="flexRadioDefault2"
+                                                name="animal"  value="Gato">
+                                            <label class="form-check-label" for="animal">
+                                                Gato
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="input-container">
+                                        <label for="">Qual a raça dele?</label>
+                                        <input type="text" name="" id="race">
+                                    </div>
+                                </div>
+
+
+                                <div class="owner-input">
+                                    <div class="input-container">
+                                        <label for="">Quem é o dono?</label>
+                                        <input type="text" name="" id="owner">
+                                    </div>
+
+                                    <div class="input-container">
+                                        <label for="">Número de contato</label>
+                                        <input type="tel" maxlength="15" id="telephone">
+                                    </div>
+
+                                    <div class="input-container-file">
+                                        <label for="">Você tem alguma foto dele?</label>
+                                        <input type="file" name="file" id="file-input">
+                                    </div>
+                                    <div class="input-container">
+                                        <button type="submit" id="button">Cadastrar</button>
+                                    </div>
+                                </div>
+                                <h3 id="load" class="invisiblee">Carregando...</h3>
+                                <h4 id="invalid" class="invisiblee">Por favor verifique os dados.</h4>
+                            </div>
+
+                        </form>
+
+                    </div>
+            </div>
+    </div>
+</body>
+
+<script>
+    function phoneMask() {
+        var num = $(this).val().replace(/\D/g, '');
+        $(this).val('(' + num.substring(0, 2) + ')'+ ' ' + num.substring(2, 7) + '-' + num.substring(7, 12));
+    }
+    $('[type="tel"]').keyup(phoneMask);
+</script>
+<script src="/scripts/form.js"></script>
+
+</html>

@@ -1,0 +1,237 @@
+@import "./variables";
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css);
+#content-container{
+    background: $content-body;
+    height: 100%;
+
+    a{
+        color: white;
+    }
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .image-cropper {
+        width: 10rem;
+        height: 6.5rem;
+
+        position: relative;
+        overflow: hidden;
+
+        margin:1rem;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border-radius: 100%;
+        border: 2px white solid;
+
+        background: $sidebar-header;
+
+        img {
+            display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
+
+        }
+    }
+
+    #filter-container{
+        justify-self: center;
+        align-self: center;
+
+        position: sticky;
+        top:2rem;
+
+
+        text-align: center;
+
+        background: $card-body;
+        color: white;
+
+        border-radius: 0px 0 20px 20px;
+
+        i{
+            margin: 1rem;
+
+            &:hover{
+                transition: .2s;
+                color: rgb(255, 179, 144);
+            }
+
+            
+        }
+    }
+}
+#content {
+    height: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    
+
+
+    h4 {
+        padding: 0;
+        margin: 0;
+    }
+
+    .card-pet {
+        margin: 9rem 2rem;
+        margin-bottom: 5rem;
+
+        color: white;
+        background: $card-body;
+
+        width: 23rem;
+        height: 10rem;
+
+        border: 2px white solid;
+        border-right: none;
+        border-radius: 20px 25px 25px 20px;
+
+        display: flex;
+        align-items: center;
+
+        
+
+        .container-info {
+            background: white;
+            border-radius: 20px;
+            color: $header;
+
+            width: 100%;
+
+            .container-icons {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                margin: 0rem 1rem;
+                margin-top: 1rem;
+
+                i {
+                    color: #0087ff;
+
+                    cursor: pointer;
+                    &:hover {
+                        transition: .3s;
+                        color: #065fad;
+                    }
+                }
+
+                button {
+                    background: $card-body;
+                    color: white;
+
+                    font-size: 2rem;
+                    font-weight: bold;
+
+                    width: 3rem;
+                    height: 3rem;
+
+                    border-radius: 100%;
+                    border: none;
+                    outline: none;
+
+
+                    &:hover{
+                        transition: .2s;
+
+                        cursor: pointer;
+                        background: #f18080;
+                        transform: scale(1.01);
+                    }
+
+                    &:active{
+                        transition: .2s;
+
+                        background: #bb5858;
+                        transform: scale(.98);
+                    }
+                }
+            }
+
+            .name-race-container {
+                padding: 1rem;
+            }
+
+            .telefone-container{
+                    display: flex;
+                    flex-direction: column;
+                    margin: 0.5rem 2rem;
+
+                    background: $card-body;
+                    color: white;
+    
+                    font-weight: bold;
+    
+                    border-radius: 10px;
+    
+                    list-style: none;
+    
+                    div {
+                        padding: 0.2rem 1rem;
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    .color-span {
+                        border-radius: 10px 10px 0 0;
+                        background: $header;
+                        justify-content: center;
+                    }
+                    .non-color-span {
+                        padding: 0.2rem 1rem;
+    
+                        border-radius: 0 10px 10px 0;
+                    }
+            }
+
+            .span-info-container {
+                margin: 0.5rem 2rem;
+
+                background: $card-body;
+                color: white;
+
+                font-weight: bold;
+
+                border-radius: 10px;
+
+                list-style: none;
+
+                display: flex;
+                align-items: stretch;
+
+                
+
+                div {
+                    padding: 0.2rem 1rem;
+                    width: 4rem;
+                    display: flex;
+                    align-items: center;
+                }
+
+                .color-span {
+                    border-radius: 10px 0 0 10px;
+                    background: $header;
+                    justify-content: center;
+                }
+                .non-color-span {
+                    padding: 0.2rem 1rem;
+                    display: flex;
+                    justify-content: center;
+                    flex-grow: 1;
+                    align-items: center;
+                    border-radius: 0 10px 10px 0;
+                }
+            }
+        }
+    }
+}
+
+.teste{color: black;}

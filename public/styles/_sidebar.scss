@@ -1,0 +1,83 @@
+@import './variables';
+
+#sidebar{
+    background: $sidebar-body;
+    height: 99.7vh;
+    position: sticky;
+    top: 0;
+    color: #0087FF;
+    width: 18rem;
+    
+
+    .sidebar-header{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background: $sidebar-header;
+
+        font-weight: bold;
+
+        height: 5rem;
+
+        a{
+            color: white;
+            text-decoration: none;
+        }
+    }
+
+    #sidebar-nav-container{
+    margin: 1rem;
+        h4{
+            cursor: pointer;
+            font-size: 2rem;
+
+            &:hover{
+                transition: .3s;
+                color: #065fad;
+            }
+        }
+        a{
+            color: #0087FF;
+        }
+    }
+    
+}
+
+#demo{
+
+    >div{
+        background: $sidebar-header;
+         color: white;
+
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        a{
+            width: 100%;
+            padding: .9rem 1rem;
+            
+            color: white;
+    
+            font-size: 1.2rem;
+            
+            text-decoration: none;
+    
+            &:hover{
+                transition: .2s;
+                border-radius: 10px;
+    
+                color: #0087FF;
+                background: #0087FF;
+            }
+    
+            &:active{
+                transition: .2s;
+    
+                background: #035faf;
+            }
+        }
+    }
+    
+}

@@ -1,0 +1,89 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" id="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Atualizar Pet</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">  
+            <form onsubmit="handleUpdate">
+                
+                <div id="form-inputs">
+                    <div class="input-container">
+                        <label for="">Qual o nome do Pet?</label>
+                        <input type="text" id="name">
+                    </div>
+
+                    <div class="input-container">
+                        <label for="">Quantos anos o Pet tem?</label>
+                        <input type="number" id="age" max="25">
+                    </div>
+
+
+                    <div class="input-container">
+                        <label for="">Ele é um</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="animal" value="Cachorro" id="cachorro">
+                            <label class="form-check-label" for="animal">
+                                Cachorro
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="animal" id="gato" checked value="Gato">
+                            <label class="form-check-label" for="animal">
+                                Gato
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="input-container">
+                        <label for="">Qual a raça dele?</label>
+                        <input type="text" name="" id="race">
+                    </div>
+
+                    <div class="input-container">
+                        <label for="">Quem é o dono?</label>
+                        <input type="text" name="" id="owner">
+                    </div>
+                    
+                    <div class="input-container">
+                        <label for="">Número de contato</label>
+                        <input type="text" name="" id="telephone">
+                    </div>
+
+                    <div class="input-container-file">
+                        <label for="">Você tem alguma foto dele?</label>
+                        <input type="file" name="file" id="file-input">
+                    </div>
+                    
+                </div>
+
+            </form>
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary" onclick ="handleUpdate()" data-dismiss="modal">Alterar</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">  
+            <h6>Você tem certeza que quer deletar o cadastro?</h6>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary" onclick ="handleRemove()" data-dismiss="modal">Deletar</button>
+        </div>
+      </div>
+    </div>
+</div>

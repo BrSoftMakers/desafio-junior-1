@@ -1,0 +1,139 @@
+@import "./variables";
+
+#container-geral {
+    background: $create-body;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    form {
+        display: flex;
+        flex-direction: column;
+
+        background-color: white;
+        margin: 1rem;
+
+        border-radius: 25px 25px 20px 20px;
+
+        #form-header {
+            padding: 1rem;
+
+            border-radius: 20px 20px 0 0;
+
+            background: $card-body;
+            color: white;
+        }
+
+        #form-inputs {
+            display: flex;
+            justify-content: center;
+            padding: 1rem 1rem;
+
+            .input-container,
+            .input-container-file {
+                margin: 0.2rem 0;
+                padding: 0.5rem 2rem;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                width: 20rem;
+
+                border-radius: 20px;
+
+                label {
+                    font-size: 1.2rem;
+                    margin: 0;
+                    padding: 0;
+                }
+
+                input {
+                    outline: none;
+                    border: none;
+
+                    border-bottom: 2px solid $header;
+                }
+                .form-check {
+                    display: flex;
+                    align-items: center;
+                }
+
+                button{
+                    padding: .5rem 0;
+
+
+                    background: $card-body;
+                    color: white;
+
+                    font-size: 1.5rem;
+                    font-weight: bold;
+
+                    outline: none;
+                    border: none;
+                    border-radius: 10px;
+
+                    
+
+                    &:hover:enabled{
+                        transition: .2s;
+
+                        cursor: pointer;
+                        background: #f18080;
+                        transform: scale(1.01);
+                    }
+
+                    &:active:enabled{
+                        transition: .2s;
+
+                        background: #bb5858;
+                        transform: scale(.98);
+                    }
+
+                    &:disabled{
+
+                        background:rgb(122, 122, 122);
+                    }
+                }
+            }
+            .input-container-file {
+                input {
+                    margin: 1rem 0;
+                    border: none;
+
+                    &::file-selector-button{
+                        background:white;
+
+                        padding: .5rem;
+
+                        outline: none;
+                        border: 2px solid $card-body;
+                        border-radius: 10px;
+
+                        cursor: pointer;
+                    } 
+                }
+
+                
+            }
+        }
+
+        
+    }
+}
+
+#load, #invalid{
+    text-align: center;
+    font-weight: bold;
+
+    color: $header;
+}
+
+#invalid{
+    font-weight: normal;
+    color: $card-body;
+}
+
+.invisiblee{
+    display: none;
+}

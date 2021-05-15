@@ -1,0 +1,20 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.petsRouter = void 0;
+var express_1 = require("express");
+var mongoose_1 = __importDefault(require("mongoose"));
+var PetsController_1 = __importDefault(require("../controllers/PetsController"));
+var petsRouter = express_1.Router();
+exports.petsRouter = petsRouter;
+var conn = mongoose_1.default.connection;
+conn.once("open", function () { return console.log("Conectado ao DB"); });
+petsRouter.get("/", PetsController_1.default.index);
+petsRouter.get("/dogs", PetsController_1.default.indexDog);
+petsRouter.get("/cats", PetsController_1.default.indexCat);
+petsRouter.get("/create", PetsController_1.default.showCreate);
+petsRouter.post("/", PetsController_1.default.create);
+petsRouter.delete("/:id", PetsController_1.default.delete);
+petsRouter.put("/:id", PetsController_1.default.update);
