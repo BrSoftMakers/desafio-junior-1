@@ -1,0 +1,18 @@
+.container {
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.container.active {
+  background: #fff;
+  border-color: #fff;
+}

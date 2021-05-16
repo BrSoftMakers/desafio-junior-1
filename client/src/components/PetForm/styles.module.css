@@ -1,0 +1,204 @@
+.container {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.formWrapper {
+  display: flex;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.form + .form {
+  margin-left: 16px;
+}
+
+.heading {
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.inputGroup {
+  margin-top: 16px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.inputGroup label {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.inputGroup input,
+.inputGroup select {
+  margin-top: 4px;
+  padding: 0 12px;
+
+  height: 42px;
+
+  background: #2a3647;
+  border: 2px solid #2a3647;
+  border-radius: 4px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 16px;
+}
+
+.inputGroup input:focus,
+.inputGroup select:focus {
+  border-color: #f50057;
+  outline: 0;
+}
+
+.inputGroup input::placeholder,
+.inputGroup .invalidSelect {
+  color: #959595;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.baseButton {
+  width: 180px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+  border: 0;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: background-color 0.3s;
+}
+
+.backButton {
+  background: #2a3647;
+}
+
+.backButton:hover,
+.backButton:focus {
+  background: #41536d;
+}
+
+.clearButton {
+  background: #8399b7;
+}
+
+.clearButton:hover,
+.clearButton:focus {
+  background: #bacde8;
+}
+
+.saveButton {
+  background: #f50057;
+}
+
+.saveButton:hover,
+.saveButton:focus {
+  background: #ff4b8b;
+}
+
+.rowButtons {
+  margin-top: 36px;
+
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttonGroup {
+  display: flex;
+}
+
+.rowButtons .buttonGroup button + button {
+  margin-left: 16px;
+}
+
+.petNameInput,
+.ownerNameInput {
+  width: 572px;
+}
+
+.petBreedInput,
+.ownerContactInput {
+  width: 474px;
+}
+
+.petAgeInput,
+.petTypeInput {
+  width: 278px;
+}
+
+@media (max-width: 1200px) {
+  .formWrapper {
+    flex-direction: column;
+  }
+
+  .form + .form {
+    margin-top: 16px;
+    margin-left: unset;
+  }
+}
+
+@media (max-width: 650px) {
+  .rowButtons {
+    flex-direction: column-reverse;
+  }
+
+  .backButton {
+    margin-bottom: 32px;
+  }
+
+  .buttonGroup {
+    margin-bottom: 32px;
+  }
+
+  .petNameInput,
+  .ownerNameInput {
+    width: 460px;
+  }
+
+  .petBreedInput,
+  .ownerContactInput {
+    width: 420px;
+  }
+}
+
+@media (max-width: 500px) {
+  .petNameInput,
+  .ownerNameInput {
+    width: 400px;
+  }
+
+  .petBreedInput,
+  .ownerContactInput {
+    width: 320px;
+  }
+}
+
+@media (max-width: 440px) {
+  .petNameInput,
+  .ownerNameInput {
+    width: 320px;
+  }
+
+  .petBreedInput,
+  .ownerContactInput {
+    width: 280px;
+  }
+}

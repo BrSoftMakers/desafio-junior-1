@@ -1,0 +1,32 @@
+{
+  "name": "gopets",
+  "version": "1.0.0",
+  "author": {
+    "email": "matheuslanduci@gmail.com",
+    "name": "Matheus Landuci",
+    "url": "https://github.com/matheuslanduci"
+  },
+  "main": "build/index.js",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "joi": "^17.4.0",
+    "lowdb": "^1.0.0",
+    "rimraf": "^3.0.2",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7",
+    "sucrase": "^3.18.1"
+  },
+  "scripts": {
+    "dev": "nodemon src/index.js --ignore src/db/db.json",
+    "prebuildServer": "rimraf ./build",
+    "buildServer": "yarn prebuildServer && sucrase ./src -d ./build --transforms imports",
+    "buildClient": "cd ./client && yarn build && cd ..",
+    "start": "yarn buildClient && yarn buildServer && node build/index.js",
+    "deps": "yarn install && cd ./client && yarn install && cd .."
+  }
+}

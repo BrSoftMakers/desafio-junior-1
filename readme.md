@@ -1,19 +1,90 @@
- ![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
+<img width="100%" alt="goPets" src="./.github/capa.png">
 
-# Desafio - Desenvolvedor Fullstack Júnior
-Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato à vaga de Desenvolvedor Fullstack Júnior.
+<h2 align="center">
+  GoPets: Seu petshop online
+</h2>
+<p align="center">
+  Gerencie o petshop da GoPets.
+</p>
 
-## Instruções
-- Faça um fork deste repositório;
-- O conjunto mínimo de tecnologias a serem utilizadas são: HTML, CSS e JavaScript no front-end e alguma das tecnologias back-end informadas na proposta desse desafio;
-- Crie um passo a passo de como rodar a sua aplicação;
-- Após finalizar, submeta um pull request e aguarde nossa avaliação.
+# GoPets
 
-## Proposta
-Você deverá desenvolver um projeto no padrão MVC utilizando PHP ou Node.js com a finalidade de que seja possível listar, visualizar, criar, editar e excluir animais de estimação de uma petshop.
-> **Observações:**
-> - Você pode utilizar a estratégia que considerar pertinente para armazenar os registros de sua aplicação;
-> - Cada animal de estimação precisa ter um identificador único, nome, idade, se é gato ou cachorro e sua respectiva raça; Além do nome e telefone para contato de seu dono.
+O projeto GoPets é um dashboard para gerenciar os pets da GoPets. Você pode criar novos pets e por uma tabela com paginação você também pode visualizar, alterar e excluir.
 
-## Diferenciais
-Serão considerados diferenciais o uso de qualquer tipo de framework utilizados no front-end (utilizamos ReactJS por aqui) ou no back-end da aplicação.
+<hr>
+
+<br />
+
+- <a href="#tecnologias">Tecnologias 💻</a>
+- <a href="#armazenamento">Armazenamento 🎲</a>
+- <a href="#estilos">Estilos 💅</a>
+- <a href="#responsividade">Responsividade 📱</a>
+- <a href="#como-executar">Como executar 🚀</a>
+
+<br />
+
+<hr>
+
+## Tecnologias
+
+Backend:
+
+- [NodeJS](https://nodejs.org/en/)
+- [Express](https://expressjs.com/pt-br/)
+
+Frontend:
+
+- [ReactJS](https://pt-br.reactjs.org)
+
+<br />
+
+## Armazenamento
+
+Para armazenar os dados foi utilizado o [LowDB](https://github.com/typicode/lowdb) - uma biblioteca que, através de um arquivo JSON, cria uma base de dados para ser utilizado em todo o app. Foi escolhido pela facilidade na hora de replicar o aplicativo, sem necessidade de instalação de um sistema de banco de dados.
+
+<br />
+
+## Estilos
+
+Para realizar a estilização do App foi utilizado a estratégia de [Módulos CSS](https://github.com/css-modules/css-modules).
+
+<br />
+
+## Responsividade
+
+O aplicativo foi feito para ser responsivo nas seguintes dimensões:
+
+- 1440x900 (Original)
+- 1024x768 (Laptop)
+- 768x1024 (Tablet)
+- 375x812 (Celular)
+
+## Como executar
+
+Siga as instruções de como executar o aplicativo.
+
+1. Abra um terminal e clone o repositório: 
+
+```
+$ git clone https://github.com/matheuslanduci/gopets.git
+```
+
+2. Após clonar, navegue para a pasta:
+
+```
+$ cd gopets
+```
+
+3. Agora, através do yarn, instale as dependências (o comando irá instalar as dependências do Backend e do Frontend). Esse processo pode demorar.
+
+```
+$ yarn deps
+```
+
+4. Com as dependências instaladas, você pode iniciar o aplicativo. Esse processo pode demorar.
+
+```
+$ yarn start
+```
+
+5. Agora você pode acessar http://localhost:3333 e clicar no painel de Dashboard 🔥
