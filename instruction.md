@@ -16,7 +16,8 @@ Primeiro falando sobre o card do **pet**, nele é onde estaram contidas as infor
 
 Apertando o botão de edição, um modal irá se abrir, nele o usuário poderá alterar as informações do pet como quiser, não há a necessidade de inserir foto se não houver.
 
-Voltando a página principal temos o botão de **remover** ao lado do botão de edição,  ![image](https://user-images.githubusercontent.com/79314576/118321852-9a510700-b4d4-11eb-9374-cff907960e3e.png)
+Voltando a página principal temos o botão de **remover** ao lado do botão de edição,  
+![image](https://user-images.githubusercontent.com/79314576/118321852-9a510700-b4d4-11eb-9374-cff907960e3e.png)
 ![image](https://user-images.githubusercontent.com/79314576/118323408-f9178000-b4d6-11eb-8845-b6415c533c14.png)
 
 Confirmando o cadastro será excluído do banco de dados e claro, do app também.
