@@ -1,0 +1,31 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+
+<div class="card table-container">
+
+   <a href="/animals/create">Novo</a>
+   <table width="100%">
+      <thead>
+         <tr> 
+            <th>Nome</th>
+            <th>Raça</th>
+            <th>Action</th>
+         </tr>
+      </thead>
+      <tbody>
+         {% for animal in animals %}
+         <tr>
+            <td>
+               <span style="background-image: url({{animal.avatar_url}})"></span>
+               {{animal.name}}
+            </td>
+            <td>{{animal.raca}}</td>
+            <td><a href="/animals/{{animal.id}}">Ver</a></td>
+         </tr>
+         {% endfor %}
+      </tbody>
+   </table>
+</div>
+
+{% endblock content %}

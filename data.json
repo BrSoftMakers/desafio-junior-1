@@ -1,0 +1,40 @@
+{
+  "animals": [
+    {
+      "avatar_url": "https://images.unsplash.com/photo-1586671267731-da2cf3ceeb80?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=635&q=80",
+      "name": "yusuke",
+      "birth": -23890291200000,
+      "gender": "M",
+      "raca": "Golden",
+      "created_at": 1613165196163,
+      "id": 1
+    },
+    {
+      "avatar_url": "https://images.unsplash.com/photo-1586671267731-da2cf3ceeb80?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=635&q=80",
+      "name": "shunrei",
+      "birth": -23890291200000,
+      "gender": "F",
+      "raca": "labrador",
+      "created_at": 1613165196163,
+      "id": 2
+    },
+    {
+      "avatar_url": "https://images.unsplash.com/photo-1524079330208-07647b115e22?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXw1MTUyODc4NXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
+      "name": "fred",
+      "birth": 1555804800000,
+      "gender": "M",
+      "raca": "Golden",
+      "created_at": 1621279598648,
+      "id": 3
+    },
+    {
+      "avatar_url": "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=676&q=80",
+      "name": "firefox",
+      "birth": 942278400000,
+      "gender": "M",
+      "raca": "cat",
+      "created_at": 1621282831874,
+      "id": 4
+    }
+  ]
+}

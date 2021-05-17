@@ -1,0 +1,26 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+
+<div class="card">
+    
+    <section class="avatar"></section>
+    <section class="details">
+
+    <form method="POST" action="/animals?_method=PUT">
+            <h3>Editar Animais</h3>
+
+            {% include 'animals/fields.njk' %}
+
+            <input type="hidden" name="id" value={{animals.id}}>
+    </form>
+
+        <form id="form-delete" action="/animals?_method=DELETE" method="POST">            
+            <input type="hidden" name="id" value={{animals.id}}>
+            <button type="submit">Deletar</button>
+        </form>
+    
+    </section>
+</div>
+
+{% endblock content %}

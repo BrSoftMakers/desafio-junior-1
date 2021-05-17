@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:400,700&display=swap');
+
+:root {
+    --color-red: #e5e619;
+    --color-green: #50fa7b;
+    --color-white: #ffffff;
+    --color-blue: #1b91df;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    background-color: var(--color-red);
+    font-family: 'Roboto', sans-serif;
+    color: var(--color-white);
+}
+
+header {
+    background-color: var(--color-white);
+    padding: 32px;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.links {
+    font-size: 22px;
+}
+
+.links a + a {
+    margin-left: 32px;
+}
+
+.links a{
+    text-decoration: none;
+    position: relative;
+}
+
+.links a.active {
+    font-weight: bold;
+    color: var(--color-red);
+}
+
+.links a:hover {
+    color: var(--color-red);
+}
+
+.links a::after{
+    content: "";
+    width: 0;
+    height: 2px;
+    background-color: blueviolet;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.links a:hover::after {
+    width: 100%;
+    transition: width 700ms ease-in-out;
+}
+
+/* CARD */
+.card {
+    background-color: var(--color-white);
+    width: 800px;
+    height: 520px auto;
+    color: black;
+
+    /* espacamento */
+    margin: 45px auto;
+    
+    /* grid dividida ao meio */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+    box-shadow: 40px 40px 20px 20px black;
+
+    /* animacao */
+    animation-name: up;
+    animation-duration: 700ms;
+    animation-fill-mode: ease-out;
+}
+
+@keyframes up {
+        from {
+            opacity: 0;
+            transition: translateY(15px);
+        }
+        to {
+            opacity: 1;
+        }
+}
+
+/* detail */
+.details {
+    padding: 32px;
+}
+
+.details .item {
+    border-bottom: 1px solid black;
+    padding: 12px 0;
+}
+
+.details .item:last-child {
+    border: none;
+}
+
+.details h3,
+.details .item div:nth-child(1) {
+    line-height: 14px;
+    font-size: 16px;
+    color: #777777;
+    letter-spacing: 0.7px;
+    font-weight: normal;
+}
+
+.details .item div:nth-child(2) {
+    color: #555555;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.details h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--color-red);
+}
+
+.details .item span{
+    padding: 8px 16px;
+    background-color: var(--color-blue);
+    border-radius: 16px;
+    margin-right: 4px;
+    margin-top: 8px;
+    /* o div ja possui um block */
+    display: inline-block;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+    color:#111010;
+
+}
+
+.avatar{
+    background: url(https://images.unsplash.com/photo-1576201836106-db1758fd1c97?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80/300x400) no-repeat center;    
+}
+
+/* Form */
+input, select {
+    width: 100%;
+    outline: none;
+    color: #555555;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+input[type="radio"] {
+    width: initial;
+    margin-right: 4px;
+}
+
+input::placeholder {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+button[type="submit"],
+a.button {
+    padding: 8px 32px;
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    border-radius: 4px;
+    margin-top: 32px;
+    width: 100%;
+    font-size: 16px;
+}
+
+a.button {
+    display: block;
+    box-sizing: border-box;
+    text-align: center;
+    text-decoration: none;
+}
+
+#form-delete button[type="submit"] {
+    margin-top: 8px;
+    background-color: lightcoral;
+}
+
+
+/* INDEX ANIMALS */
+.table-container {
+    display: block;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.table-container table {
+    border-spacing: 0;
+}
+
+.table-container thead tr th{
+    text-align: left;
+}
+
+td, th {
+    padding: 16px;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+th {
+    text-transform: uppercase;
+    color: #777;
+    font-size: 14px;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr td:first-child {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    align-items: center;
+}
+
+tbody tr td:first-child span{
+    width: 48px;
+    height: 48px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    box-shadow: 3px 1px 6px -4px black;
+    border: 2px solid white;
+}
+
+tbody tr td:last-child a,
+.table-container > a{
+    background-color: var(--color-red);
+    padding: 8px 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+.table-container > a{
+    margin-bottom: 16px;
+    display: inline-block;
+}
+
+.table-container thead tr th:last-child,
+td:last-child {
+    text-align: center;
+}

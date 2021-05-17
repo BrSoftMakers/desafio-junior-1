@@ -1,0 +1,43 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+
+<div class="card">
+    <section class="avatar"></section>
+    <section class="details">
+        <h3>Detalhes</h3>
+            <div class="item">
+                <div>animals</div>
+                <div>{{animals.name}}</div>
+            </div>
+
+            <div class="item">
+                <div>Idade</div>
+                <div>{{animals.age}}</div>
+            </div>
+
+            <div class="item">
+                <div>Sexo</div>
+                <div>{{ "Masculino" if animals.gender == "M" else "Feminino"}}</div>
+            </div>
+
+            <div class="item">
+                <div>Raça</div>
+                <div>
+                    {% for service in animals.raca %}
+                        <span>{{service}}</span>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="item">
+                <div>Desde</div>
+                <div>{{animals.created_at}}</div>
+            </div>
+
+            <a href="/animals/{{animals.id}}/edit" class="button">Editar</a>
+
+    </section>
+</div>
+
+{% endblock content %}

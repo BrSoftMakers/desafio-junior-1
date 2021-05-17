@@ -1,0 +1,46 @@
+<div class="item">
+    <div>Avatar Url</div>
+    <div>
+        <input type="url" name="avatar_url" placeholder="http://" value="{{animals.avatar_url}}">
+    </div>
+</div>
+
+<div class="item">
+    <div>animals</div>
+    <div>
+        <input type="text" name="name" placeholder="nome" value="{{animals.name}}">
+    </div>
+</div>
+
+<div class="item">
+    <div>Idade</div>
+    <div><input type="date" name="birth" value="{{animals.birth}}"></div>
+</div>
+
+<div class="item">
+    <div>Sexo</div>
+    <div>
+        <span><input type="radio" name="gender" value="M" 
+            {% if animals.gender == 'M' %}
+                checked
+            {% endif %}>
+            Masculino
+        </span>
+       
+        <span><input type="radio" name="gender" value="F"
+            {% if animals.gender == 'F' %}
+                checked
+            {% endif %}>
+            Feminino
+        </span>
+    </div>
+</div>
+
+<div class="item">
+    <div>Raca</div>
+    <div>
+        <input type="text" name="raca" value="{{animals.raca}}">
+    </div>
+</div>
+
+<button type="submit">Salvar</button>
