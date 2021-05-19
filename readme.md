@@ -16,9 +16,9 @@ Você deverá desenvolver um projeto no padrão MVC utilizando PHP ou Node.js co
   
 ✔️ ReactJS para a contrução da interface.
   
-✔️ Styled Components para a estilização;
+✔️ Styled Components para a estilização.
 
-✔️ MongoDB como bando de dados
+✔️ MongoDB como bando de dados.
 
 ## Instruções de como rodar a aplicação
 
