@@ -1,0 +1,23 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "front-end": "npm run --prefix ../front-end start",
+    "server": "nodemon src/index.js",
+    "dev": "concurrently \"npm run server\" \"npm run front-end \""
+  },
+  "keywords": [],
+  "author": "Matheus Pereira da Cruz",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^6.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.8"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
