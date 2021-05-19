@@ -1,19 +1,37 @@
- ![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
+# Petshop
 
-# Desafio - Desenvolvedor Fullstack Júnior
-Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato à vaga de Desenvolvedor Fullstack Júnior.
+### Título: Petshop bairro
 
-## Instruções
-- Faça um fork deste repositório;
-- O conjunto mínimo de tecnologias a serem utilizadas são: HTML, CSS e JavaScript no front-end e alguma das tecnologias back-end informadas na proposta desse desafio;
-- Crie um passo a passo de como rodar a sua aplicação;
-- Após finalizar, submeta um pull request e aguarde nossa avaliação.
+Tabela de conteúdos
+=================
+<!--ts-->
+   * [Sobre](#Sobre)
+   * [Instalação](#Instalacao)
+   * [Tecnologias](#Tecnologias)
+<!--te-->
 
-## Proposta
-Você deverá desenvolver um projeto no padrão MVC utilizando PHP ou Node.js com a finalidade de que seja possível listar, visualizar, criar, editar e excluir animais de estimação de uma petshop.
-> **Observações:**
-> - Você pode utilizar a estratégia que considerar pertinente para armazenar os registros de sua aplicação;
-> - Cada animal de estimação precisa ter um identificador único, nome, idade, se é gato ou cachorro e sua respectiva raça; Além do nome e telefone para contato de seu dono.
 
-## Diferenciais
-Serão considerados diferenciais o uso de qualquer tipo de framework utilizados no front-end (utilizamos ReactJS por aqui) ou no back-end da aplicação.
+## Tecnologias
+- HTML
+- CSS
+- Javascript
+- <a href="https://mozilla.github.io/nunjucks/">Nunjuncks (templating engine)</a>
+- <a href="https://www.npmjs.com/package/nodemon">Nodemon </a>
+
+
+### Sobre
+## Criação de um controle de Petshop.
+
+- Listagem de Animals
+- CRUD
+
+
+### Instalacao
+    
+npm install
+Rode a aplicacao no modo development.
+
+Abrir [http://localhost:3000](http://localhost:3000) veja no browser.
+
+A pagina vai carregar
+Você também verá quaisquer erros no lint do console
