@@ -7,7 +7,7 @@ Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnic
 - Faça um fork deste repositório;
 - O conjunto mínimo de tecnologias a serem utilizadas são: HTML, CSS e JavaScript no front-end e alguma das tecnologias back-end informadas na proposta desse desafio;
 - Crie um passo a passo de como rodar a sua aplicação;
-- Após finalizar, submeta um pull request e aguarde nossa avaliação.
+- Após finalizar, submeta um pull request com um comentário informando o seu e-mail de contato e aguarde nossa avaliação.
 
 ## Proposta
 Você deverá desenvolver um projeto no padrão MVC utilizando PHP ou Node.js com a finalidade de que seja possível listar, visualizar, criar, editar e excluir animais de estimação de uma petshop.
