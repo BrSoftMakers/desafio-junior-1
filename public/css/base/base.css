@@ -1,0 +1,6 @@
+@import url('_reset.css');
+@import url('_variaveis.css');
+
+body {
+  background-color: var(--cor-fundo-pagina);
+}

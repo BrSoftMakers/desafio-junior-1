@@ -1,0 +1,242 @@
+/* Css do header */
+
+.cabecalho {
+  width: 1300px;
+
+  margin: 0 auto;
+  padding: 1rem;
+
+  background-color: var(--cor-fundo-sections);
+  
+  border-radius: 0 0 5rem 2rem;
+
+  display: flex;
+  align-items: center;
+}
+
+.cabecalho__logo {
+  width: 10rem;
+  height: 5rem;
+}
+
+.cabecalho__titulo {
+  font-size: 3rem;
+}
+
+/* end header */
+
+/* css do formulário */
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+
+  width: 30%;
+
+  margin: 5rem auto;
+  padding: 2rem;
+
+  background-color: #4682B450;
+
+  border-radius: 5rem 5rem 5rem 2rem;
+}
+
+.form__titulo {
+  text-align: center;
+
+  font-size: 2rem;
+
+  margin-bottom: 2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__wrapper {
+  margin-bottom: 1rem;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.form__label {
+  padding-right: 1rem;
+  padding-bottom: .5rem;
+
+  font-size: 1.5rem;
+}
+
+.form__input {
+  padding: .5rem;
+
+  border-radius: 5px;
+  border: none;
+}
+
+.form__botao {
+  margin: 1rem auto 0 auto;
+  padding: .5rem 2rem;
+
+  font-size: 1.3rem;
+
+  border: none;
+  border-radius: 20px;
+
+  background-color: #4682B485;
+  
+  cursor: pointer;
+
+  transition: 0.5s;
+}
+
+.form__botao:hover {
+  color: var(--branco);
+}
+
+.form__botao-lista {
+  background-color: var(--cor-fundo-botao);
+
+  padding: 1rem;
+  margin: 2rem auto;
+
+  border-radius: 5rem 5rem 5rem 2rem;
+
+  font-size: 1.2rem;
+  text-align: center;
+
+  transition: 0.5s;
+}
+
+.form__botao-lista:hover {
+  color: var(--branco);
+}
+
+@media screen and (max-width: 1299px) {
+  .cabecalho {
+    width: auto;
+  }
+
+  .form-container {
+    width: 90%;
+
+    box-sizing: border-box;
+  }
+}
+
+/* end form */
+
+/* css das tabelas */
+
+.tabela-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tabela {
+  width: 1300px;
+
+  margin: 3rem auto;
+
+  box-sizing: border-box;
+
+  background-color: #4682B450;
+
+  border-radius: 5rem 5rem 5rem 2rem;
+}
+
+.tabela__header {
+  color: 	var(--cor-header-tabela);
+
+  font-weight: bold;
+}
+
+.tabela__coluna {
+  padding: .5rem;
+
+  font-size: 1.2rem;
+
+  text-align: center;
+
+  border-right: 1px solid var(--branco);
+}
+
+.tabela__coluna:last-child {
+  border-right: none;
+
+  display: flex;
+  justify-content: space-around;
+}
+
+.tabela__linhas {
+  border-top: 1px solid var(--branco);
+}
+
+.tabela__icone-acao {
+  width: 1rem;
+  height: 1rem;
+}
+
+@media screen and (max-width: 1299px) {
+  .tabela {
+    width: 100%;
+  }
+}
+
+.tabela__botao-deletar {
+  border: none;
+
+  background-color: inherit;
+
+  cursor: pointer;
+}
+
+/* end tabela */
+
+/* css informe deletado */
+
+.botao__voltar {
+  margin: 1rem auto 0 auto;
+  padding: .5rem 2rem;
+
+  font-size: 1.3rem;
+
+  border: none;
+  border-radius: 20px;
+
+  background-color: #4682B485;
+  
+  cursor: pointer;
+
+  transition: 0.5s;
+}
+
+.tabela__voltar:hover{
+  color: var(--branco);
+}
+
+.delet__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.delet__informe {
+  margin: 2rem;
+
+  text-align: center;
+
+  font-size: 2rem;
+}
+
+.delet__botao-voltar {
+  padding: 1rem;
+
+  background-color: var(--cor-fundo-botao);
+
+  border-radius: 5rem 5rem 5rem 2rem;
+
+  cursor: pointer;
+}

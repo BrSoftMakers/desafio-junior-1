@@ -1,0 +1,12 @@
+<svg id="Component_10_1" data-name="Component 10 – 1" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #0071ea;
+      }
+    </style>
+  </defs>
+  <rect id="Rectangle_27" data-name="Rectangle 27" class="cls-1" width="14" height="2"/>
+  <rect id="Rectangle_28" data-name="Rectangle 28" class="cls-1" width="14" height="2" transform="translate(0 6)"/>
+  <rect id="Rectangle_29" data-name="Rectangle 29" class="cls-1" width="14" height="2" transform="translate(0 12)"/>
+</svg>
