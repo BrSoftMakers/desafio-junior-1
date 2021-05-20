@@ -6,6 +6,17 @@ module.exports = {
     return res.json(data);
   },
 
+  async raceByType(req, res) {
+    const { type } = req.params;
+
+    const data = await Race.findAll({
+      where: {
+        type: type,
+      },
+    });
+    return res.json(data);
+  },
+
   async store(req, res) {
     const { name, type } = req.body;
     const data = await Race.create({ name, type });

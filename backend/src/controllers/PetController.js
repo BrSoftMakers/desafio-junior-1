@@ -3,8 +3,23 @@ const User = require("../models/User");
 
 module.exports = {
   async index(req, res) {
-    const data = await Pet.findAll({ include: "race" });
+    const data = await Pet.findAll({ include: ["race", "user"] });
     return res.json(data);
+  },
+
+  async show(req, res) {
+    const { pet_id } = req.params;
+    const pet = await Pet.findByPk(pet_id, {
+      include: ["user", "race"],
+    });
+
+    if (!pet) {
+      return res.status(400).json({
+        message: "Pet not found.",
+      });
+    }
+
+    return res.json(pet);
   },
 
   async store(req, res) {
@@ -23,12 +38,12 @@ module.exports = {
   },
 
   async update(req, res) {
-    const { user_id, pet_id } = req.params;
-    const user = await User.findByPk(user_id);
+    const { pet_id } = req.params;
+    const pet = await Pet.findByPk(pet_id);
 
-    if (!user) {
+    if (!pet) {
       return res.status(400).json({
-        message: "User not found.",
+        message: "Pet not found.",
       });
     }
 
@@ -38,12 +53,12 @@ module.exports = {
   },
 
   async delete(req, res) {
-    const { user_id, pet_id } = req.params;
-    const user = await User.findByPk(user_id);
+    const { pet_id } = req.params;
+    const pet = await Pet.findByPk(pet_id);
 
-    if (!user) {
+    if (!pet) {
       return res.status(400).json({
-        message: "User not found.",
+        message: "Pet not found.",
       });
     }
 
