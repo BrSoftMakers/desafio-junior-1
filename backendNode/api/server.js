@@ -1,10 +1,13 @@
 const express = require("express");
+const routes = require("./routes");
+
 const app = express();
+const port = 3001;
 
-app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-const port = 3000;
+routes(app);
 
 app.listen(port, () => console.log(`servidor no ar na porta ${port}`));
 
