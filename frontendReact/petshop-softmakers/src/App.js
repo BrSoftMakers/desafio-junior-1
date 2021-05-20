@@ -1,7 +1,8 @@
-import React from "react";
+import "./App.css";
+import TablePet from "./components/TablePet";
 
 function App() {
-  return <div>Petshop SoftMakers em breve...</div>;
+  return <TablePet></TablePet>;
 }
 
 export default App;
