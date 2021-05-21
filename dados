@@ -1,4 +1,5 @@
-Segue o link do deploy da aplicação solicitada no desafio: https://desafio.euygor.com/Segue o link do código fonte da aplicação solicitada no desafio: https://desafio.euygor.com/desafio.zip
+Segue o link do deploy da aplicação solicitada no desafio: https://desafio.euygor.com/
+Segue o link do código fonte da aplicação solicitada no desafio: https://desafio.euygor.com/desafio.zip
 
 Instruções para rodar a aplicação localmente:
 1 - Fazer as configurações necessárias de conexão ao seu banco de dados no arquivo .ENV alterando DB_DATABASE, DB_USERNAME, DB_PASSWORD é informado seus os seus dados de conexão.
