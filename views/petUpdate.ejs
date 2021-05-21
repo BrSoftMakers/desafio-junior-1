@@ -1,0 +1,45 @@
+<%- include('partials/header') %>
+
+    <img class="side-img"
+    src="https://images.unsplash.com/photo-1503844281047-cf42eade5ca5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=755&q=80" 
+    alt="cat">
+
+    <div class="container">
+
+        <h1>Atualizar Cadastro</h1>
+
+        <div class="form-style">
+            <form method="POST" action="/pets/<%= id %>?_method=PUT" onsubmit="alert(`Atualizado`)">
+
+                <label>Tipo de animal: </label>
+                <input type="radio" id="dog" name="animalType" value="cachorro"/>
+                <label for="dog">Cachorro</label>
+                <input type="radio" id="cat" name="animalType" value="gato" />
+                <label for="cat">Gato</label>
+        
+                <label class="label-block" for="petName">Nome do pet: </label>
+                <input type="text" id="petName" name="petName"  value="<%= petsValue.petName %>"/>
+        
+                <label class="label-block" for="petAge">Idade do pet: </label>
+                <input type="text" id="petAge" name="petAge" value="<%= petsValue.petAge %>" />
+        
+                <label class="label-block" for="breed">Raça: </label>
+                <input type="text" id="breed" name="breed" value="<%= petsValue.breed %>" />
+        
+                <label class="label-block" for="ownerName">Nome do dono(a): </label>
+                <input  type="text" id="ownerName" name="ownerName" value="<%= petsValue.ownerName %>" />
+        
+                <label class="label-block" for="ownerContact">Contato do dono(a): </label>
+                <input type="text" id="ownerContact" name="ownerContact" value="<%= petsValue.ownerContact %>" />
+    
+                <button class="form-button" type="submit">Atualizar</button>
+            </form>
+        </div>
+        
+        
+        <a href="/pets"><i class="fas fa-chevron-left fa-2x"></i></a>
+        
+
+    </div>
+ 
+<%- include('partials/footer') %>

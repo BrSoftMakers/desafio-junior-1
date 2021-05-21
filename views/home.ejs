@@ -1,0 +1,47 @@
+<%- include('partials/header') %>
+
+    <img class="side-img"
+    src="https://images.unsplash.com/photo-1506993708131-b0bf29d16b76?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+    alt=" women and dog"
+    >
+
+    <div class="container">
+        
+        <h1 class="title">Cadastro de Pet</h1>
+        
+
+        <div class="form-style">
+            <form method="POST" action="/" onsubmit="alert(`Cadastrado`)">
+
+                <label>Tipo de animal: </label>
+                <input type="radio" id="dog" name="animalType" value="cachorro"   required/>
+                <label for="dog">Cachorro</label>
+                <input type="radio" id="cat" name="animalType" value="gato" />
+                <label for="cat">Gato</label>
+        
+                <label class="label-block" for="petName">Nome do pet: </label>
+                <input type="text" id="petName" name="petName" required/>
+        
+                <label class="label-block" for="petAge">Idade do pet: </label>
+                <input type="text" id="petAge" name="petAge" required/>
+        
+                <label class="label-block" for="breed">Raça: </label>
+                <input type="text" id="breed" name="breed" required/>
+        
+                <label class="label-block" for="ownerName">Nome do dono(a): </label>
+                <input  type="text" id="ownerName" name="ownerName" required/>
+        
+                <label class="label-block" for="ownerContact">Contato do dono(a): </label>
+                <input type="text" id="ownerContact" name="ownerContact" required/>
+    
+                <button class="form-button" type="submit">Cadastrar</button>
+            </form>
+        </div>
+        
+        <div class="nav-link">
+            <a href="/pets">Pets Cadastrados</a>
+        </div>
+
+    </div>
+
+<%- include('partials/footer') %>

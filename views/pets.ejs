@@ -1,0 +1,44 @@
+<%- include('partials/header') %>
+
+    <h1 class="title">Lista de pets</h1>
+    
+    <div class="table-container">
+        <table >
+            <tr>
+                <th>ID</th>
+                <th>Nome do pet</th>
+                <th>Tipo de animal</th>
+                <th>Raça</th>
+                <th>Idade do pet</th>
+                <th>Nome do dono</th>
+                <th>Contato</th>
+                <th>Ações</th>
+            </tr>
+    
+            <% petsFound.forEach((i, j) => { %>
+                <tr>
+                    <td> <%= j+1 %></td>
+                    <td> <%=i.petName %> </td>
+                    <td> <%=i.animalType %> </td>
+                    <td> <%=i.breed %> </td>
+                    <td> <%=i.petAge %> </td>
+                    <td> <%=i.ownerName %> </td>
+                    <td> <%=i.ownerContact %> </td>
+                    <td> 
+                        <a href="/pets/<%= i._id %>"><i class="far fa-edit fa-2x"></i></a> 
+    
+                        <form method="POST" action="/pets/<%= i.id %>?_method=DELETE">
+                            <button class="button-del"onclick="return confirm('Tem certeza que deseja excluir?')" type="submit">
+                                <i class="fas fa-trash fa-2x"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+    
+            <% })%>
+        </table>
+    </div>
+         
+    <a href="/"><i class="arrow fas fa-chevron-left fa-2x"></i></a>
+
+<%- include('partials/footer') %>
