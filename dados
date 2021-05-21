@@ -1,0 +1,13 @@
+Segue o link do deploy da aplicação solicitada no desafio: https://desafio.euygor.com/Segue o link do código fonte da aplicação solicitada no desafio: https://desafio.euygor.com/desafio.zip
+
+Instruções para rodar a aplicação localmente:
+1 - Fazer as configurações necessárias de conexão ao seu banco de dados no arquivo .ENV alterando DB_DATABASE, DB_USERNAME, DB_PASSWORD é informado seus os seus dados de conexão.
+2 - Rodar o comando: "php artisan migrate:fresh" no terminal da aplicação para gerar as tabelas necessárias para o funcionamento da aplicação.
+3 - Após seguir os passos acima basta executar o comando: "php artisan serve"  após isso será gerado um ip local para dar acesso local a aplicação.
+
+OBS: Caso não queira fazer esses procedimentos acima, eu já fiz o deploy da aplicação para produção, basta acessar o seguinte link: https://desafio.euygor.com/
+
+Tecnologias utilizadas:
+-- Bootstrap
+-- JQuery
+-- Laravel
