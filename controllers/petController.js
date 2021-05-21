@@ -5,12 +5,7 @@ exports.home = (req, res) =>{
 }
 
 exports.createPet = (req, res) =>{
-    const animalType = req.body.animalType;
-    const petName = req.body.petName;
-    const petAge = req.body.petAge;
-    const breed = req.body.breed;
-    const ownerName = req.body.ownerName;
-    const ownerContact = req.body.ownerContact;
+    const { animalType, petName, petAge, breed, ownerName, ownerContact } = req.body;
 
     const newPet = new Pet({
         petName: petName,
@@ -51,12 +46,7 @@ exports.update = (req, res) =>{
 exports.petUpdate = (req, res) =>{
     const petId = req.params.id;
 
-    const animalType = req.body.animalType;
-    const petName = req.body.petName;
-    const petAge = req.body.petAge;
-    const breed = req.body.breed;
-    const ownerName = req.body.ownerName;
-    const ownerContact = req.body.ownerContact;
+    const { animalType, petName, petAge, breed, ownerName, ownerContact } = req.body;
     
     Pet.findOne({_id: petId}, (err, petsFounded) =>{
         if(err){
