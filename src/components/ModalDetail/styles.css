@@ -1,0 +1,91 @@
+.petDetailContainer {
+    padding: 12px;
+    
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+  
+    display: flex;
+    flex-direction: row;
+    max-width: 98vw;
+    max-height: 98vh;
+  
+    background: #fff;
+    overflow: auto;
+    outline: none;
+    transition: 0.3s;
+
+    border: 1px solid black;
+    box-shadow: 0 1px 2px rgb(16 16 17 / 2%), 0 3.4px 8px rgb(16 16 17 / 1%), 0 12px 30px rgb(16 16 17 / 0%);
+}
+
+.petDetailContainer .imgContent{
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.petDetailContainer img{
+    max-width: 540px;
+    height: auto;
+}
+
+.petDetailContainer .petDetailContent{
+    width: 100%;
+    height: 100%;
+    padding: 0 32px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px
+}
+
+.petDetailInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.petDetailHeader {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.petDetailOptions {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+@media screen and (max-width: 948px){
+    
+    .petDetailContainer {
+        height: auto;
+        flex-direction: column;
+    }
+
+    .petDetailContainer .imgContent{
+        max-width: 100%;
+
+    }
+
+    .petDetailContainer img{
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 380px){
+    .petDetailOptions {
+        flex-direction: column;
+    }
+}

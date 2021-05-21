@@ -1,0 +1,22 @@
+input {
+    padding: 8px;
+    font: 400 14px/24px Montserrat, sans-serif;
+    border: 1px solid #424242;
+}
+
+.Input {
+    display: flex;
+    flex-direction: column;
+}
+
+input [type="date"]{
+    width: 100%;
+}
+
+.InputRadio {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+}
+    

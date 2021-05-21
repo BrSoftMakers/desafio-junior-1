@@ -1,0 +1,48 @@
+table {
+    font: normal 16px/24px Montserrat, sans-serif; 
+    border-collapse: collapse;
+    width: auto;
+    overflow-x:auto;
+}
+
+table td, table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+  
+table td {
+    cursor: pointer;
+}
+
+table tr:nth-child(even){background-color: #f2f2f2;}
+  
+table tr:hover {background-color: #ddd;}
+
+table th {
+    padding: 12px 8px;
+    text-align: center;
+    background-color: #212121;
+    color: white;
+}
+
+.actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.emptyContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+}
+
+img {
+    max-width: 240px;
+    height: auto;
+}
+

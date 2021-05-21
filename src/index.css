@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  color: #212121;
+}
+
+
+h1 {
+  font: 600 40px/48px Montserrat, sans-serif;
+}
+
+h2 {
+  font: 600 24px/36px Montserrat, sans-serif;
+}
+
+h3 {
+  font: 600 16px/18px Montserrat, sans-serif;
+}
+
+label {
+  font: 600 14px/18px Montserrat, sans-serif; 
+  margin-bottom: 4px;
+}
+
+span{
+  font: normal 16px/24px Montserrat, sans-serif; 
+}
+
+p {
+  font: normal 16px/36px Montserrat, sans-serif;
+}
+
+
+a {
+  font: 600 14px/24px Montserrat, sans-serif; 
+  text-decoration: none;
+  color: #212121;
+  display: flex;
+  align-items: center;
+}
+
+a:hover {
+  opacity: 0.8; 
+  cursor: pointer;
+}
+
+
+
+.container {
+  padding: 40px 32px;
+  height: calc(100vh - 85px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  transition: 0.2s;
+}
+
+button:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+

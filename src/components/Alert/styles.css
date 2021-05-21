@@ -1,0 +1,63 @@
+.modalContent {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.3s;
+
+  display: flex;
+  flex-direction: column;
+  max-width: 592px;
+  width: 100%;
+  max-height: 233px;
+  height: auto;
+  padding: 32px;
+  gap: 24px;
+
+  background: #fff;
+  overflow: auto;
+  outline: none;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+.modalContent .modalHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modalContent .modalFooter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
+}
+
+@media screen and (max-width: 600px) {
+
+  .modalContent {
+    max-width: 92vw;
+    max-height: 50vh;
+    width: 100%;
+    height: fit-content;
+    padding: 16px;
+  
+  }
+
+  .modalContent .modalFooter {
+    flex-wrap: wrap;
+  }
+
+}
+

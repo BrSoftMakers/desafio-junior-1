@@ -1,0 +1,52 @@
+.primaryButton {
+  background: #212121;
+  color: #FFFFFF;
+  border:none;
+  padding: 8px 16px;
+
+  font: 600 14px/24px Montserrat, sans-serif;
+}
+
+.primaryButton:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.outlinedButton {
+  background: #fff;
+  color:  #212121;
+  border: 1px solid #212121;
+  padding: 8px 16px;
+
+  font: 600 14px/24px Montserrat, sans-serif;
+  transition: 0.3s;
+}
+
+.outlinedButton:hover {
+  background: #212121;
+  color: #fff;
+  cursor: pointer;
+}
+
+.deleteButton {
+  background: #c43434;
+  color: #FFFFFF;
+  border:none;
+  padding: 8px 16px;
+
+  font: 600 14px/24px Montserrat, sans-serif;
+}
+
+.deleteButton:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+
+button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 4px
+}
