@@ -46,7 +46,7 @@ Pré-requisitos: npm / yarn
 git clone https://github.com/SPLeandro/desafio-desenvolvedor-junior
 
 # entrar na pasta do projeto
-cd pets-frontend
+cd desafio-desenvolvedor-junior
 
 # instalar dependências
 npm install
