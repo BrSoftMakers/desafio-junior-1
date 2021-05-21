@@ -43,7 +43,7 @@ Pré-requisitos: npm / yarn
 
 ```bash
 # clonar repositório
-git clone https://github.com/SPLeandro/pets-frontend
+git clone https://github.com/SPLeandro/desafio-desenvolvedor-junior
 
 # entrar na pasta do projeto
 cd pets-frontend
