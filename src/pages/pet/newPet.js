@@ -18,13 +18,13 @@ function NewPet() {
     const {showAlert} = useAlert();
     const {setLoadingVisible} = useLoading();
 
-    const [NAME, setName] = useState('ANIMAL');
-    const [DATA_NASC, setDataNasc] = useState('2021-05-12T00:00:00.000Z');
-    const [TYPE, setType] = useState('DOG');
-    const [RACA, setRaca] = useState('RACA1');
-    const [IMAGE, setImage] = useState('https://skycms.s3.amazonaws.com/images/5495100/cachorro-card-3.png');
-    const [OWNER, setOwner] = useState('DONO');
-    const [TELEPHONE, setTelephone] = useState('13 98822-8877');
+    const [NAME, setName] = useState('');
+    const [DATA_NASC, setDataNasc] = useState('');
+    const [TYPE, setType] = useState('');
+    const [RACA, setRaca] = useState('');
+    const [IMAGE, setImage] = useState('');
+    const [OWNER, setOwner] = useState('');
+    const [TELEPHONE, setTelephone] = useState('');
 
     const handleRegisterPet = async e => {  
         e.preventDefault();
