@@ -1,0 +1,10 @@
+"use strict";
+exports.__esModule = true;
+exports.petRoute = void 0;
+var express_1 = require("express");
+var PetController_1 = require("../controller/PetController");
+exports.petRoute = express_1["default"].Router();
+exports.petRoute.get("/", new PetController_1.PetController().getPets);
+exports.petRoute.post("/create", new PetController_1.PetController().registerPet);
+exports.petRoute.put("/update/:id", new PetController_1.PetController().updatePet);
+exports.petRoute["delete"]("/delete/:id", new PetController_1.PetController().deletePet);

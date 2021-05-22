@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev:server": "ts-node-dev --respawn --transpile-only src/local.ts"
+    "dev:server": "ts-node-dev --respawn --transpile-only src/local.ts",
+    "start": "tsc && node dist/local.js"
   },
   "keywords": [],
   "author": "",
