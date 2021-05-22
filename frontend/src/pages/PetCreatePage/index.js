@@ -100,8 +100,8 @@ const PetCreatePage = () => {
                                 labelId="select-pet"
                                 value={pet}
                                 onChange={e => setPet(e.target.value)}
+                                required
                                 label="Pet"
-                                fullWidth
                             >
                                 <MenuItem value="">
                                     <em>Selecione</em>
