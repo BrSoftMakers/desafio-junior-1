@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(
+    205deg, 
+    #ff997a 0, 
+    #ff8d7b 10%, 
+    #ff807e 20%, 
+    #ff7281 30%, 
+    #fa6385 40%, 
+    #f25389 50%, 
+    #e8438f 60%, 
+    #dc3697 70%, 
+    #ce2da0 80%, 
+    #bd2baa 90%, 
+    #aa2eb5 100%
+  );
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');
