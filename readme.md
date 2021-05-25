@@ -2,8 +2,6 @@
 
 Petshop management web system.
 
-Challenge proposed by [SoftMakers](https://github.com/BrSoftMakers/desafio-desenvolvedor-junior) as a criterion for the selection process.
-
 ## Technologies
 
 - [Node.js](https://nodejs.org/)
