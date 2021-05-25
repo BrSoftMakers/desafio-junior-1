@@ -2,15 +2,14 @@ body{
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    color: #fff;
-    background-color: #033014;
+    color: rgb(63, 54, 57);
+    background-color: #fafae5;
 }
 
 h1{
     font-family: 'Pattaya', sans-serif;
     font-weight: 400;
     font-size: 3rem;
-    color: #e6e9e0;
 }
 
 a{
@@ -29,7 +28,12 @@ th, td {
     padding: 0.5rem; 
 }
 
-tr:nth-child(even){background-color: #06470c;}
+tr:nth-child(even){background-color: #e0e0cd;}
+
+td:last-child{
+    font-size: 1.5rem;
+    text-align: center;
+}
 
 label{ margin: 0.5rem 0 ;}
 
@@ -53,6 +57,7 @@ input[type=text]{
     justify-content: center;
     align-items: center;
 }
+
 .label-block, input[type=text]{display: block;}
 
 .side-img{
@@ -67,7 +72,7 @@ input[type=text]{
     width: 30vw;
     height: 91.8vh;
     float: right;
-    background-color: #033014
+    background-color: #fafae5;
 }
 
 .title{
@@ -76,8 +81,11 @@ input[type=text]{
 }
 
 .form-style{ 
-  width: 80%;
-  padding: 0 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 0 2rem;
 }
 
 .form-button{
@@ -89,7 +97,7 @@ input[type=text]{
 
     border: 0 none;
     border-radius: 10px;
-    background-color: white;
+    background-color: #c0c0b7;
 
     font-size: 1rem;
     font-weight: 700;
@@ -106,7 +114,7 @@ input[type=text]{
     text-align: center;
     border: 0 none;
     border-radius: 4px;
-    background-color: white;
+    background-color: #8f8f6a;
 }
 
 .nav-link a{
@@ -123,9 +131,16 @@ input[type=text]{
 .button-del{
     background: none;
     border: none;
+    cursor: pointer;
 }
 
-.fa-trash{color: #bd2b2b;}
+.fa-trash{
+    font-size: 1.5rem;
+    color: #bd2b2b;
+}
+
+
+
 .fa-chevron-left{color: black;}
 
 .arrow{

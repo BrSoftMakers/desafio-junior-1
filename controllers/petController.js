@@ -52,23 +52,22 @@ exports.petUpdate = (req, res) =>{
         if(err){
             res.send(err);
         }else{
-            Pet.findOneAndUpdate(
-                {_id: petId},
-                {
-                    petName: petName || petsFounded.petName,
-                    petAge: petAge || petsFounded.petAge,
-                    animalType: animalType || petsFounded.animalType,
-                    breed: breed || petsFounded.breed,
-                    ownerName: ownerName || petsFounded.ownerName,
-                    ownerContact: ownerContact ||petsFounded.ownerContact
-                },
+            const newPet = {
+                petName: petName || petsFounded.petName,
+                petAge: petAge || petsFounded.petAge,
+                animalType: animalType || petsFounded.animalType,
+                breed: breed || petsFounded.breed,
+                ownerName: ownerName || petsFounded.ownerName,
+                ownerContact: ownerContact ||petsFounded.ownerContact
+            }
 
+            Pet.findOneAndUpdate(
+                {_id: petId}, newPet,
                 err =>{
                     if(err){
                         res.send(err);
                     }else{
-                        
-                        res.render("petUpdate", {id: req.params.id, petsValue: petsFounded});
+                        res.render("petUpdate", {id: req.params.id, petsValue: newPet});
                     }
                 }
             );

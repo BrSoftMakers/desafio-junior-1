@@ -25,11 +25,11 @@
                     <td> <%=i.ownerName %> </td>
                     <td> <%=i.ownerContact %> </td>
                     <td> 
-                        <a href="/pets/<%= i._id %>"><i class="far fa-edit fa-2x"></i></a> 
+                        <a href="/pets/<%= i._id %>"><i class="far fa-edit"></i></a> 
     
                         <form method="POST" action="/pets/<%= i.id %>?_method=DELETE">
-                            <button class="button-del"onclick="return confirm('Tem certeza que deseja excluir?')" type="submit">
-                                <i class="fas fa-trash fa-2x"></i>
+                            <button class="button-del" onclick="return confirm('Tem certeza que deseja excluir?')" type="submit">
+                                <i class="fas fa-trash "></i>
                             </button>
                         </form>
                     </td>
