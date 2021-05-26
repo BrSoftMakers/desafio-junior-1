@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PetShop</title>
+  <link rel="stylesheet" href="/styles/style.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+ 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <script type="module" src="/scripts/animal-edit.js"></script>
+
+</head>
+
+<body id="page-animal-edit">
+
+  <%- include('parts/page-header', { title: 'Dados' }) %>
+
+    <div class="container-page">
+
+      <form id="form-animal" method="post" action="/animal/<%= animal.id %> ">
+      
+
+        <fieldset>
+          <legend>Dados do Pet</legend>
+          <div class="separator light"></div>
+
+          <div class="nome column">
+            <label for="nome">Nome do Pet</label>
+            <input type="text" id="nome" name="nome" value="<%= animal.nome %> " />
+          </div>
+
+          <div class="raca column">
+          <label for="raca">Raça</label>
+          <input type="text" id="raca" name="raca"value="<%= animal.raca %> " />
+        </div>
+
+        <div class="tipo column">
+          <label for="tipo">Tipo</label>
+          <input type="text" id="tipo" name="tipo" value="<%= animal.tipo %> "/>
+        </div>
+
+        <div class="dono column">
+          <label for="dono">Dono(a)</label>
+          <input type="text" id="dono" name="dono" value="<%= animal.dono %> " />
+        </div>
+
+        <div class="contato column">
+          <label for="contato">Contato do Dono</label>
+          <input type="text" id="contato" name="contato" value="<%= animal.contato %> "/>
+        </div>
+          </div>
+        
+          </aside>
+        </fieldset>
+        
+      </form>
+      
+      </main>
+      <aside class="card">
+        <div class="button-group">
+          <button class="button green" form="form-animal" type="submit" title="Salvar Dados">Salvar</button>
+          <a href="#" class="button gray open-modal" style="width: 10rem">
+         Excluir
+          </a>
+        </div>
+        </aside>
+
+    </div>
+
+
+    <div class="modal-wrapper">
+      <div class="modal">
+  
+        <h3>Excluir Pet</h3>
+        <p>Quer mesmo excluir esse Pet? <br />
+      
+        </p>
+        <footer>
+          <a class="button gray" href="#">Cancelar</a>
+          <button class="button red" type="submit" form="delete-animal" style="height: 3rem">Excluir</button>
+        </footer>
+      </div>
+      <form method="post" action="/animal/delete/<%= animal.id %> " id="delete-animal"></form>
+    </div>
+
+</body>
+
+</html>

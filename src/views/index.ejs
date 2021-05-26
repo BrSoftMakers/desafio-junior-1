@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PetShop</title>
+  <link rel="stylesheet" href="/styles/style.css" />
+  <link rel="stylesheet" href="/styles/pages/index.css" /> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <script src="scripts/index.js" defer type="module"></script>
+</head>
+
+<body id="page-index">
+  <header class="page-header">
+    <div class="container">
+      <section id="top" class="animate-up">
+        <h2 class="sr-only">Homepage</h2>
+        <div class="logo">
+          <i class="fas fa-paw"><span> Pet</span>Shop</i>
+          <a class="button orange" href="/animal">
+            Adicionar Pet
+          </a>
+        </div>
+
+    </div>
+
+    </div>
+  </header>
+
+  <div class="container">
+    <main class="animate-up delay-2">
+      <h1 class="sr-only">Trabalhos</h1>
+
+      <div class="cards">
+
+        <% animals.forEach((animal)=> { %>
+
+          <div class="card">
+            <div class="id column">
+              <strong>ID</strong>
+              <%= animal.id %>
+            </div>
+            <div class="name column">
+              <strong>Pet:</strong>
+              <%= animal.nome %>
+            </div>
+            <div class="tipo column">
+              <strong>Tipo de Pet:</strong><br>
+              <%= animal.tipo %>
+            </div>
+
+            <div class="raca column">
+              <strong>Dono(a):</strong>
+              <%= animal.dono %>
+            </div>
+
+
+
+            <div class="actions column flex">
+              <p class="sr-only">Ações</p>
+              <a href="/animal/<%= animal.id %> " class="button white edit" title="Editar Pet">
+                <button> <i class="fas fa-paw"></i>Visualizar</button>
+              </a>
+
+            </div>
+          </div>
+
+
+     
+          <% }) %>
+
+
+      
+      </div>
+    
+    </main>
+  </div>
+
+
+  <div class="modal-wrapper">
+    <div class="modal">
+      <img src="/images/trash-48.svg" alt="Excluir Animal" title="Excluir Animal" />
+      <h3>Excluir Pet</h3>
+      <p>Quer mesmo excluir esse Pet? <br />
+
+      </p>
+      <footer>
+        <a class="button gray" href="#">Cancelar</a>
+        <button class="button red" type="submit" form="delete-animal">Excluir Animal</button>
+      </footer>
+    </div>
+    <form method="post" action="/animal/delete/ " id="delete-animal"></form>
+  </div>
+
+
+</body>
+
+</html>
