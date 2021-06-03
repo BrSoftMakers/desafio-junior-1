@@ -1,1 +1,1 @@
-Projeto finalizado! Feito em Laravel. Para usar a aplicação você deve instalar o Composer e o PHP e executar o arquivo cliente.sql em seu banco de dados Mysql, e configurar configurar o arquivo .env, executar o comando na pasta que contém o projeto "php artisan serve" e acessar o localhost:8000/
+Projeto feito em Laravel. Para usar a aplicação você deve instalar o Composer e o PHP e executar o arquivo cliente.sql em seu banco de dados Mysql, e configurar configurar o arquivo .env, executar o comando na pasta que contém o projeto "php artisan serve" e acessar o localhost:8000/
