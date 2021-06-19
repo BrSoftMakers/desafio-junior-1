@@ -9,14 +9,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Migration20210618122551 = void 0;
+exports.Migration20210619013332 = void 0;
 const migrations_1 = require("@mikro-orm/migrations");
-class Migration20210618122551 extends migrations_1.Migration {
+class Migration20210619013332 extends migrations_1.Migration {
     up() {
         return __awaiter(this, void 0, void 0, function* () {
             this.addSql('create table "animal_estimacao" ("id" serial primary key, "nome" varchar(255) not null, "idade" int4 not null, "tipo" int2 not null, "raca" varchar(255) not null, "nome_dono" varchar(255) not null, "telefone_dono" varchar(255) not null, "created_at" timestamptz(0) not null, "updated_at" timestamptz(0) not null);');
         });
     }
 }
-exports.Migration20210618122551 = Migration20210618122551;
-//# sourceMappingURL=Migration20210618122551.js.map
+exports.Migration20210619013332 = Migration20210619013332;
+//# sourceMappingURL=Migration20210619013332.js.map

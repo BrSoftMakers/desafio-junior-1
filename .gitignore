@@ -1,0 +1,7 @@
+# dependencies
+/server/node_modules
+
+#falta completar
+/server/Dockerfile
+/server/docker-compose.yml
+/server/database

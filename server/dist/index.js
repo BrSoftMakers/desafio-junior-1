@@ -15,20 +15,25 @@ Object.defineProperty(exports, "__esModule", { value: true });
 require("reflect-metadata");
 const core_1 = require("@mikro-orm/core");
 const mikro_orm_config_1 = __importDefault(require("./mikro-orm.config"));
-const AnimalEstimacao_1 = require("./entities/AnimalEstimacao");
+const express_1 = __importDefault(require("express"));
+const apollo_server_express_1 = require("apollo-server-express");
+const type_graphql_1 = require("type-graphql");
+const animalEstimacao_1 = require("./resolvers/animalEstimacao");
 const main = () => __awaiter(void 0, void 0, void 0, function* () {
     const orm = yield core_1.MikroORM.init(mikro_orm_config_1.default);
     yield orm.getMigrator().up();
-    const animalEstimacao = orm.em.create(AnimalEstimacao_1.AnimalEstimacao, {
-        id: 1,
-        nome: 'pet',
-        idade: 7,
-        tipo: 0,
-        raca: 'Siames',
-        nomeDono: 'caio',
-        telefoneDono: '45667'
+    const app = express_1.default();
+    const apolloServer = new apollo_server_express_1.ApolloServer({
+        schema: yield type_graphql_1.buildSchema({
+            resolvers: [animalEstimacao_1.AnimalEstimacaoResolver],
+            validate: false,
+        }),
+        context: () => ({ em: orm.em })
     });
-    yield orm.em.persistAndFlush(animalEstimacao);
+    apolloServer.applyMiddleware({ app });
+    app.listen(8080, () => {
+        console.log('server started on localhost:8080');
+    });
 });
 main().catch((err) => {
     console.error(err);

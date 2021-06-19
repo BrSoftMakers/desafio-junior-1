@@ -20,10 +20,10 @@
     "typescript": "^4.3.3"
   },
   "dependencies": {
-    "@mikro-orm/cli": "^4.5.6",
-    "@mikro-orm/core": "^4.5.6",
-    "@mikro-orm/migrations": "^4.5.6",
-    "@mikro-orm/postgresql": "^4.5.6",
+    "@mikro-orm/cli": "^4.4.0",
+    "@mikro-orm/core": "^4.4.0",
+    "@mikro-orm/migrations": "^4.4.0",
+    "@mikro-orm/postgresql": "^4.4.0",
     "apollo-server-express": "^2.25.1",
     "class-validator": "^0.13.1",
     "express": "^4.17.1",
