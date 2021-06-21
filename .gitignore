@@ -1,7 +1,7 @@
 # dependencies
 /server/node_modules
-/web/node_modules
-/web/.next/
+/web-caio/node_modules
+/web-caio/.next/
 
 #falta completar
 /server/Dockerfile

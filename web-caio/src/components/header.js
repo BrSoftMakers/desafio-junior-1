@@ -1,10 +1,9 @@
 import React from "react";
 import { Typography } from "@material-ui/core";
-import { makeStyles , withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
+import Link from 'next/link';
 
-interface HeaderProps {}
-
-export const Header: React.FC<HeaderProps> = ({}) => {
+const Header = (props) => {
 
     const useStyles =  makeStyles(theme => ({
         root: {
@@ -23,9 +22,6 @@ export const Header: React.FC<HeaderProps> = ({}) => {
             alignItems: 'center',
             marginLeft: "2vw",
         },
-        titleText: {
-
-        }
     }));
 
     const classes = useStyles();
@@ -33,10 +29,14 @@ export const Header: React.FC<HeaderProps> = ({}) => {
     return (
         <div className={classes.root}>
             <div className={classes.title}>
-                <Typography variant="h4" className={classes.titleText}>
-                    PetShop
-                </Typography>
+                <Link href="/">
+                    <Typography variant="h4">
+                        PetShop
+                    </Typography>
+                </Link>
             </div>
         </div>
     )
 }
+
+export default Header;

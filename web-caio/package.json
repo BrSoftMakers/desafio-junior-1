@@ -1,5 +1,5 @@
 {
-  "name": "web",
+  "name": "web-caio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,17 +10,17 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.11.4",
+    "@material-ui/lab": "^4.0.0-alpha.58",
     "formik": "^2.2.9",
-    "graphql": "^15.5.0",
+    "graphql": "^15.5.1",
     "next": "11.0.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "urql": "^2.0.3"
+    "urql": "^2.0.3",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
-    "@types/react": "17.0.11",
     "eslint": "7.29.0",
-    "eslint-config-next": "11.0.0",
-    "typescript": "4.3.4"
+    "eslint-config-next": "11.0.0"
   }
 }
