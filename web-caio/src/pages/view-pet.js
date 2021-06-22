@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import Link from 'next/link';
 import { useMutation, gql, useQuery } from 'urql';
 import { Paper, Typography, Button, TextField } from "@material-ui/core";
+import { useDispatch, useSelector } from 'react-redux';
 
 const ANIMAL_QUERY = gql`   
   query ($id: Int!) {
@@ -78,22 +79,25 @@ export default function ViewPet(props) {
     const classes = useStyles();
 
     const router = useRouter()
+    const pet = useSelector((state) => state.animal)
     const { query: { value }, } = router
     const id = parseInt(value);
     console.log(id);
-    console.log(value)
+    console.log(value);
+    console.log(pet);
 
-    const [result, reexecuteQuery] = useQuery({
+    /*const [result, reexecuteQuery] = useQuery({
       query: ANIMAL_QUERY,
       variables: { id },
     });
   
-    const { data, fetching, error } = result;
+    const { data, fetching, error } = result;*/
 
-    console.log(error);
-    console.log(data);
+    //console.log(error);
+    //console.log(data);
 
-    const [animal, setAnimal] = useState(data.animal);
+    //const [animal, setAnimal] = useState(data.animal);
+    const [animal, setAnimal] = useState(pet);
 
     const [, deleteAnimal] = useMutation(DELETE_MUT);
 

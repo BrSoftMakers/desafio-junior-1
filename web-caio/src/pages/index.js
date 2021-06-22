@@ -7,37 +7,8 @@ import Pagination from '@material-ui/lab/Pagination';
 import Link from 'next/link';
 import { useMutation, gql, useQuery } from 'urql';
 import { useRouter } from 'next/router';
-
-const listPets = [
-  {
-    id: 1,
-    name: 'Pet 1',
-  },
-  {
-    id: 2,
-    name: 'Pet 2',
-  },
-  {
-    id: 3,
-    name: 'Pet 3',
-  },
-  {
-    id: 4,
-    name: 'Pet 4',
-  },
-  {
-    id: 5,
-    name: 'Pet 5',
-  },
-  {
-    id: 6,
-    name: 'Pet 6',
-  },
-  {
-    id: 7,
-    name: 'Pet 7',
-  },
-];
+import { useDispatch, useSelector } from 'react-redux';
+import { setStoreAnimais, setStoreAnimal } from '../store/actions/index';
 
 const ANIMAIS_QUERY = gql`   
   query {
@@ -131,13 +102,16 @@ export default function Home() {
 
   const classes = useStyles();
 
+  const pets = useSelector((state) => state.animais)
+  const dispatch = useDispatch()
+  const router = useRouter();
+
   const [result, reexecuteQuery] = useQuery({
     query: ANIMAIS_QUERY,
   });
 
   const { data, fetching, error } = result;
 
-  const [pets, setPets] = useState(listPets);
   const [count, setCount] = useState(1);
   const [animais, setAnimais] = useState(valor);
   const [pageAnimais, setPageAnimais] = useState(valor);
@@ -161,16 +135,35 @@ export default function Home() {
 		setAnimais(pageAnimais[value - 1]);
 	};
 
-  async function fetchData(value) {
-    paginationManager(value);
-  //async function fetchData() {
-		//paginationManager(listPets);
+  const handleChangeVer = () => {
+    dispatch(setStoreAnimais(data.animais));
+    paginationManager(data.animais);
+  }
+
+  const handleChangeView = (id) => {
+    let auxanimal = {};
+    for (let i = 0; i < pets.length ; i++) {
+			if(pets[i].id === id){
+        auxanimal = pets[i];
+      }
+		}
+    dispatch(setStoreAnimal(auxanimal));
+    router.push({
+      pathname: '/view-pet',
+      query: { pid: post.id },
+    })
+  }
+
+  //async function fetchData(value) {
+    //paginationManager(value);
+  async function fetchData() {
+		//paginationManager(pets);
 	}
 
 	useEffect(() => {
-    console.log(data.animais)
-		fetchData(data.animais);
-    //fetchData();
+    //console.log(data.animais)
+		//fetchData(data.animais);
+    fetchData();
 	}, []);
 
   return (
@@ -183,6 +176,9 @@ export default function Home() {
               <Typography variant="h5">
                 Lista dos pets
               </Typography>
+            </div>
+            <div>
+              <Button variant="contained" color="secondary" onClick={handleChangeVer}>Ver Pet</Button>
             </div>
             <div>
               <Link href="/create-pet">
@@ -203,14 +199,7 @@ export default function Home() {
                     <div>{value.tipo}</div>
                   </div>
                   <div className={classes.divListButton}>
-                    <Link
-                      href={{
-                        pathname: "/view-pet",
-                        query: { value: value.id },
-                      }}
-                    >
-                      <Button className={classes.buttonAdicionar} variant="contained" color="secondary" >Ver</Button>
-                    </Link>
+                    <Button className={classes.buttonAdicionar} variant="contained" color="secondary" onChange={() => handleChangeView(value.id)}>Ver</Button>
                   </div>
                 </Paper>
               ))}
