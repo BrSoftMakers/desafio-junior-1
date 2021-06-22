@@ -1,0 +1,48 @@
+<div class="card">
+    <!-- Card header -->
+    <div class="card-header border-0">
+      <h3 class="mb-0">Animais</h3>
+    </div>
+    <!-- Light table -->
+    <div id="conteudo">
+      <div class="table-responsive">
+        <table class="table align-items-center table-flush">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col" class="sort">Cod.</th>
+              <th scope="col" class="sort">Nome</th>
+              <th scope="col" class="sort">idade</th>
+              <th scope="col" class="sort">tipo</th>
+              <th scope="col" class="sort">raça</th>
+              <th scope="col" class="sort">Responsavel</th>
+              <th scope="col" class="sort">Contato</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody id="tabela" class="list">
+            {% for animal in animais %}
+            <tr>
+              <th scope="row">{{animal.ID}}</th>
+              <td>{{animal.NOME}}</td>
+              <td>{{animal.IDADE}}</td>
+              <td>{{animal.TIPO}}</td>
+              <td>{{animal.RACA}}</td>
+              <td>{{animal.RESPONSAVEL}}</td>
+              <td>{{animal.CONTATO}}</td>
+              <td class="text-right">
+                <div class="dropdown">
+                  <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v"></i>
+                  </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                      <a class="dropdown-item" href="http://localhost/dev/?page=edit&id={{animal.ID}}">Editar</a>
+                      <a class="dropdown-item" href="http://localhost/dev/?page=delete&id={{animal.ID}}">Excluir</a>
+                    </div>
+                </div>
+              </td>
+            </tr>
+            {% endfor%}
+        </table>
+      </div>
+    </div>
+    <!-- Card footer -->

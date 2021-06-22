@@ -1,0 +1,40 @@
+<div class="card">
+<form id="valida" class="needs-validation" novalidate="" method="POST" action="?page=new&metodo=insert">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Novo Animal</h5>
+    </div>
+
+    <div class="modal-body row">
+    <div class="col">
+        <div class="form-group">
+            <input type="text" name="nome" class="form-control" id="validationCustom01" placeholder="Nome animal" required="">
+        </div>
+      
+        <div class="form-group">
+        <select name="tipo" class="form-control" id="exampleFormControlSelect1" required="">
+            <option>GATO</option>
+            <option>CACHORRO</option>
+        </select>
+        </div>
+        <div class="form-group">
+        <input type="text" name="raca" class="form-control" placeholder="Raça" required="">
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            <input type="number" name="idade" class="form-control" placeholder="Idade animal" required="">
+            </div> 
+        <div class="form-group">
+        <input type="text" name="responsavel" class="form-control" placeholder="Responsavel" required="">
+        </div>
+        <div class="form-group">
+        <input type="number" name="telefone" class="form-control" placeholder="Telefone" required="">
+        </div>
+    </div>
+    </div>
+    <div class="modal-footer">
+        <input type="submit" value="Salvar" class="btn btn-primary"/>
+    </div>
+</form>
+</div>
+                

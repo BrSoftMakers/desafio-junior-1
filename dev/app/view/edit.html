@@ -1,0 +1,46 @@
+<div class="card">
+    <form id="valida" class="needs-validation" novalidate="" method="POST" action="?page=edit&metodo=edit">
+        <input type="number" name="id" value="{{animal[0].ID}}" hidden/>
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Editar Animal</h5>
+        </div>
+    
+        <div class="modal-body row">
+        <div class="col">
+            <div class="form-group">
+                <input type="text" class="form-control" id="validationCustom01" name="nome" value="{{animal[0].NOME}}" placeholder="Nome animal" required="">
+            </div>
+          
+            <div class="form-group">
+            <select class="form-control" id="exampleFormControlSelect1" name="tipo" required="">
+                {% if animal[0] == 'GATO'%}
+                    <option selected>GATO</option>
+                    <option>CACHORRO</option>
+                {%else%}
+                    <option>GATO</option>
+                    <option selected>CACHORRO</option>
+                {% endif%}
+            </select>
+            </div>
+            <div class="form-group">
+            <input type="text" class="form-control" id="raca" name="raca" value="{{animal[0].RACA}}" placeholder="Raça" required="">
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <input type="number" class="form-control" name="idade" value="{{animal[0].IDADE}}" placeholder="Idade animal" required="">
+                </div> 
+            <div class="form-group">
+            <input type="text" class="form-control" name="responsavel" value="{{animal[0].RESPONSAVEL}}" placeholder="Responsavel" required="">
+            </div>
+            <div class="form-group">
+            <input type="number" class="form-control" name="telefone" value="{{animal[0].CONTATO}}" placeholder="Telefone" required="">
+            </div>
+        </div>
+        </div>
+        <div class="modal-footer">
+            <input type="submit" name="editar" value="Salvar" class="btn btn-primary"/>
+        </div>
+    </form>
+    </div>
+                    
