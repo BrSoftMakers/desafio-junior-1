@@ -25,3 +25,8 @@ knex init
 ```sh
 knex migrate:latest
 ```
+- Insira o seguinte comando no cmd do projeto para iniciar a aplicação:
+```sh
+npm start
+```
+- Acesse o endereço mostrado no cmd, exemplo: "http://localhost:3000/";
