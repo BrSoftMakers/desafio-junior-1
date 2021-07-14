@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="pt">
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.5/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+
+<body>
+  <div id="app">
+    <v-app>
+      <div class="content">
+        <v-container>
+
+          <div>
+            <img class="logo" src="logo.png" width="150" height="138">
+          </div>
+
+          <template>
+            <header class="header">
+                <h1 class="title">
+                    Petshop Bixo Mania
+                </h1>
+            </header>
+          </template>
+
+          <v-toolbar flat>
+            <v-toolbar-title>Registro de Animais</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-dialog v-model="dialog" max-width="500px">
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on">
+                  Inserir
+                </v-btn>
+              </template>
+
+              <v-card>
+                <v-card-title>
+                  <span class="text-h5">{{ formTitle }}</span>
+                </v-card-title>
+
+                <v-card-text>
+                  <v-container>
+                    <v-row>
+                      <v-col cols="12">
+                        <v-text-field label="Nome" v-model="editedItem.nome">
+                        </v-text-field>
+
+                        <v-text-field label="Idade" v-model="editedItem.idade">
+                        </v-text-field>
+
+                        <v-select :items="especies" label="Espécie" v-model="editedItem.especie">
+                        </v-select>
+
+                        <v-text-field label="Raça" v-model="editedItem.raca">
+                        </v-text-field>
+
+                        <v-text-field label="Dono" v-model="editedItem.dono">
+                        </v-text-field>
+
+                        <v-text-field label="Contato" v-model="editedItem.contato">
+                        </v-text-field>
+                      </v-col>
+
+                    </v-row>
+                  </v-container>
+                </v-card-text>
+
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn color="blue darken-1" text @click="close">
+                    Cancelar
+                  </v-btn>
+                  <v-btn color="blue darken-1" text @click="save">
+                    Salvar
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+            <v-dialog v-model="dialogDelete" max-width="500px">
+              <v-card>
+                <v-card-title class="text-h5">Tem certeza que quer deletar este item?</v-card-title>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn color="blue darken-1" text @click="closeDelete">Cancelar</v-btn>
+                  <v-btn color="blue darken-1" text @click="deleteItemConfirm">Deletar</v-btn>
+                  <v-spacer></v-spacer>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+          </v-toolbar>
+
+          <v-data-table :headers="headers" :items="animals" class="elevation-1">
+            <template v-slot:item.actions="{ item }">
+              <v-icon small class="mr-2" @click="editItem(item)">
+                mdi-pencil
+              </v-icon>
+              <v-icon small @click="deleteItem(item)">
+                mdi-close
+              </v-icon>
+            </template>
+          </v-data-table>
+        </v-container>
+      </div>
+    </v-app>
+  </div>
+</body>
+
+<script src="https://unpkg.com/vue"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.5/dist/vuetify.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+  new Vue({
+    el: "#app",
+    vuetify: new Vuetify(),
+    data: {
+      base_url: 'http://localhost:3000',
+      dialog: false,
+      dialogDelete: false,
+      editedIndex: -1,
+      headers: [
+        { text: 'Nome', value: 'nome' },
+        { text: 'Idade', value: 'idade' },
+        { text: 'Espécie', value: 'especie' },
+        { text: 'Raça', value: 'raca' },
+        { text: 'Dono', value: 'dono' },
+        { text: 'Contato', value: 'contato' },
+        { text: 'Ações', value: 'actions', sortable: false },
+      ],
+      animals: [],
+      editedItem: {
+        nome: '',
+        idade: '',
+        especie: '',
+        raca: '',
+        dono: '',
+        contato: ''
+      },
+      defaultItem: {
+        nome: '',
+        idade: '',
+        especie: '',
+        raca: '',
+        dono: '',
+        contato: ''
+      },
+      especies: ["Gato","Cachorro"]
+    },
+    computed: {
+      formTitle() {
+        return this.editedIndex === -1 ? 'Novo Item' : 'Editar Item'
+      },
+    },
+
+    watch: {
+      dialog(val) {
+        val || this.close()
+      },
+      dialogDelete(val) {
+        val || this.closeDelete()
+      },
+    },
+
+    mounted() {
+      this.getData();
+    },
+
+    methods: {
+      getData() {
+        const url = this.base_url + '/animals';
+        axios
+          .get(url)
+          .then(res => {
+            this.animals = res.data.data;
+          }).catch(err => console.log('Erro ao buscar animais. error: ', err.message));
+      },
+
+      editItem(item) {
+        const animals = this.animals.map(e => e.id);
+        this.editedIndex = animals.indexOf(item.id);
+        this.editedItem = Object.assign({}, item);
+        this.dialog = true;
+      },
+
+      deleteItem(item) {
+        const animals = this.animals.map(e => e.id);
+        this.editedIndex = animals.indexOf(item.id)
+        this.editedItem = Object.assign({}, item)
+        this.dialogDelete = true
+      },
+
+      deleteItemConfirm() {
+        this.animals.splice(this.editedIndex, 1)
+        this.closeDelete()
+        const id = this.animals[this.editedIndex].id;
+        const url = this.base_url + '/animals/' + id;
+        axios
+          .delete(url)
+          .then(res => {
+            this.getData();
+          }).catch(err => console.log('Erro ao deletar animais. error: ', err.message));
+      },
+
+      close() {
+        this.dialog = false
+        this.$nextTick(() => {
+          this.editedItem = Object.assign({}, this.defaultItem)
+          this.editedIndex = -1
+        })
+      },
+
+      closeDelete() {
+        this.dialogDelete = false
+        this.$nextTick(() => {
+          this.editedItem = Object.assign({}, this.defaultItem)
+          this.editedIndex = -1
+        })
+      },
+
+      save() {
+        if (this.editedIndex > -1) {
+          const url = this.base_url + '/animals/' + this.editedItem.id;
+          axios
+            .put(url, this.editedItem)
+            .then(res => {
+              this.getData();
+            }).catch(err => console.log('Erro ao editar animal. error: ', err.message));
+        } else {
+          this.animals.push(this.editedItem)
+          const url = this.base_url + '/animals';
+          axios
+            .post(url, this.editedItem)
+            .then(res => {
+              this.getData();
+            }).catch(err => console.log('Erro ao inserir animal. error: ', err.message));
+        }
+        this.close()
+      },
+
+    }
+  })
+</script>
+
+<style>
+  .header {
+        background-color: #C77DFF;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+  .title {
+        color:black;
+        flex-grow: 1;
+        text-align: center;
+    }
+
+  .content {
+      background-color: #F4EBFF;
+      display: flex;
+    }
+
+  .v-application--wrap {
+      background-color: #F4EBFF;
+    }
+
+  .logo {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto ;
+    margin-bottom: 15px;
+    
+    }
+</style>
+</html>
