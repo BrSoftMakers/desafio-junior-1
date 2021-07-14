@@ -1,19 +1,27 @@
- ![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
+# Como instalar o projeto:
 
-# Desafio - Desenvolvedor Fullstack Júnior
-Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato à vaga de Desenvolvedor Fullstack Júnior.
+Para instalar o projeto siga os passos abaixo:
 
-## Instruções
-- Faça um fork deste repositório;
-- O conjunto mínimo de tecnologias a serem utilizadas são: HTML, CSS e JavaScript no front-end e alguma das tecnologias back-end informadas na proposta desse desafio;
-- Crie um passo a passo de como rodar a sua aplicação;
-- Após finalizar, submeta um pull request com um comentário informando o seu e-mail de contato e aguarde nossa avaliação.
-
-## Proposta
-Você deverá desenvolver um projeto no padrão MVC utilizando PHP ou Node.js com a finalidade de que seja possível listar, visualizar, criar, editar e excluir animais de estimação de uma petshop.
-> **Observações:**
-> - Você pode utilizar a estratégia que considerar pertinente para armazenar os registros de sua aplicação;
-> - Cada animal de estimação precisa ter um identificador único, nome, idade, se é gato ou cachorro e sua respectiva raça; Além do nome e telefone para contato de seu dono.
-
-## Diferenciais
-Serão considerados diferenciais o uso de qualquer tipo de framework utilizados no front-end (utilizamos ReactJS por aqui) ou no back-end da aplicação.
+- Baixe o repositório;
+- Baixe e instale o PostgreSQL;
+- Abra o cmd na pasta onde esta o projeto;
+- Execute o comando abaixo para instalar as dependencias:
+```sh
+npm i
+```
+- Instale o knex de forma global atravéz do seguinte comando:
+```sh
+npm i knex -g
+```
+- Utiliza o seguinte comando para concluir a instalação do knex:
+```sh
+knex init
+```
+- Copie o código do arquivo knex.example para dentro do knexfile.js substituindo todo o conteúdo;
+- Substitua os dados com os dados da conexão com seu banco de dados;
+- Crie um arquivo .env e coloque nele o código presente no arquivo env_file;
+- No arquivo .env dentro de "authSecret:" insira uma sequencia de caracteres aleatórios incluindo caracteres especiais;
+- Após ter ceteza de ter configurado os dados do seu banco, abra o cmd na pasta do projeto e insira o seguinte comando:
+```sh
+knex migrate:latest
+```
