@@ -1,0 +1,8 @@
+## INSTRUÇÕES PARA RODAR A APLICAÇÃO ###
+
+- É nescessario um servidor apache para rodar a aplicação.
+- Deve-se criar um banco de dados mysql com o nome petshop com a tabela pets, para isso pode-se rodar o comando migrate do laravel.
+ (caso deseje pode importar o aquivo sql contido na pasta do projeto)
+- É preciso iniciar o servidor através do comando php artisan serve
+- Acesse a url http://localhost:8000/petshop
+- Pronto, a aplicação já está rodando e será possivel, cadastrar, visualizar, editar e excluir informações.
