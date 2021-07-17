@@ -1,6 +1,7 @@
 ## INSTRUÇÕES PARA RODAR A APLICAÇÃO ###
 
 - É nescessario um servidor apache para rodar a aplicação.
+- Linguagemtulizada é o PHP com o framework laravel 6.*
 - Deve-se criar um banco de dados mysql com o nome petshop com a tabela pets, para isso pode-se rodar o comando migrate do laravel.
  (caso deseje pode importar o aquivo sql contido na pasta do projeto)
 - É preciso iniciar o servidor através do comando php artisan serve
