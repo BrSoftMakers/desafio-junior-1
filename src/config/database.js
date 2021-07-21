@@ -1,9 +1,9 @@
 module.exports = {
     host: "localhost",
     dialect: "mysql",
-    username: "pedroone",
-    password: "33818418pp",
-    database: "projetofullstack",
+    username: "<usuario_database>",
+    password: "<senha_database>",
+    database: "<nome_database>",
     define: {
         timestamp: true,
         undercored: true

@@ -36,7 +36,7 @@ const Pet = database.define('pets', {
     timestamp: false
 })
 
-//Pet.sync({ force: true })
+Pet.sync({ force: true })
 
 module.exports = Pet
 
