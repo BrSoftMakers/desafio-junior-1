@@ -1,0 +1,51 @@
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1.5rem 0;
+
+  h1 {
+    margin: 1rem 0;
+    font-family: Poppins;
+  }
+
+  .content-cards {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(238, 78, 233);
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 1rem;
+
+    .box-card {
+      display: flex;
+      flex-direction: column;
+
+      header {
+        margin: 1rem auto;
+        display: flex;
+        justify-content: space-between;
+        width: 80%;
+
+        h2 {
+          font-family: Heebo;
+        }
+      }
+
+      .line {
+        background-color: whitesmoke;
+        height: 0.1rem;
+        width: 90%;
+        margin: 0 auto;
+      }
+
+      p {
+        border: 1px solid white;
+        display: flex;
+        flex-direction: column;
+        margin: 1rem 2rem;
+        font-family: Heebo;
+      }
+    }
+  }
+}
