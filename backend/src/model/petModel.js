@@ -29,14 +29,18 @@ const Pet = database.define('pets', {
         allowNull: false
     },
     numero_dono: {
-        type: Sequelize.FLOAT,
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    conteudo: {
+        type: Sequelize.STRING,
         allowNull: false
     }
 }, {
     timestamp: false
 })
 
-Pet.sync({ force: true })
+//Pet.sync({ force: true })
 
 module.exports = Pet
 

@@ -8,7 +8,7 @@ function Header() {
         <header className='header'>
             <div className='content'>
                 <Link to='/'>
-                    <img src={buttonBack} style={{width: '50px'}}></img>
+                    <img src={buttonBack} alt='botao voltar' style={{width: '50px'}}></img>
                 </Link>
             </div>
         </header>

@@ -8,7 +8,7 @@ function HeaderMain() {
         <header className='header-main'>
             <div className='content'>
                 <div className='logo'>
-                    <img src={logoPet}></img>
+                    <img src={logoPet} alt='logo'></img>
                 </div>
 
                 <div className='btn-newPost'>

@@ -22,7 +22,8 @@ module.exports = class PetDao {
                 especie: pet.especie,
                 raca: pet.raca,
                 nome_dono: pet.nome_dono,
-                numero_dono: pet.numero_dono
+                numero_dono: pet.numero_dono,
+                conteudo: pet.conteudo
             })
             return oPet
         } catch (error) {
@@ -47,7 +48,8 @@ module.exports = class PetDao {
                 especie: pet.especie,
                 raca: pet.raca,
                 nome_dono: pet.nome_dono,
-                numero_dono: pet.numero_dono
+                numero_dono: pet.numero_dono,
+                conteudo: pet.conteudo
             },{
                 where: {
                     id: pet.id

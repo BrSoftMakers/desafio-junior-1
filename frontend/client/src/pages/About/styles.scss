@@ -12,7 +12,6 @@ main {
   .content-cards {
     display: flex;
     flex-direction: column;
-    background-color: rgb(238, 78, 233);
     width: 90%;
     margin: 0 auto;
     border-radius: 1rem;
@@ -40,7 +39,6 @@ main {
       }
 
       p {
-        border: 1px solid white;
         display: flex;
         flex-direction: column;
         margin: 1rem 2rem;
