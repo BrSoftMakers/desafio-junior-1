@@ -3,8 +3,8 @@ main {
   justify-content: center;
   padding: 3rem 0;
 
-  .card-post {
-    background-color: #2f3644;
+  .card-post-atualizar {
+    background-color: blueviolet;
     padding: 30px 70px;
     border-radius: 15px;
 
@@ -21,7 +21,7 @@ main {
 
     .line-post {
       height: 2px;
-      background-color: #3e445b;
+      background-color: white;
     }
 
     .card-body-post {
@@ -75,7 +75,7 @@ main {
 
           padding: 5px 50px;
           color: #fff;
-          background-color: #3decb1;
+          background-color: green;
 
           border: 0;
           border-radius: 10px;

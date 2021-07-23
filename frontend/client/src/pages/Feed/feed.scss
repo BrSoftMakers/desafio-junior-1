@@ -1,14 +1,19 @@
 main {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0;
 
   h1 {
     font-family: Poppins;
+    margin: 1rem 0;
   }
 
   .content-cards {
     display: flex;
     flex-wrap: wrap;
     max-width: 35rem;
+    height: 10rem;
 
     .box-card {
       display: flex;
@@ -22,9 +27,9 @@ main {
       header {
         margin-bottom: 0.4rem;
         display: flex;
-        justify-content: space-between;
-        width: 50%;
+        flex-direction: column;
         align-items: center;
+        width: 50%;
 
         h2 {
           font-family: Heebo;
@@ -32,8 +37,8 @@ main {
 
         .buttons button {
           font-family: Heebo;
-          font-weight: 800;
-          font-size: 1rem;
+          font-weight: 700;
+          font-size: 0.8rem;
           padding: 0.6rem 2rem;
           color: #fff;
           border: 0;
@@ -52,11 +57,21 @@ main {
         }
 
         .btn-about {
-          background-color: blueviolet;
+          background-color: rgb(92, 8, 170);
 
           &:hover {
             transition: 0.2s;
-            background-color: rgb(92, 8, 170);
+            background-color: rgb(119, 18, 212);
+          }
+        }
+
+        .btn-delete {
+          margin-right: 0.4rem;
+          background-color: rgb(145, 3, 3);
+
+          &:hover {
+            transition: 0.2s;
+            background-color: red;
           }
         }
       }

@@ -1,0 +1,88 @@
+main {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 0;
+
+  .card-post-post {
+    background-color: rgb(2, 75, 2);
+    padding: 30px 70px;
+    border-radius: 15px;
+
+    h1 {
+      font-family: Heebo;
+      font-weight: 800;
+      text-align: center;
+
+      color: #d2daf5;
+
+      font-size: 3rem;
+      margin-bottom: 5px;
+    }
+
+    .line-post {
+      height: 2px;
+      background-color: white;
+    }
+
+    .card-body-post {
+      margin-top: 25px;
+
+      .fields {
+        margin-bottom: 20px;
+
+        label {
+          display: block;
+          margin-bottom: 7px;
+          font-size: 1.2rem;
+
+          color: #d2daf5;
+
+          font-family: Poppins;
+        }
+
+        input,
+        textarea {
+          width: 100%;
+          border-radius: 10px;
+          border: 0;
+          outline: 0;
+
+          font-size: 1.2rem;
+
+          padding-left: 15px;
+        }
+
+        input {
+          height: 45px;
+        }
+
+        textarea {
+          height: 190px;
+          resize: none;
+
+          padding-top: 10px;
+        }
+      }
+
+      .btn-post {
+        margin-top: 30px;
+        text-align: center;
+
+        button {
+          font-family: Heebo;
+          font-weight: 800;
+          font-size: 1.3rem;
+
+          padding: 5px 50px;
+          color: #fff;
+          background-color: blueviolet;
+
+          border: 0;
+          border-radius: 10px;
+
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

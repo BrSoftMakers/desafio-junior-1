@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from '../../components/Header'
 import {useForm} from 'react-hook-form'
-import './styles.scss'
+import './post.scss'
 import axios from 'axios'
 import {useHistory} from 'react-router-dom'
 
@@ -28,7 +28,7 @@ function Post() {
             <Header></Header>
 
             <main>
-                <div className='card-post'>
+                <div className='card-post-post'>
                     <h1>Cadastrar Pet</h1>
                     
                     <div className='line-post'></div>

@@ -1,6 +1,6 @@
 import React from 'react'
 import HeaderMain from '../../components/HeaderMain'
-import './styles.scss'
+import './feed.scss'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 import {useState, useEffect} from 'react'
@@ -18,6 +18,16 @@ function Feed() {
             console.log('Deu errado')
         })
     },[])
+
+    
+    function deletePet(id) {
+        axios.delete(`http://localhost:3001/pets/deletar/${id}`)
+        .then(() => {
+            alert('Pet deletado com sucesso')
+        }).catch(() => {
+            alert('Falha ao deletar o Pet')
+        })
+    }
     
     return (
         <div>
@@ -34,13 +44,13 @@ function Feed() {
                                         <h2>{post.nome}</h2>
                                        
                                         <div className='buttons'>
-                                            <Link to='/edit'>
+                                            <Link to={{ pathname:`/edit/${post.id}` }}>
                                                 <button className='btn-edit'>Editar</button>
                                             </Link>
-                                            <Link to='/about'>
+                                            <Link to={{ pathname:`/about/${post.id}` }}>
                                                 <button className='btn-about'>Saiba mais</button>
                                             </Link>
-                                            
+                                            <button className='btn-delete' onClick={() => deletePet(post.id)}>Deletar</button>
                                         </div>
                                     </header>
 
