@@ -1,0 +1,144 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+}
+
+body{
+  background-color: #E26A29;
+}
+
+table{
+  border-collapse: collapse;
+  margin: 10px;
+}
+td,th{
+  border: 1px solid #E3E9EA;
+  padding: 8px;
+  text-align: center;
+}
+tr:nth-child(even){
+  background-color: #EB762B;
+}
+tr:hover{
+  background-color: #e25a10;
+}
+th{
+  background-color: #38AB3A;
+  color: #fff;
+}
+td{
+  font-size: 18px;
+  color: #FFDBA9;
+}
+
+h1{
+  text-align: center;
+  color: #FFB54F;
+}
+.btn-home{
+  padding: 25px 22px;
+  background-color: #FFB54F;
+  border: none;
+  color: #E26A29;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+a{
+  text-decoration: none;
+
+}
+.btn-home:hover{
+  background-color: #E26A29;
+  border: 1px solid #FFB54F;
+  color: #FFB54F;
+  cursor: pointer;
+}
+/* FORM STYLE */
+
+form{
+  background-color: #FFDBA9 ;
+  width: 400px;
+  margin: auto;
+  margin-top: 25px;
+  padding: 20px;
+}
+.form-control,select{
+  margin-bottom: 5px;
+  align-items: center;
+  width: 100%;
+  height: 25px;
+  padding: 10px;
+  outline: none;
+  border: none;
+}
+select{
+  padding: 0;
+}
+p{
+  color: #e25a10;
+  font-size: 17px;
+  font-weight: bold;
+}
+.btn-cancel{
+  padding: 15px 10px;
+  border:none;
+  background:none;
+  text-decoration: underline;
+}
+a{
+  color: #E26A29;
+  
+}
+.btn-cancel:hover{
+  background-color: #FFB54F;
+  text-decoration: none;
+  color: #E26A29;
+  cursor: pointer;
+}
+.btn-cad{
+  padding: 15px 10px;
+  background-color: #E26A29;
+  border: 1px solid #E26A29;
+  color: #FFDBA9;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px;
+}
+.btn-cad:hover{
+  background-color: #FFDBA9;
+  border: 1px solid #FFB54F;
+  color: #E26A29;
+  cursor: pointer;
+}
+.material-icons-outlined{
+  padding: 3px;
+  color: white;
+  border: none;
+  
+}
+.edit{
+  background-color: #2C42B8;
+}
+.delet{
+  background-color: #FF6D50;
+  
+}
+.edit,.delet:hover{
+  cursor: pointer;
+}
+.none{
+  background: none;
+  border: none;
+}
+/* TIRA AS SETAS DO INPUT[NUMBER] */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

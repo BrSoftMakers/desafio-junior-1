@@ -1,0 +1,46 @@
+<main>
+  <h1>
+    Pet Database
+  </h1>
+
+
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Nome</th>
+      <th>Idade</th>
+      <th>pet</th>
+      <th>raca</th>
+      <th>Dono</th>
+      <th>Contato</th>
+    </tr>
+    {{#each pets}}
+    <tr>
+      <td>{{this.id}}</td>
+      <td>{{this.nome}}</td>
+      <td>{{this.idade}}</td>
+      <td>{{this.pet}}</td>
+      <td>{{this.raca}}</td>
+      <td>{{this.nomeDono}}</td>
+      <td>{{this.contatoDono}}</td>
+      <td>
+        <a href="/edit/{{id}}">
+          <button class="none">
+            <span class="material-icons-outlined edit">
+              edit
+            </span>
+          </button>
+        </a>
+      </td>
+      <td><a href="/delet/{{id}}"><button class="none">
+            <span class="material-icons-outlined delet">
+              delete
+            </span>
+          </button></a>
+      </td>
+    </tr>
+
+    {{/each}}
+  </table>
+  <a href="/add"><button class=" btn-home">Novo pet</button></a>
+</main>
