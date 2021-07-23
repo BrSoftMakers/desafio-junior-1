@@ -1,19 +1,17 @@
- ![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
+Nome: Allan Ranier de Vasconcelos
+E-mail: allanranier18@gmail.com
+Telefone/Whatsapp: (81) 9.8129-7900
 
-# Desafio - Desenvolvedor Fullstack Júnior
-Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato à vaga de Desenvolvedor Fullstack Júnior.
+Como rodar o sitema:
 
-## Instruções
-- Faça um fork deste repositório;
-- O conjunto mínimo de tecnologias a serem utilizadas são: HTML, CSS e JavaScript no front-end e alguma das tecnologias back-end informadas na proposta desse desafio;
-- Crie um passo a passo de como rodar a sua aplicação;
-- Após finalizar, submeta um pull request com um comentário informando o seu e-mail de contato e aguarde nossa avaliação.
+Sistema desenvolvido em codeIgniter 4 e postgree como banco de dados
 
-## Proposta
-Você deverá desenvolver um projeto no padrão MVC utilizando PHP ou Node.js com a finalidade de que seja possível listar, visualizar, criar, editar e excluir animais de estimação de uma petshop.
-> **Observações:**
-> - Você pode utilizar a estratégia que considerar pertinente para armazenar os registros de sua aplicação;
-> - Cada animal de estimação precisa ter um identificador único, nome, idade, se é gato ou cachorro e sua respectiva raça; Além do nome e telefone para contato de seu dono.
+1 - comando para rodar as migrate: php spark migrate
+obs: para rodar as migrate configure o banco de dados antes (recomendado utilizar o .env)
 
-## Diferenciais
-Serão considerados diferenciais o uso de qualquer tipo de framework utilizados no front-end (utilizamos ReactJS por aqui) ou no back-end da aplicação.
+2 - iniciar o servidor é: php spark serve
+
+
+
+OBS: caso gere algum erro ao utilizar o comando "spark" instale o "Composer"
+     e rode o comando: "composer update" na pagina do projeto.
