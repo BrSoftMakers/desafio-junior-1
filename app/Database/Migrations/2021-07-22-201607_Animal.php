@@ -23,6 +23,9 @@ class Animal extends Migration
 				'type' => 'VARCHAR',
 				'constraint' => '128'
 			],
+			'idade' => [
+				'type' => 'INT',
+			],
 			'dono' => [
 				'type' => 'VARCHAR',
 				'constraint' => '128'

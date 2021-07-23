@@ -22,6 +22,7 @@
                     <tr>
                         <th>Nome do Animal</th>
                         <th>Tipo do Animal</th>
+                        <th>Idade do animal</th>
                         <th>Raça</th>
                         <th>Dono do Animal</th>
                         <th>Telefone</th>
@@ -34,6 +35,7 @@
                         <tr>
                             <td><?php echo $animais->animal_nome ?></td>
                             <td><?php echo $animais->tipo_animal == 'f' ? '<label>Cachorro</label>' : '<label>Gato</label>' ?></td>
+                            <td><?php echo $animais->idade ?> anos</td>
                             <td><?php echo $animais->raca ?></td>
                             <td><?php echo $animais->dono ?></td>
                             <td><?php echo $animais->telefone ?></td>

@@ -12,6 +12,7 @@ class AnimalModel extends Model{
         'animal_nome',
         'tipo_animal',
         'raca',
+        'idade',
         'dono',
         'telefone',
     ];

@@ -106,6 +106,7 @@ class AnimalController extends Controller
                 'animal_nome' => trim($this->request->getPost('animal_nome')),
                 'tipo_animal' => trim($this->request->getPost('tipo_animal')),
                 'raca' => trim($this->request->getPost('raca')),
+                'idade' => trim($this->request->getPost('idade')),
                 'dono' => trim($this->request->getPost('dono')),
                 'telefone' => trim($this->request->getPost('telefone')),
             ];

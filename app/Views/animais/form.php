@@ -37,15 +37,18 @@
             <label for="raca">Raça</label>
             <input type="text" class="form-control" id="raca" name="raca" value="<?= $animal->raca ?>" autocomplete="off" required>
         </div>
+        <div class="form-group col-md-3">
+            <label for="idade">Idade</label>
+            <input type="number" class="form-control" id="idade" name="idade" value="<?= $animal->idade ?>" autocomplete="off" required>
+        </div>
+    </div>
 
+    <div class="form-row">
         <div class="form-group col-md-3">
             <label for="dono">Dono do animal</label>
             <input type="text" class="form-control" id="dono" name="dono" value="<?= $animal->dono ?>" autocomplete="off" required>
         </div>
 
-    </div>
-
-    <div class="form-row">
 
         <div class="form-group col-md-2">
             <label for="telefone">telefone</label>
