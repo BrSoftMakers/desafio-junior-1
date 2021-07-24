@@ -1,6 +1,7 @@
 const PetDao = require('../model/DAO/pet')
 
 module.exports = {
+
     async listar(req, res) {
         try {
             const oPets = await new PetDao().listarTodos()
