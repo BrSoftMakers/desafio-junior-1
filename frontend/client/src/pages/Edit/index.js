@@ -20,8 +20,6 @@ function Edit() {
         }).catch(() => {
             alert('Falha ao atualizar pet Pet')
         })
-
-        //console.log(values)
     }
 
     useEffect(() => {
@@ -31,7 +29,7 @@ function Edit() {
         }).catch(() => {
 
         })
-    }, [])
+    }, []) // eslint-disable-next-line react-hooks/exhaustive-deps
     
     return (
         <div>

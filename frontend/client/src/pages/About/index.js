@@ -20,7 +20,7 @@ function About() {
         }).catch(() => {
             console.log('Deu errado')
         })
-    }, [])
+    }, []) // eslint-disable-next-line react-hooks/exhaustive-deps
 
 
     return (
