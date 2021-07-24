@@ -27,7 +27,7 @@ function About() {
         <div>
             <Header></Header>
 
-            <main>
+            <main className='main-about'>
                 <div className='content-cards'>
                     <div className='box-card'>
                         <header>
@@ -36,10 +36,9 @@ function About() {
 
                         <div className='line'></div>
                         
-                        <div className='box-conteudo'>
-                            <p>{pet.conteudo}</p> 
-                        </div>
-                          
+                        
+                        <p>{pet.conteudo}</p> 
+                                              
                     </div>
                 </div>
             </main>

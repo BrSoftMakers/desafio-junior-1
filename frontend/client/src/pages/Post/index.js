@@ -38,43 +38,43 @@ function Post() {
                         <form onSubmit={handleSubmit(addPet)}>
                             <div className='fields'>
                                 <label>Nome do Pet</label>
-                                <input type='text' name='nome' {...register('nome')}/>
+                                <input type='text' placeholder='Ex: Bob' name='nome' {...register('nome')}/>
                                 
                             </div>
 
                             <div className='fields'>
                                 <label>Idade do Pet</label>
-                                <input type='number' name='idade' {...register('idade')}/>
+                                <input type='number' placeholder='Ex: 2' name='idade' {...register('idade')}/>
                                 
                             </div>
 
                             <div className='fields'>
                                 <label>Raça do Pet</label>
-                                <input type='text' name='raca' {...register('raca')}/>
+                                <input type='text' placeholder='Ex: Poodle' name='raca' {...register('raca')}/>
                                 
                             </div>
 
                             <div className='fields'>
                                 <label>Espécie do Pet</label>
-                                <input type='text' name='especie' {...register('especie')}/>
+                                <input type='text' placeholder='Ex: Pequeno/Médio/Grande' name='especie' {...register('especie')}/>
                                 
                             </div>
 
                             <div className='fields'>
                                 <label>Nome do Dono</label>
-                                <input type='text' name='nome_dono' {...register('nome_dono')}/>
+                                <input type='text' placeholder='Ex: Pedro Paulo' name='nome_dono' {...register('nome_dono')}/>
                                 
                             </div>
 
                             <div className='fields'>
                                 <label>Número do Dono</label>
-                                <input type='tel' name='numero_dono' {...register('numero_dono')}/>
+                                <input type='tel' placeholder='Ex: (71)999440797' name='numero_dono' {...register('numero_dono')}/>
                                 
                             </div>
 
                             <div className='fields'>
                                 <label>Escreva um pouco sobre o Pet</label>
-                                <textarea type='text' name='conteudo' {...register('conteudo')}></textarea>
+                                <textarea type='text' placeholder='Ex: Lindo e cheiroso' name='conteudo' {...register('conteudo')}></textarea>
                               
                             </div>
 

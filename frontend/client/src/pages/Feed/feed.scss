@@ -11,13 +11,20 @@ main {
 
   .content-cards {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     max-width: 35rem;
     height: 10rem;
 
     .box-card {
       display: flex;
-      background-color: rgb(167, 34, 162);
+      color: whitesmoke;
+
+      background: linear-gradient(
+        45deg,
+        rgba(126, 16, 108, 1) 0%,
+        rgba(170, 5, 167, 1) 73%,
+        rgb(92, 8, 170) 100%
+      );
       border-radius: 1rem;
 
       & + .box-card {
@@ -33,6 +40,7 @@ main {
 
         h2 {
           font-family: Heebo;
+          word-break: break-word;
         }
 
         .buttons button {

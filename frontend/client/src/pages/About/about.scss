@@ -1,5 +1,5 @@
 main {
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 
   h1 {
     font-family: Poppins;
@@ -8,9 +8,12 @@ main {
   .content-cards {
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 100%;
+    height: 100%;
     margin: 0 auto;
     border-radius: 1rem;
+
+    padding: 1rem;
 
     .box-card {
       display: flex;
@@ -24,6 +27,7 @@ main {
 
         h2 {
           font-family: Heebo;
+          margin-bottom: 0.5rem;
         }
       }
 
@@ -34,9 +38,11 @@ main {
         margin: 0 auto;
       }
 
-      .box-conteudo {
-        margin: 1rem 0;
+      p {
+        margin: 1rem 1rem;
         display: flex;
+        font-family: Poppins;
+        word-break: break-word;
       }
     }
   }
