@@ -1,0 +1,37 @@
+body, php{
+    font-family: 'Roboto', sans-serif;
+}
+
+
+#header{
+
+    background-color:rgb(248, 249, 250);
+
+
+}
+
+#header .navbar-collapse{
+    width:auto;
+}
+
+#slider{
+    background: url(../image/bkg.jpg) repeat center bottom;
+    background-size: contain;
+}
+
+#caixas{
+    background-color:rgb(248, 249, 250);
+
+}
+
+
+
+#slider h1{
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+#slider h4{
+    font-size: 18px;
+    text-transform: uppercase;
+}
