@@ -1,37 +1,22 @@
-body, php{
+body, html{
     font-family: 'Roboto', sans-serif;
+    background: url("../img/background.svg") repeat center bottom;
 }
-
-
-#header{
-
-    background-color:rgb(248, 249, 250);
-
-
+h2{
+    width: 100%;
+    text-transform: uppercase;
+    font-weight: bold;
 }
-
-#header .navbar-collapse{
-    width:auto;
+h5{
+    width: 100%;
+    text-transform: uppercase;
+    font-weight: bold;
 }
-
-#slider{
-    background: url(../image/bkg.jpg) repeat center bottom;
+p{
+    font-family: 'Roboto', sans-serif;
+    font-size:19px;
+}
+#div-text{
+    background-color: white;
     background-size: contain;
-}
-
-#caixas{
-    background-color:rgb(248, 249, 250);
-
-}
-
-
-
-#slider h1{
-    text-transform: uppercase;
-    font-weight: 900;
-}
-
-#slider h4{
-    font-size: 18px;
-    text-transform: uppercase;
 }

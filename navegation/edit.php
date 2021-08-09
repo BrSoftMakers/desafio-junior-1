@@ -6,15 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="css/main.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/custom.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;900&display=swap" rel="stylesheet">
 
-    <title>.:Alterar:.</title>
+    <title>.:ALTERARA CADASTRO:.</title>
 </head>
 <body>
-
 <?php
 include "conexao.php";
 
@@ -25,25 +23,28 @@ $dados = mysqli_query($conn, $sql);
 $linha = mysqli_fetch_assoc($dados);
 ?>
 <!----HEADER---->
-<div id="header">
-    <div class="container">
-        <nav class="navbar navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img src="image/logo.png" alt="" width="300" height="24"
-                         class="d-inline-block align-text-top img-fluid">
-                </a>
+<<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid ">
+        <a class="navbar-brand" href="../index.php">MyPetshop</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                <a class="nav-link" href="#">Sobre nós</a>
+                <a class="nav-link" href="#">Entre em contato</a>
             </div>
-        </nav>
+        </div>
     </div>
-</div>
+</nav>
 <!----HEADER---->
-
 <div id="slider">
-    <div class="container">
+    <div class="container" id="div-text">
         <div class="row">
             <div class="col">
-                <h1>Alterar Cadastro</h1>
+                <h2>Alterar Cadastro</h2>
                 <form action="edit_script.php" method="POST">
                     <div class="form-group">
                         <label for="petName">Nome do pet</label>
@@ -75,13 +76,11 @@ $linha = mysqli_fetch_assoc($dados);
                     <input type="submit" class="btn btn-primary" value="Salver Alterações">
                     <input type="hidden" name="id" value="<?php echo $linha['id']; ?>">
                 </form>
-                <a href="consulta.php" class="btn btn-info">Voltar</a>
+                <a href="../navegation/consulta.php" class="btn btn-info">Voltar</a>
             </div>
         </div>
     </div>
 </div>
-
-
 <!-- Optional JavaScript; choose one of the two! -->
 
 <!-- Option 1: Bootstrap Bundle with Popper -->
