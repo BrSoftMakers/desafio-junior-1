@@ -1,0 +1,406 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ============BASE======================== */
+
+html {
+  background-image: url('../image/bg-menu-mobile.jpg');
+  font-family: 'Roboto', sans-serif;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+#logo {
+  position: fixed;
+  width: 18.625rem;
+  height: 11.0625rem;
+  background-image: url('../image/logo.png');
+}
+
+#home,
+#login,
+#cadastro,
+#relatorio {
+  margin: 9rem 1.125rem;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+}
+main.fixed {
+  position: fixed;
+}
+
+.container {
+  max-width: 37.5rem;
+  margin: auto;
+}
+
+
+
+
+/* ========INDEX======================= */
+
+#home .container {
+  background: hsla(33, 50%, 44%, 1);
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem 2.3125rem;
+  color: #fff;
+}
+
+#home .txt-container {
+  margin-bottom: 1.8rem;
+}
+
+.button-container {
+  width: 18.125rem;
+  height: 3.0625rem;
+  border: 1px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  font-size: 0.98rem;
+  color: #fff;
+}
+
+/* ===========LOGIN======================= */
+
+#login .container {
+  /* background:hsla(33, 50%, 44%, 1); */
+  height: 22.4375rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem 2.3125rem;
+  color: #fff;
+}
+
+/* input-personalizado */
+
+.input-container {
+  margin-bottom: 2.1875rem;
+  position: relative;
+}
+
+.input-login {
+  width: 11.625rem;
+  height: 3.0625rem;
+  border-radius: 10px;
+  background: #a77537;
+  font-size: 1rem;
+  outline: none;
+}
+
+.span-input {
+  position: absolute;
+  top: 20px;
+  left: 50px;
+  font-size: 1.2rem;
+  letter-spacing: 0.05em;
+  pointer-events: none;
+  font-weight: 600;
+  font-family: sans-serif;
+  transition: -6s;
+  color: #181818;
+  border-radius: 10px;
+}
+
+.input-login:focus {
+  border: none;
+  background: #a77537;
+}
+
+.input-login:focus + span,
+.input-login:valid + span {
+  top: -18px;
+  left: 2px;
+  font-size: 1.25rem;
+  padding: 1.125px 0;
+}
+
+.submit-container button,
+li {
+  width: 5.5rem;
+  height: 1.6875rem;
+  background: #a77537;
+  border-radius: 10px;
+  font-weight: 900;
+  border: 2px solid black;
+}
+
+/* =======CADASTRO===================== */
+
+#cadastro {
+  margin-top: 12rem;
+}
+
+#cadastro .container {
+  background: hsla(33, 50%, 44%, 1);
+  height: 22.4375rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1rem;
+  color: #fff;
+}
+
+.form-container {
+  width: 100%;
+  height: 1.625rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.8125rem;
+}
+
+#form-container .input {
+  justify-content: flex-end;
+}
+
+#form-container label {
+  padding-right: 5rem;
+}
+
+#radio {
+  width: 10.8125rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.button-submit-form {
+  width: 100%;
+  margin-top: 1.3125rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button-submit-form #cancelar {
+  margin-left: 1rem;
+  background: rgba(196, 196, 196, 0.425);
+  border: 0.5px;
+  font-weight: none;
+  color: rgba(0, 0, 0, 0.644);
+}
+
+.button-submit-form #cancelar a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.61);
+}
+
+/* =========MENU========== */
+
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+nav {
+  top: 0;
+  height: 4.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.submit-container li {
+  width: 11.625rem;
+  height: 3.0625rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+nav .menu {
+  opacity: 0;
+  visibility: hidden;
+}
+
+nav.show .menu {
+  opacity: 1;
+  visibility: visible;
+  background-image: url('../image/bg-menu-mobile.jpg');
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+nav.show .menu .logo-desk {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  position: relative;
+  top: 17rem;
+  text-align: center;
+}
+
+nav ul li a {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+nav .icon-close {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: -2rem;
+  transition: 0.3s;
+}
+
+nav.show .icon-close {
+  visibility: visible;
+  color: black;
+  opacity: 1;
+  display: flex;
+  position: absolute;
+  right: 1.5rem;
+  top: 2rem;
+}
+
+nav .icon-menu {
+  position: absolute;
+  right: 1.5rem;
+  top: 2rem;
+  visibility: visible;
+  opacity: 1;
+  /* transition: 0.2s; */
+}
+
+nav.show .icon-menu {
+  visibility: hidden;
+  opacity: 0;
+  top: -2rem;
+  transition: 0.1s;
+}
+
+.toggle {
+  font-size: 24px;
+  font-weight: 900;
+}
+
+/* =======FOOTER====================== */
+
+footer {
+  position: fixed;
+  width: 100%;
+  bottom: 1.125rem;
+  text-align: center;
+  font-weight: 900;
+}
+
+/* =========RELATORIO=================== */
+#relatorio {
+  width: 100vw;
+  margin-top: 12rem;
+}
+
+#relatorio .container {
+  background: hsla(33, 50%, 44%, 1);
+  width: 21.18751rem;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1rem;
+  color: #fff;
+  position: relative;
+}
+
+/* ===========OPTION-CRUD-RELATORIO */
+
+.main-relatorio .option-crud a {
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid black;
+  margin: 0 0.6rem 0 0;
+  padding: 3px;
+}
+
+/* ==============@media========================= */
+
+@media screen and (max-width: 360px) {
+  main.fixed {
+    position: fixed;
+    height: 630px;
+    width: 350px;
+  }
+
+  #home,
+  #login {
+    margin: 7rem 0.7rem;
+  }
+
+  #cadastro {
+    margin: 12rem 0.7rem;
+  }
+
+  .container {
+    width: 20rem;
+  }
+
+  #relatorio .container {
+    background: hsla(33, 50%, 44%, 1);
+    width: 20rem;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1rem;
+    color: #fff;
+    position: relative;
+  }
+}
+
+@media screnn and (min-width: 400px) {
+  main.fixed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .toggle {
+    height: 2rem;
+  }
+  #home .container {
+    background: hsla(33, 50%, 44%, 1);
+    width: auto;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem 2.3125rem;
+    color: #fff;
+  }
+}
