@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { Box } from '@chakra-ui/react';
 
 import type { NextPage } from 'next';
+import { Logo } from '../components';
 const Home: NextPage = () => {
   return (
     <div>
@@ -11,7 +12,7 @@ const Home: NextPage = () => {
       </Head>
 
       <Box height="100vh" bg="background">
-        PetLover Page
+        <Logo />
       </Box>
     </div>
   );
