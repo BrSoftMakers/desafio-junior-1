@@ -1,20 +1,5 @@
 import axios from 'axios';
 
-interface PetRegisterInterface {
-  namePet: string;
-  agePet: number;
-  weightPet: number;
-  animalPet: string;
-  breedPet: string;
-  nameProperty: string;
-  telephoneProperty: string;
-  emailProperty?: string;
-  addressProperty: string;
-  districtProperty: string;
-  cityProperty: string;
-  ufProperty: string;
-}
-
 export async function createPet(o: any): Promise<any> {
   try {
     const response = await axios.post('http://localhost:3333/pets', o);

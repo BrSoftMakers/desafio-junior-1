@@ -1,17 +1,18 @@
+import { DeleteIcon } from '@chakra-ui/icons';
 import {
-  useDisclosure,
+  Button,
   IconButton,
   Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalCloseButton,
   ModalBody,
+  ModalCloseButton,
+  ModalContent,
   ModalFooter,
-  Button,
+  ModalHeader,
+  ModalOverlay,
   Text,
+  useDisclosure,
 } from '@chakra-ui/react';
-import { DeleteIcon } from '@chakra-ui/icons';
+
 import { deletePet } from '../../service/petsService';
 
 interface Props {

@@ -89,7 +89,6 @@ const ModalRegistration = ({
 export const Registration = (props: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [ufs, setUfs] = React.useState<UfInterface[]>([]);
-  const [loading, setLoading] = React.useState(true);
   const { refresh } = props;
 
   const {

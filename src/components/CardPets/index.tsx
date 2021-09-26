@@ -37,7 +37,7 @@ export const CardPets = (props: Props) => {
     if (ref === 'Cachorro') return <Image src={imgDog} alt="dog" />;
     else if (ref === 'Gato') return <Image src={imgCat} alt="dog" />;
     else if (ref === 'Ave') return <Image src={imgBird} alt="dog" />;
-    else return <Image src={imgOther} alt="dog" />;
+    else return <Image width="180px" height="180px" src={imgOther} alt="dog" />;
   }
 
   return (
@@ -101,7 +101,7 @@ export const CardPets = (props: Props) => {
             <Text fontSize="2xl">Dono: {pet.nameProperty}</Text>
             <br />
             <Text>Telefone: {pet.telephoneProperty}</Text>
-            <Text>E-mail: {pet.emailProperty}</Text>
+            {pet.emailProperty && <Text>Email: {pet.emailProperty}</Text>}
             <Text>Endereço: {pet.addressProperty}</Text>
             <Text>Bairro: {pet.districtProperty}</Text>
 

@@ -1,10 +1,12 @@
 /* eslint-disable react/no-children-prop */
+import { EditIcon } from '@chakra-ui/icons';
 import {
   Box,
   Button,
   FormControl,
   FormHelperText,
   FormLabel,
+  IconButton,
   Input,
   InputGroup,
   InputRightAddon,
@@ -17,9 +19,7 @@ import {
   ModalOverlay,
   Select,
   useDisclosure,
-  IconButton,
 } from '@chakra-ui/react';
-import { EditIcon } from '@chakra-ui/icons';
 import axios from 'axios';
 import { useFormik } from 'formik';
 import React from 'react';
