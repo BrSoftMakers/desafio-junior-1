@@ -2,7 +2,13 @@ import { Box, Container } from '@chakra-ui/react';
 
 import { Logo, Registration } from '..';
 
-export const Header = () => {
+interface Props {
+  refresh: () => void;
+}
+
+export const Header = (props: Props) => {
+  const { refresh } = props;
+
   return (
     <Box
       borderBottom="1px solid hsl(0, 0%, 78%)"
@@ -10,6 +16,7 @@ export const Header = () => {
       position="fixed"
       zIndex={2}
       boxShadow="md"
+      bg="hsl(60, 23%, 95%)"
     >
       <Container
         maxWidth="container.lg"
@@ -19,7 +26,7 @@ export const Header = () => {
         justifyContent="space-between"
       >
         <Logo />
-        <Registration />
+        <Registration refresh={refresh} />
       </Container>
     </Box>
   );

@@ -21,9 +21,10 @@ import {
 import axios from 'axios';
 import { useFormik } from 'formik';
 import React from 'react';
-import * as yup from 'yup';
 import InputMask from 'react-input-mask';
-import PetsService from './../../service/pets';
+import * as yup from 'yup';
+
+import { createRegister } from './../../service/petsService';
 
 interface ModalRegistrationInterface {
   isOpen: boolean;
@@ -40,6 +41,10 @@ interface UfInterface {
   regiao: any;
 }
 
+interface Props {
+  refresh: () => void;
+}
+
 const ModalRegistration = ({
   isOpen,
   onClose,
@@ -50,7 +55,7 @@ const ModalRegistration = ({
   return (
     <Modal isOpen={isOpen} onClose={onClose} size="2xl">
       <ModalOverlay />
-      <ModalContent>
+      <ModalContent mt="90px">
         <ModalHeader>Cadastrar Pet</ModalHeader>
         <hr />
         <ModalCloseButton />
@@ -81,10 +86,11 @@ const ModalRegistration = ({
   );
 };
 
-export const Registration = () => {
+export const Registration = (props: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [ufs, setUfs] = React.useState<UfInterface[]>([]);
-  const petService = new PetsService();
+  const [loading, setLoading] = React.useState(true);
+  const { refresh } = props;
 
   const {
     values,
@@ -98,8 +104,9 @@ export const Registration = () => {
   } = useFormik({
     onSubmit: async values => {
       try {
-        await petService.createRegister(values);
+        await createRegister(values);
         resetForm();
+        refresh();
       } catch (err) {
         console.log('Erro: ', err);
       }
@@ -109,7 +116,7 @@ export const Registration = () => {
       agePet: '',
       weightPet: '',
       animalPet: '',
-      racePet: '',
+      breedPet: '',
       nameProperty: '',
       telephoneProperty: '',
       emailProperty: '',
@@ -123,7 +130,7 @@ export const Registration = () => {
       agePet: yup.number().required('Preenchimento obrigatório'),
       weightPet: yup.number().required('Preenchimento obrigatório'),
       animalPet: yup.string().required('Preenchimento obrigatório'),
-      racePet: yup.string().required('Preenchimento obrigatório'),
+      breedPet: yup.string().required('Preenchimento obrigatório'),
       nameProperty: yup.string().required('Preenchimento obrigatório'),
       telephoneProperty: yup.string().required('Preenchimento obrigatório'),
       emailProperty: yup.string().email('E-mail inválido'),
@@ -252,16 +259,16 @@ export const Registration = () => {
             <FormLabel>Raça</FormLabel>
             <Input
               type="text"
-              name="racePet"
-              value={values.racePet}
+              name="breedPet"
+              value={values.breedPet}
               onChange={handleChange}
               onBlur={handleBlur}
               disabled={isSubmitting}
               variant="filled"
             />
-            {touched.racePet && (
+            {touched.breedPet && (
               <FormHelperText textColor="#e74c3c">
-                {errors.racePet}
+                {errors.breedPet}
               </FormHelperText>
             )}
           </FormControl>
