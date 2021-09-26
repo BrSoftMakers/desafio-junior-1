@@ -24,7 +24,7 @@ import React from 'react';
 import InputMask from 'react-input-mask';
 import * as yup from 'yup';
 
-import { createRegister } from './../../service/petsService';
+import { createPet } from './../../service/petsService';
 
 interface ModalRegistrationInterface {
   isOpen: boolean;
@@ -104,7 +104,7 @@ export const Registration = (props: Props) => {
   } = useFormik({
     onSubmit: async values => {
       try {
-        await createRegister(values);
+        await createPet(values);
         resetForm();
         refresh();
       } catch (err) {

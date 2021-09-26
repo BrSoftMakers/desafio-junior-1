@@ -15,7 +15,7 @@ interface PetRegisterInterface {
   ufProperty: string;
 }
 
-export async function createRegister(o: any): Promise<any> {
+export async function createPet(o: any): Promise<any> {
   try {
     const response = await axios.post('http://localhost:3333/pets', o);
     return response.data;
@@ -30,4 +30,8 @@ export function getPets() {
 
 export async function deletePet(id: number) {
   axios.delete(`http://localhost:3333/pets/${id}`);
+}
+
+export async function putPet(id: number, o: any) {
+  axios.put(`http://localhost:3333/pets/${id}`, o);
 }
