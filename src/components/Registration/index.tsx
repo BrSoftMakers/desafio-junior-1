@@ -23,12 +23,14 @@ import { useFormik } from 'formik';
 import React from 'react';
 import * as yup from 'yup';
 import InputMask from 'react-input-mask';
+import PetsService from './../../service/pets';
 
 interface ModalRegistrationInterface {
   isOpen: boolean;
+  children: React.ReactNode;
+  isSubmitting: boolean;
   onClose: () => void;
   handleSubmit: () => void;
-  children: React.ReactNode;
 }
 
 interface UfInterface {
@@ -43,6 +45,7 @@ const ModalRegistration = ({
   onClose,
   children,
   handleSubmit,
+  isSubmitting,
 }: ModalRegistrationInterface) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose} size="2xl">
@@ -68,6 +71,7 @@ const ModalRegistration = ({
             _hover={{ bg: 'green.200' }}
             _active={{ bg: 'green.300' }}
             onClick={() => handleSubmit()}
+            isLoading={isSubmitting}
           >
             Cadastrar
           </Button>
@@ -80,6 +84,7 @@ const ModalRegistration = ({
 export const Registration = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [ufs, setUfs] = React.useState<UfInterface[]>([]);
+  const petService = new PetsService();
 
   const {
     values,
@@ -89,9 +94,15 @@ export const Registration = () => {
     touched,
     handleBlur,
     isSubmitting,
+    resetForm,
   } = useFormik({
-    onSubmit: () => {
-      console.log(values);
+    onSubmit: async values => {
+      try {
+        await petService.createRegister(values);
+        resetForm();
+      } catch (err) {
+        console.log('Erro: ', err);
+      }
     },
     initialValues: {
       namePet: '',
@@ -148,6 +159,7 @@ export const Registration = () => {
         isOpen={isOpen}
         onClose={onClose}
         handleSubmit={handleSubmit}
+        isSubmitting={isSubmitting}
       >
         <FormControl mb={5}>
           <FormLabel>Nome do Pet</FormLabel>
@@ -211,11 +223,11 @@ export const Registration = () => {
         </Box>
 
         <Box display={{ md: 'block', lg: 'flex' }} mb={5}>
-          <FormControl id="animal">
+          <FormControl id="animalPet">
             <FormLabel>Animal</FormLabel>
             <Select
               placeholder="Selecione um animal"
-              name="animal"
+              name="animalPet"
               value={values.animalPet}
               onChange={handleChange}
               onBlur={handleBlur}
