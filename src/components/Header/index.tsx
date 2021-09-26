@@ -1,29 +1,26 @@
-import { Box, Container, Button } from '@chakra-ui/react';
-import { Logo } from '..';
+import { Box, Container } from '@chakra-ui/react';
 
-export const Header = () => (
-  <Box
-    borderBottom="1px solid hsl(0, 0%, 78%)"
-    width="100%"
-    position="fixed"
-    zIndex={2}
-    boxShadow="md"
-  >
-    <Container
-      maxWidth="container.lg"
-      p={3}
-      display="flex"
-      alignItems="center"
-      justifyContent="space-between"
+import { Logo, Registration } from '..';
+
+export const Header = () => {
+  return (
+    <Box
+      borderBottom="1px solid hsl(0, 0%, 78%)"
+      width="100%"
+      position="fixed"
+      zIndex={2}
+      boxShadow="md"
     >
-      <Logo />
-      <Button
-        bg="primary"
-        _hover={{ bg: 'green.200' }}
-        _active={{ bg: 'green.300' }}
+      <Container
+        maxWidth="container.lg"
+        p={3}
+        display="flex"
+        alignItems="center"
+        justifyContent="space-between"
       >
-        Cadastrar pet
-      </Button>
-    </Container>
-  </Box>
-);
+        <Logo />
+        <Registration />
+      </Container>
+    </Box>
+  );
+};
