@@ -1,13 +1,15 @@
-import { Box, Text } from '@chakra-ui/react';
-import Image from 'next/image';
+import { SearchIcon } from '@chakra-ui/icons';
+import {
+  Box,
+  IconButton,
+  Input,
+  InputGroup,
+  InputRightElement,
+  Text,
+} from '@chakra-ui/react';
 import React from 'react';
 
-import imgBird from './../../_assets/images/bird.jpg';
-import imgCat from './../../_assets/images/cat.jpg';
-import imgDog from './../../_assets/images/dog.jpg';
-import imgOther from './../../_assets/images/other.jpg';
-import { BtnDelete } from './BtnDelete';
-import { BtnEdit } from './BtnEdit';
+import { Card } from './Card';
 
 interface PetRegisterInterface {
   id: number;
@@ -32,95 +34,76 @@ interface Props {
 
 export const CardPets = (props: Props) => {
   const { pets, refresh } = props;
+  const [search, setSearch] = React.useState<string>('');
+  const [petsSearch, setPetSearch] = React.useState<PetRegisterInterface[]>([]);
 
-  function imgAnimal(ref: string) {
-    if (ref === 'Cachorro') return <Image src={imgDog} alt="dog" />;
-    else if (ref === 'Gato') return <Image src={imgCat} alt="dog" />;
-    else if (ref === 'Ave') return <Image src={imgBird} alt="dog" />;
-    else return <Image width="180px" height="180px" src={imgOther} alt="dog" />;
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setSearch(event.target.value);
   }
+
+  function searchPetProperty(text: string) {
+    if (text === '') {
+      setPetSearch([]);
+      return;
+    }
+
+    const search = pets.filter(element => {
+      return (
+        element.namePet.toLowerCase().includes(text.toLowerCase()) ||
+        element.nameProperty.toLowerCase().includes(text.toLowerCase())
+      );
+    });
+
+    setPetSearch(search);
+    console.log(petsSearch.length);
+  }
+
+  React.useEffect(() => {
+    searchPetProperty(search);
+  }, [search]); //eslint-disable-line
 
   return (
     <Box>
-      <Box mb="35px">
-        <Text fontSize="5xl" fontWeight="semibold">
-          Lista de Pets
-        </Text>
-        <Text>
-          Confira abaixo a lista de todos os bichinhos que já passaram pelo
-          PetLover
-        </Text>
+      <Box
+        mb="35px"
+        display={{ base: 'block', lg: 'flex' }}
+        justifyContent="space-between"
+      >
+        <Box>
+          <Text fontSize="5xl" fontWeight="semibold">
+            Lista de Pets
+          </Text>
+          <Text>
+            Confira abaixo a lista de todos os bichinhos que já passaram pelo
+            PetLover
+          </Text>
+        </Box>
+        <Box display="flex" alignItems="end" mt={{ base: 4, lg: 0 }}>
+          <InputGroup size="md" borderColor="#CBD5E0">
+            <Input name="text" value={search} onChange={handleChange} />
+            <InputRightElement>
+              <IconButton
+                bg="primary"
+                _hover={{ bg: 'green.200' }}
+                aria-label="search pet"
+                icon={<SearchIcon />}
+                border="1px solid #CBD5E0"
+                onClick={() => {
+                  searchPetProperty(search);
+                }}
+              />
+            </InputRightElement>
+          </InputGroup>
+        </Box>
       </Box>
 
-      {pets.map(pet => (
-        <Box
-          key={pet.id}
-          mb={3}
-          display={{ md: 'block', lg: 'flex' }}
-          justifyContent="space-between"
-          bg="#ffffff"
-          width="100%"
-          borderRadius="8px"
-          boxShadow="md"
-          border="1px solid #CBD5E0"
-        >
-          <Box
-            width={{ md: '100%', lg: '70%' }}
-            borderRadius="8"
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-          >
-            {imgAnimal(pet.animalPet)}
-          </Box>
-
-          <Box
-            display="flex"
-            flexDirection="column"
-            justifyContent="start"
-            alignItems={{ base: 'center', lg: 'start' }}
-            width="100%"
-            p={3}
-          >
-            <Text fontSize="2xl">Pet: {pet.namePet}</Text>
-            <br />
-            <Text>Idade: {pet.agePet} anos</Text>
-            <Text>Peso: {pet.weightPet} Kg</Text>
-            <Text>Animal: {pet.animalPet}</Text>
-            <Text>Raça: {pet.breedPet}</Text>
-          </Box>
-
-          <Box
-            display="flex"
-            flexDirection="column"
-            justifyContent="start"
-            alignItems={{ base: 'center', lg: 'start' }}
-            width="100%"
-            p={3}
-          >
-            <Text fontSize="2xl">Dono: {pet.nameProperty}</Text>
-            <br />
-            <Text>Telefone: {pet.telephoneProperty}</Text>
-            {pet.emailProperty && <Text>Email: {pet.emailProperty}</Text>}
-            <Text>Endereço: {pet.addressProperty}</Text>
-            <Text>Bairro: {pet.districtProperty}</Text>
-
-            <Text>Cidade: {pet.cityProperty}</Text>
-            <Text>UF: {pet.ufProperty}</Text>
-          </Box>
-
-          <Box
-            display="flex"
-            alignItems="end"
-            justifyContent="end"
-            p={3}
-            width={{ base: '100%', lg: '50%' }}
-          >
-            <BtnEdit pet={pet} refresh={refresh} />
-            <BtnDelete id={pet.id} refresh={refresh} />
-          </Box>
-        </Box>
-      ))}
+      <Box>
+        {petsSearch.length === 0 && search === '' ? (
+          <Card pets={pets} refresh={refresh} find={false} />
+        ) : (
+          <Card pets={petsSearch} refresh={refresh} find={true} />
+        )}
+      </Box>
     </Box>
   );
 };
