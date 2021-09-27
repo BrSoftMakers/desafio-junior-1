@@ -29,11 +29,10 @@ interface PetRegisterInterface {
 
 interface Props {
   pets: PetRegisterInterface[];
-  refresh: () => void;
 }
 
 export const CardPets = (props: Props) => {
-  const { pets, refresh } = props;
+  const { pets } = props;
   const [search, setSearch] = React.useState<string>('');
   const [petsSearch, setPetSearch] = React.useState<PetRegisterInterface[]>([]);
 
@@ -99,9 +98,9 @@ export const CardPets = (props: Props) => {
 
       <Box>
         {petsSearch.length === 0 && search === '' ? (
-          <Card pets={pets} refresh={refresh} find={false} />
+          <Card pets={pets} />
         ) : (
-          <Card pets={petsSearch} refresh={refresh} find={true} />
+          <Card pets={petsSearch} find={true} />
         )}
       </Box>
     </Box>

@@ -23,6 +23,7 @@ import { useFormik } from 'formik';
 import React from 'react';
 import InputMask from 'react-input-mask';
 import * as yup from 'yup';
+import { useLoading } from '../../context';
 
 import { createPet } from './../../service/petsService';
 
@@ -39,10 +40,6 @@ interface UfInterface {
   sigla: string;
   nome: string;
   regiao: any;
-}
-
-interface Props {
-  refresh: () => void;
 }
 
 const ModalRegistration = ({
@@ -86,10 +83,10 @@ const ModalRegistration = ({
   );
 };
 
-export const Registration = (props: Props) => {
+export const Registration = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [ufs, setUfs] = React.useState<UfInterface[]>([]);
-  const { refresh } = props;
+  const { changeTrue } = useLoading();
 
   const {
     values,
@@ -105,7 +102,7 @@ export const Registration = (props: Props) => {
       try {
         await createPet(values);
         resetForm();
-        refresh();
+        changeTrue();
       } catch (err) {
         console.log('Erro: ', err);
       }

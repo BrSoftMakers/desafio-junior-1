@@ -26,6 +26,7 @@ import { useFormik } from 'formik';
 import React from 'react';
 import InputMask from 'react-input-mask';
 import * as yup from 'yup';
+import { useLoading } from '../../context';
 
 import { putPet } from './../../service/petsService';
 
@@ -62,7 +63,6 @@ interface PetRegisterInterface {
 
 interface Props {
   pet: PetRegisterInterface;
-  refresh: () => void;
 }
 
 const ModalRegistration = ({
@@ -109,8 +109,9 @@ const ModalRegistration = ({
 export const BtnEdit = (props: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [ufs, setUfs] = React.useState<UfInterface[]>([]);
-  const { pet, refresh } = props;
+  const { pet } = props;
   const hidden = useBreakpointValue({ base: false, lg: true });
+  const { changeTrue } = useLoading();
 
   const {
     values,
@@ -126,7 +127,7 @@ export const BtnEdit = (props: Props) => {
       try {
         await putPet(pet.id, values);
         resetForm();
-        refresh();
+        changeTrue();
       } catch (err) {
         console.log('Erro: ', err);
       }

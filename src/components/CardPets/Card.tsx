@@ -26,12 +26,11 @@ interface PetRegisterInterface {
 
 interface Props {
   pets: PetRegisterInterface[];
-  refresh: () => void;
   find?: boolean;
 }
 
 export const Card = (props: Props) => {
-  const { pets, refresh, find } = props;
+  const { pets, find } = props;
 
   function imgAnimal(ref: string) {
     if (ref === 'Cachorro') return <Image src={imgDog} alt="dog" />;
@@ -116,8 +115,8 @@ export const Card = (props: Props) => {
             p={3}
             width={{ base: '100%', lg: '50%' }}
           >
-            <BtnEdit pet={pet} refresh={refresh} />
-            <BtnDelete id={pet.id} refresh={refresh} />
+            <BtnEdit pet={pet} />
+            <BtnDelete id={pet.id} />
           </Box>
         </Box>
       ))}

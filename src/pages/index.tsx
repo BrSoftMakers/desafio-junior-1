@@ -6,6 +6,7 @@ import { getPets } from '../service/petsService';
 import { CardPets, Header } from './../components';
 
 import type { NextPage } from 'next';
+import { useLoading } from '../context';
 interface PetRegisterInterface {
   id: number;
   namePet: string;
@@ -24,18 +25,16 @@ interface PetRegisterInterface {
 
 const Home: NextPage = () => {
   const [pets, setPets] = React.useState<PetRegisterInterface[]>([]);
-  const [loading, setLoading] = React.useState(true);
-
-  function Refresh() {
-    setLoading(true);
-  }
+  const { state, changeTrue, changeFalse } = useLoading();
 
   React.useEffect(() => {
     getPets().then(res => {
       setPets(res);
-      setLoading(false);
+      changeFalse();
     });
-  }, [loading]);
+
+    console.log(pets);
+  }, [state]); //eslint-disable-line
 
   return (
     <div>
@@ -45,14 +44,14 @@ const Home: NextPage = () => {
       </Head>
 
       <Box height="100vh" bg="background">
-        <Header refresh={Refresh} />
+        <Header refresh={changeTrue} />
         <Container
           maxWidth="container.lg"
           centerContent
           height="100%"
           pt="90px"
         >
-          {loading ? (
+          {state ? (
             <Spinner
               thickness="4px"
               size="xl"
@@ -61,7 +60,7 @@ const Home: NextPage = () => {
             />
           ) : (
             <Box width="100%" pb={12}>
-              <CardPets pets={pets} refresh={Refresh} />
+              <CardPets pets={pets} />
             </Box>
           )}
         </Container>

@@ -14,17 +14,18 @@ import {
   useBreakpointValue,
   Box,
 } from '@chakra-ui/react';
+import { useLoading } from '../../context';
 
 import { deletePet } from '../../service/petsService';
 
 interface Props {
   id: number;
-  refresh: () => void;
 }
 
-export const BtnDelete = ({ id, refresh }: Props) => {
+export const BtnDelete = ({ id }: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const hidden = useBreakpointValue({ base: false, lg: true });
+  const { changeTrue } = useLoading();
 
   return (
     <Box>
@@ -76,7 +77,7 @@ export const BtnDelete = ({ id, refresh }: Props) => {
               mr={3}
               onClick={() => {
                 deletePet(id);
-                refresh();
+                changeTrue();
               }}
             >
               Deletar
