@@ -325,6 +325,11 @@ export const Registration = (props: Props) => {
               disabled={isSubmitting}
               variant="filled"
             />
+            {touched.emailProperty && (
+              <FormHelperText textColor="#e74c3c">
+                {errors.emailProperty}
+              </FormHelperText>
+            )}
           </FormControl>
         </Box>
 
