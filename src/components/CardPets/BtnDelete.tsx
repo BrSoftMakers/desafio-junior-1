@@ -1,5 +1,6 @@
 import { DeleteIcon } from '@chakra-ui/icons';
 import {
+  Box,
   Button,
   IconButton,
   Modal,
@@ -10,12 +11,11 @@ import {
   ModalHeader,
   ModalOverlay,
   Text,
-  useDisclosure,
   useBreakpointValue,
-  Box,
+  useDisclosure,
 } from '@chakra-ui/react';
-import { useLoading } from '../../context';
 
+import { useLoading } from '../../context';
 import { deletePet } from '../../service/petsService';
 
 interface Props {

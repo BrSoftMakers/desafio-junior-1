@@ -23,8 +23,8 @@ import { useFormik } from 'formik';
 import React from 'react';
 import InputMask from 'react-input-mask';
 import * as yup from 'yup';
-import { useLoading } from '../../context';
 
+import { useLoading } from '../../context';
 import { createPet } from './../../service/petsService';
 
 interface ModalRegistrationInterface {

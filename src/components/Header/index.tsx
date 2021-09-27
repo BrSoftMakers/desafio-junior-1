@@ -26,7 +26,7 @@ export const Header = (props: Props) => {
         justifyContent="space-between"
       >
         <Logo />
-        <Registration refresh={refresh} />
+        <Registration />
       </Container>
     </Box>
   );

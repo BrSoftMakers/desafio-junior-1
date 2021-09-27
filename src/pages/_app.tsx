@@ -2,10 +2,10 @@ import '../styles/globals.css';
 
 import { ChakraProvider } from '@chakra-ui/react';
 
+import { ContextProvider } from '../context';
 import { theme } from '../theme';
 
 import type { AppProps } from 'next/app';
-import { ContextProvider } from '../context';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>

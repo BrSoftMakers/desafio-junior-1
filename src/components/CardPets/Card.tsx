@@ -1,4 +1,4 @@
-import { Box, Text, Collapse } from '@chakra-ui/react';
+import { Box, Collapse, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 
 import imgBird from './../../_assets/images/bird.jpg';

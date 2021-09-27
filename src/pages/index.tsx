@@ -2,11 +2,11 @@ import { Box, Container, Spinner } from '@chakra-ui/react';
 import Head from 'next/head';
 import React from 'react';
 
+import { useLoading } from '../context';
 import { getPets } from '../service/petsService';
 import { CardPets, Header } from './../components';
 
 import type { NextPage } from 'next';
-import { useLoading } from '../context';
 interface PetRegisterInterface {
   id: number;
   namePet: string;
