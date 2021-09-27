@@ -14,7 +14,7 @@ export const Header = (props: Props) => {
       borderBottom="1px solid hsl(0, 0%, 78%)"
       width="100%"
       position="fixed"
-      zIndex={2}
+      zIndex={10}
       boxShadow="md"
       bg="hsl(60, 23%, 95%)"
     >
