@@ -11,6 +11,8 @@ import {
   ModalOverlay,
   Text,
   useDisclosure,
+  useBreakpointValue,
+  Box,
 } from '@chakra-ui/react';
 
 import { deletePet } from '../../service/petsService';
@@ -22,19 +24,35 @@ interface Props {
 
 export const BtnDelete = ({ id, refresh }: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const hidden = useBreakpointValue({ base: false, lg: true });
+
   return (
-    <>
-      <IconButton
-        bg="red.100"
-        ml={2}
-        _hover={{ bg: 'red.200' }}
-        aria-label="Search database"
-        icon={<DeleteIcon />}
-        title="Deletar cadastro"
-        onClick={() => {
-          onOpen();
-        }}
-      />
+    <Box>
+      {hidden ? (
+        <IconButton
+          bg="red.100"
+          ml={2}
+          _hover={{ bg: 'red.200' }}
+          aria-label="Search database"
+          icon={<DeleteIcon />}
+          title="Deletar cadastro"
+          onClick={() => {
+            onOpen();
+          }}
+        />
+      ) : (
+        <Button
+          bg="red.100"
+          _hover={{ bg: 'red.200' }}
+          leftIcon={<DeleteIcon />}
+          title="Deletar cadastro"
+          onClick={onOpen}
+          isFullWidth
+          mt={3}
+        >
+          Deletar
+        </Button>
+      )}
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
@@ -66,6 +84,6 @@ export const BtnDelete = ({ id, refresh }: Props) => {
           </ModalFooter>
         </ModalContent>
       </Modal>
-    </>
+    </Box>
   );
 };

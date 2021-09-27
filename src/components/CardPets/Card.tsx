@@ -110,9 +110,9 @@ export const Card = (props: Props) => {
           </Box>
 
           <Box
-            display="flex"
-            alignItems="end"
-            justifyContent="end"
+            display={{ base: 'block', lg: 'flex' }}
+            alignItems={{ base: 'center', lg: 'end' }}
+            justifyContent={{ base: 'center', lg: 'end' }}
             p={3}
             width={{ base: '100%', lg: '50%' }}
           >

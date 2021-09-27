@@ -18,6 +18,7 @@ import {
   ModalHeader,
   ModalOverlay,
   Select,
+  useBreakpointValue,
   useDisclosure,
 } from '@chakra-ui/react';
 import axios from 'axios';
@@ -109,6 +110,7 @@ export const BtnEdit = (props: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [ufs, setUfs] = React.useState<UfInterface[]>([]);
   const { pet, refresh } = props;
+  const hidden = useBreakpointValue({ base: false, lg: true });
 
   const {
     values,
@@ -169,15 +171,28 @@ export const BtnEdit = (props: Props) => {
   }, []);
 
   return (
-    <>
-      <IconButton
-        bg="primary"
-        _hover={{ bg: 'green.200' }}
-        aria-label="Search database"
-        icon={<EditIcon />}
-        title="Editar cadastro"
-        onClick={onOpen}
-      />
+    <Box>
+      {hidden ? (
+        <IconButton
+          bg="primary"
+          _hover={{ bg: 'green.200' }}
+          aria-label="Search database"
+          icon={<EditIcon />}
+          title="Editar cadastro"
+          onClick={onOpen}
+        />
+      ) : (
+        <Button
+          bg="primary"
+          _hover={{ bg: 'green.200' }}
+          leftIcon={<EditIcon />}
+          title="Deletar cadastro"
+          onClick={onOpen}
+          isFullWidth
+        >
+          Editar
+        </Button>
+      )}
 
       <ModalRegistration
         isOpen={isOpen}
@@ -343,6 +358,11 @@ export const BtnEdit = (props: Props) => {
               disabled={isSubmitting}
               variant="filled"
             />
+            {touched.emailProperty && (
+              <FormHelperText textColor="#e74c3c">
+                {errors.emailProperty}
+              </FormHelperText>
+            )}
           </FormControl>
         </Box>
 
@@ -430,6 +450,6 @@ export const BtnEdit = (props: Props) => {
           </FormControl>
         </Box>
       </ModalRegistration>
-    </>
+    </Box>
   );
 };
