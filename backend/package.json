@@ -4,7 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "reflect-metadata": "^0.1.13",
+    "sqlite3": "^5.0.2",
+    "typeorm": "^0.2.37"
   },
   "scripts": {
     "start": "nodemon src/server.ts"
