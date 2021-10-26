@@ -3,7 +3,7 @@
 <br>
 
 
-### Prerequisites
+### Pre Requisitos
 
 Navegador <br>
 XAMPP
