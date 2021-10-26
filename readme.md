@@ -21,9 +21,8 @@ Versão Recente do XAMPP
 2. Clonar Repositório;
 ```
 
-### Installation
+### Intalação do projeto
 
-Instalação do Projeto
 
 ```
 
