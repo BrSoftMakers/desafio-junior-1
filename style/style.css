@@ -1,0 +1,107 @@
+* {
+  box-sizing: border-box;
+}
+
+nav{
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, .2);
+
+}
+
+/* ---------- NAVBAR ---------- */
+
+#navbar{
+  text-transform: uppercase;
+  font-family: monospace;
+}
+#navbar img{
+  margin: .5em 4em;
+}
+
+#navbar li{
+  margin: 0 32px;
+}
+#navbar li a{
+  margin: 0 auto;
+  color: #ff459f;
+  font-weight: bold;
+  font-size: 14pt;
+  transition: all .7s;
+  text-align: center;
+}
+#navbar li a:hover{
+  transform: scale(1.2);
+}
+
+#active {
+  text-decoration: underline wavy #0066FF;
+}
+
+
+/* ---------- Slides ---------- */
+
+#carouselExampleIndicators{
+  margin-top: 6em;
+}
+
+#button--slider{
+  margin: 2em 3em;
+}
+#button--slider button{
+  background-color: #0066FF;
+  text-transform: uppercase;
+  transition: all 1s;
+}
+#button--slider button a{
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+#button--slider #rose:hover{
+  background: #ff459f;
+}
+
+#button--slider #rose a:hover{
+  color: #fff;
+}
+
+#button--slider #rose{
+  border: 1px solid #ff459f;
+  background: transparent;
+}
+#button--slider #rose a{
+  color: #ff459f;
+  transition: all 1s;
+}
+
+#button--slider button:hover{
+  border: 1px solid #0066FF;
+  background: #0040a0;
+}
+
+
+/* ---------- Section Contact ---------- */
+
+section{
+  width: 100%;
+  height: calc(100vh - 80px);
+}
+
+#section--contact{
+  margin-top: 10em;
+}
+
+/* ---------- Section Relatos ---------- */
+#section--relatos{
+  height: calc(100%-80px);
+  margin-top: 10em;
+}
+
+.card{
+  margin: 2em auto;
+}
+
+.btne{
+  margin: 8px auto;
+}

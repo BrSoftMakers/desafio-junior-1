@@ -1,19 +1,60 @@
- ![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
+# PetShop WebSite
 
-# Desafio - Desenvolvedor Fullstack Júnior
-Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato à vaga de Desenvolvedor Fullstack Júnior.
+<br>
 
-## Instruções
-- Faça um fork deste repositório;
-- O conjunto mínimo de tecnologias a serem utilizadas são: HTML, CSS e JavaScript no front-end e alguma das tecnologias back-end informadas na proposta desse desafio;
-- Crie um passo a passo de como rodar a sua aplicação;
-- Após finalizar, submeta um pull request com um comentário informando o seu e-mail de contato e aguarde nossa avaliação.
 
-## Proposta
-Você deverá desenvolver um projeto no padrão MVC utilizando PHP ou Node.js com a finalidade de que seja possível listar, visualizar, criar, editar e excluir animais de estimação de uma petshop.
-> **Observações:**
-> - Você pode utilizar a estratégia que considerar pertinente para armazenar os registros de sua aplicação;
-> - Cada animal de estimação precisa ter um identificador único, nome, idade, se é gato ou cachorro e sua respectiva raça; Além do nome e telefone para contato de seu dono.
+### Prerequisites
 
-## Diferenciais
-Serão considerados diferenciais o uso de qualquer tipo de framework utilizados no front-end (utilizamos ReactJS por aqui) ou no back-end da aplicação.
+Navegador <br>
+XAMPP
+
+```
+Chrome
+Versão Recente do XAMPP
+
+```
+
+### Download
+
+```
+1. Download XAMPP;
+2. Clonar Repositório;
+```
+
+### Installation
+
+Instalação do Projeto
+
+```
+
+1. Instalar XAMPP;
+2. Mover Pasta PETSHOP para XAMPP > htdocs
+
+```
+
+### Abrindo Projeto
+
+```
+1. Abrir XAMPP
+2. Startar Apache e Mysql;
+3. Abrir Navegador;
+4. Acessar localhost/phpmyadmin via url;
+5. Novo Banco de dados;
+6. Selecionar Banco de dados criado;
+7. Selecionar Importar;
+8. Procurar Arquivo;
+9. Selecionar crud.sql;
+10. Abrir nova guia e acessar localhost/PETSHOP
+
+```
+
+## Desenvolvido com
+
+- BOOTSTRAP 5 ( FRAMEWORK )
+- PHP ( LINGUAGEM DE PROGRAMAÇÃO )
+- JAVASCRIPT ( LINGUAGEM DE PROGRAMAÇÃO )
+- APACHE ( SERVIDOR )
+- MYSQL ( BANCO DE DADOS )
+- HTML5 ( LINGUAGEM DE MARCAÇÃO )
+- CSS3 ( FOLHA DE ESTILO )
+- UNSPLASH ( BANCO DE IMAGENS )
