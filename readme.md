@@ -57,3 +57,7 @@ Versão Recente do XAMPP
 - HTML5 ( LINGUAGEM DE MARCAÇÃO )
 - CSS3 ( FOLHA DE ESTILO )
 - UNSPLASH ( BANCO DE IMAGENS )
+
+## Deploy
+
+http://pets-s-hop.epizy.com/
