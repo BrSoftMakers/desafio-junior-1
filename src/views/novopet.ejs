@@ -1,0 +1,72 @@
+<%- include('includes/header')  %>
+
+<% if (pet._id) {%>
+    <form class="container align-items-center justify-content-center" action="/<%=pet._id%>" method="POST">
+<% } else { %>
+    <form class="container align-items-center justify-content-center" action="/register" method="POST">
+<% } %>
+        <input type="hidden" name="_csrf" value=<%=csrfToken %> >
+        <div class="wrapper">
+                <%- include('includes/messages') %>
+                <h2 class="text-center my-3">Cadastrar novo pet</h2>
+                <p class="text-center"> Oba! Outro peludinho!</p>
+                <div class="row">
+                    <!-- Nome input -->
+                    <div class="form-outline mb-4 col-lg-6">
+                        <label class="form-label" for="petname">Nome</label>
+                        <input value="<%= pet.petname %>" type="text" name="petname" class="form-control" />
+                    </div>
+
+                    <!-- Idade input -->
+                    <div class="form-outline mb-4 col-lg-6">
+                        <label class="form-label" for="age">Idade</label>
+                        <input value="<%= pet.age %>" type="text" name="age" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-outline mb-4 col-lg-6">
+                        <label class="form-label" for="animal">Tipo de pet</label>
+                        <select value="<%= pet.animal %>" name="animal" class="form-select" aria-label="<%= pet.animal %>">
+                                <option selected>selecione um</option>
+                                <option value="cachorro">Cachorro</option>
+                                <option value="gato">Gato</option>
+                                <option value="passaro">Pássaro</option>
+                                <option value="chinchila">Chinchila</option>
+                                <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                    <div class="form-outline mb-4 col-lg-6">
+                        <label class="form-label" for="breed">Raça</label>
+                        <input value="<%= pet.breed %>" type="text" name="breed" class="form-control" />
+                    </div>
+
+                </div>
+
+                <!-- Nome do dono input -->
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="ownername">Nome do dono</label>
+                    <input value="<%= pet.ownername %>" type="text" name="ownername" class="form-control" />
+                </div>
+
+                <!-- Telefone de contato input -->
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="ownerphone">Telefone de contato</label>
+                    <input value="<%= pet.ownerphone %>" type="tel" name="ownerphone" class="form-control" />
+                </div>
+
+                <!-- Submit button -->
+                <% if (pet._id) {%>
+                    <div class="d-grid gap-2 col-4 mx-auto">
+                        <button type="submit" class="btn btn-primary btn-block mb-4" style="background-color: #C75472; border: none">Salvar</button>
+                    </div>
+                <% } else { %>
+                    <div class="d-grid gap-2 col-4 mx-auto">
+                        <button type="submit" class="btn btn-primary btn-block mb-4" style="background-color: #C75472; border: none">Cadastrar</button>
+                    </div>
+                <% } %>
+        </div>
+
+    </form>
+
+<%- include('includes/footer')  %>

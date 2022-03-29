@@ -1,0 +1,41 @@
+{
+    "name": "lovet",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon server.js --ignore public --ignore frontend",
+        "dev": "webpack -w"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "connect-flash": "^0.1.1",
+        "connect-mongo": "^4.6.0",
+        "core-js": "^3.21.1",
+        "css-loader": "^6.3.0",
+        "csurf": "^1.11.0",
+        "dotenv": "^16.0.0",
+        "ejs": "^3.1.6",
+        "express": "^4.17.3",
+        "express-session": "^1.17.2",
+        "helmet": "^5.0.2",
+        "mongoose": "^6.2.8",
+        "multer": "^1.4.4",
+        "regenerator-runtime": "^0.13.9",
+        "style-loader": "^3.3.0",
+        "validator": "^13.7.0"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.15.7",
+        "@babel/core": "^7.15.5",
+        "@babel/preset-env": "^7.15.6",
+        "babel-loader": "^8.2.2",
+        "nodemon": "^2.0.15",
+        "webpack": "^5.54.0",
+        "webpack-cli": "^4.8.0"
+    }
+}

@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:wght@200;400&display=swap');
+:root {
+    --cherub: #F5CAEB;
+    --mondo: #4A3F31;
+    --cement: #927B63;
+    --chestnut-rose: #C75472;
+}
+
+body {
+    display: flex;
+}
+
+a {
+    color: black;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:hover,
+a:active {
+    color: var(--chestnut-rose);
+}
+
+.social-link {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    border-radius: 50%;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+}
+
+.social-link:hover,
+.social-link:focus {
+    background: #ddd;
+    text-decoration: none;
+    color: #555;
+}

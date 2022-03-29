@@ -1,0 +1,64 @@
+<%- include('includes/header')  %>
+    <%- include('includes/nav')  %>
+
+        <div class="container">
+            <div class="row">
+                <div class="col my-5">
+                    <h1 class=" text-center">Nossos Pets</h1>
+                    <%- include('includes/messages') %>
+                        <div class="row pb-5 mb-4">
+                            <div class="col-md-2 d-flex">
+                                <div class="card justify-content-center align-items-center text-center shadow border-0 rounded">
+                                    <a href="pets/novopet">
+                                        <i class="fa-solid fa-circle-plus fa-2x"></i>
+                                        <div class="p-4">
+                                            <h5 class="mb-0">ADICIONAR UM NOVO PET</h5>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <% if(pets.length > 0) { %>
+                                <% pets.forEach(pet => { %>
+                                    <div class="col-md-2 d-flex">
+                                        <div class="card justify-content-center align-items-center text-center shadow border-0 rounded">
+                                            <a href="#">
+                                                <div class="card-body p-0"><img src="https://cdn.pixabay.com/photo/2020/08/17/18/38/cat-5496162__480.jpg" alt="" class="w-100 card-img-top">
+                                                    <div class="p-4">
+                                                        <h5 class="mb-0">
+                                                            <%=pet.petname %>
+                                                        </h5>
+                                                        <class class="row">
+                                                            <p class="small text-muted">
+                                                                <%=pet.breed%>
+                                                            </p>
+                                                            <p class="small text-muted">
+                                                                <%=pet.ownername%>
+                                                            </p>
+
+                                                        </class>
+                                                        <ul class="social mb-0 list-inline mt-3">
+                                                            <li class="list-inline-item m-0"><a href="/pets/novopet/<%=pet._id %> " class="social-link"><i class="fa-solid fa-pen-to-square"></i></a></li>
+                                                            <li class="list-inline-item m-0"><a href="/pets/delete/<%=pet._id %>" class="social-link"><i class="fa-solid fa-trash"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                            </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% }); %>
+                                <% } else { %>
+                                    <div class="col-md-2 d-flex">
+                                        <div class="card justify-content-center align-items-center text-center shadow border-0 rounded">
+                                            <div class="card-body p-0">
+                                                <p class="text-center lead">Não existem contatos na sua agenda.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% } %>
+
+                        </div>
+
+                </div>
+            </div>
+        </div>
+        <%- include('includes/footer')  %>

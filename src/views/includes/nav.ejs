@@ -1,0 +1,30 @@
+<div class="d-flex flex-column p-3 text-black" style="width: 280px; background-color: #C75472;">
+    <a href="/" class="d-flex align-items-center mb-0 mb-md-0 me-md-auto text-white text-decoration-none">
+        <!-- <img src = "../../../../frontend/assets/images.svg"/> -->
+        <span class="fs-4">Lovet</span>
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+        <li>
+            <a href="#" class="nav-link text-white" style="border: 1px; border-color: #F5CAEB;">
+                <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg> Nossos Pets
+            </a>
+        </li>
+        <hr>
+        <div class="dropdown">
+
+
+            <% if(user) {%>
+                <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">username</a>
+                <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                    <li><a class="dropdown-item" href="#">Meu perfil</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="login/logout">Sair</a></li>
+                </ul>
+                <% } else {%>
+                    <a href="login" class="nav-link text-white" aria-current="page">Entrar</a>
+                    <% } %>
+        </div>
+</div>
