@@ -1,0 +1,14 @@
+#pets{
+    display: flex;
+    justify-content: center;    
+}
+
+#createPetButton{
+    display: flex;
+    justify-content: center;
+    margin:20px 0px;
+}
+
+.card{
+    margin: 0px 10px;
+}
