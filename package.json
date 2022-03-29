@@ -7,7 +7,7 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "nodemon server.js --ignore public --ignore frontend",
         "dev": "webpack -w",
-        "build": "node build/build.js"
+        "build": "node server.js"
     },
     "keywords": [],
     "author": "",
