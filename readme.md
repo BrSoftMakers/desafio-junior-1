@@ -10,4 +10,4 @@ Você deverá desenvolver um projeto no padrão MVC utilizando PHP ou Node.js co
 
 ### Acesse o deploy feito através do vercel:
 
-- lovet-desafiodevjr-5ju5i6j6f-livnascimento.vercel.app
+- 
