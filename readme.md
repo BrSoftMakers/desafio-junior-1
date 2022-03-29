@@ -10,7 +10,7 @@ Você deverá desenvolver um projeto no padrão MVC utilizando PHP ou Node.js co
 
 - faça um git clone do projeto
 - baixe o arquivo dotenv e cole na pasta do projeto
-- rode npm run dev
-- rode npm start
+- rode ```npm run dev```
+- rode simultaneamente ```npm start```
 - acesse http://localhost:3000
 - registre-se e faça login para ter acesso à página principal
