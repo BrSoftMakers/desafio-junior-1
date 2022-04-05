@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 09-Ago-2021 às 21:39
--- Versão do servidor: 10.4.20-MariaDB
--- versão do PHP: 8.0.9
+-- Tempo de geração: 05-Abr-2022 às 17:13
+-- Versão do servidor: 10.4.24-MariaDB
+-- versão do PHP: 7.4.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,27 +28,24 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `pets` (
-  `id` int(255) NOT NULL,
-  `petName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `tutorName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `tutorContact` text COLLATE utf8_unicode_ci NOT NULL,
-  `petAge` int(255) NOT NULL,
-  `petType` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `petBreed` varchar(255) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `id` int(11) NOT NULL,
+  `nome_pet` varchar(30) DEFAULT NULL,
+  `raca_pet` varchar(30) DEFAULT NULL,
+  `idade_pet` varchar(30) DEFAULT NULL,
+  `tipo_pet` varchar(30) DEFAULT NULL,
+  `nome_dono` varchar(30) DEFAULT NULL,
+  `telefone_dono` varchar(30) DEFAULT NULL,
+  `endereco_dono` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `pets`
 --
 
-INSERT INTO `pets` (`id`, `petName`, `tutorName`, `tutorContact`, `petAge`, `petType`, `petBreed`) VALUES
-(2, 'Maria do Bairro Oi Soi', 'Cicero Romario', '99 9 9999 9999', 6, 'Gato', 'amarelo e preto'),
-(4, 'Bolotas', 'Bel Sobral', '99 9999 9999', 2, 'Cachorro', 'pincher'),
-(5, 'Lucian', 'Senna', '00 0000 0000', 30, 'Cachorro', 'da tiro'),
-(6, 'Greta', 'Dhiego', '99 9999 9999', 1, 'gato', 'linda'),
-(7, 'Dumba', 'Dona Graça', '00 0000 0000', 6, 'Cachorro', 'vira-lata'),
-(8, 'Maicon', 'Jordan', '00 0000 0000', 5, 'Cachorro', 'muito grande'),
-(13, 'teste', 'teste', 'teste', 0, 'teste', 'teste');
+INSERT INTO `pets` (`id`, `nome_pet`, `raca_pet`, `idade_pet`, `tipo_pet`, `nome_dono`, `telefone_dono`, `endereco_dono`) VALUES
+(18, 'Bob', 'pinxer', '10', 'Gato', 'Dhiego', '08193116884', 'Ruaa'),
+(20, 'Teste ', 'teste', 'teste', 'Gato', 'teste', 'teste', 'teste'),
+(21, 'novo teste', 'novo teste', 'novo ', 'Cachorro', 'teste', 'teste', 'teste');
 
 --
 -- Índices para tabelas despejadas
@@ -68,7 +65,7 @@ ALTER TABLE `pets`
 -- AUTO_INCREMENT de tabela `pets`
 --
 ALTER TABLE `pets`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

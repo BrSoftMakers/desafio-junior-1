@@ -1,0 +1,36 @@
+
+.btn.btn-home{
+ border-radius: 30px;
+ padding: 25px;
+}
+
+.footer{
+  background-color: rgb(247, 239, 129);
+}
+.col-6{
+  width: 0%;
+}
+
+.navbar{
+  background-color: rgb(99, 161, 241);
+  color: white;
+}
+
+.navbar .container .navbar-brand{
+  color: white;
+}
+
+.navbar .navbar-nav .nav-item .nav-link{
+  color: white;
+}
+.container-form{
+  border: rgb(182, 182, 182) 1px solid;
+  border-radius: 20px;
+  margin-top: 100px;
+  padding: 20px;
+  width: 70%;
+}
+
+.row .col-4 .items img{
+  width: 10%;
+}
