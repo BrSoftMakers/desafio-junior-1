@@ -12,3 +12,8 @@
 .card{
     margin: 0px 10px;
 }
+
+#delete{
+    text-align: center;
+    margin-top: 3%;
+}

@@ -17,7 +17,7 @@
                 <li class="list-group-item">Nome do dono: {{$pet->ownerName}}</li>
                 <li class="list-group-item">Contato do dono: {{$pet->ownerPhone}}</li>
                 <button type="button" class="btn btn-primary" onclick="window.location='{{route('pets.edit',$pet->id)}}'">Editar</button>
-                <form method="POST" action="{{route('pets.delete',$pet)}}">
+                <form method="POST" action="{{route('pets.delete',$pet)}}" id="delete">
                     @csrf
                     @method('DELETE')
                     <input type="submit" class="btn btn-danger" value="X" onclick="return confirm('Deletar?')">
