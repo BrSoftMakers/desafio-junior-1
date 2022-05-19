@@ -12,23 +12,23 @@ export class createAnimals1652921682031 implements MigrationInterface {
                     isPrimary: true
                 },
                 {
-                    name: "dog-name",
+                    name: "dog_name",
                     type: "varchar"
                 },
                 {
-                    name: "dog-age",
+                    name: "dog_age",
                     type: "int"
                 },
                 {
-                    name: "dog-breed",
+                    name: "dog_breed",
                     type: "varchar"
                 },
                 {
-                    name: "owner-name",
+                    name: "owner_name",
                     type: "varchar"
                 },
                 {
-                    name: "owner-phone",
+                    name: "owner_phone",
                     type: "varchar"
                 },
                 {
