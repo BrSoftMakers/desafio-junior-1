@@ -1,5 +1,5 @@
 import { Router} from "express";
-import DogController from "./controllers/DogController";
+import DogController from "./src/controllers/DogController";
 
 const routes = Router();
 

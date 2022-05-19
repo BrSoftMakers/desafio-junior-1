@@ -6,9 +6,9 @@
   "author": "Leandro Rocha <leandro.wrocha98@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "tsnd --respawn --transpile-only src/index.ts",
+    "dev": "tsnd --respawn --transpile-only ./src/index.ts",
     "typeorm-cm": "typeorm-ts-node-esm migration:create",
-    "typeorm-run": "typeorm-ts-node-esm migration:run -d src/database/data-source.ts"
+    "typeorm-run": "typeorm-ts-node-esm migration:run -d ./src/database/data-source.ts"
   },
   "dependencies": {
     "dotenv": "^16.0.1",
