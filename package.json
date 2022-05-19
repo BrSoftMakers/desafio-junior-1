@@ -1,0 +1,25 @@
+{
+  "name": "desafio-desenvolvedor-junior",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/leandro-wrocha/desafio-desenvolvedor-junior.git",
+  "author": "Leandro Rocha <leandro.wrocha98@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsnd --respawn --transpile-only src/index.ts",
+    "typeorm-cm": "typeorm-ts-node-esm migration:create",
+    "typeorm-run": "typeorm-ts-node-esm migration:run -d src/database/data-source.ts"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "reflect-metadata": "^0.1.13",
+    "sqlite3": "^5.0.8",
+    "typeorm": "^0.3.6",
+    "typescript": "^4.6.4"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "ts-node-dev": "^1.1.8"
+  }
+}
