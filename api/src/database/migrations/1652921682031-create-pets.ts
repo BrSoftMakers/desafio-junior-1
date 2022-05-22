@@ -1,10 +1,10 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm"
 
-export class createAnimals1652921682031 implements MigrationInterface {
+export class createPets1652921682031 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(new Table({
-            name: "animals",
+            name: "pets",
             columns: [
                 {
                     name: "id",
@@ -12,15 +12,23 @@ export class createAnimals1652921682031 implements MigrationInterface {
                     isPrimary: true
                 },
                 {
-                    name: "dog_name",
+                    name: 'select_cat',
+                    type: "boolean"
+                },
+                {
+                    name: "select_dog",
+                    type: "boolean"
+                },
+                {
+                    name: "pet_name",
                     type: "varchar"
                 },
                 {
-                    name: "dog_age",
+                    name: "pet_age",
                     type: "int"
                 },
                 {
-                    name: "dog_breed",
+                    name: "pet_breed",
                     type: "varchar"
                 },
                 {
@@ -46,6 +54,6 @@ export class createAnimals1652921682031 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable('animals');
+        await queryRunner.dropTable('pets');
     }
 }

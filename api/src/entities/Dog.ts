@@ -1,7 +1,7 @@
 import { Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn } from "typeorm";
 import { randomUUID } from 'crypto';
 
-@Entity('animals')
+@Entity('pets')
 export class Dog {
   @PrimaryColumn()
   id: string

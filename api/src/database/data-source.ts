@@ -2,7 +2,7 @@ import { DataSource } from "typeorm";
 
 import { Dog } from "../entities/Dog";
 
-import { createAnimals1652921682031 } from "./migrations";
+import { createPets1652921682031 } from "./migrations";
 
 export const AppDataSource = new DataSource({
   type: "sqlite",
@@ -10,7 +10,7 @@ export const AppDataSource = new DataSource({
   logging: true,
 
   entities: [Dog],
-  migrations: [createAnimals1652921682031]
+  migrations: [createPets1652921682031]
 });
 
 export const dogRepository = AppDataSource.getRepository(Dog);
