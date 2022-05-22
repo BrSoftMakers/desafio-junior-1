@@ -1,6 +1,6 @@
 import { Popover } from "@headlessui/react";
 import { Pen } from "phosphor-react";
-import { WidgetForm } from "../widgetForm";
+import { WidgetForm } from "../WidgetForm";
 
 export function Widget() {
   return (

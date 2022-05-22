@@ -1,12 +1,15 @@
-import { useState } from "react";
-import axios from 'axios';
+import { useEffect, useState } from "react";
 import { Trash } from "phosphor-react";
+
+import { api } from '../../config/api';
 
 interface Pet {
   id: string;
-  dog_name: string;
-  dog_age: number;
-  dog_breed: string;
+  pet_name: string;
+  select_cat: boolean;
+  select_dog: boolean;
+  pet_age: number;
+  pet_breed: string;
   owner_name: string;
   owner_phone: string;
 }
@@ -15,37 +18,93 @@ interface IProps {
   pet: Pet
 }
 
+interface ICat {
+  name: string;
+}
+
 export function WidgetCard(props: IProps) {
-  const [borderDog, setBorderDog] = useState(false);
-  const [borderCat, setBorderCat] = useState(false);
-  const [dogName, setDogName] = useState(props.pet.dog_name);
-  const [dogAge, setDogAge] = useState(props.pet.dog_age);
-  const [dogBreed, setDogBreed] = useState([]);
+  const [borderDog, setBorderDog] = useState(props.pet.select_dog);
+  const [borderCat, setBorderCat] = useState(props.pet.select_cat);
+  const [petName, setPetName] = useState(props.pet.pet_name);
+  const [petAge, setPetAge] = useState(props.pet.pet_age);
+  const [petBreed, setPetBreed] = useState(props.pet.pet_breed);
+  const [arrayPetBreeds, setArrayPetBreeds] = useState<string[]>([]);
   const [ownerName, setOwnerName] = useState(props.pet.owner_name);
   const [ownerPhone, setOwnerPhone] = useState(props.pet.owner_phone);
+  let baseBreedURL: string;
 
-  function selectDog() {
+  async function selectDog() {
     setBorderDog(!borderDog);
     borderCat && setBorderCat(false);
+
+    const { data } = await api.get("https://dog.ceo/api/breeds/list");
+
+    setArrayPetBreeds(data.message);
+
+    if(borderDog) {
+      setArrayPetBreeds([]);
+    }
   }
 
-  function selectCat() {
+  async function selectCat() {
     setBorderCat(!borderCat);
     borderDog && setBorderDog(false);
+
+    const { data } = await api.get("https://api.thecatapi.com/v1/breeds");
+
+    const catBreedNames = data.map((cat: ICat) => cat.name);
+
+    setArrayPetBreeds(catBreedNames);
+
+    if(borderCat) {
+      setArrayPetBreeds([]);
+    }
   }
 
+  useEffect(() => {
+    borderDog ?
+    api.get("https://dog.ceo/api/breeds/list")
+      .then(({ data }) => {
+        setArrayPetBreeds(data.message);
+      })
+      .catch((err) => alert(err)) :
+    api.get("https://api.thecatapi.com/v1/breeds")
+      .then(({ data }) => {
+        let catBreedNames = data.map((cat: ICat) => cat.name);
+        
+        setArrayPetBreeds(catBreedNames);
+      })
+      .catch((err) => alert(err));
+  }, []);
+
+  useEffect(() => {
+    if(ownerPhone.length === 2) {
+
+      setOwnerPhone(`(${ownerPhone})`);
+    }
+    if(ownerPhone.length === 9) {
+      setOwnerPhone(`${ownerPhone}-`);
+    }
+  }, [ownerPhone]);
+
   async function handleSubmit() {
-    await axios.put(`http://localhost:3301/dogs/${props.pet.id}`, {
-      "dog_name": dogName,
-      "dog_age": 12,
-      "dog_breed": "sting",
+    await api.put(`/pets/${props.pet.id}`, {
+      "pet_name": petName,
+      "select_cat": borderCat,
+      "select_dog": borderDog,
+      "pet_age": petAge,
+      "pet_breed": petBreed,
       "owner_name": ownerName,
       "owner_phone": ownerPhone
     })
   }
 
+  async function handleDeletePet() {
+    await api.delete(`/pets/${props.pet.id}`);
+  }
+
   return (
-    <form onSubmit={handleSubmit} className="absolute top-8 right-8 bg-gray-700 mb-4 rounded drop-shadow-sm h-max p-2">
+    <form onSubmit={handleSubmit} className="absolute mr-4 md:top-8 md:right-8 bg-gray-700 mb-4 rounded drop-shadow-sm h-max p-2">
       <div className="flex flex-row space-x-5 items-center justify-center mb-2">
         {
           borderDog ? 
@@ -70,23 +129,59 @@ export function WidgetCard(props: IProps) {
 
       <div className="flex flex-col">
           <input
-          value={dogName}
-          onChange={event => setDogName(event.target.value)}
-          className="w-full rounded h-8 p-2 focus:outline-none bg-zinc-700" placeholder="Nome do PET"/>
+            value={petName}
+            onChange={event => setPetName(event.target.value)}
+            className="w-full rounded h-8 p-2 focus:outline-none bg-zinc-700" placeholder="Nome do PET"
+            required
+          />
+          
           <div className="flex flex-row space-x-4 my-4">
             <input
-            value={props.pet.dog_age}
-            className="w-full rounded h-8 p-2 focus:outline-none bg-zinc-700" placeholder="Idade"/>
-            <select className="w-full rounded h-8 p-2 focus:outline-none bg-zinc-700" placeholder="Raça"/>
+              value={petAge}
+              onChange={event => setPetAge(parseInt(event.target.value || '0'))}
+              className="w-full rounded h-8 p-2 focus:outline-none bg-zinc-700" placeholder="Idade"
+              required
+            />
+            
+            <select 
+              className="w-full rounded h-8 focus:outline-none bg-zinc-700"
+              onChange={event => setPetBreed(event.target.value)}
+              required
+            >
+              {
+                arrayPetBreeds.map((pet_breed) => {
+                  if (pet_breed === petBreed) {
+                    return (
+                      <option value={pet_breed} key={pet_breed}>{pet_breed}</option>
+                    )
+                  }
+                }
+                ) 
+              }
+              {
+                arrayPetBreeds.map((pet_breed) => (
+                  <option value={pet_breed} key={pet_breed}>{pet_breed}</option>
+                ))
+              } 
+            </select>
           </div>
           <div className="flex flex-col">
             <input 
-            value={ownerName}
-            onChange={event => setOwnerName(event.target.value)}
-            className="w-full h-8 p-2 focus:outline-none bg-zinc-700 mb-4" placeholder="Nome do dono"/>
+              value={ownerName}
+              onChange={event => setOwnerName(event.target.value)}
+              className="w-full h-8 p-2 focus:outline-none bg-zinc-700 mb-4" placeholder="Nome do dono"
+              required
+            />
             <input 
-            value={props.pet.owner_phone}
-            className="w-full h-8 p-2 focus:outline-none bg-zinc-700" placeholder="Tel: (11) 1 1111-1111"/>
+              value={ownerPhone}
+              onChange={event => setOwnerPhone(event.target.value)}
+              className="w-full h-8 p-2 focus:outline-none bg-zinc-700"
+              placeholder="Tel: (81)99999-9999"
+              type="tel"
+              pattern="\([1-9]{1}[0-9]{1}\)9[1-9]{1}[0-9]{3}-[0-9]{4}"
+              maxLength={14}
+              required
+            />
           </div>
 
           <div className="flex justify-center my-4 mb-2">
@@ -96,7 +191,7 @@ export function WidgetCard(props: IProps) {
           </div>
 
           <div className="absolute -bottom-5 right-4">
-            <button type="button" className="p-2 bg-gray-300 rounded-full" title="Excluir">
+            <button onClick={handleDeletePet} type="submit" className="p-2 bg-gray-300 rounded-full" title="Excluir">
               <Trash size={32} color="#d82013" weight="fill" />
             </button>
           </div>

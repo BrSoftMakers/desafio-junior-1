@@ -1,26 +1,31 @@
 import { ChangeEventHandler, ReactEventHandler, useEffect, useState } from "react";
-import axios from 'axios';
+
+import { api } from "../../config/api";
+
+interface ICat {
+  name: string;
+}
 
 export function WidgetForm() {
   const [borderDog, setBorderDog] = useState(false);
   const [borderCat, setBorderCat] = useState(false);
-  const [dogName, setDogName] = useState('');
-  const [dogAge, setDogAge] = useState('');
-  const [dogBreed, setDogBreed] = useState([]);
+  const [petName, setPetName] = useState('');
+  const [petAge, setPetAge] = useState('');
+  const [petBreed, setPetBreed] = useState('');
+  const [arrayPetBreeds, setArrayPetBreeds] = useState<string[]>([]);
   const [ownerName, setOwnerName] = useState('');
   const [ownerPhone, setOwnerPhone] = useState('');
-  const [dogs, setDogs]:any = useState([]);
 
   async function selectDog() {
     setBorderDog(!borderDog);
     borderCat && setBorderCat(false);
 
-    const dogss = await axios.get('https://dog.ceo/api/breeds/list');
+    const { data } = await api.get('https://dog.ceo/api/breeds/list');
     
-    setDogs(dogss.data.message);
+    setArrayPetBreeds(data.message);
 
     if (borderDog) {
-      setDogs([]);
+      setArrayPetBreeds([]);
     }
   }
 
@@ -28,21 +33,24 @@ export function WidgetForm() {
     setBorderCat(!borderCat);
     borderDog && setBorderDog(false);
 
-    const catss:any = await axios.get("https://api.thecatapi.com/v1/breeds");
+    const { data } = await api.get("https://api.thecatapi.com/v1/breeds");
 
-    const opa = catss.data.map((cat: any) => cat.name);
+    const catBreedNames = data.map((cat: ICat) => cat.name);
 
-    setDogs(opa);
+    setArrayPetBreeds(catBreedNames);
+
     if(borderCat) {
-      setDogs([]);
+      setArrayPetBreeds([]);
     }
   }
 
   async function handleSubmitForm() {
-    await axios.post('http://localhost:3301/dogs', {
-      "dog_name": dogName,
-      "dog_age": 12,
-      "dog_breed": "sting",
+    await api.post('/pets', {
+      "select_cat": borderCat,
+      "select_dog": borderDog,
+      "pet_name": petName,
+      "pet_age": petAge,
+      "pet_breed": petBreed,
       "owner_name": ownerName,
       "owner_phone": ownerPhone
     });
@@ -60,8 +68,13 @@ export function WidgetForm() {
   
 
   return (
-    <form onSubmit={handleSubmitForm} className="bg-gray-700 mb-4 rounded drop-shadow-sm h-max p-2 w-[calc(100vw-2rem)] md:w-max">
-      <div className="flex flex-row space-x-5 items-center justify-center mb-2">
+    <form 
+      onSubmit={handleSubmitForm} 
+      className="bg-gray-700 mb-4 rounded drop-shadow-sm h-max p-2 w-[calc(100vw-2rem)] md:w-max"
+    >
+      <div 
+        className="flex flex-row space-x-5 items-center justify-center mb-2"
+      >
         {
           borderDog ? 
           <button type="button" onClick={selectDog} className="p-4 border-2 border-[#3B82F6]">
@@ -85,32 +98,39 @@ export function WidgetForm() {
 
       <div className="flex flex-col">
           <input
-            className="w-full rounded h-8 p-2 focus:outline-none bg-zinc-700" placeholder="Nome do PET"
+            className="w-full rounded h-8 p-2 focus:outline-none bg-zinc-700" 
+            placeholder="Nome do PET"
             type="text"
             autoCapitalize="words"
-            onChange={event => setDogName(event.target.value)}
+            onChange={event => setPetName(event.target.value)}
             required
           />
           <div className="flex flex-row space-x-4 my-4">
             <input
-              className="w-full rounded h-8 p-2 focus:outline-none bg-zinc-700" placeholder="Idade"
+              className="w-full rounded h-8 p-2 focus:outline-none bg-zinc-700" 
+              placeholder="Idade"
               type="number"
               pattern="[A-Za-z]"
-              onChange={event => setDogAge(event.target.value)}
+              onChange={event => setPetAge(event.target.value)}
               required
             />
-            <select className="w-full rounded h-8 focus:outline-none bg-zinc-700" required>
+            <select 
+              className="w-full rounded h-8 focus:outline-none bg-zinc-700"
+              onChange={event => setPetBreed(event.target.value)}
+              required
+            >
               <option value="" selected>Raça...</option>
               {
-                dogs.map((dog: any) => (
-                  <option value={dog} key={dog}>{dog}</option>
+                arrayPetBreeds.map((pet) => (
+                  <option value={pet} key={pet}>{pet}</option>
                 ))
               }
             </select>
           </div>
           <div className="flex flex-col">
             <input
-              className="w-full h-8 p-2 focus:outline-none bg-zinc-700 mb-4" placeholder="Nome do dono"
+              className="w-full h-8 p-2 focus:outline-none bg-zinc-700 mb-4" 
+              placeholder="Nome do dono"
               type="text"
               onChange={event => setOwnerName(event.target.value)}
               required
@@ -122,11 +142,7 @@ export function WidgetForm() {
               pattern="\([1-9]{1}[0-9]{1}\)9[1-9]{1}[0-9]{3}-[0-9]{4}"
               maxLength={14}
               value={ownerPhone}
-              onChange={event => {
-                setOwnerPhone(event.target.value)
-                console.log(ownerPhone.length)
-                
-              }}
+              onChange={event => setOwnerPhone(event.target.value)}
               required
             />
           </div>

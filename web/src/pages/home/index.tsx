@@ -1,5 +1,5 @@
-import { List } from "../../components/list";
-import { Widget } from "../../components/widget";
+import { List } from "../../components/List";
+import { Widget } from "../../components/Widget";
 
 export function Home() {
   return (

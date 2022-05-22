@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
-import { CardComponent } from "../card";
-
 import axios from 'axios';
+
+import { api } from "../../config/api";
+import { CardComponent } from "../Card";
+
 
 interface Pet {
   id: string;
-  dog_name: string;
-  dog_age: number;
-  dog_breed: string;
+  pet_name: string;
+  select_cat: boolean;
+  select_dog: boolean;
+  pet_age: number;
+  pet_breed: string;
   owner_name: string;
   owner_phone: string;
 }
@@ -16,12 +20,12 @@ export function List() {
   const [pets, setPets] = useState<Pet[]>([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3301/dogs')
-    .then(response => {
-      setPets(response.data);
-    })
-    .catch();
-  }, );
+    api.get('/pets')
+      .then(({ data }) => {
+        setPets(data);
+      })
+      .catch((err) => alert(err));
+  }, []);
 
   return (
     <>
