@@ -1,6 +1,6 @@
 import { DataSource } from "typeorm";
 
-import { Dog } from "../entities/Dog";
+import { Pet } from "../entities/Pet";
 
 import { createPets1652921682031 } from "./migrations";
 
@@ -9,8 +9,8 @@ export const AppDataSource = new DataSource({
   database: "src/database/desafio-desenvolvedor-junior.sql",
   logging: true,
 
-  entities: [Dog],
+  entities: [Pet],
   migrations: [createPets1652921682031]
 });
 
-export const dogRepository = AppDataSource.getRepository(Dog);
+export const petRepository = AppDataSource.getRepository(Pet);

@@ -1,19 +1,24 @@
 import { Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn } from "typeorm";
-import { randomUUID } from 'crypto';
 
 @Entity('pets')
-export class Dog {
+export class Pet {
   @PrimaryColumn()
   id: string
 
   @Column()
-  dog_name: string
+  select_cat: boolean
 
   @Column()
-  dog_age: number
+  select_dog: boolean
 
   @Column()
-  dog_breed: string
+  pet_name: string
+
+  @Column()
+  pet_age: number
+
+  @Column()
+  pet_breed: string
 
   @Column()
   owner_name: string
@@ -26,13 +31,4 @@ export class Dog {
 
   @UpdateDateColumn()
   updated_at: Date
-
-  constructor() {
-    if(!this.id) {
-      this.id = randomUUID()
-    }
-
-    this.created_at = new Date()
-    this.updated_at = new Date()
-  }
 }
