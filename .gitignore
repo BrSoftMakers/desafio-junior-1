@@ -1,4 +1,5 @@
 api/node_modules/
+api/database/desafio-desenvolvedor-junior.sql
 yarn.lock
 .vscode
 node_modules
