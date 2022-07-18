@@ -22,5 +22,6 @@ Serão considerados diferenciais:
 
 - Conhecimento sólido em Expo ou React Native;
 - Boas práticas de escrita de código (código limpo, padrões de arquitetura, etc.);
-- Conhecimento sólido em Firebase;
-- Conhecimento em infraestruturas em nuvem.
+- Conhecimento em Firebase;
+- Conhecimento em infraestruturas em nuvem;
+- Conhecimento em PHP.
