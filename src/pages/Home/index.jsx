@@ -1,4 +1,5 @@
 import {
+  ButtonRegister,
   Form,
   FormRegisterWrapper,
   H1,
@@ -89,6 +90,9 @@ const Home = () => {
             </LabelInput>
           </InputsWrapperRight>
         </Form>
+        <ButtonRegister>
+          Cadastrar
+        </ButtonRegister>
       </FormRegisterWrapper>
     </SectionWrapper>
   );

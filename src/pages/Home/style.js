@@ -9,6 +9,7 @@ export const FormRegisterWrapper = styled.div`
   max-height: 100%;
   width: 80%;
   border-radius: 2%;
+  padding-bottom: 2rem;
   margin: 3rem auto 0 auto;
   box-shadow: 1px 1px 6px 7px rgba(0, 0, 0, 0.125);
 `;
@@ -38,12 +39,11 @@ export const TitleInfo = styled(P)`
 
 export const Form = styled.form`
   max-width: 100%;
-  padding-bottom: 5rem;
+  padding-bottom: 3rem;
   overflow: hidden;
   margin: 0 15rem 0 15rem;
   display: flex;
   flex-direction: row;
-  flex-wrap: no-wrap;
   align-items: start;
   justify-content: space-evenly;
 
@@ -63,7 +63,7 @@ export const Form = styled.form`
 export const InputsWrapperLeft = styled.div`
   width: 100%;
   height: 100%;
-  @media (max-width: 820px){
+  @media (max-width: 820px) {
     margin-bottom: 2rem;
   }
 `;
@@ -93,5 +93,25 @@ export const InputText = styled.input`
 
   &::placeholder {
     color: #aaa;
+  }
+`;
+
+export const ButtonRegister = styled.button`
+  display: block;
+  margin: 0 auto;
+  background-color: #1a8918;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 120px;
+  font-weight: bold;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1em;
+
+  &:hover {
+    background-color: #0f730c;
+    color: #fff;
   }
 `;
