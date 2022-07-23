@@ -19,6 +19,12 @@ export const H1 = styled.h1`
     text-align: center;
     padding: 20px;
   `}
+  @media(max-width: 570px) {
+    font-size: 1.3em;
+  }
+  @media(max-width: 450px) {
+    font-size: 1em;
+  }
 `;
 
 export const P = styled.p`
@@ -27,6 +33,9 @@ export const P = styled.p`
     text-align: center;
     margin-bottom: 30px;
   `}
+  @media(max-width: 570px){
+    font-size: .8em;
+  }
 `;
 
 export const TitleInfo = styled(P)`
@@ -50,7 +59,7 @@ export const Form = styled.form`
     margin: 0 10rem;
   }
   @media (max-width: 1040px) {
-    margin: 0 3rem;
+    margin: 0 0.5rem;
   }
 `;
 
