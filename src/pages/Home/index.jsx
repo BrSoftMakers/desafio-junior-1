@@ -17,6 +17,7 @@ import {
 // Hooks
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useInsertDocument } from "../../hooks/useInsertDocument";
 
 const Home = () => {
   // states
@@ -30,9 +31,49 @@ const Home = () => {
   const [tutorAdress, setTutorAdress] = useState("");
   const [formError, setFormError] = useState("");
 
+  const { insertDocument, response } = useInsertDocument("pets");
+
   // HandleFormSubmit
   const handleSubmit = (e) => {
     e.preventDefault();
+    setFormError("");
+
+    // validate url image
+    try {
+      new URL(petImage);
+    } catch (error) {
+      setFormError("A imagem precisa ser uma URL");
+    }
+
+    // checar todos os valores
+    if (
+      !petName ||
+      !petImage ||
+      !petAge ||
+      !petType ||
+      !petBreed ||
+      !tutorName ||
+      !tutorContact ||
+      !tutorAdress ||
+      !formError
+    ) {
+      setFormError("Preencha todos os campos antes de continuar.");
+    }
+
+    if (formError) return;
+
+    insertDocument({
+      petName,
+      petImage,
+      petAge,
+      petType,
+      petBreed,
+      tutorName,
+      tutorContact,
+      tutorAdress,
+    });
+
+    // redirect to pets page
   };
 
   return (
@@ -135,7 +176,12 @@ const Home = () => {
               ></InputText>
             </LabelInput>
           </InputsWrapperRight>
-          <ButtonRegister>Cadastrar</ButtonRegister>
+          {!response.loading && <ButtonRegister>Cadastrar</ButtonRegister>}
+          {response.loading && (
+            <ButtonRegister disabled>Aguarde...</ButtonRegister>
+          )}
+          {response.error && <P>{response.error}</P>}
+          {formError && <P>{formError}</P>}
         </Form>
       </FormRegisterWrapper>
     </SectionWrapper>
