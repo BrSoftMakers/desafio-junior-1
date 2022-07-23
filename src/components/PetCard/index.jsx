@@ -1,6 +1,9 @@
 import styles from "./PetCard.module.css";
+import { useDeleteDocument } from "../../hooks/useDeleteDocument";
 
 const PetCard = ({ post }) => {
+  const { deleteDocument } = useDeleteDocument("pets");
+
   return (
     <div className={styles.post_detail}>
       <img src={post.petImage} alt={post.petType} />
@@ -14,7 +17,12 @@ const PetCard = ({ post }) => {
       <p>Endereço: {post.tutorAdress}</p>
       <div className={styles.buttons_wrapper}>
         <button className={styles.btn}>Editar</button>
-        <button className={styles.btn_danger}>Excluir</button>
+        <button
+          className={styles.btn_danger}
+          onClick={() => deleteDocument(post.id)}
+        >
+          Excluir
+        </button>
       </div>
     </div>
   );

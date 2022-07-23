@@ -1,10 +1,11 @@
-import { useState } from "react";
-import PetCard from "../../components/PetCard";
+// Hooks
 import { useFetchDocuments } from "../../hooks/useFetchDocuments";
+// Components
+import PetCard from "../../components/PetCard";
+// CSS
 import { SectionWrapper } from "./style";
 
 const Pets = () => {
-  const [query, setQuery] = useState("");
   const { documents: posts, loading } = useFetchDocuments("pets");
 
   return (
