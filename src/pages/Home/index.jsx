@@ -1,3 +1,4 @@
+// CSS
 import {
   ButtonRegister,
   Form,
@@ -13,13 +14,33 @@ import {
   TitleInfo,
 } from "./style";
 
+// Hooks
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 const Home = () => {
+  // states
+  const [petName, setPetName] = useState("");
+  const [petImage, setPetImage] = useState("");
+  const [petAge, setPetAge] = useState("");
+  const [petType, setPetType] = useState("");
+  const [petBreed, setPetBreed] = useState("");
+  const [tutorName, setTutorName] = useState("");
+  const [tutorContact, setTutorContact] = useState("");
+  const [tutorAdress, setTutorAdress] = useState("");
+  const [formError, setFormError] = useState("");
+
+  // HandleFormSubmit
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <SectionWrapper>
       <FormRegisterWrapper>
         <H1>Cadastre seu Pet</H1>
         <P>Realize o cadastro do seu animalzinho</P>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <InputsWrapperLeft>
             <TitleInfo>Informações do Pet</TitleInfo>
             <LabelInput>
@@ -29,6 +50,19 @@ const Home = () => {
                 name="petName"
                 required
                 placeholder="Nome do seu Pet..."
+                onChange={(e) => setPetName(e.target.value)}
+                value={petName}
+              ></InputText>
+            </LabelInput>
+            <LabelInput>
+              <SpanInput>Foto:</SpanInput>
+              <InputText
+                type="text"
+                name="petImage"
+                required
+                placeholder="Insira uma URL válida de uma foto..."
+                onChange={(e) => setPetImage(e.target.value)}
+                value={petImage}
               ></InputText>
             </LabelInput>
             <LabelInput>
@@ -37,7 +71,9 @@ const Home = () => {
                 type="text"
                 name="petAge"
                 required
-                placeholder="Idade do seu Pet..."
+                placeholder="Insira uma URL válida de uma foto..."
+                onChange={(e) => setPetAge(e.target.value)}
+                value={petAge}
               ></InputText>
             </LabelInput>
             <LabelInput>
@@ -47,6 +83,8 @@ const Home = () => {
                 name="petType"
                 required
                 placeholder="Cachorro, Gato ou..."
+                onChange={(e) => setPetType(e.target.value)}
+                value={petType}
               ></InputText>
             </LabelInput>
             <LabelInput>
@@ -56,6 +94,8 @@ const Home = () => {
                 name="petBreed"
                 required
                 placeholder="A raça do seu Pet..."
+                onChange={(e) => setPetBreed(e.target.value)}
+                value={petBreed}
               ></InputText>
             </LabelInput>
           </InputsWrapperLeft>
@@ -68,6 +108,8 @@ const Home = () => {
                 name="tutorName"
                 required
                 placeholder="Nome do tutor..."
+                onChange={(e) => setTutorName(e.target.value)}
+                value={tutorName}
               ></InputText>
             </LabelInput>
             <LabelInput>
@@ -77,22 +119,24 @@ const Home = () => {
                 name="contact"
                 required
                 placeholder="Digite seu contato..."
+                onChange={(e) => setTutorContact(e.target.value)}
+                value={tutorContact}
               ></InputText>
             </LabelInput>
             <LabelInput>
               <SpanInput>Endereço:</SpanInput>
               <InputText
                 type="text"
-                name="petName"
+                name="tutorAdress"
                 required
-                placeholder="Idade do seu Pet..."
+                placeholder="Endereço (Rua, Nº, Bairro)..."
+                onChange={(e) => setTutorContact(e.target.value)}
+                value={tutorAdress}
               ></InputText>
             </LabelInput>
           </InputsWrapperRight>
+          <ButtonRegister>Cadastrar</ButtonRegister>
         </Form>
-        <ButtonRegister>
-          Cadastrar
-        </ButtonRegister>
       </FormRegisterWrapper>
     </SectionWrapper>
   );
