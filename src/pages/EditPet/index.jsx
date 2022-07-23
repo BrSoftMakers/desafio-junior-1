@@ -17,8 +17,8 @@ import {
 // Hooks
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useInsertDocument } from "../../hooks/useInsertDocument";
 import { useFetchDocument } from "../../hooks/useFetchDocument";
+import { useUpdateDocument } from "../../hooks/useUpdateDocument";
 
 const EditPet = () => {
   const { id } = useParams();
@@ -48,7 +48,7 @@ const EditPet = () => {
     }
   }, [post]);
 
-  const { insertDocument, response } = useInsertDocument("pets");
+  const { updateDocument, response } = useUpdateDocument("pets");
 
   const navigate = useNavigate();
 
@@ -73,7 +73,7 @@ const EditPet = () => {
 
     if (formError) return;
 
-    insertDocument({
+    const data = {
       petName,
       petImage,
       petAge,
@@ -82,7 +82,9 @@ const EditPet = () => {
       tutorName,
       tutorContact,
       tutorAdress,
-    });
+    };
+
+    updateDocument(id, data);
 
     // redirect to pets page
     navigate("/pets");
