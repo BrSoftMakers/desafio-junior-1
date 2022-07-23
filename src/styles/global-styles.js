@@ -11,7 +11,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     body {
-        background-color: #f6f8fa;
+        background-color: ${theme.colors.bgColor};
         font-family: ${theme.fonts.family.default};
     }
 `;

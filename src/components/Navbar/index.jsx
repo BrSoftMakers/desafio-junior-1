@@ -4,13 +4,16 @@ import {
   NavbarLink,
   NavbarLinkRight,
   RightContainer,
+  Span,
 } from "./style";
 
 const Navbar = () => {
   return (
     <NavbarContainer>
       <LeftContainer>
-        <NavbarLink to="/">SoftPets</NavbarLink>
+        <NavbarLink to="/">
+          Soft<Span>Pets</Span>
+        </NavbarLink>
       </LeftContainer>
       <RightContainer>
         <NavbarLinkRight to="/">Home</NavbarLinkRight>

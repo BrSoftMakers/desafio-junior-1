@@ -12,7 +12,7 @@ export const NavbarContainer = styled.nav`
   display: flex;
   flex-direction: row;
   align-items: center;
-  box-shadow: 2px 2px 14px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 7px 4px rgba(0, 0, 0, 0.3);
 `;
 
 export const LeftContainer = styled.div`
@@ -41,4 +41,15 @@ export const NavbarLink = styled(Link)`
 
 export const NavbarLinkRight = styled(NavbarLink)`
   font-size: 1.5rem;
+`;
+
+export const Span = styled.span`
+  ${({ theme }) => css`
+     {
+      color: ${theme.colors.defaultGreen};
+      font-weight: bolder;
+      text-transform: uppercase;
+      margin-left: 0.3rem;
+    }
+  `}
 `;
