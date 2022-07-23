@@ -115,10 +115,10 @@ const Home = () => {
             <LabelInput>
               <SpanInput>Contato:</SpanInput>
               <InputText
-                type="text"
+                type="number"
                 name="contact"
                 required
-                placeholder="Digite seu contato..."
+                placeholder="Digite seu contato... (apenas números)"
                 onChange={(e) => setTutorContact(e.target.value)}
                 value={tutorContact}
               ></InputText>
@@ -130,7 +130,7 @@ const Home = () => {
                 name="tutorAdress"
                 required
                 placeholder="Endereço (Rua, Nº, Bairro)..."
-                onChange={(e) => setTutorContact(e.target.value)}
+                onChange={(e) => setTutorAdress(e.target.value)}
                 value={tutorAdress}
               ></InputText>
             </LabelInput>
