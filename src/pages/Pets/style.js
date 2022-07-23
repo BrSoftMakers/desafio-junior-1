@@ -11,6 +11,10 @@ export const Title = styled.h2`
   `}
   padding: 2rem 0rem 0rem 0rem;
   text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+  }
 `;
 
 export const PetCardWrapper = styled.div`

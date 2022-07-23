@@ -48,7 +48,7 @@ const EditPet = () => {
     }
   }, [post]);
 
-  const { updateDocument, response } = useUpdateDocument("pets");
+  const { updateDocument } = useUpdateDocument("pets");
 
   const navigate = useNavigate();
 

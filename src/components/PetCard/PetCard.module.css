@@ -3,15 +3,21 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 2rem 2rem 5rem;
   margin: 2em auto;
   border-radius: 2%;
   box-shadow: 1px 1px 7px 7px rgba(0, 0, 0, 0.2);
 }
 
+.img_wrapper {
+  max-width: 600px;
+}
+
 .post_detail img {
   margin: 1em 0;
-  max-width: 600px;
+  width: 100%;
+  display: block;
 }
 
 .post_detail p {
@@ -39,7 +45,7 @@ h3 {
   border: none;
   padding: 10px 15px;
   font-size: 1em;
-  margin-right: .5em;
+  margin-right: 0.5em;
 }
 
 .btn_danger {
@@ -55,6 +61,20 @@ h3 {
   font-size: 1em;
 }
 
-.btn_danger:hover, .btn:hover{
-    opacity: .8;
+.btn_danger:hover,
+.btn:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .post_detail{
+        width: 90%;
+    }
+
+    .buttons_wrapper{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
 }

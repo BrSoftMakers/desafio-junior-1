@@ -10,7 +10,9 @@ const PetCard = ({ post }) => {
 
   return (
     <div className={styles.post_detail}>
-      <img src={post.petImage} alt={post.petType} />
+      <div className={styles.img_wrapper}>
+        <img src={post.petImage} alt={post.petType} />
+      </div>
       <h2>{post.petName}</h2>
       <p>Espécie: {post.petType}</p>
       <p>Raça: {post.petBreed}</p>
