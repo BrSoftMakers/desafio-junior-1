@@ -11,8 +11,10 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
+// Page s
 import Home from "./pages/Home";
 import Pets from "./pages/Pets";
+import EditPet from "./pages/EditPet/index";
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/pets" element={<Pets />} />
+          <Route path="/pets/edit/:id" element={<EditPet />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
         <GlobalStyles />

@@ -31,7 +31,7 @@ const Home = () => {
   const [tutorAdress, setTutorAdress] = useState("");
   const [formError, setFormError] = useState("");
 
-  const { insertDocument, response } = useInsertDocument("pets");
+  const { insertDocument } = useInsertDocument("pets");
 
   const navigate = useNavigate();
 

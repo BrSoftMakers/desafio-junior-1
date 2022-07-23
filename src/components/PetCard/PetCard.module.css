@@ -30,6 +30,7 @@ h3 {
 .btn {
   background-color: #1a8918;
   color: #fff;
+  text-decoration: none;
   text-align: center;
   cursor: pointer;
   border-radius: 10px;
@@ -50,7 +51,7 @@ h3 {
   width: 120px;
   font-weight: bold;
   border: none;
-  padding: 10px 15px;
+  padding: 10px 10px;
   font-size: 1em;
 }
 

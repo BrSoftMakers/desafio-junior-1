@@ -1,5 +1,9 @@
+// CSS
 import styles from "./PetCard.module.css";
+// Hook
 import { useDeleteDocument } from "../../hooks/useDeleteDocument";
+// Router
+import { Link } from "react-router-dom";
 
 const PetCard = ({ post }) => {
   const { deleteDocument } = useDeleteDocument("pets");
@@ -16,7 +20,9 @@ const PetCard = ({ post }) => {
       <p>Contato: {post.tutorContact}</p>
       <p>Endereço: {post.tutorAdress}</p>
       <div className={styles.buttons_wrapper}>
-        <button className={styles.btn}>Editar</button>
+        <Link to={`/pets/edit/${post.id}`} className={styles.btn}>
+          Editar
+        </Link>
         <button
           className={styles.btn_danger}
           onClick={() => deleteDocument(post.id)}
