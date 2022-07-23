@@ -33,17 +33,12 @@ const Home = () => {
 
   const { insertDocument, response } = useInsertDocument("pets");
 
+  const navigate = useNavigate();
+
   // HandleFormSubmit
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormError("");
-
-    // validate url image
-    try {
-      new URL(petImage);
-    } catch (error) {
-      setFormError("A imagem precisa ser uma URL");
-    }
 
     // checar todos os valores
     if (
@@ -54,8 +49,7 @@ const Home = () => {
       !petBreed ||
       !tutorName ||
       !tutorContact ||
-      !tutorAdress ||
-      !formError
+      !tutorAdress
     ) {
       setFormError("Preencha todos os campos antes de continuar.");
     }
@@ -74,6 +68,7 @@ const Home = () => {
     });
 
     // redirect to pets page
+    navigate("/pets");
   };
 
   return (
@@ -98,13 +93,13 @@ const Home = () => {
             <LabelInput>
               <SpanInput>Foto:</SpanInput>
               <InputText
-                type="text"
+                type="url"
                 name="petImage"
                 required
                 placeholder="Insira uma URL válida de uma foto..."
                 onChange={(e) => setPetImage(e.target.value)}
                 value={petImage}
-              ></InputText>
+              />
             </LabelInput>
             <LabelInput>
               <SpanInput>Idade:</SpanInput>
@@ -112,7 +107,7 @@ const Home = () => {
                 type="text"
                 name="petAge"
                 required
-                placeholder="Insira uma URL válida de uma foto..."
+                placeholder="Idade..."
                 onChange={(e) => setPetAge(e.target.value)}
                 value={petAge}
               ></InputText>
@@ -176,12 +171,7 @@ const Home = () => {
               ></InputText>
             </LabelInput>
           </InputsWrapperRight>
-          {!response.loading && <ButtonRegister>Cadastrar</ButtonRegister>}
-          {response.loading && (
-            <ButtonRegister disabled>Aguarde...</ButtonRegister>
-          )}
-          {response.error && <P>{response.error}</P>}
-          {formError && <P>{formError}</P>}
+          <ButtonRegister>Cadastrar</ButtonRegister>
         </Form>
       </FormRegisterWrapper>
     </SectionWrapper>
