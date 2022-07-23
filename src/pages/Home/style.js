@@ -7,7 +7,7 @@ export const SectionWrapper = styled.section`
 
 export const FormRegisterWrapper = styled.div`
   max-height: 100%;
-  width: 70%;
+  width: 80%;
   border-radius: 2%;
   margin: 3rem auto 0 auto;
   box-shadow: 1px 1px 6px 7px rgba(0, 0, 0, 0.125);
@@ -38,6 +38,7 @@ export const TitleInfo = styled(P)`
 
 export const Form = styled.form`
   max-width: 100%;
+  padding-bottom: 5rem;
   overflow: hidden;
   margin: 0 15rem 0 15rem;
   display: flex;
