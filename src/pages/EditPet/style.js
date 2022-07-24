@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 export const SectionWrapper = styled.section`
   width: 100%;
   max-height: 100vh;
+  margin-bottom: 10rem;
 `;
 
 export const FormRegisterWrapper = styled.div`
@@ -22,7 +23,7 @@ export const H1 = styled.h1`
   @media(max-width: 570px) {
     font-size: 1.3em;
   }
-  @media(max-width: 450px) {
+  @media (max-width: 450px) {
     font-size: 1em;
   }
 `;
@@ -33,8 +34,8 @@ export const P = styled.p`
     text-align: center;
     margin-bottom: 30px;
   `}
-  @media(max-width: 570px){
-    font-size: .8em;
+  @media(max-width: 570px) {
+    font-size: 0.8em;
   }
 `;
 
