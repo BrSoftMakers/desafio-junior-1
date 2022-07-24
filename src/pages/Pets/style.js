@@ -1,8 +1,12 @@
 import styled, { css } from "styled-components";
 
 export const SectionWrapper = styled.section`
+  ${({ theme }) => css`
+    background-color: ${theme.colors.bgColor};
+  `}
   width: 100%;
-  max-height: 100vh;
+  min-height: 100vh;
+  padding-bottom: 20rem;
 `;
 
 export const Title = styled.h2`

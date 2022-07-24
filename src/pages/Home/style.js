@@ -2,7 +2,8 @@ import styled, { css } from "styled-components";
 
 export const SectionWrapper = styled.section`
   width: 100%;
-  max-height: 100vh;
+  min-height: 100vh;
+  margin-bottom: 20rem;
 `;
 
 export const FormRegisterWrapper = styled.div`

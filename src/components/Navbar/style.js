@@ -7,7 +7,7 @@ export const NavbarContainer = styled.nav`
       background-color: ${theme.colors.bgColorDarker};
     }
   `}
-  height: 100px;
+  height: 120px;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -47,10 +47,16 @@ export const NavbarLink = styled(Link)`
   @media (max-width: 450px) {
     font-size: 1.2rem;
   }
+
+  &:hover{
+    opacity: .8;
+    transform: scale(1.05);
+    color: #1a8918;
+  }
 `;
 
 export const NavbarLinkRight = styled(NavbarLink)`
-  font-size: 1rem;
+  font-size: 1.5rem;
 
   @media (max-width: 700px) {
     font-size: 0.9rem;

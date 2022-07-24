@@ -15,6 +15,7 @@ import {
 import Home from "./pages/Home";
 import Pets from "./pages/Pets";
 import EditPet from "./pages/EditPet/index";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/pets/edit/:id" element={<EditPet />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
+        <Footer />
         <GlobalStyles />
       </ThemeProvider>
     </Router>
