@@ -1,7 +1,7 @@
 (PT-br)
 =======
 
-Projeto MiniBLOG
+Projeto SoftPets
 ----------------
 
 Esse projeto foi desenvoldido utilizando as ferramentas ReactJS no Front-End e Firebase/Firestore no Back-End.
@@ -25,7 +25,7 @@ Como rodar a aplicação:
 (EN-us)
 =======
 
-MiniBlog Project
+Softpets Project
 ----------------
 
 This project was developed using the ReactJS tools on the Front-End and Firebase/Firestore on the Back-End.
