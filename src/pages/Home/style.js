@@ -62,7 +62,7 @@ export const Form = styled.form`
     margin: 0 3rem;
   }
   @media (max-width: 520px) {
-    margin: 0 .5rem;
+    margin: 0 2rem;
   }
 `;
 

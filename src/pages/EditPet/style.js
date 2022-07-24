@@ -60,7 +60,7 @@ export const Form = styled.form`
     margin: 0 10rem;
   }
   @media (max-width: 1040px) {
-    margin: 0 1rem;
+    margin: 0 2rem;
   }
 `;
 
