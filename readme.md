@@ -1,4 +1,54 @@
-# Getting Started with Create React App
+(PT-br)
+=======
+
+Projeto MiniBLOG
+----------------
+
+Esse projeto foi desenvoldido utilizando as ferramentas ReactJS no Front-End e Firebase/Firestore no Back-End.
+Trata-se de um projeto de PetShop com a finalidade de listar, visualizar, criar, editar e excluir animais de estimação de um PetShop.
+
+Como rodar a aplicação:
+-----------------------
+
+### Acessando a URL do projeto
+
+*   Foi feito o deploy do projeto na plataforma Netlify
+*   Para testar, basta acessar este [link](https://luminous-semolina-15a556.netlify.app/)
+
+### Clonando o projeto
+
+1.  Faça um clone do repositório utilizando `git`
+2.  No seu terminal integrado, acesse a pasta do projeto e rode o comando `npm i` para instalar as dependências do projeto
+3.  Após instalar as dependências, digite o comando `npm start`
+4.  O APP inicializará na porta `http://localhost:3000`
+
+(EN-us)
+=======
+
+MiniBlog Project
+----------------
+
+This project was developed using the ReactJS tools on the Front-End and Firebase/Firestore on the Back-End.
+It is a PetShop project with the purpose of listing, viewing, creating, editing and deleting pets from a PetShop. 
+
+How to run the application:
+---------------------------
+
+### Accessing the project URL
+
+*   The project was deployed on the Netlify platform
+*   To test, just access this [link](https://luminous-semolina-15a556.netlify.app/)
+
+
+### Cloning the project
+
+1.  Clone the repository using `git`
+2.  In your integrated terminal, access the project folder and run the `npm i` command to install the project's dependencies
+3.  After installing the dependencies, type the command `npm start`
+4.  The blog will run on port `http://localhost:3000`
+
+
+# React Default Instructions
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
