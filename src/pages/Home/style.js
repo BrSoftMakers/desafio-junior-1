@@ -22,7 +22,7 @@ export const H1 = styled.h1`
   `}
 
   @media(max-width: 570px) {
-    font-size: 1.3em;
+    font-size: 1.4em;
   }
 `;
 
@@ -34,7 +34,7 @@ export const P = styled.p`
   `}
 
   @media(max-width: 570px) {
-    font-size: 0.8em;
+    font-size: 0.9em;
   }
 `;
 

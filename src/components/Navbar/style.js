@@ -41,11 +41,11 @@ export const NavbarLink = styled(Link)`
   display: flex;
 
   @media (max-width: 700px) {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   @media (max-width: 450px) {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
 
   &:hover{
@@ -59,11 +59,11 @@ export const NavbarLinkRight = styled(NavbarLink)`
   font-size: 1.5rem;
 
   @media (max-width: 700px) {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 
   @media (max-width: 450px) {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 `;
 
