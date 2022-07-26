@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize')
 const database = require('./infrastructure/database.js')
+const petOwner = require('../models/PetOwner.js')
 
 const pet = database.define('pet', {
   id: {
@@ -25,5 +26,7 @@ const pet = database.define('pet', {
     allowNull: false
   },
 })
+
+pet.belongsTo(petOwner)
 
 module.exports = pet
