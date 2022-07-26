@@ -1,6 +1,7 @@
 const express = require('express')
 const PetController = require('./controllers/PetController.js')
 const PetOwnerController = require('./controllers/PetOwnerController.js')
+const PetShopController = require('./controllers/PetShopController.js')
 
 const routes = express.Router()
 

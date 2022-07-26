@@ -1,28 +1,28 @@
 const Sequelize = require('sequelize')
-const database = require('./infrastructure/database.js')
-const pet = require('../models/Pet.js')
+const database = require('../infrastructure/database.js')
+const Pet = require('./Pet.js')
 
 const petOwner = database.define('petOwner', {
   id: {
-    type: Sequelize.INTEER.UNSIGNED,
+    type: Sequelize.INTEGER,
     primaryKey: true,
     autoIncrement: true,
     allowNull: false
   },
   name: {
-    type: Sequelize.String,
+    type: Sequelize.STRING,
     allowNull: false
   },
   phoneNumber: {
-    type: Sequelize.String,
+    type: Sequelize.STRING,
     allowNull: false
   },
   zipcode: {
-    type: Sequelize.String,
+    type: Sequelize.STRING,
     allowNull: false
   },
   street: {
-    type: Sequelize.String,
+    type: Sequelize.STRING,
     allowNull: false
   },
   houseNumber: {
@@ -31,6 +31,6 @@ const petOwner = database.define('petOwner', {
   }
 })
 
-petOwner.hasMany(pet)
+petOwner.hasMany(Pet, {foreignKey: 'petOwner_id'})
 
 module.exports = petOwner

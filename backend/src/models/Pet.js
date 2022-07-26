@@ -1,16 +1,16 @@
 const Sequelize = require('sequelize')
-const database = require('./infrastructure/database.js')
-const petOwner = require('../models/PetOwner.js')
+const database = require('../infrastructure/database.js')
+const petOwner = require('./PetOwner.js')
 
 const pet = database.define('pet', {
   id: {
-    type: Sequelize.INTEER.UNSIGNED,
+    type: Sequelize.INTEGER,
     primaryKey: true,
     autoIncrement: true,
     allowNull: false
   },
   name: {
-    type: Sequelize.String,
+    type: Sequelize.STRING,
     allowNull: false
   },
   age: {
@@ -22,11 +22,9 @@ const pet = database.define('pet', {
     allowNull: false
   },
   breedOfAnimal: {
-    type: Sequelize.String,
+    type: Sequelize.STRING,
     allowNull: false
   },
 })
-
-pet.belongsTo(petOwner)
 
 module.exports = pet
