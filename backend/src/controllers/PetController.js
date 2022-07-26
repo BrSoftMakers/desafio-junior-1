@@ -38,7 +38,7 @@ module.exports = {
                 }
             }
         )
-        
+
         const pet = await Pet.findByPk(req.params.id)
         res.json(pet)
     },
