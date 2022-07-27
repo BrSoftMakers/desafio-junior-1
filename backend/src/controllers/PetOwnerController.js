@@ -2,13 +2,15 @@ const PetOwner = require('../models/PetOwner.js')
 
 module.exports = {
     async store(req, res) {
+        const { name, phoneNumber, zipcode, street, houseNumber } = req.body
+
         const petOwner = await PetOwner.create(
             {
-                name: req.body.name,
-                phoneNumber: req.body.phoneNumber,
-                zipcode: req.body.zipcode,
-                street: req.body.street,
-                houseNumber: req.body.houseNumber
+                name,
+                phoneNumber,
+                zipcode,
+                street,
+                houseNumber
             }
         )
 
@@ -21,33 +23,40 @@ module.exports = {
     },
 
     async findById(req, res) {
-        const petOwner = await PetOwner.findByPk(req.params.id)
+        const { petOwner_id } = req.params
+        const petOwner = await PetOwner.findByPk(petOwner_id)
         res.json(petOwner)
     },
 
     async update(req, res) {
+        const { name, phoneNumber, zipcode, street, houseNumber } = req.body
+        const { petOwner_id } = req.params
+
         await PetOwner.update(
             {
-                name: req.body.name,
-                age: req.body.age,
-                typeOfAnimal: req.body.typeOfAnimal,
-                breedOfAnimal: req.body.breedOfAnimal
+                name,
+                phoneNumber,
+                zipcode,
+                street,
+                houseNumber
             },
             {
                 where: {
-                    id: req.params.id
+                    id: petOwner_id
                 }
             }
         )
-        
-        const petOwner = await PetOwner.findByPk(req.params.id)
+
+        const petOwner = await PetOwner.findByPk(petOwner_id)
         res.json(petOwner)
     },
 
     async removeById(req, res) {
+        const { petOwner_id } = req.params
+
         await PetOwner.destroy({
             where: {
-                id: req.params.id
+                id: petOwner_id
             }
         })
 

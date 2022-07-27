@@ -2,7 +2,7 @@ const Sequelize = require('sequelize')
 const database = require('../infrastructure/database.js')
 const Pet = require('./Pet.js')
 
-const petOwner = database.define('petOwner', {
+const PetOwner = database.define('petOwner', {
   id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
@@ -31,6 +31,6 @@ const petOwner = database.define('petOwner', {
   }
 })
 
-petOwner.hasMany(Pet, {foreignKey: 'petOwner_id'})
+PetOwner.hasMany(Pet, {foreignKey: 'petOwner_id', as: 'pets' })
 
-module.exports = petOwner
+module.exports = PetOwner

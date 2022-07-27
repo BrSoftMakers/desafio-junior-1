@@ -1,8 +1,7 @@
 const Sequelize = require('sequelize')
 const database = require('../infrastructure/database.js')
-const petOwner = require('./PetOwner.js')
 
-const pet = database.define('pet', {
+const Pet = database.define('pets', {
   id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
@@ -24,7 +23,8 @@ const pet = database.define('pet', {
   breedOfAnimal: {
     type: Sequelize.STRING,
     allowNull: false
-  },
+  }
+
 })
 
-module.exports = pet
+module.exports = Pet

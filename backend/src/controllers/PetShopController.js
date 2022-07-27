@@ -4,9 +4,8 @@ module.exports = {
     async findAll(req, res) {
         const pets = await PetOwner.findAll({
             atributes: ['name', 'phoneNumber', 'zipcode', 'street', 'houseNumber'],
-            include: {
-                association: 'petOwner_id'
-            }
+            include: ['pets']
+
         })
 
         return res.json(pets)
