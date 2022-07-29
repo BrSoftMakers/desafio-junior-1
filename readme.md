@@ -1,27 +1,36 @@
  ![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
 
 # Desafio - Desenvolvedor Fullstack - Júnior
-Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato ao cargo proposto.
-
-## Instruções
-- Faça um fork deste repositório;
-- O conjunto mínimo de tecnologias a serem utilizadas são: alguma das tecnologias front-end e back-end informadas na proposta desse desafio;
-- Crie um passo a passo de como rodar a sua aplicação;
-- Após finalizar, submeta um pull request com um comentário informando o seu e-mail de contato e aguarde nossa avaliação.
+Seja bem-vindo! Este Desafio me foi apresentado para testar minhas habilidades como Dev.
 
 ## Proposta
-Você deverá desenvolver um projeto utilizando React no front-end e Node.js no back-end com a finalidade de que seja possível listar, visualizar, criar, editar e excluir animais de estimação de uma petshop.
+Foi desenvolvido um projeto utilizando React no front-end e Node.js no back-end com a finalidade de que seja possível listar, visualizar, criar, editar e excluir animais de estimação de um petshop, foi também adicionado um sistema de autenticação com o firebase, e na listagem de pets foi adicionado páginação.
 
-**Observações:**
-> - Você pode utilizar qualquer banco de dados relacional disponível;
-> - Cada animal de estimação precisa ter um identificador único, nome, idade, tipo (gato ou cachorro) e raça;
-> - Além dos dados do animal, é necessário também salvar os dados pessoais, de contato e de endereço do seu respectivo dono.
+# Tecnologias
 
-## Diferenciais
-Serão considerados diferenciais:
+ - ReactJs
+ - NodeJs
+ - Prisma
+ - PostgreSQL
+ - Docker
+ - Firebase
+ - TailwindCSS
+ - HeadLessUI
+ - Figma
+ - Typescript
+ - Express
 
-- Conhecimento sólido em Expo ou React Native;
-- Boas práticas de escrita de código (código limpo, padrões de arquitetura, etc.);
-- Conhecimento em Firebase;
-- Conhecimento em infraestruturas em nuvem;
-- Conhecimento em PHP.
+# Minhas experiências
+
+Foi um projeto e tanto, e graças a Deus está concluído, não tenho costume de trabalhar com
+frontend, mas achei que estava na hora de me desafiar, quase não dava tempo de entregar o projeto também, foi muita correria durante a semana, mas o projeto está pronto, minha expriência com o backend não foi tão grande, já tinha uma noção de como trabalhar, agora
+com o frontend, foi o maior desafio, nunca tinha chegado a este nível, e muita coisa
+fui experimentando durante o projeto, CSS é muito complicado, mas agora me considero mais 
+amigo dele, o TailwindCSS facilitou muito minha jornada, já havia trabalhado com React
+Porém só em aulas, agora realmente fiz um projeto grande, tenho muitas coisas ainda para implementar
+como um sistemas de filas, validação de dados no backend, melhorar a estrutura de pastas do frontend,
+procurar entender melhor o sistema do firebase, atualizar o estilo do formulário, são coisas
+que levam bastante tempo, mas irei aos poucos atualizando este repositorio, para melhorar meu
+proprio conteudo de estudo
+
+# Como instalar meu projeto
