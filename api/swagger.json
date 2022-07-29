@@ -1,0 +1,8 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API PetShop Ave Maria",
+    "description": "Documentação da api de teste",
+    "version": "1.0.0"
+  }
+}

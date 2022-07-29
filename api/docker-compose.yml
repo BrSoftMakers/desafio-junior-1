@@ -1,0 +1,20 @@
+version: '3.9'
+
+services:
+  db:
+    container_name: db_pg
+    image: postgres:14.4-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=docker_projeto
+    ports:
+      - 5432:5432
+    volumes:
+      - dbdata:/data/docker_projeto
+    network_mode: bridge
+
+volumes:
+  dbdata:
+    driver: local
