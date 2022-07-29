@@ -34,3 +34,41 @@ que levam bastante tempo, mas irei aos poucos atualizando este repositorio, para
 proprio conteudo de estudo
 
 # Como instalar meu projeto
+
+Clone o repositorio e adicione as dependências
+
+```
+git clone https://github.com/leandro-wrocha/desafio-junior-1.git
+
+## adicione as dependencias da API
+cd desafio-junior-1/api
+yarn
+
+## adicione as dependencias da web
+cd desafio-junior-1/web
+yarn
+```
+
+Inicializando banco de dados com Docker
+```
+cd desafio-junior-1/api
+docker-compose up
+
+## abra outra guia do terminal e carregue os dados do DB com schema do prisma
+
+cd desafio-junior-1/api
+yarn prisma migrate dev
+yarn prisma generate
+```
+
+Agora vamos iniciar o projeto
+
+```
+cd desafio-junior-1/api
+yarn dev
+
+cd desafio-junior-1/web
+yarn dev
+```
+
+### Observação:: Usuário de login da aplicação é leandro-wrocha
