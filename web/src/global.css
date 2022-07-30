@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@body {
+  font-family: "Poppins";
+}
+
+span, input, select {
+  font-family: 'Poppins';
+}
+
+strong {
+  font-family: 'Poppins';
+  font-weight: bold;
+}

@@ -1,0 +1,5 @@
+-- AlterTable
+ALTER TABLE "owners" ALTER COLUMN "zip_code" SET DATA TYPE VARCHAR(255);
+
+-- AlterTable
+ALTER TABLE "pets" ALTER COLUMN "age" SET DATA TYPE VARCHAR(255);

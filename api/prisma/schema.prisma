@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id   String @id @unique @default(uuid())
+  name String @unique @db.VarChar(255)
+
+  @@map("users")
+}
+
+model Pet {
+  id      String @id @unique @default(uuid())
+  name    String @db.VarChar(255)
+  age     String @db.VarChar(255)
+  type    String @db.VarChar(255)
+  breed   String @db.VarChar(255)
+  ownerId String
+  Owner   Owner  @relation(fields: [ownerId], references: [id])
+
+  @@map("pets")
+}
+
+model Owner {
+  id         String  @id @unique @default(uuid())
+  name       String  @db.VarChar(255)
+  phone      String  @db.VarChar(255)
+  zip_code   String  @db.VarChar(255)
+  address    String  @db.VarChar(255)
+  district   String  @db.VarChar(255)
+  city       String  @db.VarChar(255)
+  uf         String  @db.Char(2)
+  complement String? @db.VarChar(255)
+  pets       Pet[]
+
+  @@map("owners")
+}
