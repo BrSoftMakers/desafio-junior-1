@@ -4,6 +4,7 @@ export const SectionWrapper = styled.section`
   ${({ theme }) => css`
     background-color: ${theme.colors.bgColor};
   `}
+  margin-top: 30px;
   width: 100%;
   min-height: 100vh;
   padding-bottom: 20rem;
