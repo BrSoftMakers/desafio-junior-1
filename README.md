@@ -68,9 +68,9 @@ INSERT INTO `petshop`.`pets` (`name`, `age`, `type`, `race`, `owner`, `address`)
 INSERT INTO `petshop`.`pets` (`name`, `age`, `type`, `race`, `owner`, `address`) VALUES ( 'Baleia', '15', 'Cachorro', 'Vira Lata', 'Fabiano', 'Rua 0');
 INSERT INTO `petshop`.`pets` (`name`, `age`, `type`, `race`, `owner`, `address`) VALUES ( 'Napoleão', '20', 'Porco', '', '', 'Rua Z');
 ```
-<div style="font-weight: bold">
-- No arquivo server/models/db adicionar as informações do do MySQL
-</div>
+
+- No arquivo **server/models/db** adicionar as informações do do MySQL
+
 
 <br>
 
