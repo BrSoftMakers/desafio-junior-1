@@ -1,0 +1,17 @@
+
+
+.action-buttons-custom {
+    display: flex;
+
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    width: 100%;
+
+    margin-top: 100%;
+}
+
+input {
+    margin-bottom: 15px;
+}

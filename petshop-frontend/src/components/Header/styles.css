@@ -1,0 +1,12 @@
+
+
+.header {
+    display: flex;
+
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 75%;
+
+    margin-top: 50px;
+}

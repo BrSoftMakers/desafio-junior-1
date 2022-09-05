@@ -1,0 +1,32 @@
+version: '3.3'
+
+services:
+  backend:
+    build: .
+    command: yarn start:dev
+    container_name: backend
+    env_file:
+      - .env
+    networks:
+      - webnet
+    ports:
+      - '3000:3000'
+    links:
+      - database
+    depends_on:
+      - database
+    volumes:
+      - .:/usr/app
+  database:
+    image: postgres:latest
+    ports:
+      - '5432:5432'
+    container_name: database
+    networks:
+      - webnet
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DATABASE: postgres
+networks:
+  webnet:

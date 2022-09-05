@@ -1,0 +1,19 @@
+
+
+.tr :hover{
+    cursor: pointer;
+   background-color: darkgray;
+   color: #fff;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100px;
+}
+
+.table-container {
+    margin-top: 50px;
+}
