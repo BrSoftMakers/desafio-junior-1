@@ -1,6 +1,6 @@
 # Desafio - Desenvolvedor Fullstack - Júnior
 
-- Desenvolvimento do back-end da aplicação utilizando Node.js no back-end com a finalidade de que seja possível listar, visualizar, criar, editar e excluir animais de estimação de uma petshop.
+- Desenvolvimento do back-end da aplicação utilizando Node.js com a finalidade de que seja possível listar, visualizar, criar, editar e excluir animais de estimação de uma petshop.
 
 **Observações:**
 > - Você pode utilizar qualquer banco de dados relacional disponível;
