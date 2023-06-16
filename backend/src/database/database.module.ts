@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common'
 import { ConfigModule } from '@nestjs/config'
 import { SequelizeModule } from '@nestjs/sequelize'
+import { Customer } from 'src/customers/entities/customer.entity'
 
 @Module({
   imports: [
@@ -13,7 +14,7 @@ import { SequelizeModule } from '@nestjs/sequelize'
       password: process.env.DATABASE_PASSWORD,
       database: process.env.DATABASE_DB,
       synchronize: false,
-      models: [],
+      models: [Customer],
     }),
   ],
 })

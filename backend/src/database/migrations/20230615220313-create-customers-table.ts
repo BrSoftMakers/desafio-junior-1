@@ -16,6 +16,7 @@ module.exports = {
       },
       email: {
         type: dataTypes.STRING,
+        unique: true,
         allowNull: false,
       },
       phone: {
