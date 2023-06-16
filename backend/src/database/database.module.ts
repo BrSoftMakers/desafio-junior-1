@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common'
 import { ConfigModule } from '@nestjs/config'
 import { SequelizeModule } from '@nestjs/sequelize'
+import { CustomerAddress } from 'src/customer-addresses/entities/customer-address.entity'
 import { Customer } from 'src/customers/entities/customer.entity'
 
 @Module({
@@ -13,8 +14,9 @@ import { Customer } from 'src/customers/entities/customer.entity'
       username: process.env.DATABASE_USER,
       password: process.env.DATABASE_PASSWORD,
       database: process.env.DATABASE_DB,
+      models: [Customer, CustomerAddress],
+      autoLoadModels: false,
       synchronize: false,
-      models: [Customer],
     }),
   ],
 })

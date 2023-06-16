@@ -4,6 +4,7 @@ import { CreateCustomerDto } from './dto/create-customer.dto'
 import { UpdateCustomerDto } from './dto/update-customer.dto'
 import { Customer } from './entities/customer.entity'
 import { PaginationQueryDto } from './dto/pagination-query.dto'
+import { CustomerAddress } from 'src/customer-addresses/entities/customer-address.entity'
 
 @Injectable()
 export class CustomersService {
@@ -26,7 +27,9 @@ export class CustomersService {
   }
 
   async findOne(id: number) {
-    const customer = await this.customerModel.findByPk(id)
+    const customer = await this.customerModel.findByPk(id, {
+      include: [CustomerAddress],
+    })
     if (!customer) throw new NotFoundException()
     return customer
   }

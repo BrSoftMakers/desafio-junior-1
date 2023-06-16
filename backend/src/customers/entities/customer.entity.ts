@@ -5,7 +5,9 @@ import {
   DataType,
   CreatedAt,
   UpdatedAt,
+  HasOne,
 } from 'sequelize-typescript'
+import { CustomerAddress } from 'src/customer-addresses/entities/customer-address.entity'
 
 @Table({ tableName: 'customers' })
 export class Customer extends Model<Customer> {
@@ -33,6 +35,9 @@ export class Customer extends Model<Customer> {
     allowNull: false,
   })
   phone: string
+
+  @HasOne(() => CustomerAddress)
+  customerAddress: CustomerAddress
 
   @CreatedAt
   createdAt: Date
