@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --fonte-titulo-cabecalho: 'Pacifico', cursive;
+  --fonte-formulario: 'Montserrat', sans-serif;
+
+  --cor-formulario: #fff;
+  --cor-de-fundo: #d6eaff;
+  --cor-titulo: #4D4D4D;
+  --cor-titulo-secundario: #707070;
+}

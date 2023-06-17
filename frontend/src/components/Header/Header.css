@@ -1,0 +1,26 @@
+.header {
+  align-items: center;
+  display: flex;
+  background-color: var(--cor-de-fundo);
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.header-link__titulo {
+  color: var(--cor-titulo);
+  font-size: 4rem;
+  font-family: var(--fonte-titulo-cabecalho);
+  text-decoration: none;
+}
+
+.header-links {
+  display: flex;
+}
+
+.header-link {
+  color: var(--cor-titulo-secundario);
+  font-family: var(--fonte-titulo-cabecalho);
+  font-size: 2rem;
+  margin: 2rem;
+  text-decoration: none;
+}
