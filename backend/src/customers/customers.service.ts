@@ -27,7 +27,8 @@ export class CustomersService {
   }
 
   async findOne(id: number) {
-    const customer = await this.customerModel.findByPk(id, {
+    const customer = await this.customerModel.findOne({
+      where: { id },
       include: [CustomerAddress],
     })
     if (!customer) throw new NotFoundException()

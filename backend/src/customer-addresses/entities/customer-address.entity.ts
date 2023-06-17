@@ -10,7 +10,7 @@ import {
 } from 'sequelize-typescript'
 import { Customer } from 'src/customers/entities/customer.entity'
 
-Table({ tableName: 'customerAddresses' })
+@Table({ tableName: 'customerAddresses' })
 export class CustomerAddress extends Model<CustomerAddress> {
   @Column({
     type: DataType.INTEGER,
