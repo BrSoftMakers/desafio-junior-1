@@ -5,17 +5,28 @@ import { UpdateCustomerDto } from './dto/update-customer.dto'
 import { Customer } from './entities/customer.entity'
 import { PaginationQueryDto } from './dto/pagination-query.dto'
 import { CustomerAddress } from 'src/customer-addresses/entities/customer-address.entity'
+import { CustomerAddressesService } from 'src/customer-addresses/customer-addresses.service'
 
 @Injectable()
 export class CustomersService {
   constructor(
     @InjectModel(Customer)
-    private customerModel: typeof Customer
+    private customerModel: typeof Customer,
+    private readonly customerAddressesService: CustomerAddressesService
   ) {}
 
   async create(createCustomerDto: CreateCustomerDto) {
-    const customer = await this.customerModel.create(createCustomerDto)
-    await customer.save()
+    const {
+      customerAddress: customerAddressProperties,
+      ...customerProperties
+    } = createCustomerDto
+
+    const customer = await this.customerModel.create(customerProperties)
+    const customerCreated = await customer.save()
+    await this.customerAddressesService.create(
+      customerCreated.id,
+      customerAddressProperties
+    )
   }
 
   async findAll({ limit = 10, page = 1 }: PaginationQueryDto) {
@@ -36,13 +47,21 @@ export class CustomersService {
   }
 
   async update(id: number, updateCustomerDto: UpdateCustomerDto) {
+    const {
+      customerAddress: customerAddressProperties,
+      ...customerProperties
+    } = updateCustomerDto
     const customer = await this.findOne(id)
-    Object.assign(customer, { ...updateCustomerDto })
+    Object.assign(customer, { ...customerProperties })
     await customer.save()
+    await this.customerAddressesService.update(
+      customer.id,
+      customerAddressProperties
+    )
   }
 
   async remove(id: number) {
-    const user = await this.findOne(id)
-    await user.destroy()
+    const customer = await this.findOne(id)
+    await customer.destroy()
   }
 }

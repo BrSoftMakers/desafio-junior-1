@@ -1,4 +1,14 @@
-import { IsEmail, IsNotEmpty, IsString, Length } from 'class-validator'
+import {
+  IsEmail,
+  IsNotEmpty,
+  IsString,
+  Length,
+  ValidateNested,
+  IsNotEmptyObject,
+  IsObject,
+} from 'class-validator'
+import { Type } from 'class-transformer'
+import { CreateCustomerAddressDto } from 'src/customer-addresses/dto/create-customer-address.dto'
 
 export class CreateCustomerDto {
   @IsNotEmpty()
@@ -15,4 +25,10 @@ export class CreateCustomerDto {
   @IsString()
   @Length(11, 20)
   phone: string
+
+  @IsNotEmptyObject()
+  @IsObject()
+  @ValidateNested()
+  @Type(() => CreateCustomerAddressDto)
+  customerAddress: CreateCustomerAddressDto
 }
