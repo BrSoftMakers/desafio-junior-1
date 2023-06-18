@@ -1,0 +1,13 @@
+.lista-tutores__container {
+  box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  background-color: #f2f2f2;
+  padding: 2rem 6.4rem;
+  width: 50%;
+}
+
+th {
+  text-align: start;
+  border-bottom: .2rem solid var(--cor-titulo-secundario);
+  padding-bottom: .5rem;
+}
