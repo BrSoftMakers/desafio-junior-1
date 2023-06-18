@@ -2,30 +2,28 @@ import { DataTypes, QueryInterface, fn } from 'sequelize'
 
 module.exports = {
   up: async (queryInterface: QueryInterface, dataTypes: typeof DataTypes) => {
-    await queryInterface.createTable('animals', {
-      id: {
+    await queryInterface.createTable('customerAnimal', {
+      customerId: {
         type: dataTypes.INTEGER,
-        allowNull: false,
         primaryKey: true,
-        autoIncrement: true,
-        unique: true,
-      },
-      name: {
-        type: dataTypes.STRING,
         allowNull: false,
+        references: {
+          model: 'customers',
+          key: 'id',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
       },
-      age: {
+      animalId: {
         type: dataTypes.INTEGER,
+        primaryKey: true,
         allowNull: false,
-      },
-      type: {
-        type: dataTypes.ENUM,
-        values: ['dog', 'cat'],
-        allowNull: true,
-      },
-      race: {
-        type: dataTypes.STRING,
-        allowNull: false,
+        references: {
+          model: 'animals',
+          key: 'id',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
       },
       createdAt: {
         type: dataTypes.DATE,
@@ -41,6 +39,6 @@ module.exports = {
   },
 
   down: async (queryInterface: QueryInterface) => {
-    await queryInterface.dropTable('animals')
+    await queryInterface.dropTable('customerAnimal')
   },
 }
