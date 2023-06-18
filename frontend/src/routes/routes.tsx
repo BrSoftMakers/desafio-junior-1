@@ -1,10 +1,11 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom'
-import { Text } from '@chakra-ui/react'
+import { RootLayout } from '../layouts/RootLayout/RootLayout'
 
 export const routes = createBrowserRouter([
   {
     path: '/',
-    element: <Text fontSize="5xl">Home page</Text>,
+    element: <RootLayout />,
+    children: [],
   },
   {
     path: '*',
