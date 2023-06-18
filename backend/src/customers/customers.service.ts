@@ -6,6 +6,7 @@ import { Customer } from './entities/customer.entity'
 import { PaginationQueryDto } from './dto/pagination-query.dto'
 import { CustomerAddress } from 'src/customer-addresses/entities/customer-address.entity'
 import { CustomerAddressesService } from 'src/customer-addresses/customer-addresses.service'
+import { Animal } from 'src/animals/entities/animal.entity'
 
 @Injectable()
 export class CustomersService {
@@ -40,7 +41,7 @@ export class CustomersService {
   async findOne(id: number) {
     const customer = await this.customerModel.findOne({
       where: { id },
-      include: [CustomerAddress],
+      include: [CustomerAddress, Animal],
     })
     if (!customer) throw new NotFoundException()
     return customer

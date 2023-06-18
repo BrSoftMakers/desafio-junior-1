@@ -6,8 +6,11 @@ import {
   CreatedAt,
   UpdatedAt,
   HasOne,
+  BelongsToMany,
 } from 'sequelize-typescript'
+import { Animal } from 'src/animals/entities/animal.entity'
 import { CustomerAddress } from 'src/customer-addresses/entities/customer-address.entity'
+import { CustomerAnimal } from 'src/customer-animal/entities/customer-animal.entity'
 
 @Table({ tableName: 'customers' })
 export class Customer extends Model<Customer> {
@@ -38,6 +41,9 @@ export class Customer extends Model<Customer> {
 
   @HasOne(() => CustomerAddress)
   customerAddress: CustomerAddress
+
+  @BelongsToMany(() => Animal, () => CustomerAnimal)
+  animals: Animal[]
 
   @CreatedAt
   createdAt: Date

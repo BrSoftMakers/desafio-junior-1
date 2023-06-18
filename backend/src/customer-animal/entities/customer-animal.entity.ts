@@ -9,7 +9,7 @@ import {
 import { Animal } from 'src/animals/entities/animal.entity'
 import { Customer } from 'src/customers/entities/customer.entity'
 
-@Table
+@Table({ tableName: 'customerAnimal' })
 export class CustomerAnimal extends Model<CustomerAnimal> {
   @ForeignKey(() => Customer)
   @Column

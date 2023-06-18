@@ -4,6 +4,7 @@ import { UpdateAnimalDto } from './dto/update-animal.dto'
 import { InjectModel } from '@nestjs/sequelize'
 import { Animal } from './entities/animal.entity'
 import { PaginationQueryDto } from 'src/customers/dto/pagination-query.dto'
+import { Customer } from 'src/customers/entities/customer.entity'
 
 @Injectable()
 export class AnimalsService {
@@ -28,6 +29,7 @@ export class AnimalsService {
   async findOne(id: number) {
     const animal = await this.animalModel.findOne({
       where: { id },
+      include: [Customer],
     })
     if (!animal) throw new NotFoundException()
     return animal

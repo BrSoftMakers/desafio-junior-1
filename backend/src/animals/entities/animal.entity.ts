@@ -5,8 +5,11 @@ import {
   UpdatedAt,
   DataType,
   Model,
+  BelongsToMany,
 } from 'sequelize-typescript'
 import { AnimalTypes } from '../types/enums/enums'
+import { Customer } from 'src/customers/entities/customer.entity'
+import { CustomerAnimal } from 'src/customer-animal/entities/customer-animal.entity'
 
 @Table({ tableName: 'animals' })
 export class Animal extends Model<Animal> {
@@ -39,6 +42,9 @@ export class Animal extends Model<Animal> {
     allowNull: false,
   })
   race: string
+
+  @BelongsToMany(() => Customer, () => CustomerAnimal)
+  customers: Customer[]
 
   @CreatedAt
   createdAt: Date
