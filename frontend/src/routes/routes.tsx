@@ -1,14 +1,20 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom'
 import { RootLayout } from '../layouts/RootLayout/RootLayout'
+import { Pets } from '../pages/Pets/Pets'
 
 export const routes = createBrowserRouter([
   {
-    path: '/',
+    path: '/pets',
     element: <RootLayout />,
-    children: [],
+    children: [
+      {
+        path: '/pets',
+        element: <Pets />,
+      },
+    ],
   },
   {
     path: '*',
-    element: <Navigate to="/" />,
+    element: <Navigate to="/pets" />,
   },
 ])

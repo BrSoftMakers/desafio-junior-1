@@ -20,10 +20,9 @@ export const RootLayout: React.FC = () => {
         flex={1}
         rounded={4}
         backgroundColor="white"
+        overflowY="auto"
       >
-        <Container maxW="container.xl">
-          <Outlet />
-        </Container>
+        <Outlet />
       </Box>
     </Box>
   )
