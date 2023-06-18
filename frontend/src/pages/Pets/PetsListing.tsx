@@ -1,19 +1,15 @@
 import {
   Box,
   Button,
-  Card,
-  CardFooter,
   Center,
   Container,
-  Divider,
-  Image,
   Text,
   Wrap,
   WrapItem,
 } from '@chakra-ui/react'
 import { PetCard } from '../../components/PetCard/PetCard'
 
-export const Pets: React.FC = () => {
+export const PetsListing: React.FC = () => {
   return (
     <Container maxW="container.xl">
       <Box flex={1}>

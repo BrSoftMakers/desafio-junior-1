@@ -1,6 +1,7 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom'
 import { RootLayout } from '../layouts/RootLayout/RootLayout'
-import { Pets } from '../pages/Pets/Pets'
+import { PetsListing } from '../pages/Pets/PetsListing'
+import { PetDetail } from '../pages/Pets/PetDetail'
 
 export const routes = createBrowserRouter([
   {
@@ -9,7 +10,11 @@ export const routes = createBrowserRouter([
     children: [
       {
         path: '/pets',
-        element: <Pets />,
+        element: <PetsListing />,
+      },
+      {
+        path: '/pets/:petId',
+        element: <PetDetail />,
       },
     ],
   },
