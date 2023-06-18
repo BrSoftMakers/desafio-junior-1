@@ -1,7 +1,7 @@
 import { db } from "../db.js";
 
-export const getUsers = (_, res) => {
-  const q = "SELECT * FROM tutores";
+export const getPets = (_, res) => {
+  const q = "SELECT * FROM pets";
 
   db.query(q, (err, data) => {
     if (err) return res.json(err);

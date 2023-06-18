@@ -1,4 +1,4 @@
-.header {
+.cabecalho {
   align-items: center;
   display: flex;
   background-color: var(--cor-de-fundo);
@@ -6,18 +6,18 @@
   padding: 2rem;
 }
 
-.header-link__titulo {
+.cabecalho-link__titulo {
   color: var(--cor-titulo);
   font-size: 4rem;
   font-family: var(--fonte-titulo-cabecalho);
   text-decoration: none;
 }
 
-.header-links {
+.cabecalho-links {
   display: flex;
 }
 
-.header-link {
+.cabecalho-link {
   color: var(--cor-titulo-secundario);
   font-family: var(--fonte-titulo-cabecalho);
   font-size: 2rem;

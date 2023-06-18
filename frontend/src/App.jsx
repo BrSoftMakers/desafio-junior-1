@@ -1,9 +1,13 @@
-import { useState } from 'react'
-import Header from './components/header'
+import { useState } from "react"
+import Cabecalho from "./components/Cabecalho"
+import Formulario from "./components/Formulario"
 
 function App() {
   return (
-    <Header />
+    <div>
+      <Cabecalho />
+      <Formulario />
+    </div>
   )
 }
 

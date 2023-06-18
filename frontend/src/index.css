@@ -1,13 +1,15 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: var(--fonte-geral);
+  font-size: 1.6rem;
 }
 
 :root {
   font-size: 62.5%;
 
   --fonte-titulo-cabecalho: 'Pacifico', cursive;
-  --fonte-formulario: 'Montserrat', sans-serif;
+  --fonte-geral: 'Montserrat', sans-serif;
 
   --cor-formulario: #fff;
   --cor-de-fundo: #d6eaff;
