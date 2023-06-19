@@ -1,6 +1,7 @@
-import { Injectable, NotFoundException } from '@nestjs/common'
+import { Injectable, BadRequestException } from '@nestjs/common'
 import { InjectModel } from '@nestjs/sequelize'
 import { CustomerAnimal } from './entities/customer-animal.entity'
+import { CreateCustomerAnimalDto } from './dto/create-customer-animal.dto'
 
 @Injectable()
 export class CustomerAnimalService {
@@ -9,7 +10,9 @@ export class CustomerAnimalService {
     private customerAnimalModel: typeof CustomerAnimal
   ) {}
 
-  async create(customerId: number, animalId: number) {
+  async create({ animalId, customerId }: CreateCustomerAnimalDto) {
+    const customerAnimalExist = await this.findOne(customerId, animalId)
+    if (customerAnimalExist) throw new BadRequestException()
     const customerAnimal = await this.customerAnimalModel.create({
       customerId,
       animalId,
@@ -17,14 +20,13 @@ export class CustomerAnimalService {
     await customerAnimal.save()
   }
 
-  async findOne(customerId: number, animalId: number) {
+  private async findOne(customerId: number, animalId: number) {
     const customerAnimal = await this.customerAnimalModel.findOne({
       where: {
         customerId,
         animalId,
       },
     })
-    if (!customerAnimal) throw new NotFoundException()
     return customerAnimal
   }
 
