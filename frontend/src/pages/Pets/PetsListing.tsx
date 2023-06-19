@@ -3,6 +3,10 @@ import {
   Button,
   Center,
   Container,
+  IconButton,
+  Input,
+  InputGroup,
+  InputRightElement,
   Text,
   Wrap,
   WrapItem,
@@ -12,6 +16,7 @@ import { PetCard } from '../../components/PetCard/PetCard'
 import { IPet } from '../../services/apiPetsAndCustomers/types'
 import { PetService } from '../../services/apiPetsAndCustomers/PetServices/PetServices'
 import { useNavigate } from 'react-router-dom'
+import { AddIcon } from '@chakra-ui/icons'
 
 export const PetsListing: React.FC = () => {
   const navigate = useNavigate()
@@ -50,6 +55,18 @@ export const PetsListing: React.FC = () => {
         <Text as="h1" fontSize="4xl" fontWeight="bold" textAlign="center">
           Pets
         </Text>
+
+        <InputGroup>
+          <Input placeholder="Pesquisar por um pet" />
+          <InputRightElement>
+            <IconButton
+              aria-label="add-pet-button"
+              colorScheme="green"
+              icon={<AddIcon />}
+              onClick={() => navigate('/pets/new')}
+            />
+          </InputRightElement>
+        </InputGroup>
 
         <Wrap justify="center" spacing="30px" marginTop={10} marginBottom={4}>
           <WrapItem>
