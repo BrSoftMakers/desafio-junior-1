@@ -1,10 +1,11 @@
 export interface IPet {
-  id: number
+  id?: number
   name: string
   type: 'cat' | 'dog'
   race: string
-  createdAt: string
-  updatedAt: string
+  age: number
+  createdAt?: string
+  updatedAt?: string
   customers: ICustomer[]
 }
 

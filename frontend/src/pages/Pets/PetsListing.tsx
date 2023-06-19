@@ -69,17 +69,16 @@ export const PetsListing: React.FC = () => {
         </InputGroup>
 
         <Wrap justify="center" spacing="30px" marginTop={10} marginBottom={4}>
-          <WrapItem>
-            {pets.map((pet) => (
+          {pets.map((pet) => (
+            <WrapItem key={pet.id}>
               <PetCard
-                key={pet.id}
                 petName={pet.name}
                 petType={pet.type}
                 onClickButtonSee={() => navigate(`/pets/${pet.id}`)}
-                onClickButtonDelete={() => handleDelete(pet.id)}
+                onClickButtonDelete={() => handleDelete(pet.id!)}
               />
-            ))}
-          </WrapItem>
+            </WrapItem>
+          ))}
         </Wrap>
       </Box>
 

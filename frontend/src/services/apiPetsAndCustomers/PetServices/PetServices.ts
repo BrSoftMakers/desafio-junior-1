@@ -10,7 +10,7 @@ export class PetService {
   }
 
   static async getPet(petId: number) {
-    const pets = await api.get<Omit<IPet, 'customers'>>(`/animals/${petId}`)
+    const pets = await api.get<IPet>(`/animals/${petId}`)
     return pets.data
   }
 
@@ -19,7 +19,7 @@ export class PetService {
   }
 
   static async updatePet(petId: number, petData: Omit<IPet, 'customers'>) {
-    await api.post(`/animals/${petId}`, petData)
+    await api.patch(`/animals/${petId}`, petData)
   }
 
   static async deletePet(petId: number) {
