@@ -1,8 +1,11 @@
+import { DeleteIcon } from '@chakra-ui/icons'
 import {
   Button,
+  ButtonGroup,
   Card,
   CardFooter,
   Divider,
+  IconButton,
   Image,
   Text,
 } from '@chakra-ui/react'
@@ -10,11 +13,13 @@ import {
 interface IPetCardProps {
   petName: string
   petType: 'dog' | 'cat'
-  onClickButtonCard: () => void
+  onClickButtonSee: () => void
+  onClickButtonDelete: () => void
 }
 
 export const PetCard: React.FC<IPetCardProps> = ({
-  onClickButtonCard,
+  onClickButtonDelete,
+  onClickButtonSee,
   petName,
   petType,
 }) => {
@@ -30,9 +35,17 @@ export const PetCard: React.FC<IPetCardProps> = ({
       <Divider />
 
       <CardFooter paddingY={2} paddingX={0}>
-        <Button onClick={onClickButtonCard} colorScheme="blue" width="full">
-          Ver
-        </Button>
+        <ButtonGroup isAttached width="full">
+          <Button onClick={onClickButtonSee} colorScheme="blue" width="full">
+            Ver
+          </Button>
+          <IconButton
+            onClick={onClickButtonDelete}
+            colorScheme="red"
+            aria-label=""
+            icon={<DeleteIcon />}
+          />
+        </ButtonGroup>
       </CardFooter>
     </Card>
   )
