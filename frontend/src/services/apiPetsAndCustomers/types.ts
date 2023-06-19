@@ -14,20 +14,20 @@ export interface ICustomer {
   fullName: string
   email: string
   phone: string
-  createdAt: string
-  updatedAt: string
-  customerAddress: ICustomerAddress
-  animals: IPet[]
+  createdAt?: string
+  updatedAt?: string
+  customerAddress?: ICustomerAddress
+  animals?: IPet[]
 }
 
 export interface ICustomerAddress {
-  id: number
+  id?: number
   zipCode: string
   street: string
   number: string
   state: string
   city: string
-  customerId: number
-  createdAt: string
-  updatedAt: string
+  customerId?: number
+  createdAt?: string
+  updatedAt?: string
 }

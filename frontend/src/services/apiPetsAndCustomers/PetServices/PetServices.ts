@@ -2,9 +2,9 @@ import { api } from '../config'
 import { IPet } from '../types'
 
 export class PetService {
-  static async getAllPets(page: number, limit: number) {
+  static async getAllPets(page: number, limit: number, searchFilter = '') {
     const pets = await api.get<Omit<IPet, 'customers'>[]>(
-      `/animals?limit=${limit}&page=${page}`
+      `/animals?limit=${limit}&page=${page}&searchFilter=${searchFilter}`
     )
     return pets.data
   }
