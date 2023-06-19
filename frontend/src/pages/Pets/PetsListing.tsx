@@ -7,19 +7,42 @@ import {
   Wrap,
   WrapItem,
 } from '@chakra-ui/react'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { PetCard } from '../../components/PetCard/PetCard'
 import { IPet } from '../../services/apiPetsAndCustomers/types'
 import { PetService } from '../../services/apiPetsAndCustomers/PetServices/PetServices'
+import { useNavigate } from 'react-router-dom'
 
 export const PetsListing: React.FC = () => {
+  const navigate = useNavigate()
+
   const [pets, setPets] = useState<Omit<IPet, 'customers'>[]>([])
+  const [page, setPage] = useState(1)
+  const [hasNextPage, setHasNextPage] = useState(true)
+
+  const verifyHasNextPage = useCallback(() => {
+    PetService.getAllPets(page + 1, 10).then((data) => {
+      if (data.length === 0) {
+        setHasNextPage(false)
+        return
+      }
+      setHasNextPage(true)
+      return
+    })
+  }, [page])
+
+  const handleDelete = (petId: number) => {
+    PetService.deletePet(petId).then(() => {
+      setPets((oldPets) => oldPets.filter((pet) => pet.id !== petId))
+    })
+  }
 
   useEffect(() => {
-    PetService.getAllPets(1, 10).then((data) => {
+    PetService.getAllPets(page, 10).then((data) => {
       setPets(data)
+      verifyHasNextPage()
     })
-  }, [])
+  }, [page, verifyHasNextPage])
 
   return (
     <Container maxW="container.xl">
@@ -32,10 +55,11 @@ export const PetsListing: React.FC = () => {
           <WrapItem>
             {pets.map((pet) => (
               <PetCard
+                key={pet.id}
                 petName={pet.name}
                 petType={pet.type}
-                onClickButtonSee={() => console.log('clicou')}
-                onClickButtonDelete={() => console.log('clicou')}
+                onClickButtonSee={() => navigate(`/pets/${pet.id}`)}
+                onClickButtonDelete={() => handleDelete(pet.id)}
               />
             ))}
           </WrapItem>
@@ -43,7 +67,12 @@ export const PetsListing: React.FC = () => {
       </Box>
 
       <Center marginY={10}>
-        <Button>Mostrar mais</Button>
+        <Button
+          isDisabled={!hasNextPage}
+          onClick={() => setPage((oldPage) => oldPage + 1)}
+        >
+          Mostrar mais
+        </Button>
       </Center>
     </Container>
   )
