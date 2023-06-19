@@ -157,65 +157,69 @@ export const PetDetail: React.FC = () => {
           <Input {...register('race')} />
         </FormControl>
 
-        <Divider />
+        {petId !== 'new' && (
+          <>
+            <Divider />
 
-        <Text>Donos</Text>
-        <Box display="flex" flexDirection="row" flexWrap="wrap" gap={2}>
-          {petData?.customers.map((customer) => (
-            <ButtonGroup
-              key={customer.id}
-              size="sm"
-              isAttached
-              variant="outline"
-            >
-              <Button
-                onClick={() => navigate(`/customers/${customer.id}`)}
-                variant="solid"
-                colorScheme="orange"
-              >
-                {customer.fullName}
-              </Button>
-              <IconButton
-                onClick={() => handleDeleteCustomer(customer.id, +petId)}
-                colorScheme="red"
-                aria-label="add customer to pet"
-                icon={<CloseIcon />}
-              />
-            </ButtonGroup>
-          ))}
-        </Box>
-
-        <Menu onClose={() => setInputFilterCustomer('')}>
-          <MenuButton
-            as={Button}
-            colorScheme="gray"
-            rightIcon={<ChevronDownIcon />}
-          >
-            Pesquisar novos donos
-          </MenuButton>
-          <MenuList minWidth="240px" padding={2}>
-            <Text fontWeight="medium">Pesquisar</Text>
-            <Input
-              placeholder="Nome do cliente/dono"
-              onChange={(e) => setInputFilterCustomer(e.target.value)}
-            />
-            <MenuDivider />
-            <MenuList border="none" boxShadow="none">
-              {isLoading && <Progress isIndeterminate />}
-              {!isLoading &&
-                customers.map((customer) => (
-                  <MenuItem
-                    key={customer.id}
-                    onClick={() => handleAddCustomer(customer.id, +petId)}
+            <Text>Donos</Text>
+            <Box display="flex" flexDirection="row" flexWrap="wrap" gap={2}>
+              {petData?.customers.map((customer) => (
+                <ButtonGroup
+                  key={customer.id}
+                  size="sm"
+                  isAttached
+                  variant="outline"
+                >
+                  <Button
+                    onClick={() => navigate(`/customers/${customer.id}`)}
+                    variant="solid"
+                    colorScheme="orange"
                   >
                     {customer.fullName}
-                  </MenuItem>
-                ))}
-            </MenuList>
-          </MenuList>
-        </Menu>
+                  </Button>
+                  <IconButton
+                    onClick={() => handleDeleteCustomer(customer.id, +petId)}
+                    colorScheme="red"
+                    aria-label="add customer to pet"
+                    icon={<CloseIcon />}
+                  />
+                </ButtonGroup>
+              ))}
+            </Box>
 
-        <Divider />
+            <Menu onClose={() => setInputFilterCustomer('')}>
+              <MenuButton
+                as={Button}
+                colorScheme="gray"
+                rightIcon={<ChevronDownIcon />}
+              >
+                Pesquisar novos donos
+              </MenuButton>
+              <MenuList minWidth="240px" padding={2}>
+                <Text fontWeight="medium">Pesquisar</Text>
+                <Input
+                  placeholder="Nome do cliente/dono"
+                  onChange={(e) => setInputFilterCustomer(e.target.value)}
+                />
+                <MenuDivider />
+                <MenuList border="none" boxShadow="none">
+                  {isLoading && <Progress isIndeterminate />}
+                  {!isLoading &&
+                    customers.map((customer) => (
+                      <MenuItem
+                        key={customer.id}
+                        onClick={() => handleAddCustomer(customer.id, +petId)}
+                      >
+                        {customer.fullName}
+                      </MenuItem>
+                    ))}
+                </MenuList>
+              </MenuList>
+            </Menu>
+
+            <Divider />
+          </>
+        )}
 
         <Button colorScheme="green" onClick={handleSubmit(handleForm)}>
           Salvar
