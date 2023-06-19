@@ -29,6 +29,7 @@ import { ICustomer, IPet } from '../../services/apiPetsAndCustomers/types'
 import { brasilStates } from '../../constants/brasilStates'
 import { useDebounce } from '../../hooks/useDebounce'
 import { PetService } from '../../services/apiPetsAndCustomers/PetServices/PetServices'
+import { CustomerAnimalServices } from '../../services/apiPetsAndCustomers/CustomerAnimalServices/CustomerAnimalServices'
 
 const schemaCustomerForm = z.object({
   fullName: z.string().min(3).max(50),
@@ -82,6 +83,14 @@ export const CustomerDetail: React.FC = () => {
       alert('Cliente deletado')
       navigate('/customers')
     })
+  }
+
+  const handleClickPetAdd = async (customerId: number, animalId: number) => {
+    await CustomerAnimalServices.createRelationCustomerAndPet(
+      customerId,
+      animalId
+    )
+    navigate(`/customers/${customerId}`)
   }
 
   useEffect(() => {
@@ -231,7 +240,14 @@ export const CustomerDetail: React.FC = () => {
                   {isLoading && <Progress isIndeterminate />}
                   {!isLoading &&
                     animals.map((animal) => (
-                      <MenuItem key={animal.id}>{animal.name}</MenuItem>
+                      <MenuItem
+                        key={animal.id}
+                        onClick={() =>
+                          handleClickPetAdd(+customerId, animal.id!)
+                        }
+                      >
+                        {animal.name}
+                      </MenuItem>
                     ))}
                 </MenuList>
               </MenuList>
