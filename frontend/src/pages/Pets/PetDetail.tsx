@@ -12,9 +12,9 @@ import {
   Menu,
   MenuButton,
   MenuDivider,
-  MenuItemOption,
+  MenuItem,
   MenuList,
-  MenuOptionGroup,
+  Progress,
   Select,
   Text,
 } from '@chakra-ui/react'
@@ -23,8 +23,10 @@ import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate, useParams } from 'react-router-dom'
 import { z } from 'zod'
-import { IPet } from '../../services/apiPetsAndCustomers/types'
+import { ICustomer, IPet } from '../../services/apiPetsAndCustomers/types'
 import { PetService } from '../../services/apiPetsAndCustomers/PetServices/PetServices'
+import { CustomerServices } from '../../services/apiPetsAndCustomers/CustomerServices/CustomerServices'
+import { useDebounce } from '../../hooks/useDebounce'
 
 const schemaPetForm = z.object({
   name: z.string().min(3).max(50),
@@ -39,6 +41,12 @@ export const PetDetail: React.FC = () => {
   const navigate = useNavigate()
   const { petId = 'new' } = useParams()
   const [petData, setPetData] = useState<IPet>()
+  const [inputFilterCustomer, setInputFilterCustomer] = useState('')
+  const [customers, setCustomers] = useState<
+    Omit<ICustomer, 'customerAddress'>[]
+  >([])
+  const [isLoading, setIsloading] = useState(false)
+  const { debounce } = useDebounce(1000)
 
   const {
     handleSubmit,
@@ -81,6 +89,18 @@ export const PetDetail: React.FC = () => {
       })
     }
   }, [petId, reset])
+
+  useEffect(() => {
+    setIsloading(true)
+    debounce(() => {
+      CustomerServices.getAllCustomers(1, 5, inputFilterCustomer)
+        .then((customers) => {
+          setCustomers(customers)
+          setIsloading(false)
+        })
+        .finally(() => setIsloading(false))
+    })
+  }, [inputFilterCustomer, debounce])
 
   return (
     <Container maxW="container.xl" paddingBottom={3}>
@@ -141,7 +161,7 @@ export const PetDetail: React.FC = () => {
           ))}
         </Box>
 
-        <Menu closeOnSelect={false}>
+        <Menu onClose={() => setInputFilterCustomer('')}>
           <MenuButton
             as={Button}
             colorScheme="gray"
@@ -150,13 +170,19 @@ export const PetDetail: React.FC = () => {
             Pesquisar novos donos
           </MenuButton>
           <MenuList minWidth="240px" padding={2}>
-            <MenuOptionGroup defaultValue="asc" title="Pesquisar" type="radio">
-              <Input placeholder="Nome do cliente/dono" />
-            </MenuOptionGroup>
+            <Text fontWeight="medium">Pesquisar</Text>
+            <Input
+              placeholder="Nome do cliente/dono"
+              onChange={(e) => setInputFilterCustomer(e.target.value)}
+            />
             <MenuDivider />
-            <MenuOptionGroup title="Resultado">
-              <MenuItemOption value="email">Email</MenuItemOption>
-            </MenuOptionGroup>
+            <MenuList border="none" boxShadow="none">
+              {isLoading && <Progress isIndeterminate />}
+              {!isLoading &&
+                customers.map((customer) => (
+                  <MenuItem key={customer.id}>{customer.fullName}</MenuItem>
+                ))}
+            </MenuList>
           </MenuList>
         </Menu>
 
