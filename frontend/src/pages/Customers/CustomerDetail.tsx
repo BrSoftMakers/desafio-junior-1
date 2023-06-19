@@ -85,12 +85,20 @@ export const CustomerDetail: React.FC = () => {
     })
   }
 
-  const handleClickPetAdd = async (customerId: number, animalId: number) => {
+  const handlePetAdd = async (customerId: number, animalId: number) => {
     await CustomerAnimalServices.createRelationCustomerAndPet(
       customerId,
       animalId
     )
-    navigate(`/customers/${customerId}`)
+    navigate(0)
+  }
+
+  const handlePetDelete = async (customerId: number, animalId: number) => {
+    await CustomerAnimalServices.deleteRelationCustomerAndPet(
+      customerId,
+      animalId
+    )
+    navigate(0)
   }
 
   useEffect(() => {
@@ -209,10 +217,15 @@ export const CustomerDetail: React.FC = () => {
                   isAttached
                   variant="outline"
                 >
-                  <Button variant="solid" colorScheme="orange">
+                  <Button
+                    onClick={() => navigate(`/pets/${animal.id!}`)}
+                    variant="solid"
+                    colorScheme="orange"
+                  >
                     {animal.name}
                   </Button>
                   <IconButton
+                    onClick={() => handlePetDelete(+customerId, animal.id!)}
                     colorScheme="red"
                     aria-label="Add to friends"
                     icon={<CloseIcon />}
@@ -242,9 +255,7 @@ export const CustomerDetail: React.FC = () => {
                     animals.map((animal) => (
                       <MenuItem
                         key={animal.id}
-                        onClick={() =>
-                          handleClickPetAdd(+customerId, animal.id!)
-                        }
+                        onClick={() => handlePetAdd(+customerId, animal.id!)}
                       >
                         {animal.name}
                       </MenuItem>
