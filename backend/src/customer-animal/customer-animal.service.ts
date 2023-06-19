@@ -2,6 +2,7 @@ import { Injectable, BadRequestException } from '@nestjs/common'
 import { InjectModel } from '@nestjs/sequelize'
 import { CustomerAnimal } from './entities/customer-animal.entity'
 import { CreateCustomerAnimalDto } from './dto/create-customer-animal.dto'
+import { DeleteCustomerAnimalDto } from './dto/delete-customer-animal-dto'
 
 @Injectable()
 export class CustomerAnimalService {
@@ -30,7 +31,7 @@ export class CustomerAnimalService {
     return customerAnimal
   }
 
-  async remove(customerId: number, animalId: number) {
+  async remove({ animalId, customerId }: DeleteCustomerAnimalDto) {
     const customerAnimal = await this.findOne(customerId, animalId)
     await customerAnimal.destroy()
   }

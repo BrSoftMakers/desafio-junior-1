@@ -1,6 +1,7 @@
-import { Controller, Post, Body } from '@nestjs/common'
+import { Controller, Post, Body, Delete, Query } from '@nestjs/common'
 import { CustomerAnimalService } from './customer-animal.service'
 import { CreateCustomerAnimalDto } from './dto/create-customer-animal.dto'
+import { DeleteCustomerAnimalDto } from './dto/delete-customer-animal-dto'
 
 @Controller('customer-animal')
 export class CustomerAnimalController {
@@ -9,5 +10,10 @@ export class CustomerAnimalController {
   @Post()
   create(@Body() createCustomerAnimalDto: CreateCustomerAnimalDto) {
     return this.customerAnimalService.create(createCustomerAnimalDto)
+  }
+
+  @Delete()
+  remove(@Query('id') deleteCustomerAnimalDto: DeleteCustomerAnimalDto) {
+    return this.customerAnimalService.remove(deleteCustomerAnimalDto)
   }
 }
