@@ -21,7 +21,7 @@ import {
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { z } from 'zod'
 import { IPet } from '../../services/apiPetsAndCustomers/types'
 import { PetService } from '../../services/apiPetsAndCustomers/PetServices/PetServices'
@@ -36,6 +36,7 @@ const schemaPetForm = z.object({
 type formPetProps = z.infer<typeof schemaPetForm>
 
 export const PetDetail: React.FC = () => {
+  const navigate = useNavigate()
   const { petId = 'new' } = useParams()
   const [petData, setPetData] = useState<IPet>()
 
@@ -49,17 +50,17 @@ export const PetDetail: React.FC = () => {
     mode: 'all',
     resolver: zodResolver(schemaPetForm),
     defaultValues: {
-      age: 0,
+      age: undefined,
       name: '',
       race: '',
-      type: 'dog',
+      type: undefined,
     },
   })
 
   const handleForm = (formData: formPetProps) => {
     if (petId === 'new') {
       PetService.createPet(formData).then((petId) => {
-        console.log(petId)
+        navigate(`/pets/${petId}`)
       })
       return
     }

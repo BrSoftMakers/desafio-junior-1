@@ -15,7 +15,8 @@ export class PetService {
   }
 
   static async createPet(petData: Omit<IPet, 'customers'>) {
-    await api.post('/animals', petData)
+    const petId = await api.post('/animals', petData)
+    return petId.data
   }
 
   static async updatePet(petId: number, petData: Omit<IPet, 'customers'>) {
