@@ -7,6 +7,7 @@ import { PaginationQueryDto } from './dto/pagination-query.dto'
 import { CustomerAddress } from 'src/customer-addresses/entities/customer-address.entity'
 import { CustomerAddressesService } from 'src/customer-addresses/customer-addresses.service'
 import { Animal } from 'src/animals/entities/animal.entity'
+import { Op } from 'sequelize'
 
 @Injectable()
 export class CustomersService {
@@ -30,10 +31,17 @@ export class CustomersService {
     )
   }
 
-  async findAll({ limit = 10, page = 1 }: PaginationQueryDto) {
+  async findAll({
+    limit = 10,
+    page = 1,
+    searchFilter = '',
+  }: PaginationQueryDto) {
     const customers = await this.customerModel.findAll({
       limit,
       offset: (page - 1) * limit,
+      where: {
+        fullName: { [Op.iLike]: `%${searchFilter}%` },
+      },
     })
     return customers
   }

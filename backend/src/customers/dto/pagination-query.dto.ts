@@ -1,4 +1,4 @@
-import { IsInt, IsNumber, IsOptional } from 'class-validator'
+import { IsInt, IsNumber, IsOptional, IsString } from 'class-validator'
 import { Transform } from 'class-transformer'
 
 export class PaginationQueryDto {
@@ -13,4 +13,8 @@ export class PaginationQueryDto {
   @IsNumber()
   @IsInt()
   limit: number
+
+  @IsOptional()
+  @IsString()
+  searchFilter: string
 }
