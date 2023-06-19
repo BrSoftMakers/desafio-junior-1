@@ -3,7 +3,7 @@ import { RootLayout } from '../layouts/RootLayout/RootLayout'
 import { PetsListing } from '../pages/Pets/PetsListing'
 import { PetDetail } from '../pages/Pets/PetDetail'
 import { CustomersListing } from '../pages/Customers/CustomersListing'
-import { CustomerDetail } from '../pages/Customers/CustomerDetail'
+import { CustomerDetail } from '../pages/Customers/CustomerDetail/CustomerDetail'
 
 export const routes = createBrowserRouter([
   {
