@@ -27,6 +27,7 @@ import { ICustomer, IPet } from '../../services/apiPetsAndCustomers/types'
 import { PetService } from '../../services/apiPetsAndCustomers/PetServices/PetServices'
 import { CustomerServices } from '../../services/apiPetsAndCustomers/CustomerServices/CustomerServices'
 import { useDebounce } from '../../hooks/useDebounce'
+import { CustomerAnimalServices } from '../../services/apiPetsAndCustomers/CustomerAnimalServices/CustomerAnimalServices'
 
 const schemaPetForm = z.object({
   name: z.string().min(3).max(50),
@@ -74,6 +75,24 @@ export const PetDetail: React.FC = () => {
     }
 
     PetService.updatePet(+petId, formData)
+  }
+
+  const handleAddCustomer = (customerId: number, animalId: number) => {
+    CustomerAnimalServices.createRelationCustomerAndPet(
+      customerId,
+      animalId
+    ).then(() => {
+      navigate(0)
+    })
+  }
+
+  const handleDeleteCustomer = (customerId: number, animalId: number) => {
+    CustomerAnimalServices.deleteRelationCustomerAndPet(
+      customerId,
+      animalId
+    ).then(() => {
+      navigate(0)
+    })
   }
 
   useEffect(() => {
@@ -149,10 +168,15 @@ export const PetDetail: React.FC = () => {
               isAttached
               variant="outline"
             >
-              <Button variant="solid" colorScheme="orange">
+              <Button
+                onClick={() => navigate(`/customers/${customer.id}`)}
+                variant="solid"
+                colorScheme="orange"
+              >
                 {customer.fullName}
               </Button>
               <IconButton
+                onClick={() => handleDeleteCustomer(customer.id, +petId)}
                 colorScheme="red"
                 aria-label="add customer to pet"
                 icon={<CloseIcon />}
@@ -180,7 +204,12 @@ export const PetDetail: React.FC = () => {
               {isLoading && <Progress isIndeterminate />}
               {!isLoading &&
                 customers.map((customer) => (
-                  <MenuItem key={customer.id}>{customer.fullName}</MenuItem>
+                  <MenuItem
+                    key={customer.id}
+                    onClick={() => handleAddCustomer(customer.id, +petId)}
+                  >
+                    {customer.fullName}
+                  </MenuItem>
                 ))}
             </MenuList>
           </MenuList>
