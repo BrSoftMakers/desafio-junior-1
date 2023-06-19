@@ -16,6 +16,7 @@ export class AnimalsService {
   async create(createAnimalDto: CreateAnimalDto) {
     const animal = await this.animalModel.create(createAnimalDto)
     await animal.save()
+    return animal.id
   }
 
   async findAll({ limit = 10, page = 1 }: PaginationQueryDto) {
