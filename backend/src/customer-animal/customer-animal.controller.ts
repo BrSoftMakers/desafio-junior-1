@@ -13,7 +13,7 @@ export class CustomerAnimalController {
   }
 
   @Delete()
-  remove(@Query('id') deleteCustomerAnimalDto: DeleteCustomerAnimalDto) {
+  remove(@Query() deleteCustomerAnimalDto: DeleteCustomerAnimalDto) {
     return this.customerAnimalService.remove(deleteCustomerAnimalDto)
   }
 }
