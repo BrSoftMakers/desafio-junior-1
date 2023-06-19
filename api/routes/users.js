@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/", getTutores);
 router.post("/", addTutores);
-router.put("/", updateTutores);
-router.delete("/", deleteTutores);
+router.put("/:id", updateTutores);
+router.delete("/:id", deleteTutores);
 
 export default router;

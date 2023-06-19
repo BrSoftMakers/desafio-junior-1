@@ -4,11 +4,12 @@ import Formulario from "./components/Formulario"
 import ListaTutores from "./components/ListaTutores"
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-
   const [tutores, setTutores] = useState([]);
-  const [onEdit, setOnEdit] = useState([null]);
+  const [onEdit, setOnEdit] = useState(null)
+  const [update, setUpdate] = useState(false)
 
   const getTutores = async () => {
     try {
@@ -21,14 +22,14 @@ function App() {
 
   useEffect(() => {
     getTutores();
-  }, [setTutores]);
+  }, [setTutores, update]);
 
   return (
     <div>
       <Cabecalho />
-      <Formulario />
-      <ListaTutores tutores={tutores}/>
-      <ToastContainer autoClose={3000} position={toast.POSITION.BOTTOM_LEFT} />
+      <Formulario onEdit={onEdit} setOnEdit={setOnEdit} getTutores={getTutores} update={() => setUpdate(!update)} />
+      <ListaTutores tutores={tutores} setTutores={setTutores} setOnEdit={setOnEdit}/>
+      <ToastContainer autoClose={5000} position={toast.POSITION.TOP_RIGHT} theme="colored" />
     </div>
   )
 }

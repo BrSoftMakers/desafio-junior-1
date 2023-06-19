@@ -11,15 +11,16 @@ export const getTutores = (_, res) => {
 };
 
 export const addTutores = (req, res) => {
-  const q = "INSERT INTO tutores(`nome`, `contato`, `endereco`) VALUES(?)";
+  const q = "INSERT INTO tutores(`nome`, `contato`, `endereco`, `cpf`) VALUES(?)";
 
   const values = [
     req.body.nome,
     req.body.contato,
     req.body.endereco,
+    req.body.cpf,
   ];
 
-  db.query(q [values], (err) => {
+  db.query(q, [values], (err) => {
     if (err) return res.json(err);
 
     return res.status(200).json("Tutor criado com sucesso.");
@@ -27,12 +28,13 @@ export const addTutores = (req, res) => {
 };
 
 export const updateTutores = (req, res) => {
-  const q = "UPDATE tutores SET `nome` = ?, `contato` = ?, `endereco` = ? WHERE `id` = ?";
+  const q = "UPDATE tutores SET `nome` = ?, `contato` = ?, `endereco` = ?, `cpf` = ? WHERE `id` = ?";
 
   const values = [
     req.body.nome,
     req.body.contato,
     req.body.endereco,
+    req.body.cpf,
   ];
 
   db.query(q, [...values, req.params.id], (err) => {
