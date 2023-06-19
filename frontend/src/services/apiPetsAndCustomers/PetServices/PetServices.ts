@@ -6,17 +6,16 @@ export class PetService {
     const pets = await api.get<Omit<IPet, 'customers'>[]>(
       `/animals?limit=${limit}&page=${page}`
     )
-    return pets
+    return pets.data
   }
 
   static async getPet(petId: number) {
     const pets = await api.get<Omit<IPet, 'customers'>>(`/animals/${petId}`)
-    return pets
+    return pets.data
   }
 
   static async createPet(petData: Omit<IPet, 'customers'>) {
-    const pets = await api.post('/animals', petData)
-    return pets
+    await api.post('/animals', petData)
   }
 
   static async updatePet(petId: number, petData: Omit<IPet, 'customers'>) {

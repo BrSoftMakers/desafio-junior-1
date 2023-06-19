@@ -7,9 +7,20 @@ import {
   Wrap,
   WrapItem,
 } from '@chakra-ui/react'
+import { useEffect, useState } from 'react'
 import { PetCard } from '../../components/PetCard/PetCard'
+import { IPet } from '../../services/apiPetsAndCustomers/types'
+import { PetService } from '../../services/apiPetsAndCustomers/PetServices/PetServices'
 
 export const PetsListing: React.FC = () => {
+  const [pets, setPets] = useState<Omit<IPet, 'customers'>[]>([])
+
+  useEffect(() => {
+    PetService.getAllPets(1, 10).then((data) => {
+      setPets(data)
+    })
+  }, [])
+
   return (
     <Container maxW="container.xl">
       <Box flex={1}>
@@ -19,11 +30,14 @@ export const PetsListing: React.FC = () => {
 
         <Wrap justify="center" spacing="30px" marginTop={10} marginBottom={4}>
           <WrapItem>
-            <PetCard
-              petName="teo"
-              petType="cat"
-              onClickButtonCard={() => console.log('clicou')}
-            />
+            {pets.map((pet) => (
+              <PetCard
+                petName={pet.name}
+                petType={pet.type}
+                onClickButtonSee={() => console.log('clicou')}
+                onClickButtonDelete={() => console.log('clicou')}
+              />
+            ))}
           </WrapItem>
         </Wrap>
       </Box>
