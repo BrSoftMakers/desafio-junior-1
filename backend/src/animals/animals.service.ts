@@ -5,6 +5,7 @@ import { InjectModel } from '@nestjs/sequelize'
 import { Animal } from './entities/animal.entity'
 import { PaginationQueryDto } from 'src/customers/dto/pagination-query.dto'
 import { Customer } from 'src/customers/entities/customer.entity'
+import { Op } from 'sequelize'
 
 @Injectable()
 export class AnimalsService {
@@ -19,10 +20,17 @@ export class AnimalsService {
     return animal.id
   }
 
-  async findAll({ limit = 10, page = 1 }: PaginationQueryDto) {
+  async findAll({
+    limit = 10,
+    page = 1,
+    searchFilter = '',
+  }: PaginationQueryDto) {
     const animals = await this.animalModel.findAll({
       limit,
       offset: (page - 1) * limit,
+      where: {
+        name: { [Op.iLike]: `%${searchFilter}%` },
+      },
     })
     return animals
   }

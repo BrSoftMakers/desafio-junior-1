@@ -24,11 +24,12 @@ export class CustomersService {
     } = createCustomerDto
 
     const customer = await this.customerModel.create(customerProperties)
-    const customerCreated = await customer.save()
+    await customer.save()
     await this.customerAddressesService.create(
-      customerCreated.id,
+      customer.id,
       customerAddressProperties
     )
+    return customer.id
   }
 
   async findAll({
