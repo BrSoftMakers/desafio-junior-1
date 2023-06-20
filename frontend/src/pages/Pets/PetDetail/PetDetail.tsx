@@ -6,6 +6,7 @@ import {
   Container,
   Divider,
   FormControl,
+  FormErrorMessage,
   FormLabel,
   IconButton,
   Input,
@@ -18,37 +19,17 @@ import {
   Select,
   Text,
 } from '@chakra-ui/react'
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useNavigate, useParams } from 'react-router-dom'
-import { z } from 'zod'
-import { ICustomer, IPet } from '../../services/apiPetsAndCustomers/types'
-import { PetService } from '../../services/apiPetsAndCustomers/PetServices/PetServices'
-import { CustomerServices } from '../../services/apiPetsAndCustomers/CustomerServices/CustomerServices'
-import { useDebounce } from '../../hooks/useDebounce'
-import { CustomerAnimalServices } from '../../services/apiPetsAndCustomers/CustomerAnimalServices/CustomerAnimalServices'
-
-const schemaPetForm = z.object({
-  name: z.string().min(3).max(50),
-  age: z.number().int(),
-  type: z.enum(['cat', 'dog']),
-  race: z.string().min(3).max(50),
-})
-
-type formPetProps = z.infer<typeof schemaPetForm>
+import { PetService } from '../../../services/apiPetsAndCustomers/PetServices/PetServices'
+import { formPetProps } from './form/types'
+import { schemaPetForm } from './form/schemaPetForm'
+import { useLogicPetDetail } from './useLogicPetDetail'
 
 export const PetDetail: React.FC = () => {
   const navigate = useNavigate()
-  const { petId = 'new' } = useParams()
-  const [petData, setPetData] = useState<IPet>()
-  const [inputFilterCustomer, setInputFilterCustomer] = useState('')
-  const [customers, setCustomers] = useState<
-    Omit<ICustomer, 'customerAddress'>[]
-  >([])
-  const [isLoading, setIsloading] = useState(false)
-  const { debounce } = useDebounce(1000)
-
   const {
     handleSubmit,
     register,
@@ -58,42 +39,19 @@ export const PetDetail: React.FC = () => {
     criteriaMode: 'all',
     mode: 'all',
     resolver: zodResolver(schemaPetForm),
-    defaultValues: {
-      age: undefined,
-      name: '',
-      race: '',
-      type: undefined,
-    },
   })
 
-  const handleForm = (formData: formPetProps) => {
-    if (petId === 'new') {
-      PetService.createPet(formData).then((petId) => {
-        navigate(`/pets/${petId}`)
-      })
-      return
-    }
-
-    PetService.updatePet(+petId, formData)
-  }
-
-  const handleAddCustomer = (customerId: number, animalId: number) => {
-    CustomerAnimalServices.createRelationCustomerAndPet(
-      customerId,
-      animalId
-    ).then(() => {
-      navigate(0)
-    })
-  }
-
-  const handleDeleteCustomer = (customerId: number, animalId: number) => {
-    CustomerAnimalServices.deleteRelationCustomerAndPet(
-      customerId,
-      animalId
-    ).then(() => {
-      navigate(0)
-    })
-  }
+  const {
+    petId,
+    customers,
+    isLoading,
+    petData,
+    setPetData,
+    handleAddCustomer,
+    handleDeleteCustomer,
+    setInputFilterCustomer,
+    handleSubmitFormPet,
+  } = useLogicPetDetail()
 
   useEffect(() => {
     if (petId !== 'new') {
@@ -107,19 +65,7 @@ export const PetDetail: React.FC = () => {
         })
       })
     }
-  }, [petId, reset])
-
-  useEffect(() => {
-    setIsloading(true)
-    debounce(() => {
-      CustomerServices.getAllCustomers(1, 5, inputFilterCustomer)
-        .then((customers) => {
-          setCustomers(customers)
-          setIsloading(false)
-        })
-        .finally(() => setIsloading(false))
-    })
-  }, [inputFilterCustomer, debounce])
+  }, [petId, reset, setPetData])
 
   return (
     <Container maxW="container.xl" paddingBottom={3}>
@@ -134,27 +80,31 @@ export const PetDetail: React.FC = () => {
         margin="0 auto"
         gap={4}
       >
-        <FormControl>
+        <FormControl isInvalid={!!errors.name}>
           <FormLabel>Nome</FormLabel>
           <Input {...register('name')} type="email" />
+          <FormErrorMessage>{errors.name?.message}</FormErrorMessage>
         </FormControl>
 
-        <FormControl>
+        <FormControl isInvalid={!!errors.age}>
           <FormLabel>Idade</FormLabel>
           <Input {...register('age', { valueAsNumber: true })} type="number" />
+          <FormErrorMessage>{errors.age?.message}</FormErrorMessage>
         </FormControl>
 
-        <FormControl>
+        <FormControl isInvalid={!!errors.type}>
           <FormLabel>Tipo</FormLabel>
           <Select {...register('type')} placeholder="Selecione um tipo">
             <option value="cat">Gato</option>
             <option value="dog">Cachorro</option>
           </Select>
+          <FormErrorMessage>{errors.type?.message}</FormErrorMessage>
         </FormControl>
 
-        <FormControl>
+        <FormControl isInvalid={!!errors.race}>
           <FormLabel>Raça</FormLabel>
           <Input {...register('race')} />
+          <FormErrorMessage>{errors.race?.message}</FormErrorMessage>
         </FormControl>
 
         {petId !== 'new' && (
@@ -221,7 +171,7 @@ export const PetDetail: React.FC = () => {
           </>
         )}
 
-        <Button colorScheme="green" onClick={handleSubmit(handleForm)}>
+        <Button colorScheme="green" onClick={handleSubmit(handleSubmitFormPet)}>
           Salvar
         </Button>
         {petId !== 'new' && <Button colorScheme="red">Excluir</Button>}

@@ -28,7 +28,7 @@ import { brasilStates } from '../../../constants/brasilStates'
 import { useLogicCustomerDetail } from './useLogicCustomerDetail'
 import { formCustomerProps } from './form/types'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { schemaCustomerForm } from './form/schema'
+import { schemaCustomerForm } from './form/schemaCustomerForm'
 import { CustomerServices } from '../../../services/apiPetsAndCustomers/CustomerServices/CustomerServices'
 
 export const CustomerDetail: React.FC = () => {

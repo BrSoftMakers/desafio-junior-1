@@ -1,7 +1,7 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom'
 import { RootLayout } from '../layouts/RootLayout/RootLayout'
 import { PetsListing } from '../pages/Pets/PetsListing/PetsListing'
-import { PetDetail } from '../pages/Pets/PetDetail'
+import { PetDetail } from '../pages/Pets/PetDetail/PetDetail'
 import { CustomersListing } from '../pages/Customers/CustomersListing/CustomersListing'
 import { CustomerDetail } from '../pages/Customers/CustomerDetail/CustomerDetail'
 
