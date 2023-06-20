@@ -19,6 +19,9 @@ import { Customer } from 'src/customers/entities/customer.entity'
       models: [Customer, CustomerAddress, Animal, CustomerAnimal],
       autoLoadModels: false,
       synchronize: false,
+      dialectOptions: {
+        ssl: process.env.DATABASE_ENABLE_SSL === 'true' ? true : false,
+      },
       ssl: process.env.DATABASE_ENABLE_SSL === 'true' ? true : false,
     }),
   ],
