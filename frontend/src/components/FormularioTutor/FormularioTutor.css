@@ -27,7 +27,7 @@ label {
   margin-bottom: .5rem;
 }
 
-input {
+input, select {
   border: none;
   box-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.06);
   box-sizing: border-box;

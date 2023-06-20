@@ -4,7 +4,7 @@ const Cabecalho = () => {
   return (
     <header className="cabecalho">
       <div>
-        <a href="#" className="cabecalho-link__titulo">PetShop</a>
+        <a href="#" className="cabecalho-link__titulo">PetFriend</a>
       </div>
       <div className="cabecalho-links">
         <a href="#" className="cabecalho-link">Cachorro</a>

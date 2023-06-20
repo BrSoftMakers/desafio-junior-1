@@ -1,9 +1,9 @@
-import "./ListaTutores.css";
+import "./ListaPets.css"
 import { FaEdit, FaTrash } from "react-icons/fa";
 import axios from "axios"
 import { toast } from "react-toastify";
 
-const ListaTutores = ({ tutores, setTutores, setOnEdit }) => {
+const ListaPets = ({ pets, setPets, setOnEdit }) => {
 
   const handleEdit = (item) => {
     setOnEdit(item);
@@ -11,33 +11,33 @@ const ListaTutores = ({ tutores, setTutores, setOnEdit }) => {
 
   const handleDelete = async (id) => {
     await axios
-      .delete("http://localhost:8800/tutor" + id)
+      .delete("http://localhost:8800/pet" + id)
       .then(({ data }) => {
-        const newArray = tutores.filter((user) => user.id != id);
+        const newArray2 = pets.filter((user) => user.id != id);
 
-        setTutores(newArray);
+        setPets(newArray2);
         toast.success(data);
       })
   }
 
   return (
-    <section className="lista-tutores">
-        <table className="lista-tutores__container">
+    <section className="lista-pets">
+        <table className="lista-pets__container">
           <thead>
             <tr>
               <th>Nome</th>
-              <th>Contato</th>
-              <th>Endereço</th>
-              <th>CPF</th>
+              <th>Tipo</th>
+              <th>Raça</th>
+              <th>Idade</th>
             </tr>
           </thead>
           <tbody>
-            {tutores.map((item, i) => (
+            {pets.map((item, i) => (
               <tr key={i}>
-                <td>{item.nomeTutor}</td>
-                <td>{item.contato}</td>
-                <td>{item.endereco}</td>
-                <td>{item.cpf}</td>
+                <td>{item.nomePet}</td>
+                <td>{item.tipo}</td>
+                <td>{item.raca}</td>
+                <td>{item.idade}</td>
                 <td><FaEdit onClick={() => handleEdit(item)}/></td>
                 <td><FaTrash onClick={() => handleDelete(item.id)} /></td>
               </tr>
@@ -48,4 +48,4 @@ const ListaTutores = ({ tutores, setTutores, setOnEdit }) => {
   )
 }
 
-export default ListaTutores;
+export default ListaPets;

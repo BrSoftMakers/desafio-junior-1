@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./Formulario.css";
+import "./FormularioTutor.css";
 import Botao from "../Botao";
 import axios from "axios";
 import { toast } from "react-toastify";
 
 const Formulario = ({ getTutores, onEdit, setOnEdit, update }) => {
   const [tutor, setTutor] = useState({
-    nome: '',
+    nomeTutor: '',
     contato: '',
     endereco: '',
     cpf: ''
@@ -17,7 +17,7 @@ const Formulario = ({ getTutores, onEdit, setOnEdit, update }) => {
   useEffect(() => {
     if (onEdit) {
       setTutor({
-        nome: onEdit.nome,
+        nomeTutor: onEdit.nomeTutor,
         contato: onEdit.contato,
         endereco: onEdit.endereco,
         cpf: onEdit.cpf
@@ -29,15 +29,15 @@ const Formulario = ({ getTutores, onEdit, setOnEdit, update }) => {
     e.preventDefault();
 
     if (
-      !(tutor.nome && tutor.endereco && tutor.contato && tutor.cpf)
+      !(tutor.nomeTutor && tutor.endereco && tutor.contato && tutor.cpf)
     ) {
       return toast.warn("Preencha todos os campos!");
     }
 
     if (onEdit) {
       await axios
-        .put("http://localhost:8800/" + onEdit.id, {
-          nome: tutor.nome,
+        .put("http://localhost:8800/tutor" + onEdit.id, {
+          nomeTutor: tutor.nomeTutor,
           contato: tutor.contato,
           endereco: tutor.endereco,
           cpf: tutor.cpf,
@@ -46,8 +46,8 @@ const Formulario = ({ getTutores, onEdit, setOnEdit, update }) => {
         .catch(({ data }) => toast.error(data));
     } else {
       await axios
-        .post("http://localhost:8800/", {
-          nome: tutor.nome,
+        .post("http://localhost:8800/tutor", {
+          nomeTutor: tutor.nomeTutor,
           contato: tutor.contato,
           endereco: tutor.endereco,
           cpf: tutor.cpf,
@@ -60,7 +60,7 @@ const Formulario = ({ getTutores, onEdit, setOnEdit, update }) => {
 
     setOnEdit(null);
     setTutor({
-      nome: '',
+      nomeTutor: '',
       contato: '',
       endereco: '',
       cpf: ''
@@ -74,7 +74,7 @@ const Formulario = ({ getTutores, onEdit, setOnEdit, update }) => {
         <h2>Preencha os dados para cadastrar o tutor</h2>
         <div>
           <label>Nome</label>
-          <input onChange={(e) => setTutor({...tutor, nome: e.target.value})} name="nomeTutor" value={tutor.nome} placeholder="Digite o nome do tutor" type="text"></input>
+          <input onChange={(e) => setTutor({...tutor, nomeTutor: e.target.value})} name="nomeTutor" value={tutor.nomeTutor} placeholder="Digite o nome do tutor" type="text"></input>
         </div>
         <div>
           <label>Contato</label> 

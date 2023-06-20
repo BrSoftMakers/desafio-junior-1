@@ -1,7 +1,7 @@
 import { db } from "../db.js";
 
 export const getTutores = (_, res) => {
-  const q = "SELECT * FROM tutores";
+  const q = "SELECT * FROM tutores"
 
   db.query(q, (err, data) => {
     if (err) return res.json(err);
@@ -11,10 +11,10 @@ export const getTutores = (_, res) => {
 };
 
 export const addTutores = (req, res) => {
-  const q = "INSERT INTO tutores(`nome`, `contato`, `endereco`, `cpf`) VALUES(?)";
+  const q = "INSERT INTO tutores(`nomeTutor`, `contato`, `endereco`, `cpf`) VALUES(?)";
 
   const values = [
-    req.body.nome,
+    req.body.nomeTutor,
     req.body.contato,
     req.body.endereco,
     req.body.cpf,
@@ -28,10 +28,10 @@ export const addTutores = (req, res) => {
 };
 
 export const updateTutores = (req, res) => {
-  const q = "UPDATE tutores SET `nome` = ?, `contato` = ?, `endereco` = ?, `cpf` = ? WHERE `id` = ?";
+  const q = "UPDATE tutores SET `nomeTutor` = ?, `contato` = ?, `endereco` = ?, `cpf` = ? WHERE `id` = ?";
 
   const values = [
-    req.body.nome,
+    req.body.nomeTutor,
     req.body.contato,
     req.body.endereco,
     req.body.cpf,
@@ -53,3 +53,4 @@ export const deleteTutores = (req, res) => {
     return res.status(200).json("Tutor deletado com sucesso.");
   });
 };
+
