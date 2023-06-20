@@ -9,7 +9,8 @@ const FormularioPet = ({ getPets, onEdit, setOnEdit, update }) => {
     nomePet: '',
     tipo: '',
     raca: '',
-    idade: ''
+    idade: '',
+    cpfTutor: ''
   })
  
   const ref = useRef();
@@ -20,7 +21,8 @@ const FormularioPet = ({ getPets, onEdit, setOnEdit, update }) => {
         nomePet: onEdit.nomePet,
         tipo: onEdit.tipo,
         raca: onEdit.raca,
-        idade: onEdit.idade
+        idade: onEdit.idade,
+        cpfTutor: onEdit.cpfTutor
       })
     }
   }, [onEdit])
@@ -29,7 +31,7 @@ const FormularioPet = ({ getPets, onEdit, setOnEdit, update }) => {
     e.preventDefault();
 
     if (
-      !(pet.nomePet && pet.tipo && pet.raca && pet.idade)
+      !(pet.nomePet && pet.tipo && pet.raca && pet.idade && pet.cpfTutor)
     ) {
       return toast.warn("Preencha todos os campos!");
     }
@@ -41,6 +43,7 @@ const FormularioPet = ({ getPets, onEdit, setOnEdit, update }) => {
           tipo: pet.tipo,
           raca: pet.raca,
           idade: pet.idade,
+          cpfTutor: pet.cpfTutor
         })
         .then(({ data }) => toast.success(data))
         .catch(({ data }) => toast.error(data));
@@ -51,6 +54,7 @@ const FormularioPet = ({ getPets, onEdit, setOnEdit, update }) => {
           tipo: pet.tipo,
           raca: pet.raca,
           idade: pet.idade,
+          cpfTutor: pet.cpfTutor
         })
         .then(({ data }) => toast.success(data))
         .catch(({ data }) => toast.error(data));
@@ -64,6 +68,7 @@ const FormularioPet = ({ getPets, onEdit, setOnEdit, update }) => {
       tipo: '',
       raca: '',
       idade: '',
+      cpfTutor: ''
     })
     getPets();
   };
@@ -79,7 +84,7 @@ const FormularioPet = ({ getPets, onEdit, setOnEdit, update }) => {
         <div>
           <label>Tipo</label>
           <select onChange={(e) => setPet({...pet, tipo: e.target.value})} name="tipo" value={pet.tipo}>
-            <option value="" disabled selected>Selecione o tipo</option>
+            <option value="" disabled>Selecione o tipo</option>
             <option>Cachorro</option>
             <option>Gato</option>
           </select>
@@ -91,6 +96,10 @@ const FormularioPet = ({ getPets, onEdit, setOnEdit, update }) => {
         <div>
           <label>Idade</label>
           <input  onChange={(e) => setPet({...pet, idade: e.target.value})} name="idade" value={pet.idade} placeholder="Ex.: 2 anos e 7 meses"></input>
+        </div>
+        <div>
+          <label>CPF do tutor</label>
+          <input  onChange={(e) => setPet({...pet, cpfTutor: e.target.value})} name="cpfTutor" value={pet.cpfTutor} pattern="\d{3}\d{3}\d{3}\d{2}"  placeholder="Digite apenas números"></input>
         </div>
         <Botao />
       </form>

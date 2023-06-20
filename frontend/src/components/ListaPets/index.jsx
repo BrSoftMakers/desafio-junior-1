@@ -29,6 +29,7 @@ const ListaPets = ({ pets, setPets, setOnEdit }) => {
               <th>Tipo</th>
               <th>Raça</th>
               <th>Idade</th>
+              <th>CPF Tutor</th>
             </tr>
           </thead>
           <tbody>
@@ -38,6 +39,7 @@ const ListaPets = ({ pets, setPets, setOnEdit }) => {
                 <td>{item.tipo}</td>
                 <td>{item.raca}</td>
                 <td>{item.idade}</td>
+                <td>{item.cpfTutor}</td>
                 <td><FaEdit onClick={() => handleEdit(item)}/></td>
                 <td><FaTrash onClick={() => handleDelete(item.id)} /></td>
               </tr>

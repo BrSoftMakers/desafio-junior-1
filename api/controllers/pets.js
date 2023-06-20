@@ -11,13 +11,14 @@ export const getPets = (_, res) => {
 };
 
 export const addPets = (req, res) => {
-  const q = "INSERT INTO pets(`nomePet`, `tipo`, `raca`, `idade`) VALUES(?)";
+  const q = "INSERT INTO pets(`nomePet`, `tipo`, `raca`, `idade`, `cpfTutor`) VALUES(?)";
 
   const values = [
     req.body.nomePet,
     req.body.tipo,
     req.body.raca,
     req.body.idade,
+    req.body.cpfTutor,
   ];
 
   db.query(q, [values], (err) => {
@@ -28,13 +29,14 @@ export const addPets = (req, res) => {
 };
 
 export const updatePets = (req, res) => {
-  const q = "UPDATE pets SET `nomePet` = ?, `tipo` = ?, `raca` = ?, `idade` = ? WHERE `id` = ?";
+  const q = "UPDATE pets SET `nomePet` = ?, `tipo` = ?, `raca` = ?, `idade` = ?, `cpfTutor` = ? WHERE `id` = ?";
 
   const values = [
     req.body.nomePet,
     req.body.tipo,
     req.body.raca,
     req.body.idade,
+    req.body.cpfTutor,
   ];
 
   db.query(q, [...values, req.params.id], (err) => {

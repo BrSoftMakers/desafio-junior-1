@@ -1,7 +1,8 @@
 section {
+  background-color: var(--cor-de-fundo);
   display: flex;
   justify-content: center;
-  margin: 3rem;
+  padding: 3rem;
 }
 
 form {

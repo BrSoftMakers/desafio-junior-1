@@ -6,10 +6,6 @@ const Cabecalho = () => {
       <div>
         <a href="#" className="cabecalho-link__titulo">PetFriend</a>
       </div>
-      <div className="cabecalho-links">
-        <a href="#" className="cabecalho-link">Cachorro</a>
-        <a href="#" className="cabecalho-link">Gato</a>
-      </div>
     </header>
   )
 }

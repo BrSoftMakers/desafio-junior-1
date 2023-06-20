@@ -86,7 +86,7 @@ const Formulario = ({ getTutores, onEdit, setOnEdit, update }) => {
         </div>
         <div>
           <label>CPF</label>
-          <input  onChange={(e) => setTutor({...tutor, cpf: e.target.value})} name="cpfTutor" value={tutor.cpf} placeholder="Digite o CPF do tutor"></input>
+          <input  onChange={(e) => setTutor({...tutor, cpf: e.target.value})} name="cpfTutor" value={tutor.cpf} pattern="\d{3}\d{3}\d{3}\d{2}" placeholder="Digite o CPF do tutor"></input>
         </div>
         <Botao />
       </form>
