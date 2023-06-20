@@ -1,0 +1,26 @@
+.cabecalho {
+  align-items: center;
+  display: flex;
+  background-color: var(--cor-de-fundo);
+  flex-direction: column;
+  padding-top: 4rem;
+}
+
+.cabecalho-link__titulo {
+  color: var(--cor-titulo);
+  font-size: 4rem;
+  font-family: var(--fonte-titulo-cabecalho);
+  text-decoration: none;
+}
+
+.cabecalho-links {
+  display: flex;
+}
+
+.cabecalho-link {
+  color: var(--cor-titulo-secundario);
+  font-family: var(--fonte-titulo-cabecalho);
+  font-size: 2rem;
+  margin: 2rem;
+  text-decoration: none;
+}

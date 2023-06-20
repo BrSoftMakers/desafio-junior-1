@@ -1,0 +1,39 @@
+section {
+  background-color: var(--cor-de-fundo);
+  display: flex;
+  justify-content: center;
+  padding: 3rem;
+}
+
+form {
+  box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  background-color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 6.4rem;
+  width: 50%;
+}
+
+h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin: 1rem 0 2rem;
+}
+
+label {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: .5rem;
+}
+
+input, select {
+  border: none;
+  box-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+  padding: 2.4rem;
+  width: 100%;
+}

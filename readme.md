@@ -1,27 +1,117 @@
- ![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
+## Pré-Requisitos para Rodar o Projeto
 
-# Desafio - Desenvolvedor Fullstack - Júnior
-Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato ao cargo proposto.
+Ter instalados:
 
-## Instruções
-- Faça um fork deste repositório;
-- O conjunto mínimo de tecnologias a serem utilizadas são: alguma das tecnologias front-end e back-end informadas na proposta desse desafio;
-- Crie um passo a passo de como rodar a sua aplicação;
-- Após finalizar, submeta um pull request com um comentário informando o seu e-mail de contato e aguarde nossa avaliação.
+- Node
+- MySQL
+- Git
 
-## Proposta
-Você deverá desenvolver um projeto utilizando React no front-end e Node.js no back-end com a finalidade de que seja possível listar, visualizar, criar, editar e excluir animais de estimação de uma petshop.
+## Tecnologias Utilizadas
 
-**Observações:**
-> - Você pode utilizar qualquer banco de dados relacional disponível;
-> - Cada animal de estimação precisa ter um identificador único, nome, idade, tipo (gato ou cachorro) e raça;
-> - Além dos dados do animal, é necessário também salvar os dados pessoais, de contato e de endereço do seu respectivo dono.
+  <div align="left">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" width="52" alt="javascript logo" />
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="40" width="52" alt="mysql logo"  />
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" height="40" width="52" alt="nodejs logo" />
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-plain-wordmark.svg" height="40" width="52" alt="mysql logo"  />
+    </div>
+    </br>
 
-## Diferenciais
-Serão considerados diferenciais:
+## Dependências utilizadas
 
-- Conhecimento sólido em Expo ou React Native;
-- Boas práticas de escrita de código (código limpo, padrões de arquitetura, etc.);
-- Conhecimento em Firebase;
-- Conhecimento em infraestruturas em nuvem;
-- Conhecimento em PHP.
+</br>
+
+> - Backend
+
+- Express
+- Mysql
+- Nodemon
+- Cors
+
+> - Frontend
+
+- React axios
+- React icons
+- React toastify
+
+</br>
+
+## Configuração do ambiente e execução do projeto
+
+</br>
+- Clonar este repositório
+
+```bash
+git clone https://github.com/silvavictorleandro/desafio-junior-1
+```
+
+</br>
+
+> - Configuração do Banco de Dados com MySQL
+
+```sql
+CREATE SCHEMA `crud`
+```
+
+</br>
+
+- Criar tabela
+
+```sql
+CREATE TABLE `pets` (
+  `id` int NOT NULL AUTO_INCREMENT,
+	`nomePet` varchar(255) NOT NULL,
+  `tipo` varchar(255) NOT NULL,
+  `raca` varchar(255) NOT NULL,
+  `idade` varchar(255) NOT NULL,
+  `cpfTutor` varchar(11) NOT NULL,
+)
+
+CREATE TABLE `tutores` (
+	`id` int NOT NULL AUTO_INCREMENT,
+	`nomeTutor` varchar(255) NOT NULL,
+  	`contato` varchar(255) NOT NULL,
+  	`endereco` varchar(255) NOT NULL,
+  	`cpf` varchar(11) NOT NULL,
+)
+
+SQL file
+  ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password123';
+```
+
+</br>
+
+## Instalação de Dependências e Inicialização
+
+</br>
+
+- Instalar as dependências e inicializar o backend
+
+```
+cd api/
+```
+
+```
+npm install
+```
+
+```
+npm start
+```
+
+- Instalar as dependências e inicializar o frontend
+
+```
+cd ..
+```
+
+```
+cd frontend
+```
+
+```
+npm install
+```
+
+```
+npm run dev
+```
