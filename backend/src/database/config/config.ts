@@ -9,6 +9,9 @@ module.exports = {
     username: process.env.DATABASE_USER,
     password: process.env.DATABASE_PASSWORD,
     database: process.env.DATABASE_DB,
+    dialectOptions: {
+      ssl: process.env.DATABASE_ENABLE_SSL === 'true' ? true : false,
+    },
   },
   test: {
     dialect: 'postgres',
@@ -17,6 +20,9 @@ module.exports = {
     username: process.env.DATABASE_USER,
     password: process.env.DATABASE_PASSWORD,
     database: process.env.DATABASE_DB,
+    dialectOptions: {
+      ssl: process.env.DATABASE_ENABLE_SSL === 'true' ? true : false,
+    },
   },
   production: {
     dialect: 'postgres',
@@ -25,5 +31,8 @@ module.exports = {
     username: process.env.DATABASE_USER,
     password: process.env.DATABASE_PASSWORD,
     database: process.env.DATABASE_DB,
+    dialectOptions: {
+      ssl: process.env.DATABASE_ENABLE_SSL === 'true' ? true : false,
+    },
   },
 }
