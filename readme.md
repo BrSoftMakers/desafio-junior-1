@@ -1,5 +1,7 @@
 <h1 align="center">PetMania - Desafio Softmakers</h1>
 
+Caso queira apenas testar o projeto, [clique aqui](https://desafio-softmakers-petshop-frontend.vercel.app).
+
 # Como executar o projeto
 
 Para clonar e executar esta aplicação, você precisará ter o [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/download/) e [Docker/Docker-compose](https://www.docker.com) instalados.
@@ -29,6 +31,7 @@ DATABASE_HOST= <url_ou_IP_do_banco>
 DATABASE_PORT= <porta_utilizada>
 DATABASE_USER= <usuario_utilizado_anteriormente>
 DATABASE_PASSWORD= <senha_utilizada_anteriormente>
+DATABASE_ENABLE_SSL= <define_se_sequelize_usa_ssl> (true | false)
 ```
 
 Após concluir as etapas anteriores, com o Docker instalado e em execução na sua máquina, siga o exemplo abaixo:
