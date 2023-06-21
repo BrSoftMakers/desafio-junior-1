@@ -43,6 +43,9 @@ $ npm install
 # Iniciar banco de dados
 $ docker-compose up -d
 
+# Roda as migrations para o banco de dados
+$ npm run db:migrate
+
 # Executar a aplicação
 $ npm run start:dev
 ```
