@@ -1,0 +1,35 @@
+{
+  "name": "desafio-junior-1",
+  "version": "1.0.0",
+  "description": "![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrSoftMakers/desafio-junior-1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrSoftMakers/desafio-junior-1/issues"
+  },
+  "homepage": "https://github.com/BrSoftMakers/desafio-junior-1#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.22",
+    "sequelize-cli": "^6.6.1",
+    "sucrase": "^3.32.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "helmet": "^7.0.0",
+    "mariadb": "^3.2.0",
+    "sequelize": "^6.32.1"
+  }
+}
