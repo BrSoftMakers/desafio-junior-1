@@ -1,27 +1,79 @@
- ![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
+<h1 align="center">PetMania - Desafio Softmakers</h1>
 
-# Desafio - Desenvolvedor Fullstack - Júnior
-Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato ao cargo proposto.
+Caso queira apenas testar o projeto, [clique aqui](https://desafio-softmakers-petshop-frontend.vercel.app).
 
-## Instruções
-- Faça um fork deste repositório;
-- O conjunto mínimo de tecnologias a serem utilizadas são: alguma das tecnologias front-end e back-end informadas na proposta desse desafio;
-- Crie um passo a passo de como rodar a sua aplicação;
-- Após finalizar, submeta um pull request com um comentário informando o seu e-mail de contato e aguarde nossa avaliação.
+# Como executar o projeto
 
-## Proposta
-Você deverá desenvolver um projeto utilizando React no front-end e Node.js no back-end com a finalidade de que seja possível listar, visualizar, criar, editar e excluir animais de estimação de uma petshop.
+Para clonar e executar esta aplicação, você precisará ter o [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/download/) e [Docker/Docker-compose](https://www.docker.com) instalados.
 
-**Observações:**
-> - Você pode utilizar qualquer banco de dados relacional disponível;
-> - Cada animal de estimação precisa ter um identificador único, nome, idade, tipo (gato ou cachorro) e raça;
-> - Além dos dados do animal, é necessário também salvar os dados pessoais, de contato e de endereço do seu respectivo dono.
+## Back-end
 
-## Diferenciais
-Serão considerados diferenciais:
+Abra a pasta "backend" para prosseguir.
 
-- Conhecimento sólido em Expo ou React Native;
-- Boas práticas de escrita de código (código limpo, padrões de arquitetura, etc.);
-- Conhecimento em Firebase;
-- Conhecimento em infraestruturas em nuvem;
-- Conhecimento em PHP.
+```bash
+$ cd backend
+```
+
+Em seguida, você precisa editar o arquivo docker-compose.yaml e adicionar o nome do seu banco, usuário e senha.
+
+```bash
+environment:
+    POSTGRES_DB: <nome_do_banco>
+    POSTGRES_USER: <nome_do_usuario>
+    POSTGRES_PASSWORD: <senha_do_banco>
+```
+
+Agora, crie um arquivo .env na raiz do projeto back-end contendo as seguintes variáveis:
+
+```bash
+DATABASE_DB= <nome_do_banco>
+DATABASE_HOST= <url_ou_IP_do_banco>
+DATABASE_PORT= <porta_utilizada>
+DATABASE_USER= <usuario_utilizado_anteriormente>
+DATABASE_PASSWORD= <senha_utilizada_anteriormente>
+DATABASE_ENABLE_SSL= <define_se_sequelize_usa_ssl> (true | false)
+```
+
+Após concluir as etapas anteriores, com o Docker instalado e em execução na sua máquina, siga o exemplo abaixo:
+
+```bash
+# Instalar dependências
+$ npm install
+
+# Iniciar banco de dados
+$ docker-compose up -d
+
+# Roda as migrations para o banco de dados
+$ npm run db:migrate
+
+# Executar a aplicação
+$ npm run start:dev
+```
+
+## Front-end
+
+Abra a pasta "frontend" para prosseguir.
+
+```bash
+$ cd frontend
+```
+
+Agora, crie um arquivo .env na raiz do projeto front-end contendo a seguinte variável:
+
+```bash
+VITE_BASE_URL=<URL_DA_API>
+```
+
+Se você seguiu o passo a passo para executar o back-end, a URL da API provavelmente será: http://localhost:3333/api/v1
+
+Após concluir as etapas anteriores, execute os comandos a seguir:
+
+```bash
+# Instalar dependências
+$ npm install
+
+# Executar a aplicação
+$ npm run start:dev
+```
+
+Sua aplicação front-end provavelmente estará rodando na seguinte URL: http://localhost:5173. Caso contrário, a URL será exibida no terminal.
