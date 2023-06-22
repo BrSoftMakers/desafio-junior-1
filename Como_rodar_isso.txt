@@ -11,7 +11,7 @@ Tive um probleminha com o cors , ele nao tava dando acesso pra consumir a api ..
 instalei a extensao Moesif Origin & CORS Changer = link download direto: https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc
 tentei arrumar isso mas nao achava solucao , achei essa gambiarra e deu bom , entao segui codando o resto .
 
-Tive algumas incopatibilidades com versoes de packages instalados , na duvida so instalar a versao que utilizei :)
+Tive algumas incopatibilidades com versoes de packages instalados , na duvida so instalar a versao que utilizei :) 
 
 
 
