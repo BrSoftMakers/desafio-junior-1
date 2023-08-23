@@ -1,0 +1,55 @@
+.container {
+    background-color: #fff;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.452);
+    height: 500px;
+    margin: 150px auto;
+    width: 50vw;
+}
+
+
+.formGroup {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+
+.label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.input {
+    background-color: #05060f15;
+    border: 2px solid transparent;
+    border-radius: .5rem;
+    font-size: 1rem;
+    height: 35px;
+    padding: 0 1rem;
+    transition: border-color .3s cubic-bezier(.25, .01, .25, 1) 0s, color .3s cubic-bezier(.25, .01, .25, 1) 0s, background .2s cubic-bezier(.25, .01, .25, 1) 0s;
+}
+
+.label {
+    color: #05060f99;
+    display: block;
+    font-size: .9rem;
+    font-weight: bold;
+    margin-bottom: .3rem;
+    transition: color .3s cubic-bezier(.25, .01, .25, 1) 0s;
+}
+
+.input:hover,
+.input:focus,
+.input-group:hover .input {
+    border-color: #ffbb33;
+    outline: none;
+}
+
+.input-group:hover .label,
+.input:focus {
+    color: #05060fc2;
+}

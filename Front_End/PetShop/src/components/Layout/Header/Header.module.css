@@ -1,0 +1,42 @@
+.header {
+    align-items: center;
+    background: #ffb41e;
+    display: flex;
+    font-family: 'Montserrat', sans-serif;
+    justify-content: space-around;
+    max-width: 100vw;
+    width: 100%;
+}
+
+nav ul {
+    align-items: center;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    position: relative;
+    padding: 0 10px;
+}
+
+nav ul li a,
+nav ul li span, a {
+    cursor: pointer;
+    color: #fff;
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 40px;
+    padding: 8px 20px;
+    text-decoration: none;
+}
+
+.logo{
+    align-items: center;
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+    width: 150px;
+}

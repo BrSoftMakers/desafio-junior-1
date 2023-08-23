@@ -1,0 +1,10 @@
+.formWrapper {
+    margin: auto;
+    width: 80%;
+}
+
+.form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
