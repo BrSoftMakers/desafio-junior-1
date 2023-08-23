@@ -1,27 +1,59 @@
- ![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
+<h1>Passo a passo</h1>
 
-# Desafio - Desenvolvedor Fullstack - Júnior
-Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato ao cargo proposto.
+#### Back End
 
-## Instruções
-- Faça um fork deste repositório;
-- O conjunto mínimo de tecnologias a serem utilizadas são: alguma das tecnologias front-end e back-end informadas na proposta desse desafio;
-- Crie um passo a passo de como rodar a sua aplicação;
-- Após finalizar, submeta um pull request com um comentário informando o seu e-mail de contato e aguarde nossa avaliação.
+`Passo 1`: Inicializar o Back End instalando o npm na pasta:
 
-## Proposta
-Você deverá desenvolver um projeto utilizando React no front-end e Node.js no back-end com a finalidade de que seja possível listar, visualizar, criar, editar e excluir animais de estimação de uma petshop.
+Exemplo: 
 
-**Observações:**
-> - Você pode utilizar qualquer banco de dados relacional disponível;
-> - Cada animal de estimação precisa ter um identificador único, nome, idade, tipo (gato ou cachorro) e raça;
-> - Além dos dados do animal, é necessário também salvar os dados pessoais, de contato e de endereço do seu respectivo dono.
+```
+    C:\CaminhoX\CaminhoX\CaminhoX\CaminhoX\PetShop_SoftMaker\Back_End> npm install
+```
 
-## Diferenciais
-Serão considerados diferenciais:
+`Passo 2`: Criar uma Base de dados/Data base no Postgres;
 
-- Conhecimento sólido em Expo ou React Native;
-- Boas práticas de escrita de código (código limpo, padrões de arquitetura, etc.);
-- Conhecimento em Firebase;
-- Conhecimento em infraestruturas em nuvem;
-- Conhecimento em PHP.
+`Passo 3`: Tire o '.example' do arquivo '.env.example' e coloque as informações da porta de acesso da api e as informações do seu Postgres no arquivo;
+
+Exemplo de como deve ficar:
+
+```
+APP_PORT=5000
+
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=postgres
+DB_PASSWORD=1234
+DB_NAME=PetShop
+
+```
+
+`Passo 4`: Agora colocar para funcionar o server do projeto:
+
+```
+npm run server
+```
+
+
+#### Front End
+
+`Passo 1`: Inicializar o Front End instalando o npm na pasta;
+
+Exemplo:
+```
+    C:\CaminhoX\CaminhoX\CaminhoX\CaminhoX\PetShop_SoftMaker\Front_End\PetShop> npm install
+```
+
+`Passo 2`: Tire o '.example' do arquivo '.env.example' e coloque a porta de acesso que está o api no arquivo;
+
+> Colocando no final '/api'
+
+Exemplo: 
+```
+VITE_API_URL=https://localhost:5000/api
+```
+
+`Passo 4`: Agora para finalizar, colocar para rodar o projeto front:
+
+```
+npm run dev
+```

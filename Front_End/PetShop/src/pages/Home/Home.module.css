@@ -1,0 +1,12 @@
+.home {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+.title h1 {
+    font-size: 46px;
+}
+.title p {
+    font-size: 17px;
+}
