@@ -1,0 +1,25 @@
+version: '3.7'
+
+services:
+  app:
+    build:
+      context: ../petshop-back-end
+      dockerfile: Dockerfile
+    command: npm start
+    ports:
+      - "80:3000"
+    env_file:
+      - .env
+    volumes:
+      - .:/usr/app
+
+  mysql:
+    image: mysql:8.0
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_USER: $MYSQL_ROOT_USER
+      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+      MYSQL_DATABASE: $MYSQL_DATABASE
+    volumes:
+      - ./db/:/docker-entrypoint-initdb.d/
