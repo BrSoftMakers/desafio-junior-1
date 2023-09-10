@@ -48,5 +48,3 @@ O primeiro usuário gerado automaticamente é:
 Usuário: admin
 Senha: adminpassword
 Você pode usar essas credenciais para fazer login e começar a usar sua aplicação.
-
-Isso conclui o processo de configuração e iniciação da sua aplicação completa. Lembre-se de que esta é uma configuração básica, e você pode expandir e personalizar sua aplicação conforme necessário. Certifique-se de proteger suas credenciais de banco de dados e outras informações confidenciais em um ambiente de produção.
