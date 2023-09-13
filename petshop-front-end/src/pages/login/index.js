@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import Cookies from 'js-cookie';
-import { useFormik } from 'formik';
+import {useFormik} from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
-import { IMaskInput } from 'react-imask';
+import {IMaskInput} from 'react-imask';
 import cachorro from '../../img/Dog_paw-amico.png';
 import logo from '../../img/logonav (1).png';
 import ShowPasswordImg from '../../img/ShowPasswordImg 1.png';
@@ -28,7 +28,6 @@ const Login = () => {
         validationSchema: Yup.object({
             name: Yup.string().required('Obrigatório'),
             password: Yup.string()
-                .min(6, 'Mínimo de 6 caracteres')
                 .required('Obrigatório'),
         }),
 
@@ -45,20 +44,21 @@ const Login = () => {
                 if (response.status === 200) {
                     const token = response.data.token.token;
                     const userId = response.data.token.userId;
-                    Cookies.set('token', token, { sameSite: 'strict' });
-                    Cookies.set('userId', userId, { sameSite: 'strict' });
+                    Cookies.set('token', token, {sameSite: 'strict'});
+                    Cookies.set('userId', userId, {sameSite: 'strict'});
                     window.location.href = '/';
-                } else if (response.status === 401) {
-                    // Exibe uma mensagem de erro se as credenciais forem inválidas
-                    setError('Usuário ou senha incorretos');
                 } else {
-                    // Exibe uma mensagem de erro genérica para outros erros
-                    setError('Falha no servidor. Por favor, tente novamente mais tarde.');
+                    // Exibe uma mensagem de erro genérica para outros erros de status
+                    setError('Erro na autenticação. Por favor, tente novamente mais tarde.');
                 }
             } catch (error) {
-                console.error('Erro na solicitação de autenticação', error);
-                // Exibe uma mensagem de erro genérica se ocorrer um erro na solicitação
-                setError('Ocorreu um erro na solicitação de autenticação');
+                if (error.response && error.response.status === 401) {
+                    // O servidor retornou status 401 (Não Autorizado), indicando credenciais incorretas
+                    setError('Usuário ou senha incorretos.');
+                } else {
+                    // Exibe uma mensagem de erro genérica se ocorrer um erro na solicitação
+                    setError('Erro na solicitação de autenticação. Tente novamente mais tarde.');
+                }
             }
         },
     });
@@ -142,13 +142,9 @@ const Login = () => {
                                 </button>
                             </div>
 
-                            <a href='#' className='flex justify-center text-gray-200 mt-3 hover:text-white'>
-                                Esqueci minha senha
-                            </a>
-
                             {error && (
-                                <p className="text-red-500 mt-2 text-center">
-                                    <svg className="w-6 h-6 text-red-500 dark:red-500" aria-hidden="true"
+                                <p className="text-red-500 mt-2 text-center flex items-center justify-center">
+                                    <svg className="w-6 h-6 text-red-500 dark:red-500 mr-2" aria-hidden="true"
                                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 21">
                                         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"
                                               strokeWidth="2"

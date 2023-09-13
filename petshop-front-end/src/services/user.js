@@ -1,10 +1,10 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
-// Cria uma instância do Axios com a base URL definida para 'http://localhost'
-const usersAPI = axios.create({ baseURL: 'http://localhost/' });
+// Crie uma instância do Axios com a base URL definida para o seu servidor back-end.
+const usersAPI = axios.create({ baseURL: 'http://localhost' }); // Substitua 'http://localhost:3000' pela URL correta do seu servidor.
 
-// Intercepta as requisições e adiciona o token de autenticação no header
+// Intercepte as requisições e adicione o token de autenticação no header
 usersAPI.interceptors.request.use((config) => {
     const token = Cookies.get('token');
     config.headers.Authorization = `Bearer ${token}`;

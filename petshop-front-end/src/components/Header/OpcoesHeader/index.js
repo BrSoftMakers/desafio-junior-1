@@ -4,11 +4,13 @@ import Animais from '../../../img/pata2.png';
 import PESSOA from '../../../img/ICON - PESSOA.png';
 import HOME from '../../../img/ICON - HOME.png';
 import AnimalPage from '../../../pages/Pet/Animal';
+import Logout from '../../../img/logout.png';
 
 const opcoes = [
-    { texto: 'Home', link: '/', imagem: HOME, submenu: [] },
+    { texto: 'Home', link: '/home', imagem: HOME, submenu: [] },
     { texto: 'Usuários', link: '/editar', imagem: PESSOA, submenu: [] },
     { texto: 'Animais', link: '/AnimalPage', imagem: Animais, submenu: [] },
+    { texto: 'Sair', link: '/logout', imagem: Logout, submenu: [] },
 ];
 
 function OpcoesHeader() {
