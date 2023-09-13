@@ -1,6 +1,6 @@
-import Logo from '../Logo'
+import Logo from '../../img/Logo'
 import OpcoesHeader from "../OpcoesHeader"
-import IconesHeader from "../Icone"
+import IconesHeader from "../../img/Icone"
 import {Link} from "react-router-dom";
 
 function NavBar() {

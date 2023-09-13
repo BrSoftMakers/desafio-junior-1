@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "autoprefixer": "^10.4.15",
     "axios": "^1.5.0",
+    "bcryptjs": "^2.4.3",
     "date-fns": "^2.30.0",
     "formik": "^2.4.4",
     "js-cookie": "^3.0.5",

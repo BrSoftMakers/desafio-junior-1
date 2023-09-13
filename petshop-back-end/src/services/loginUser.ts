@@ -25,13 +25,21 @@ async function loginUser(name: string, password: string) {
             throw new Error(INVALID_CREDENTIALS_ERROR);
         }
 
-        // Crie e retorne o token JWT
-        const token = jwt.sign({ id: user.id, name: user.name, isAdmin: user.isAdmin, }, JWT_SECRET, {
-            expiresIn: JWT_EXPIRATION,
-        });
-
-        return token;
+        // Crie e retorne o token JWT com o ID do usuário incluído na carga útil (payload)
+        const token = jwt.sign(
+            {
+                id: user.id,
+                name: user.name,
+                isAdmin: user.isAdmin,
+            },
+            JWT_SECRET,
+            {
+                expiresIn: JWT_EXPIRATION,
+            }
+        );
+        return { token, userId: user.id };
     } catch (error) {
+        // Trate os erros adequadamente
         // @ts-ignore
         if (error.message === USER_NOT_FOUND_ERROR) {
             // Usuário não encontrado

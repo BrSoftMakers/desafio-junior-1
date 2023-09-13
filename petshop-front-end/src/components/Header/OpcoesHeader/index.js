@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Animais from '../../img/pata2.png';
-import PESSOA from '../../img/ICON - PESSOA.png';
-import HOME from '../../img/ICON - HOME.png';
-import AnimalPage from '../../pages/Pet/Animal/index';
+import Animais from '../../../img/pata2.png';
+import PESSOA from '../../../img/ICON - PESSOA.png';
+import HOME from '../../../img/ICON - HOME.png';
+import AnimalPage from '../../../pages/Pet/Animal';
 
 const opcoes = [
     { texto: 'Home', link: '/', imagem: HOME, submenu: [] },

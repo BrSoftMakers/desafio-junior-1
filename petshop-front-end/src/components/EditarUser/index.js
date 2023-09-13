@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import userImage from "../../img/user_3177440.png";
 import {format, parseISO} from "date-fns";
-import SmallModal from "../../components/SmallModal";
+import SmallModal from "../Modals/SmallModal";
 import Seach from "../../components/Seach/index";
 import {Formik, Form, Field, ErrorMessage} from "formik";
 import * as Yup from "yup";

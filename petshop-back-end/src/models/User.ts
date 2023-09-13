@@ -9,7 +9,7 @@ export interface UserAttributes {
     email: string;
     phone: string;
     password: string;
-    birthday: Date;
+    birthday: Date; // Alterado para Date
     isAdmin: boolean;
 }
 
@@ -22,7 +22,7 @@ class User extends Model<UserAttributes, UserCreationAttributes> implements User
     public email!: string;
     public phone!: string;
     public password!: string;
-    public birthday!: Date;
+    public birthday!: Date; // Alterado para Date
     public isAdmin!: boolean;
 
     public readonly createdAt!: Date;
@@ -55,7 +55,7 @@ User.init(
             allowNull: false,
         },
         birthday: {
-            type: DataTypes.DATE,
+            type: DataTypes.DATEONLY, // Alterado para DATEONLY
             allowNull: false,
         },
         isAdmin: {

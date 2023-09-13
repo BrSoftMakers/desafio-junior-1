@@ -1,21 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import SeachAnimal from '../SeachAnimal/index.';
 import pata from '../../img/patas.png';
-import { getPet, getPets, deletePet } from '../../services/pets'; // Importe a função patchPet
+import { getPet, getPets, deletePet } from '../../services/pets';
 import { getUser } from '../../services/user';
-import EditPetModal from '../EditPetModal';
+import EditPetModal from '../Modals/EditPetModal';
 
 function EditarAnimal() {
+    // Estado para armazenar a lista de pets
     const [pets, setPets] = useState([]);
-    const [selectedPetId, setSelectedPetId] = useState(null);
-    const [isEditModalOpen, setEditModalOpen] = useState(false);
-    const [selectedPetData, setSelectedPetData] = useState(null);
-    const [dataUpdated, setDataUpdated] = useState(false); // Adicione o estado para controlar as atualizações
 
+    // Estado para armazenar o ID do pet selecionado
+    const [selectedPetId, setSelectedPetId] = useState(null);
+
+    // Estado para controlar a abertura/fechamento do modal de edição
+    const [isEditModalOpen, setEditModalOpen] = useState(false);
+
+    // Estado para armazenar os dados do pet selecionado
+    const [selectedPetData, setSelectedPetData] = useState(null);
+
+    // Estado para controlar as atualizações de dados
+    const [dataUpdated, setDataUpdated] = useState(false);
+
+    // UseEffect para buscar a lista de pets
     useEffect(() => {
         async function fetchPets() {
             try {
                 const petList = await getPets();
+
+                // Obtém os nomes dos proprietários e adiciona ao objeto pet
                 const petsWithOwnerNames = await Promise.all(
                     petList.map(async (pet) => {
                         try {
@@ -28,6 +40,7 @@ function EditarAnimal() {
                         }
                     })
                 );
+
                 setPets(petsWithOwnerNames);
             } catch (error) {
                 console.error('Erro ao obter os pets:', error);
@@ -35,19 +48,22 @@ function EditarAnimal() {
         }
 
         fetchPets();
-    }, [dataUpdated]); // Certifique-se de incluir dataUpdated no array de dependências
+    }, [dataUpdated]); // Atualiza a lista quando dataUpdated muda
 
+    // Função para lidar com o clique no botão de edição
     const handleEditClick = async (petId) => {
         setSelectedPetId(petId);
+
         try {
             const pet = await getPet(petId);
-            setSelectedPetData(pet); // Defina os dados do pet selecionado
+            setSelectedPetData(pet); // Define os dados do pet selecionado
             setEditModalOpen(true);
         } catch (error) {
             console.error('Erro ao obter os dados do pet:', error);
         }
     };
 
+    // Função para lidar com o clique no botão de exclusão
     const handleDeleteClick = async (petId) => {
         try {
             // Chama a função para excluir o pet pelo ID
@@ -62,12 +78,14 @@ function EditarAnimal() {
         }
     };
 
+    // Função para lidar com a atualização de dados
     const handleDataUpdated = () => {
         setDataUpdated(true);
     };
 
     return (
         <div className='relative ml-[195px] -mt-[650px]'>
+            {/* Seção de pesquisa e botão de cadastro */}
             <section className="flex justify-between mx-8 mt-4 items-center">
                 <SeachAnimal />
 
@@ -92,6 +110,7 @@ function EditarAnimal() {
                 </div>
             </section>
 
+            {/* Tabela de pets */}
             <table className="mx-8 mt-4 bg-gray-200 rounded-xl mb-10 w-[1100px]">
                 <thead className="text-#0588D1">
                 <tr className="">
@@ -113,7 +132,7 @@ function EditarAnimal() {
                         <td className="px-8 ">{pet.age}</td>
                         <td className="px-8 h-8 w-8">{pet.breed}</td>
                         <td className="px-8 ">
-                            <button onClick={() => handleEditClick(pet.id)} className="hover:bg-gray-400 rounded">
+                            <button onClick={() => handleEditClick(pet.id)} className="hover-bg-gray-400 rounded">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
@@ -138,12 +157,13 @@ function EditarAnimal() {
                 </tbody>
             </table>
 
+            {/* Modal de edição de pet */}
             {isEditModalOpen && (
                 <EditPetModal
                     petId={selectedPetId}
                     petData={selectedPetData}
                     onClose={() => setEditModalOpen(false)}
-                    onUpdatePetData={handleDataUpdated} // Passe a função para atualizar dataUpdated
+                    onUpdatePetData={handleDataUpdated}
                 />
             )}
         </div>

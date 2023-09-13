@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import icones from '../../img/Icone'
 
 function IconesHeader() {
     return (

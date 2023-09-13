@@ -2,55 +2,68 @@ import React, { useState } from 'react';
 import Cookies from 'js-cookie';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { IMaskInput } from "react-imask";
-import cachorro from "../../img/Dog_paw-amico.png";
-import logo from "../../img/logonav (1).png";
-import ShowPasswordImg from "../../img/ShowPasswordImg 1.png";
-import HidePasswordImg from "../../img/HidePasswordImg 1.png";
+import axios from 'axios';
+import { IMaskInput } from 'react-imask';
+import cachorro from '../../img/Dog_paw-amico.png';
+import logo from '../../img/logonav (1).png';
+import ShowPasswordImg from '../../img/ShowPasswordImg 1.png';
+import HidePasswordImg from '../../img/HidePasswordImg 1.png';
 
+/**
+ * Componente de login para autenticar usuários.
+ */
 const Login = () => {
-    const [name, setname] = useState('');
-    const [password, setPassword] = useState('');
+    // Estado para controlar mensagens de erro
     const [error, setError] = useState('');
+    // Estado para controlar a visibilidade da senha
     const [showPassword, setShowPassword] = useState(false);
 
+    // Utiliza o Formik para gerenciar o estado do formulário
     const formik = useFormik({
         initialValues: {
             name: '',
             password: '',
         },
+        // Validação de campos usando Yup
         validationSchema: Yup.object({
-            name: Yup.string()
-                .required('Obrigatório'),
+            name: Yup.string().required('Obrigatório'),
             password: Yup.string()
-                .min(6, "Mínimo de 6 caracteres")
+                .min(6, 'Mínimo de 6 caracteres')
                 .required('Obrigatório'),
         }),
 
+        // Função a ser executada quando o formulário for enviado
         onSubmit: async (values) => {
             try {
-                const response = await fetch('http://localhost/user/login', {
-                    method: 'POST',
+                const response = await axios.post('http://localhost/user/login', values, {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify(values),
                 });
 
-                if (response.ok) {
-                    const { token } = await response.json();
-                    Cookies.set('token', token, { /*secure: true,*/ sameSite: 'strict' });
+                // Após autenticação bem-sucedida em seu componente de Login
+                if (response.status === 200) {
+                    const token = response.data.token.token;
+                    const userId = response.data.token.userId;
+                    Cookies.set('token', token, { sameSite: 'strict' });
+                    Cookies.set('userId', userId, { sameSite: 'strict' });
                     window.location.href = '/';
-                } else {
+                } else if (response.status === 401) {
+                    // Exibe uma mensagem de erro se as credenciais forem inválidas
                     setError('Usuário ou senha incorretos');
+                } else {
+                    // Exibe uma mensagem de erro genérica para outros erros
+                    setError('Falha no servidor. Por favor, tente novamente mais tarde.');
                 }
             } catch (error) {
-                console.log('Erro na solicitação de autenticação', error);
+                console.error('Erro na solicitação de autenticação', error);
+                // Exibe uma mensagem de erro genérica se ocorrer um erro na solicitação
                 setError('Ocorreu um erro na solicitação de autenticação');
             }
         },
     });
 
+    // Função para alternar a visibilidade da senha
     const togglePasswordVisibility = () => {
         setShowPassword((prevShowPassword) => !prevShowPassword);
     };
@@ -80,7 +93,8 @@ const Login = () => {
                     <form onSubmit={formik.handleSubmit} className='flex flex-col p-4'>
 
                         <div className="">
-                            <label className="flex p-1 pl-3 flex-col justify-center flex-shrink-0 text-xl font-bold text-gray-200">
+                            <label
+                                className="flex p-1 pl-3 flex-col justify-center flex-shrink-0 text-xl font-bold text-gray-200">
                                 Nome:
                             </label>
                             <IMaskInput
@@ -91,12 +105,13 @@ const Login = () => {
                                 placeholder=""
                                 {...formik.getFieldProps('name')}
                             />
-                            {formik.touched.name && formik.errors.nome ? (
+                            {formik.touched.name && formik.errors.name ? (
                                 <div className='text-red-500'>{formik.errors.name}</div>
                             ) : null}
 
                             <div className='relative'>
-                                <label className="flex p-1 pl-3 flex-col justify-center flex-shrink-0 text-xl font-bold text-gray-200">
+                                <label
+                                    className="flex p-1 pl-3 flex-col justify-center flex-shrink-0 text-xl font-bold text-gray-200">
                                     Senha:
                                 </label>
                                 <div className='relative'>
@@ -133,8 +148,11 @@ const Login = () => {
 
                             {error && (
                                 <p className="text-red-500 mt-2 text-center">
-                                    <svg className="w-6 h-6 text-red-500 dark:red-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 21">
-                                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 3.464V1.1m0 2.365a5.338 5.338 0 0 1 5.133 5.368v1.8c0 2.386 1.867 2.982 1.867 4.175C17 15.4 17 16 16.462 16H3.538C3 16 3 15.4 3 14.807c0-1.193 1.867-1.789 1.867-4.175v-1.8A5.338 5.338 0 0 1 10 3.464ZM4 3 3 2M2 7H1m15-4 1-1m1 5h1M6.54 16a3.48 3.48 0 0 0 6.92 0H6.54Z" />
+                                    <svg className="w-6 h-6 text-red-500 dark:red-500" aria-hidden="true"
+                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 21">
+                                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"
+                                              strokeWidth="2"
+                                              d="M10 3.464V1.1m0 2.365a5.338 5.338 0 0 1 5.133 5.368v1.8c0 2.386 1.867 2.982 1.867 4.175C17 15.4 17 16 16.462 16H3.538C3 16 3 15.4 3 14.807c0-1.193 1.867-1.789 1.867-4.175v-1.8A5.338 5.338 0 0 1 10 3.464ZM4 3 3 2M2 7H1m15-4 1-1m1 5h1M6.54 16a3.48 3.48 0 0 0 6.92 0H6.54Z"/>
                                     </svg>
                                     {error}
                                 </p>

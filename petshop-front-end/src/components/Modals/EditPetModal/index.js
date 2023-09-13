@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { getPet, patchPet } from '../../services/pets';
+import { getPet, patchPet } from '../../../services/pets';
 
 function EditPetModal({ petId, onClose, onUpdatePetData }) {
+    // Estado para armazenar os dados do pet selecionado
     const [petData, setPetData] = useState(null);
+
+    // Estado para armazenar os dados editados do pet
     const [editedPetData, setEditedPetData] = useState({ pet: {} });
 
+    // UseEffect para buscar os dados do pet com base no petId
     useEffect(() => {
         async function fetchPetData() {
             try {
                 const pet = await getPet(petId);
                 setPetData(pet);
 
-                // Verifique se os dados do pet possuem as propriedades corretas
+                // Verifica se os dados do pet possuem as propriedades corretas
                 if (pet && pet.pet && pet.pet.name && pet.pet.age && pet.pet.breed) {
                     setEditedPetData({ pet: { ...pet.pet } });
                 }
@@ -23,6 +27,7 @@ function EditPetModal({ petId, onClose, onUpdatePetData }) {
         fetchPetData();
     }, [petId]);
 
+    // Função para lidar com as mudanças nos campos de entrada
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setEditedPetData((prevState) => ({
@@ -33,10 +38,16 @@ function EditPetModal({ petId, onClose, onUpdatePetData }) {
         }));
     };
 
+    // Função para salvar as alterações no pet
     const handleSave = async () => {
         try {
+            // Chama a função para atualizar o pet com os dados editados
             const updatedPet = await patchPet(petId, editedPetData.pet);
-            onUpdatePetData(); // Chame a função para atualizar dataUpdated
+
+            // Chama a função onUpdatePetData para notificar sobre a atualização
+            onUpdatePetData();
+
+            // Fecha o modal
             onClose();
         } catch (error) {
             console.error('Erro ao salvar as alterações no pet:', error);
@@ -49,6 +60,7 @@ function EditPetModal({ petId, onClose, onUpdatePetData }) {
                 <h2 className="text-2xl font-semibold mb-4">Editar Pet</h2>
                 {petData && (
                     <form>
+                        {/* Campo de Nome do Pet */}
                         <div className="mb-4">
                             <label htmlFor="name" className="block text-sm font-medium">
                                 Nome do Pet
@@ -62,6 +74,8 @@ function EditPetModal({ petId, onClose, onUpdatePetData }) {
                                 className="w-full border-gray-300 rounded-md shadow-sm p-2"
                             />
                         </div>
+
+                        {/* Campo de Idade do Pet */}
                         <div className="mb-4">
                             <label htmlFor="age" className="block text-sm font-medium">
                                 Idade do Pet
@@ -75,6 +89,8 @@ function EditPetModal({ petId, onClose, onUpdatePetData }) {
                                 className="w-full border-gray-300 rounded-md shadow-sm p-2"
                             />
                         </div>
+
+                        {/* Campo de Raça do Pet */}
                         <div className="mb-4">
                             <label htmlFor="breed" className="block text-sm font-medium">
                                 Raça do Pet
@@ -88,6 +104,8 @@ function EditPetModal({ petId, onClose, onUpdatePetData }) {
                                 className="w-full border-gray-300 rounded-md shadow-sm p-2"
                             />
                         </div>
+
+                        {/* Botões de Salvar e Cancelar */}
                         <div className="flex justify-end">
                             <button
                                 type="button"

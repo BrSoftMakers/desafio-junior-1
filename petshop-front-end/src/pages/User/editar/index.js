@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { Suspense, lazy } from 'react';
 import { getUsers, patchUsers, deleteUser } from '../../../services/user';
 import Cookies from 'js-cookie';
+import {format, parseISO} from "date-fns";
 
 //Importação lazy para UsersTable e UserModal
-const UsersTable = lazy(() => import('../../../components/Editar').then(module => ({ default: module.UsersTable })));
-const UserModal = lazy(() => import('../../../components/Editar').then(module => ({ default: module.UserModal })));
+const UsersTable = lazy(() => import('../../../components/EditarUser').then(module => ({ default: module.UsersTable })));
+const UserModal = lazy(() => import('../../../components/EditarUser').then(module => ({ default: module.UserModal })));
 
 
 function Editar() {
