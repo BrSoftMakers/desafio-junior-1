@@ -10,7 +10,8 @@ Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnic
 - Após finalizar, submeta um pull request com um comentário informando o seu e-mail de contato e aguarde nossa avaliação.
 
 ## Proposta
-Você deverá desenvolver um projeto utilizando React no front-end e Node.js no back-end com a finalidade de que seja possível listar, visualizar, criar, editar e excluir animais de estimação de uma petshop.
+O teste consiste em desenvolver um projeto utilizando NextJS no front-end e Nest.js no back-end, com o objetivo de criar uma aplicação que permita listar, visualizar, criar, editar e excluir animais de estimação em uma petshop. Utilize o Protótipo Figma fornecido como referência (Link para o Protótipo).
+Com base no Protótipo Figma: https://www.figma.com/file/z0zYWFHb7OK6TUXDBBw5my/SoftMakers-Challenges%3A-Dev-Jr.?type=design&node-id=0%3A1&mode=design&t=vAPkbzL97wUL9qma-1
 
 **Observações:**
 > - Você pode utilizar qualquer banco de dados relacional disponível;
@@ -20,8 +21,5 @@ Você deverá desenvolver um projeto utilizando React no front-end e Node.js no 
 ## Diferenciais
 Serão considerados diferenciais:
 
-- Conhecimento sólido em Expo ou React Native;
 - Boas práticas de escrita de código (código limpo, padrões de arquitetura, etc.);
-- Conhecimento em Firebase;
 - Conhecimento em infraestruturas em nuvem;
-- Conhecimento em PHP.
