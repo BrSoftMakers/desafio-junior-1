@@ -13,6 +13,10 @@ export default function CadastrarPet({ toggleButtonState,createPet }) {
         telefone: '548548',
         nascimento: '20/01/1999',
     });
+    const handleCreatePet = (formData) => {
+        const parsedCreatePet = JSON.parse(createPet);
+        parsedCreatePet(formData);
+      };
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
@@ -30,7 +34,7 @@ export default function CadastrarPet({ toggleButtonState,createPet }) {
 
             </header>
             <div className={styles.infoCadastro}>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleCreatePet}>
                 <div className={styles.infoCadastro_Nome}>
                     
                     <span>Nome</span>
@@ -39,10 +43,10 @@ export default function CadastrarPet({ toggleButtonState,createPet }) {
                 <div className={styles.infoCadastro_Animal}>
                     <span>Animal</span>
                     <input type="radio" name="grupo1" id="opcao1" />
-                    <label for="opcao1">Cachorro</label>
+                    <label htmlFor="opcao1">Cachorro</label>
 
                     <input type="radio" name="grupo1" id="opcao2" />
-                    <label for="opcao2">Gato</label>
+                    <label htmlFor="opcao2">Gato</label>
                 </div>
                 <div>
                     <span>Dono</span>

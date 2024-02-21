@@ -28,6 +28,9 @@
     gap: 5px;
     max-width: 100%;
 }
+.infoCadastro input{
+    color: black;
+}
 .infoCadastro_Animal span{
     display: block;
     
