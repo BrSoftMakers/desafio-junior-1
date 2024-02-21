@@ -1,0 +1,41 @@
+.ContainerPetList{
+    display: grid;
+    grid-template-columns: repeat(4,300px);
+    grid-gap: 10px;
+}
+.Pet{
+    cursor: pointer;
+    position: relative;
+    height: 80px;
+    border-radius: 10px;
+    padding-inline: 10px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(316.01deg, #000814 15.31%, #001E4D 86.58%);
+
+}
+.Pet:hover{
+    outline: 2px solid #00CAFC;
+}
+span.PetIcon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #00CAFC 0%, #0056E2 100%);
+
+}
+.ContainerPetInfo{
+padding-left: 8px;
+   max-height: 100%;
+}
+.PetInfo{
+    display: flex;
+    height: 20px;
+    align-items: center;
+}
+.PetInfo svg{
+    margin-right: 5px;
+}

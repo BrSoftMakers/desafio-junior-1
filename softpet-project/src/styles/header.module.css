@@ -1,0 +1,20 @@
+.header{
+    height: 170px;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    margin-bottom: 4%;
+    height: 70px;
+}
+.h3{
+    color: #FFFFFF;
+    margin-left: 10px;
+    font-size: 30px;
+    font-weight: 500;
+}
+.Containersearch{
+    display: flex;
+        
+}

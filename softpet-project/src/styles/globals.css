@@ -1,0 +1,17 @@
+*{
+font-family:'Ubuntu';
+color:#FFFFFF;
+}
+body{
+    margin: 0;
+    padding: 2%;
+    box-sizing: border-box;
+    background: linear-gradient(
+        316.01deg,
+        #001E4D 10%,    /* Ponto de parada esquerdo superior */
+        #000814 30%,    /* Início do gradiente preto */
+        #000814 70%,    /* Fim do gradiente preto */
+        #001E4D 90%     /* Ponto de parada direito inferior */
+      );
+    height: 100vh;
+}

@@ -1,10 +1,12 @@
-import styles from "../app.module.css";
+
 import Header from '../components/header'
+import PetList from '@/components/petlist';
 
 export default function App() {
   return (
-    <div className={styles.main}>
+    <div>
      <Header/>
+     <PetList/>
     </div>
   );
 }
