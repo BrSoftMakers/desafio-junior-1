@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  nextjs-app:
+    container_name: front-end
+    user: node
+    image: node:20-alpine
+    working_dir: /front
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./front:/front:delegated
+    command: sh -c "npm ci && npm run dev"
+    restart: always
