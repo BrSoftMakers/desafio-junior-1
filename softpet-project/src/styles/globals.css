@@ -4,7 +4,8 @@ color:#FFFFFF;
 }
 body{
     margin: 0;
-    padding: 2%;
+    padding-inline: 5%;
+    padding-top:2%;
     box-sizing: border-box;
     background: linear-gradient(
         316.01deg,

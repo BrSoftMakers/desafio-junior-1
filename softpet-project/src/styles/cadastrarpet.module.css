@@ -1,0 +1,41 @@
+.containerCadastrarPet {
+    position: absolute;
+    background: linear-gradient(316.01deg, #000814 15.31%, #001E4D 86.58%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    padding: 2%;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    outline: 2px solid #00CAFC;
+    width: 30%;
+    height: 60%;
+}
+.headerCadastrarPet{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.infoCadastro{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+    max-width: 100%;
+}
+.infoCadastro_Animal span{
+    display: block;
+    
+}
+.buttonCadastrarPet{
+    background: linear-gradient(90deg, #00CAFC 0%, #0056E2 100%);
+
+}
+.buttonVoltarCadastroPet{
+    color:#001E4D
+}

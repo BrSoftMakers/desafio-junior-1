@@ -1,7 +1,8 @@
 .ContainerPetList{
     display: grid;
-    grid-template-columns: repeat(4,300px);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     grid-gap: 10px;
+   justify-content: space-evenly;
 }
 .Pet{
     cursor: pointer;
@@ -9,9 +10,10 @@
     height: 80px;
     border-radius: 10px;
     padding-inline: 10px;
+    justify-content: space-around;
     display: flex;
     align-items: center;
-    background: linear-gradient(316.01deg, #000814 15.31%, #001E4D 86.58%);
+    background: linear-gradient(316.01deg, #000814 10.31%, #001E4D 90.58%);
 
 }
 .Pet:hover{
@@ -33,7 +35,8 @@ padding-left: 8px;
 }
 .PetInfo{
     display: flex;
-    height: 20px;
+    height: 25px;
+    font-size: 16px;
     align-items: center;
 }
 .PetInfo svg{
