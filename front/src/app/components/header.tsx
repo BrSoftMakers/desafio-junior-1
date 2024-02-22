@@ -5,7 +5,7 @@ import add from '../assets/add.svg'
 
 const Header = () => {
   return (
-    <header className="flex flex-col items-center m-4 gap-4 md:items-start md:m-14 md:gap-10">
+    <header className="flex flex-col items-center m-4 md:items-start md:gap-10">
 
       <Image src={logo} alt="logo-do-projeto" width={185} height={48} />
 
@@ -29,9 +29,7 @@ const Header = () => {
         <button
           className="flex items-center
             h-10
-            gap-2 bg-gradient-to-r
-            from-indigo-500
-            to-blue-500 rounded-md p-3 "
+            gap-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md p-3 "
           >
           <Image
             src={add}
