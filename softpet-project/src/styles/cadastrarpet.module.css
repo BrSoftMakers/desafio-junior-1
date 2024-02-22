@@ -19,18 +19,57 @@
 }
 .headerCadastrarPet{
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    height: 60px;
+    align-items: center;
+    margin-bottom: 10%;
 }
-.infoCadastro{
+.infoCadastro form{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 5px;
     max-width: 100%;
 }
 .infoCadastro input{
-    color: black;
+    color: #FFFFFF;
+    background-color: transparent;
+    border: 2px solid #404A5C; 
+    outline-style: none;
+    border-radius: 5px;
+    padding: 3%;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
+.infoCadastro input::placeholder{
+    color: #404A5C; 
+}
+.infoCadastro span{
+    font-size:16px;
+}
+.cadastroIcon_Container{
+    display: flex;
+    align-items: center;
+}
+.cadastroIcon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #00CAFC 0%, #0056E2 100%);
+
+}
+.cadastroIcon svg{
+   font-size: 20px;
+}
+.cadastroIcon_Container{
+}
+.cadastroIcon_Container h1{
+    font-size: 22px;
+    margin-left: 10px;
+}
+
 .infoCadastro_Animal span{
     display: block;
     

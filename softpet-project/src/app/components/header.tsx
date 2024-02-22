@@ -1,11 +1,11 @@
-import styles from "../styles/header.module.css";
+'use client'
+import styles from "../../styles/header.module.css";
 import Logo from './icons/Logo';
 import CadastrarPet from "./cadastrarPet";
 
-export default function Header({ buttonState, toggleButtonState }) {
+export default function Header({}) {
+  
   return (
-
-
     <header className={styles.header}>
       <div className={styles.logo}>
         <Logo />
@@ -16,8 +16,8 @@ export default function Header({ buttonState, toggleButtonState }) {
           <input type="text" name="text" id="text" />
         </div>
         <div>
-          <button onClick={toggleButtonState}>Cadastrar</button>
-          {buttonState ? <CadastrarPet toggleButtonState={toggleButtonState} /> : '' }
+          {/* <button>Cadastrar</button> */}
+          <CadastrarPet />
         </div>
 
       </div>
