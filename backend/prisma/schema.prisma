@@ -12,3 +12,18 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+
+model Pet {
+  id         Int      @id @default(autoincrement())
+  name       String
+  dateOfBirth   DateTime
+  type       String
+  breed      String
+  ownerName    String
+  ownerContact      String
+  age           Int 
+
+  @@map("pets")
+  
+}
