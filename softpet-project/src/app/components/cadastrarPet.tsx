@@ -1,6 +1,5 @@
 import styles from "../../styles/cadastrarpet.module.css";
 import CadastroModel from "./cadastroModel";
-import React, { FormEventHandler, useState } from 'react';
 import PetIcon from './icons/PetIcon';
 import PetDonoIcon from './icons/PetDonoIcon';
 import PetNameIcon from './icons/PetNameIcon';
@@ -9,9 +8,11 @@ import VoltarCadastroIcon from './icons/VoltarCadastroIcon.svg'
 import SelectAnimalIcon from './icons/SelectAnimalIcon.svg';
 import TelefoneIcon from './icons/TelefoneIcon.svg'
 import DataIcon from './icons/DataIcon.svg';
+import React, { FormEventHandler, useState } from 'react';
 import { IPets } from '../../../types/pets';
 import { addPets } from "../../../api";
 import { useRouter } from "next/navigation";
+import { v4 as uuidv4 } from 'uuid';
 
 export default function CadastrarPet({ }) {
     const router = useRouter()
@@ -30,7 +31,7 @@ export default function CadastrarPet({ }) {
         e.preventDefault();
         await addPets(newPetValue);
         setNewPetValue({
-            id: "",
+            id:uuidv4(),
             nome: "",
             animal: "",
             dono: "",

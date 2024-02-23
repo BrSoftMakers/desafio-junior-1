@@ -1,19 +1,23 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import styles from '../../styles/petlist.module.css';
 import PetIcon from './icons/PetIcon';
 import PetDonoIcon from './icons/PetDonoIcon';
 import PetNameIcon from './icons/PetNameIcon';
 import PetArrowInfo from './icons/PetArrowInfo';
 import { IPets } from '../../../types/pets';
+//import PetPopup from './petPopup';
 
 interface PetsProps {
-    pet: IPets
+    pet: IPets;
+    onClick: () => void;
 }
 
-const Pets: React.FC<PetsProps> = ({ pet }) => {
+const Pets: React.FC<PetsProps> = ({ pet,onClick }) => {
+    
     return (
         <div>
-                <div className={styles.Pet}>
+                <div className={styles.Pet} onClick={onClick}>
 
                     <span className={styles.PetIcon}>
                         <PetIcon />
@@ -24,8 +28,15 @@ const Pets: React.FC<PetsProps> = ({ pet }) => {
                     <span className={styles.PetInfo}><PetDonoIcon /> <p>{pet.dono}</p></span>
                     </div>
 
-                    <span> <PetArrowInfo /> </span>
-            </div>
+                    <span className={styles.PetArrowInfo}> <PetArrowInfo /> </span>
+                </div>
+                <div className={styles.PetInfoPopup}>
+                    
+                </div>
+                
+               
+
+
         </div>
     )
 }

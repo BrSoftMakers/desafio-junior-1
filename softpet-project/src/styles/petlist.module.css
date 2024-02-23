@@ -10,11 +10,15 @@
     height: 80px;
     border-radius: 10px;
     padding-inline: 10px;
-    justify-content: space-around;
     display: flex;
     align-items: center;
     background: linear-gradient(316.01deg, #000814 10.31%, #001E4D 90.58%);
 
+}
+span.PetArrowInfo{
+    display: flex;
+    width: 40%;
+    justify-content: right;
 }
 .Pet:hover{
     outline: 2px solid #00CAFC;
@@ -24,7 +28,7 @@ span.PetIcon{
     align-items: center;
     justify-content: center;
     height: 60px;
-    width: 60px;
+    min-width: 60px;
     border-radius: 50%;
     background: linear-gradient(90deg, #00CAFC 0%, #0056E2 100%);
 
@@ -32,6 +36,7 @@ span.PetIcon{
 .ContainerPetInfo{
 padding-left: 8px;
    max-height: 100%;
+   width: 100%;
 }
 .PetInfo{
     display: flex;

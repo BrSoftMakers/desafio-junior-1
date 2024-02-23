@@ -1,4 +1,5 @@
-import { IPets } from './types/pets'
+import { IPets } from './types/pets';
+
 
 const BaseURL = "http://localhost:5000";
 
