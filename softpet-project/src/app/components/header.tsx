@@ -2,6 +2,7 @@
 import styles from "../../styles/header.module.css";
 import Logo from './icons/Logo';
 import CadastrarPet from "./cadastrarPet";
+import SearchIcon from './icons/SearchIcon.svg'
 
 export default function Header({}) {
   
@@ -13,13 +14,9 @@ export default function Header({}) {
       </div>
       <div className={styles.Containersearch}>
         <div className={styles.search}>
-          <input type="text" name="text" id="text" />
+          <span><SearchIcon/></span><input type="text" name="text" id="text" />
         </div>
-        <div>
-          {/* <button>Cadastrar</button> */}
           <CadastrarPet />
-        </div>
-
       </div>
 
 

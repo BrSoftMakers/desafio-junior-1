@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "../../styles/cadastrarpet.module.css";
-import CadastroIcon from '../components/icons/CadastroIcon.svg';
-import CloseCadastro from '../components/icons/CloseCadastro.svg'
+import CadastroIcon from './icons/CadastroIcon.svg';
+import CloseCadastro from './icons/CloseCadastro.svg';
+
 
 
 interface CadastroProps {
@@ -23,14 +24,7 @@ const cadastroModel:React.FC<CadastroProps> = ({ abrirCadastro,setAbrirCadastro,
             <div className={styles.infoCadastro}>
              {children}
             </div>
-            <footer>
-                <div>
-                    <button onClick={()=> setAbrirCadastro(false)}  className={styles.buttonVoltarCadastroPet}>Voltar</button>
-                    <button type="submit" className={styles.buttonCadastrarPet}>
-                        Cadastrar
-                    </button>
-                </div>
-            </footer>
+           
         </div>
     );
 }

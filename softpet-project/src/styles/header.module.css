@@ -1,11 +1,12 @@
 .header{
-    height: 170px;
+    height: 140px;
+    margin-bottom: 10px;
 }
 
 .logo{
     display: flex;
     align-items: center;
-    margin-bottom: 4%;
+    margin-bottom: 1.5%;
     height: 70px;
 }
 .h3{
@@ -16,5 +17,32 @@
 }
 .Containersearch{
     display: flex;
-        
+    width: 100%;
+    align-items: center;
+    height: 42px;
+    justify-content: space-between;
+}
+.Containersearch .search{
+     width: 95%; 
+     height: 80%;
+     display: flex;
+     align-items: center;
+}
+.search span{
+    display: flex;
+    justify-content: center;
+    border-radius: 10px 0px 0px 10px;
+    align-items: center;
+    background-color: #404A5C;
+    height:120%;
+    width:38px;
+}
+.Containersearch .search input{
+    width: 95%; 
+    height: 100%;
+    background-color: transparent;
+    border: 2px solid #404A5C;
+    border-radius:0px 5px 5px 0px ;
+    outline: none;
+    padding-left: 10px;
 }

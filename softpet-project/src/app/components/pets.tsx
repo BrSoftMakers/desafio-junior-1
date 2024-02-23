@@ -3,7 +3,7 @@ import styles from '../../styles/petlist.module.css';
 import PetIcon from './icons/PetIcon';
 import PetDonoIcon from './icons/PetDonoIcon';
 import PetNameIcon from './icons/PetNameIcon';
-import PetArrowInfo from './icons/PetArrowInfo'
+import PetArrowInfo from './icons/PetArrowInfo';
 import { IPets } from '../../../types/pets';
 
 interface PetsProps {
