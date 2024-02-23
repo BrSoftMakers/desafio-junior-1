@@ -17,7 +17,9 @@ export default function RootLayout({
   return (
     <html
       className="p-10 min-h-screen text-slate-50 md:p-14"
-      style={{ background: "linear-gradient(-45deg, #000d22 0%, #000b1c 8%, #00060F 50%, #000b1c 92%, #000d22 100%)", backgroundRepeat: 'no-repeat'}}
+      style={
+        { background: "linear-gradient(-45deg, #000d22 0%, #000b1c 8%, #00060F 50%, #000b1c 92%, #000d22 100%)", backgroundRepeat: 'no-repeat'}
+      }
       >
       <body className={inter.className}>{children}</body>
     </html>

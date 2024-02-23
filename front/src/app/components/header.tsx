@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <header className="flex flex-col items-center m-4 md:items-start md:gap-10">
 
-      <Image src={logo} alt="logo-do-projeto" width={185} height={48} />
+      <Image className="w-56 h-20" src={logo} alt="logo-do-projeto" />
 
       <div className="flex flex-col sm:flex-row items-center gap-4">
 
