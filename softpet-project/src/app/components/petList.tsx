@@ -8,41 +8,37 @@ import Pets from './pets';
 import { IPets } from '../../../types/pets';
 import { useState } from 'react';
 
-interface PetListProps{
-    pets:IPets[];
+interface PetListProps {
+  pets: IPets[];
 }
 
-const PetList:React.FC<PetListProps> = ({ pets }) =>{
-  
-const [selectedPet, setSelectedPet] = useState<IPets | null>(null);
+const PetList: React.FC<PetListProps> = ({ pets }) => {
+  const [selectedPet, setSelectedPet] = useState<IPets | null>(null);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-const handlePetClick = (pet: IPets) => {
-  if (selectedPet && selectedPet.id === pet.id) {
+  const handlePetClick = (pet: IPets) => {
+    if (selectedPet && selectedPet.id === pet.id) {
       setSelectedPet(null);
-  } else {
+      setIsPopupOpen(false); // Fechar o popup quando o item é desselecionado
+    } else {
       setSelectedPet(pet);
-  }
-}
+      setIsPopupOpen(true); // Abrir o popup quando o item é selecionado
+    }
+  };
+
   return (
     <div className={styles.ContainerPetList}>
-        
-
-        {pets.map(pet => (
-         <Pets key={pet.id} pet={pet} onClick={() => handlePetClick(pet)} selectedPet={selectedPet} />
-          
+      {pets.map(pet => (
+        <Pets
+          key={pet.id}
+          pet={pet}
+          onClick={() => handlePetClick(pet)}
+          selectedPet={selectedPet}
+          isClicked={isPopupOpen && selectedPet?.id === pet.id} // Adicionar a classe "clicked" se o popup estiver aberto e este for o item selecionado
+        />
       ))}
-      {selectedPet && (
-                <div className={styles.PetInfoPopup}>
-                    <p>Raça: {selectedPet.raca}</p>
-                    <p>Telefone: {selectedPet.telefone}</p>
-                    <p>Idade: {selectedPet.nascimento}</p>
-                    <button>Editar</button>
-                    <button>Remover</button>
-                </div>
-            )}
-       
-        
     </div>
   );
-}
-export default PetList
+};
+
+export default PetList;

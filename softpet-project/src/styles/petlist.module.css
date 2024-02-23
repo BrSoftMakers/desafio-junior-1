@@ -1,10 +1,11 @@
-.ContainerPetList{
+.ContainerPetList {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     grid-gap: 10px;
-   justify-content: space-evenly;
+    justify-content: space-evenly;
 }
-.Pet{
+
+.Pet {
     cursor: pointer;
     position: relative;
     height: 80px;
@@ -15,15 +16,23 @@
     background: linear-gradient(316.01deg, #000814 10.31%, #001E4D 90.58%);
 
 }
-span.PetArrowInfo{
+
+span.PetArrowInfo {
     display: flex;
-    width: 40%;
+    width: 10%;
     justify-content: right;
+
 }
-.Pet:hover{
+
+.Pet:hover {
     outline: 2px solid #00CAFC;
 }
-span.PetIcon{
+
+.Pet.clicked {
+    outline: 2px solid #00CAFC !important;
+}
+
+span.PetIcon {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -33,19 +42,102 @@ span.PetIcon{
     background: linear-gradient(90deg, #00CAFC 0%, #0056E2 100%);
 
 }
-.ContainerPetInfo{
-padding-left: 8px;
-   max-height: 100%;
-   width: 100%;
+
+.ContainerPetInfo {
+    padding-left: 10px;
+    max-height: 100%;
+    width: 62%;
 }
-.PetInfo{
+
+.PetInfo {
     display: flex;
     height: 25px;
     font-size: 16px;
     align-items: center;
 }
-.PetInfo svg{
+
+.PetInfo svg {
     margin-right: 5px;
 }
+
 /* PARTE DO POPUP ---->> */
 
+.PetInfoPopup {
+    position: absolute;
+    border-radius: 10px;
+    border: 2px solid #00CAFC;
+    background: linear-gradient(316.01deg, #000814 10.31%, #001E4D 90.58%);
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+    z-index: 2;
+
+}
+
+.PetInfoPopup_info_container {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    margin-block: 15px;
+    margin-inline: 15px;
+}
+
+.PetInfoPopup_info {
+    display: flex;
+    flex-direction: column;
+}
+
+.PetInfoPopup_info span {
+    display: flex;
+    margin-block: 2px;
+    align-items: center;
+}
+
+.PetInfoPopup_info_edit {
+    cursor: pointer;
+    background-color: #FFFFFF;
+    color: #00CAFC;
+    font-weight: 700;
+    border: none;
+    height: 35px;
+    padding-inline: 30px;
+    margin-block: 8px;
+    border-radius: 5px;
+
+}
+
+.PetInfoPopup_info_remove {
+    cursor: pointer;
+    background: linear-gradient(90deg, #00CAFC 0%, #0056E2 100%);
+    border-radius: 5px;
+    font-weight: 700;
+    height: 35px;
+    border: none;
+    padding-inline: 15px;
+    border-radius: 5px;
+}
+
+.petInfoPopup_buttons {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.petInfoPopup_buttons svg {
+    margin-right: 5px;
+}
+
+.PetInfoPopup p {
+    padding: 2px;
+    margin: 0;
+    margin-left: 2px;
+}
+
+.PetInfoPopup button {
+    max-width: 100%;
+}
