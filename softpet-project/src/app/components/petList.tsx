@@ -12,35 +12,32 @@ interface PetListProps{
     pets:IPets[];
 }
 
-
 const PetList:React.FC<PetListProps> = ({ pets }) =>{
   
-const [showPetPopup,setShowPetPopup]= useState(false);
 const [selectedPet, setSelectedPet] = useState<IPets | null>(null);
 
 const handlePetClick = (pet: IPets) => {
-    setSelectedPet(pet);
-    setShowPetPopup(true);
-}
-
-const handleClosePopup = () => {
-    setShowPetPopup(false);
+  if (selectedPet && selectedPet.id === pet.id) {
+      setSelectedPet(null);
+  } else {
+      setSelectedPet(pet);
+  }
 }
   return (
     <div className={styles.ContainerPetList}>
         
 
         {pets.map(pet => (
-        <Pets key={pet.id} pet={pet} onClick={() => handlePetClick(pet)}  />
-
+         <Pets key={pet.id} pet={pet} onClick={() => handlePetClick(pet)} selectedPet={selectedPet} />
+          
       ))}
-      {showPetPopup && selectedPet && (
-                <div className={styles.PetPopup}>
-                    <h2>{selectedPet.nome}</h2>
-                    <p>Animal: {selectedPet.animal}</p>
-                    <p>Dono: {selectedPet.dono}</p>
+      {selectedPet && (
+                <div className={styles.PetInfoPopup}>
                     <p>Raça: {selectedPet.raca}</p>
-                    <button onClick={handleClosePopup}>Fechar</button>
+                    <p>Telefone: {selectedPet.telefone}</p>
+                    <p>Idade: {selectedPet.nascimento}</p>
+                    <button>Editar</button>
+                    <button>Remover</button>
                 </div>
             )}
        
