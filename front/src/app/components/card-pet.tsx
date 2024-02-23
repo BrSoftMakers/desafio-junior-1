@@ -11,6 +11,7 @@ import removeIcon from '@/app/assets/removeIcon.svg';
 import ageIcon from "@/app/assets/ageIcon.svg";
 import dateIcon from "@/app/assets/dateIcon.svg";
 import phoneIcon from "@/app/assets/phoneIcon.svg";
+import Register from "@/app/components/register";
 
 interface CardPetProps {
   petName: string;
@@ -74,6 +75,7 @@ const CardPet: React.FC<CardPetProps> = ({ petName, ownerName }) => {
           <Image src={setaModal} alt="modal-open" />
         </button>
       </span>
+
       {modalOpen && (
         <div
           ref={modalRef}
@@ -95,6 +97,7 @@ const CardPet: React.FC<CardPetProps> = ({ petName, ownerName }) => {
           </div>
         </div>
       )}
+      <Register />
     </span>
   );
 };
