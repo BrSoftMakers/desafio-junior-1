@@ -2,8 +2,12 @@ import styled from "styled-components";
 import theme from "../../../theme";
 
 export const StyledButton = styled.button `
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
     width: ${props => props.width ? props.width : '231px'};
-    height: ${props => props.height ? props.height : '40px'};
+    height: ${props => props.height ? props.height : '50px'};
     border: none;
     border-radius: ${props => props.borderRadius? props.borderRadius : '5px'};
     font-size: ${theme.fonts_size.sm};
@@ -20,10 +24,12 @@ export const StyledButton = styled.button `
 
 `
 export const ButtonIcon = styled.span`
+    align-self: center;
     margin-right: 8px;
 `
 
 export const Text = styled.span`
+    
 `
 
 export const GradientText = styled.span`

@@ -14,8 +14,8 @@ export default {
     },
 
     gradients: {
-        firstGradient: "90deg, rgba(0,30,77,1) 0%, rgba(0,8,20,1) 100%",
-        secondGradient: "to right, #00f2fe, #4facfe"
+        firstGradient: "316.01deg, #000814 15.31%, #001E4D 86.58%",
+        secondGradient: "90deg, #00CAFC 0%, #0056E2 100%"
     },
 
     fonts_size: {

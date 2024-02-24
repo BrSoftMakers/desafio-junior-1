@@ -26,7 +26,7 @@ const SearchBar = ({ ...props }: SearchBarProps) => {
 
             <StyledInput onChange={props.onChange}/>
 
-            <Button m="7px"/>
+            <Button mr="2px" height="40px" />
         </InputContainer>
     )
 }

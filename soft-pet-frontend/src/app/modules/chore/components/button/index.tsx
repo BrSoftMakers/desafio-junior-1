@@ -18,7 +18,6 @@ interface ButtonProps {
     m?: string
     ml?: string
     mr?: string
-
     onClick?: () => void
 }
 
@@ -34,8 +33,8 @@ const Button = ({ ...props }: ButtonProps) => {
             break;
         case 'SECONDARY':
             buttonColor = theme.colors.light
-            textColor = theme.colors.blue500
             buttonText = props.text ? props.text : buttonText
+            textColor = theme.colors.blue500
             break;
         case 'DANGER':
             buttonColor = theme.colors.red
@@ -61,7 +60,7 @@ const Button = ({ ...props }: ButtonProps) => {
         onClick={props.onClick}
         >
             <ButtonIcon> {props.icon} </ButtonIcon>
-            { props.variant === 'SECONDARY' ? (<GradientText>{buttonText}</GradientText>) : <Text>buttonText</Text> }
+            { props.variant === 'SECONDARY' ? (<GradientText>{buttonText}</GradientText>) : <Text>{buttonText}</Text> }
         </StyledButton>
     )
 }
