@@ -1,5 +1,6 @@
+import { ReactNode } from "react"
 import theme from "../../theme"
-import { GradientText, StyledButton } from "./styles/button-style"
+import { ButtonIcon, GradientText, StyledButton, Text } from "./styles/button-style"
 
 export enum ButtonVariant {
     'PRIMARY',
@@ -11,8 +12,14 @@ interface ButtonProps {
     variant?: string
     width?: string
     height?: string
-    onClick?: () => void
     text?: string
+    br?: string
+    icon?: ReactNode
+    m?: string
+    ml?: string
+    mr?: string
+
+    onClick?: () => void
 }
 
 const Button = ({ ...props }: ButtonProps) => {
@@ -45,11 +52,16 @@ const Button = ({ ...props }: ButtonProps) => {
             color: textColor,
             background: buttonColor,
             height: props.height, 
-            width: props.width
+            width: props.width,
+            borderRadius: props.br,
+            margin: props.m,
+            marginLeft: props.ml,
+            marginRight: props.mr,
         }}
         onClick={props.onClick}
         >
-            {props.variant === 'SECONDARY' ? (<GradientText>{buttonText}</GradientText>) : buttonText}
+            <ButtonIcon> {props.icon} </ButtonIcon>
+            { props.variant === 'SECONDARY' ? (<GradientText>{buttonText}</GradientText>) : <Text>buttonText</Text> }
         </StyledButton>
     )
 }

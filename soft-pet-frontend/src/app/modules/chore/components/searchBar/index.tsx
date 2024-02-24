@@ -1,5 +1,7 @@
+import { SearchIcon } from "@icons/index"
 import Button from "../button"
 import { InputContainer, InputIcon, StyledInput } from "./style/search-bar-style"
+import theme from "../../theme"
 
 
 interface SearchBarProps { 
@@ -18,9 +20,13 @@ const SearchBar = ({ ...props }: SearchBarProps) => {
                 marginRight: props.mr
             }}
         >
-            <InputIcon />
+            <InputIcon>
+                <SearchIcon />
+            </InputIcon>
+
             <StyledInput onChange={props.onChange}/>
-            <Button />
+
+            <Button m="7px"/>
         </InputContainer>
     )
 }

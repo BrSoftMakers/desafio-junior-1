@@ -5,11 +5,14 @@ export const StyledButton = styled.button `
     width: ${props => props.width ? props.width : '231px'};
     height: ${props => props.height ? props.height : '40px'};
     border: none;
-    border-radius: 5px;
+    border-radius: ${props => props.borderRadius? props.borderRadius : '5px'};
     font-size: ${theme.fonts_size.sm};
     font-weight: ${theme.fonts_weight.bold};
     cursor: pointer;
-    margin-right: 10px;
+
+    margin: ${props => props.margin ? props.margin : ''};
+    margin-left: ${props => props.marginLeft ? props.marginLeft : ''};
+    margin-right: ${props => props.marginRight ? props.marginRight : ''};
 
     &:hover {
         opacity: 0.8;
