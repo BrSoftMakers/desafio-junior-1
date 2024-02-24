@@ -1,8 +1,8 @@
 import styles from "../../styles/cadastrarpet.module.css";
 import CadastroModel from "./cadastroModel";
 import PetIcon from './icons/PetIcon';
-import PetDonoIcon from './icons/PetDonoIcon';
-import PetNameIcon from './icons/PetNameIcon';
+import PetDonoIcon from './icons/PetDonoIcon.svg';
+import PetNameIcon from './icons/PetNameIcon.svg';
 import CadastroIcon from './icons/CadastroIcon.svg';
 import VoltarCadastroIcon from './icons/VoltarCadastroIcon.svg'
 import SelectAnimalIcon from './icons/SelectAnimalIcon.svg';
@@ -29,9 +29,12 @@ export default function CadastrarPet({ }) {
 
     const handleSubmitPets: FormEventHandler<HTMLFormElement> = async (e) => {
         e.preventDefault();
+        if (!newPetValue.id) {
+            newPetValue.id = uuidv4(); 
+        }
         await addPets(newPetValue);
         setNewPetValue({
-            id:uuidv4(),
+            id: "",
             nome: "",
             animal: "",
             dono: "",
@@ -39,7 +42,7 @@ export default function CadastrarPet({ }) {
             telefone: "",
             nascimento: ""
         });
-        setAbrirCadastro(false) 
+        setAbrirCadastro(false)
         console.log(newPetValue)
         router.refresh()
 
@@ -82,7 +85,7 @@ export default function CadastrarPet({ }) {
                             </span>
                             <span className={styles.selectAnimal}>
                                 <input
-                                    onChange={handleAnimalChange} 
+                                    onChange={handleAnimalChange}
                                     type="radio" id="opcao2"
                                     name="animal"
                                     value="gato"

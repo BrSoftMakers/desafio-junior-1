@@ -4,8 +4,8 @@ import Logo from './icons/Logo';
 import CadastrarPet from "./cadastrarPet";
 import SearchIcon from './icons/SearchIcon.svg'
 
-export default function Header({}) {
-  
+export default function Header({ }) {
+
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
@@ -14,9 +14,12 @@ export default function Header({}) {
       </div>
       <div className={styles.Containersearch}>
         <div className={styles.search}>
-          <span><SearchIcon/></span><input type="text" name="text" id="text" />
+          <span><SearchIcon /></span>
+          <input type="text" name="text" id="text" />
+          <button className={styles.searchButton}>Pesquisar</button>
         </div>
-          <CadastrarPet />
+        <CadastrarPet />
+
       </div>
 
 

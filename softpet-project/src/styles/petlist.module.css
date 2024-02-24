@@ -4,17 +4,20 @@
     grid-gap: 10px;
     justify-content: space-evenly;
 }
+.PetContainer{
+    
+    position: relative;
 
+}
 .Pet {
     cursor: pointer;
     position: relative;
     height: 80px;
-    border-radius: 10px;
     padding-inline: 10px;
     display: flex;
     align-items: center;
     background: linear-gradient(316.01deg, #000814 10.31%, #001E4D 90.58%);
-
+    border-radius: 10px;
 }
 
 span.PetArrowInfo {
@@ -25,7 +28,7 @@ span.PetArrowInfo {
 }
 
 .Pet:hover {
-    outline: 2px solid #00CAFC;
+    outline: 2px solid #00CAFC; 
 }
 
 .Pet.clicked {
@@ -42,6 +45,9 @@ span.PetIcon {
     background: linear-gradient(90deg, #00CAFC 0%, #0056E2 100%);
 
 }
+span.PetIcon svg{
+    font-size: 45px;
+}
 
 .ContainerPetInfo {
     padding-left: 10px;
@@ -55,9 +61,23 @@ span.PetIcon {
     font-size: 16px;
     align-items: center;
 }
+span.PetInfo {
+
+}
+.PetInfo p{
+    max-width: 100%;
+    max-height: 80%;
+    margin: 0;
+    overflow:hidden;
+}
 
 .PetInfo svg {
+   max-width: 20px;
     margin-right: 5px;
+}
+.PetInfo svg path{
+    width: 20px;
+    
 }
 
 /* PARTE DO POPUP ---->> */
@@ -67,12 +87,12 @@ span.PetIcon {
     border-radius: 10px;
     border: 2px solid #00CAFC;
     background: linear-gradient(316.01deg, #000814 10.31%, #001E4D 90.58%);
-    margin-top: 20px;
+    margin-top: 12px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    max-width: 300px;
+   
     justify-content: center;
     z-index: 2;
 
