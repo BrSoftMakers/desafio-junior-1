@@ -19,3 +19,19 @@ export const addPets = async(pet:IPets):Promise<IPets> =>{
     const newPet = await res.json();
     return newPet
 }
+export const editPets = async(pet:IPets):Promise<IPets> =>{
+    const res = await fetch(`${BaseURL}/pets/${pet.id}`,{
+        method:'PUT',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify(pet)
+    });
+    const updatePet = await res.json();
+    return updatePet
+}
+export const removePets = async(id:string):Promise<void> =>{
+    await fetch(`${BaseURL}/pets/${id}`,{
+        method:'DELETE',
+    });
+}

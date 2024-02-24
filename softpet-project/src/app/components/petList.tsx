@@ -20,21 +20,21 @@ const PetList: React.FC<PetListProps> = ({ pets }) => {
       setIsPopupOpen(false);
     } else {
       setSelectedPet(pet);
-      setIsPopupOpen(true); 
+      setIsPopupOpen(true);
     }
   };
 
   return (
     <div className={styles.ContainerPetList}>
       {pets.map((pet, index) => (
-  <Pets
-    key={index}
-    pet={pet}
-    onClick={() => handlePetClick(pet)}
-    selectedPet={selectedPet}
-    isClicked={isPopupOpen && selectedPet?.id === pet.id} 
-  />
-))}
+        <Pets
+          key={index}
+          pet={pet}
+          onClick={() => handlePetClick(pet)}
+          selectedPet={selectedPet}
+          isClicked={isPopupOpen && selectedPet?.id === pet.id}
+        />
+      ))}
     </div>
   );
 };

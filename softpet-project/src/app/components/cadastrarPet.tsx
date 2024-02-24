@@ -1,5 +1,5 @@
 import styles from "../../styles/cadastrarpet.module.css";
-import CadastroModel from "./cadastroModel";
+import Modal from "./Modal";
 import PetIcon from './icons/PetIcon';
 import PetDonoIcon from './icons/PetDonoIcon.svg';
 import PetNameIcon from './icons/PetNameIcon.svg';
@@ -30,7 +30,7 @@ export default function CadastrarPet({ }) {
     const handleSubmitPets: FormEventHandler<HTMLFormElement> = async (e) => {
         e.preventDefault();
         if (!newPetValue.id) {
-            newPetValue.id = uuidv4(); 
+            newPetValue.id = uuidv4();
         }
         await addPets(newPetValue);
         setNewPetValue({
@@ -58,8 +58,8 @@ export default function CadastrarPet({ }) {
                 Cadastrar
             </button>
 
-            <CadastroModel abrirCadastro={abrirCadastro} setAbrirCadastro={setAbrirCadastro}>
-
+            <Modal AbrirModal={abrirCadastro} setAbrirModal={setAbrirCadastro}>
+           
                 <form onSubmit={handleSubmitPets} className={styles.PetForm}>
                     <div className={styles.infoCadastro_Nome}>
 
@@ -137,7 +137,7 @@ export default function CadastrarPet({ }) {
 
                 </form>
 
-            </CadastroModel>
+            </Modal>
         </div>
     );
 }
