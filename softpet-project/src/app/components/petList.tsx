@@ -11,6 +11,7 @@ interface PetListProps {
 }
 
 const PetList: React.FC<PetListProps> = ({ pets }) => {
+  
   const [selectedPet, setSelectedPet] = useState<IPets | null>(null);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
