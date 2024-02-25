@@ -1,7 +1,8 @@
+import { headers } from 'next/headers';
 import { IPets } from './types/pets';
 
-
 const BaseURL = "http://localhost:5000";
+
 
 export const getAllPets = async (): Promise<IPets[]> => {
     const res = await fetch(`${BaseURL}/api/v1/pet`,{cache:'no-store'});
@@ -31,7 +32,7 @@ export const editPets = async(pet:IPets):Promise<IPets> =>{
     return updatePet
 }
 export const removePets = async(id:string):Promise<void> =>{
-    await fetch(`${BaseURL}/api/v1/pet${id}`,{
+    await fetch(`${BaseURL}/api/v1/pet/${id}`,{
         method:'DELETE',
     });
 }
