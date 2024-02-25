@@ -24,7 +24,7 @@ export const StyledInput = styled.input`
     border-radius: 10px;
     height: 2rem;
     color: ${theme.colors.light};
-    padding: .7rem;
+    padding-left: .7rem;
     outline: none;
     width: 100%;
 `

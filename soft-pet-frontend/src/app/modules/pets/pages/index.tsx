@@ -1,13 +1,16 @@
-import { AddIcon, Logo, RoundArrowIcon, TrashIcon } from "@icons/index"
-import { Button, Modal, PetCard, SearchBar } from "@components/index"
+import { AddIcon, Logo, RoundArrowIcon } from "@icons/index"
+import { Button, PetCard, SearchBar } from "@components/index"
 import { Main, CardContainer, Header, PageContent, PageSelector } from "../styles/pet-page"
 import { useEffect, useState } from "react"
 import { getAllPets } from "../../chore/api/get-all-pets.service";
+import PetModal from "../../chore/components/modal";
 
 export default function PetPage() {
     const [ pets, setPets ] = useState([]);
     const [ page, setPage ] = useState(1);
     const [ pageCount, setPageCount ] = useState(1)
+    const [ isModalOpen, setIsModalOpen ] = useState(false)
+    const [ modalType, setModalType ] = useState('')
 
     const getAllPetsData = async() => {
         try {
@@ -39,13 +42,27 @@ export default function PetPage() {
         }
     }
 
+    const handleOpenModal = (event: any) => {
+        const type = event.target.outerText
+
+        if(type === 'Cadastrar') {
+            setModalType('Create')
+        }
+        
+        setIsModalOpen(true);
+    }
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false)
+    }
+
     return(
         <PageContent>
             <Logo />
 
             <Header>
                 <SearchBar mr="22px"/>
-                <Button variant="PRIMARY" icon={<AddIcon />} text="Cadastrar"/>
+                <Button variant="PRIMARY" icon={<AddIcon />} text="Cadastrar" onClick={event => handleOpenModal(event)}/>
             </Header>
 
             <Main>
@@ -61,7 +78,11 @@ export default function PetPage() {
                     <RoundArrowIcon variant w="22" onClick={handleNextPage} direction="right"/>
                 </PageSelector>
 
-                <Modal />
+                <PetModal 
+                    isOpen={isModalOpen}
+                    modalType={modalType}
+                    onClose={handleCloseModal}
+                />
             </Main>
         </PageContent>
     )

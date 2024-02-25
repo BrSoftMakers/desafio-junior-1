@@ -18,7 +18,7 @@ interface ButtonProps {
     m?: string
     ml?: string
     mr?: string
-    onClick?: () => void
+    onClick?: (event: any) => void
 }
 
 const Button = ({ ...props }: ButtonProps) => {
