@@ -25,8 +25,7 @@ const CardPet: React.FC<CardPetProps> = ({ petName, ownerName }) => {
   const [modalWidth, setModalWidth] = useState<number | null>(null);
   const modalRef = useRef<HTMLDivElement>(null);
   const [HowModal, setHowModal] = useState<StyleOptionModal>('closed');
-  const [registerIsOpe, setRegisterIsOpen] = useState<boolean>()
-  
+
   useEffect(() => {
     function handleResize() {
       if (modalOpen && modalRef.current) {
@@ -79,8 +78,7 @@ const CardPet: React.FC<CardPetProps> = ({ petName, ownerName }) => {
       <span
           style={
             {
-              borderRadius: "10px",
-              background: "linear-gradient(80deg, rgba(0, 30, 77, 1) 20%, rgba(0, 8, 20, 1) 100%", backgroundRepeat: 'no-repeat'}
+              background: "linear-gradient(80deg, rgba(0, 30, 77, 1) 20%, rgba(0, 8, 20, 1) 100%"}
           }
         className={`flex my-1 rounded-md border-2 p-2 w-auto justify-around items-center ${modalOpen ? 'border-blue-500 bg-blue-500' : "border-transparent"} hover:border-blue-500 hover:bg-blue-500`}>
         <Image src={petIcon} alt="pet-icon" className="size-16"/>

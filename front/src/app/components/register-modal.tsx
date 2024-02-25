@@ -26,10 +26,10 @@ const Register = ({ openClosed }: IProps) => {
     <dialog
       style={
         {
-          borderRadius: "10px",
-          background: "linear-gradient(80deg, rgba(0, 30, 77, 1) 20%, rgba(0, 8, 20, 1) 100%", backgroundRepeat: 'no-repeat'}
+          borderRadius: "10px !important",
+          background: "linear-gradient(80deg, rgba(0, 30, 77, 1) 20%, rgba(0, 8, 20, 1) 100%"}
       }
-      className="fixed top-52 flex my-2  p-4 flex-col justify-center rounded-md w-full border-2 md:w-2/3 lg:w-1/2 xl:w-2/5 h-auto md:p-8 lg:p-12" open>
+      className="fixed top-52 flex my-2  p-4 flex-col justify-center border-blue-600 rounded-md w-full border-2 md:w-2/3 lg:w-1/2 xl:w-2/5 h-auto md:p-8 lg:p-12" open>
       <div className="flex items-center justify-between m-2 md:m-2">
         <div className="flex items-center gap-2 md:gap-4">
           <Image src={registerIcon} className="w-12 h-12 md:w-16 md:h-16" alt="register" />
