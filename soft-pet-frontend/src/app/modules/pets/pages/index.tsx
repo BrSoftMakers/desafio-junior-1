@@ -1,5 +1,5 @@
 import { AddIcon, Logo, RoundArrowIcon, TrashIcon } from "@icons/index"
-import { Button, PetCard, SearchBar } from "@components/index"
+import { Button, Modal, PetCard, SearchBar } from "@components/index"
 import { Main, CardContainer, Header, PageContent, PageSelector } from "../styles/pet-page"
 import { useEffect, useState } from "react"
 import { getAllPets } from "../../chore/api/get-all-pets.service";
@@ -60,6 +60,8 @@ export default function PetPage() {
                     </p>
                     <RoundArrowIcon variant w="22" onClick={handleNextPage} direction="right"/>
                 </PageSelector>
+
+                <Modal />
             </Main>
         </PageContent>
     )

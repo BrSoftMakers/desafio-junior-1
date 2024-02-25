@@ -1,9 +1,13 @@
-const AddIcon = ({ ...props }: any) => {
+interface AddIconInterface {
+  w?: string
+}
+
+const AddIcon = ({ ...props }: AddIconInterface) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="20"
-      height="20"
+      width={props.w ? props.w : "20"}
+      height={props.w ? props.w : "20"}
       fill="none"
       viewBox="0 0 20 20"
     >

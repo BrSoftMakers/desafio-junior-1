@@ -41,6 +41,7 @@ export const CardText = styled.div`
     }
 `
 export const DropDown = styled.div`
+    background: linear-gradient(${theme.gradients.firstGradient});
     display: none;
     border: 3px solid ${theme.colors.blue300};
     border-radius: 10px;
