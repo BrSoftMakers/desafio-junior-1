@@ -15,17 +15,25 @@ import { useState } from "react";
 
 type StyleRadio = "dog" | "cat"
 
-const Register = () => {
+interface IProps {
+  openClosed: () => void
+}
+
+const Register = ({ openClosed }: IProps) => {
   const [selectedOption, setSelectedOption] = useState<StyleRadio>();
 
   return (
-    <dialog className="flex my-2  p-4 flex-col justify-center rounded-md w-full border-2 md:w-2/3 lg:w-1/2 xl:w-2/5 h-auto md:p-8 lg:p-12 bg-gradient-to-r from-blue-950 to-slate-900 border-blue-500" open>
+    <dialog className="fixed top-52 flex my-2  p-4 flex-col justify-center rounded-md w-full border-2 md:w-2/3 lg:w-1/2 xl:w-2/5 h-auto md:p-8 lg:p-12 bg-gradient-to-r from-blue-950 to-slate-900 border-blue-500" open>
       <div className="flex items-center justify-between m-2 md:m-2">
         <div className="flex items-center gap-2 md:gap-4">
           <Image src={registerIcon} className="w-12 h-12 md:w-16 md:h-16" alt="register" />
           <h1 className="text-slate-50 text-lg md:text-xl">Cadastrar</h1>
         </div>
-        <button><Image src={closeIcon} alt="close" /></button>
+        <button
+          onClick={openClosed}
+          >
+        <Image src={closeIcon} alt="close" />
+      </button>
       </div>
 
       <form className="flex flex-col m-3 md:mx-5 gap-3 items-start">

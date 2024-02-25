@@ -11,18 +11,22 @@ import removeIcon from '@/app/assets/removeIcon.svg';
 import ageIcon from "@/app/assets/ageIcon.svg";
 import dateIcon from "@/app/assets/dateIcon.svg";
 import phoneIcon from "@/app/assets/phoneIcon.svg";
-import Register from "@/app/components/register";
+import RemoveModal from "./remove-modal";
+import EditeModal from "./edite-modal";
 
 interface CardPetProps {
   petName: string;
   ownerName: string;
 }
+type StyleOptionModal = "remove" | "update" | 'closed' 
 
 const CardPet: React.FC<CardPetProps> = ({ petName, ownerName }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalWidth, setModalWidth] = useState<number | null>(null);
   const modalRef = useRef<HTMLDivElement>(null);
-
+  const [HowModal, setHowModal] = useState<StyleOptionModal>('closed');
+  const [registerIsOpe, setRegisterIsOpen] = useState<boolean>()
+  
   useEffect(() => {
     function handleResize() {
       if (modalOpen && modalRef.current) {
@@ -57,6 +61,19 @@ const CardPet: React.FC<CardPetProps> = ({ petName, ownerName }) => {
     setModalOpen(!modalOpen);
   };
 
+  const handleClickUpdate = () => {
+    setHowModal("update");
+  }
+
+  const handleClickRemove = () => {
+    setHowModal("remove");
+  }
+  
+
+  const handleClickModalRegisterOpen = () => {
+    setHowModal("closed")
+  }
+
   return (
     <span className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 pr-4">
       <span className={`flex my-1 rounded-md border-2 p-2 w-auto justify-around items-center bg-gradient-to-r from-blue-950 to-slate-900 ${modalOpen ? 'border-blue-500 bg-blue-500' : "border-transparent"} hover:border-blue-500 hover:bg-blue-500`}>
@@ -86,18 +103,27 @@ const CardPet: React.FC<CardPetProps> = ({ petName, ownerName }) => {
           <p className="flex gap-2 truncate"><Image src={phoneIcon} alt="phone-number"/> telefone: 129192912</p>
           <p className="flex gap-2 truncate"><Image src={ageIcon} alt="age"/> idade: 2 anos (19/12/1998)</p>
           <div className="flex flex-col gap-3 mt-4 w-auto">
-            <button className="flex w-auto h-12 justify-center gap-2 rounded-md items-center bg-white">
+            <button
+              onClick={handleClickUpdate}
+              className="flex w-auto h-12 justify-center gap-2 rounded-md items-center bg-white">
               <Image src={editeIcon} alt="edite-icon" className="size-4"/>
               <p className="bg-gradient-to-r from-cyan-500 to-blue-500 text-transparent bg-clip-text">Editar</p>
             </button>
-            <button className="flex w-auto h-12 justify-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md items-center">
+            <button
+              onClick={handleClickRemove}
+              className="flex w-auto h-12 justify-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md items-center">
               <Image src={removeIcon} alt="remove-icon" className="size-4"/>
               Remover
             </button>
           </div>
         </div>
       )}
-      <Register />
+      {
+        HowModal === 'update' && <EditeModal openClosed={handleClickModalRegisterOpen} /> 
+      }
+      {
+        HowModal === "remove" && <RemoveModal openClosed={handleClickModalRegisterOpen} />
+      }
     </span>
   );
 };
