@@ -76,7 +76,13 @@ const CardPet: React.FC<CardPetProps> = ({ petName, ownerName }) => {
 
   return (
     <span className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 pr-4">
-      <span className={`flex my-1 rounded-md border-2 p-2 w-auto justify-around items-center bg-gradient-to-r from-blue-950 to-slate-900 ${modalOpen ? 'border-blue-500 bg-blue-500' : "border-transparent"} hover:border-blue-500 hover:bg-blue-500`}>
+      <span
+          style={
+            {
+              borderRadius: "10px",
+              background: "linear-gradient(80deg, rgba(0, 30, 77, 1) 20%, rgba(0, 8, 20, 1) 100%", backgroundRepeat: 'no-repeat'}
+          }
+        className={`flex my-1 rounded-md border-2 p-2 w-auto justify-around items-center ${modalOpen ? 'border-blue-500 bg-blue-500' : "border-transparent"} hover:border-blue-500 hover:bg-blue-500`}>
         <Image src={petIcon} alt="pet-icon" className="size-16"/>
         <div>
           <p className="flex gap-2">
@@ -96,8 +102,13 @@ const CardPet: React.FC<CardPetProps> = ({ petName, ownerName }) => {
       {modalOpen && (
         <div
           ref={modalRef}
+          style={
+            {
+              width: modalWidth || 0,
+              borderRadius: "10px",
+              background: "linear-gradient(80deg, rgba(0, 30, 77, 1) 20%, rgba(0, 8, 20, 1) 100%", backgroundRepeat: 'no-repeat'}
+          }
           className="absolute p-5 my-1 bg-gradient-to-r from-blue-950 to-slate-900 border-blue-500 border-2 rounded-md"
-          style={{ width: modalWidth || 0 }}
         >
           <p className="flex gap-2 truncate"><Image src={dateIcon} alt="pet-name"/> Raça: dog</p>
           <p className="flex gap-2 truncate"><Image src={phoneIcon} alt="phone-number"/> telefone: 129192912</p>
