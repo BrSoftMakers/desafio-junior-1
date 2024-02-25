@@ -37,8 +37,8 @@ const Pets: React.FC<PetsProps> = ({ pet, onClick, selectedPet, isClicked }) => 
     const [openModalRemove, setModalRemove] = useState<boolean>(false)
     const [petRemove,setPetRemove] = useState<IPets>({ ...pet });
 
-    const handleSubmitRemovePets = async (id:string) => {
-        await removePets(id)
+    const handleSubmitRemovePets = async (id:number) => {
+        await removePets(id.toString())
         setModalRemove(false);
     };
     

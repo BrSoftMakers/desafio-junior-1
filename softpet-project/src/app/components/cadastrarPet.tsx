@@ -12,34 +12,32 @@ import React, { FormEventHandler, useState } from 'react';
 import { IPets } from '../../../types/pets';
 import { addPets } from "../../../api";
 import { useRouter } from "next/navigation";
-import { v4 as uuidv4 } from 'uuid';
+
 
 export default function CadastrarPet({ }) {
     const router = useRouter()
     const [abrirCadastro, setAbrirCadastro] = useState<boolean>(false);
     const [newPetValue, setNewPetValue] = useState<IPets>({
-        id: "",
+      
         nome: "",
         animal: "",
         dono: "",
         raca: "",
-        telefone: "",
+        telefone:'',
         nascimento: ""
     });
 
     const handleSubmitPets: FormEventHandler<HTMLFormElement> = async (e) => {
         e.preventDefault();
-        if (!newPetValue.id) {
-            newPetValue.id = uuidv4();
-        }
+
+     
         await addPets(newPetValue);
         setNewPetValue({
-            id: "",
             nome: "",
             animal: "",
             dono: "",
             raca: "",
-            telefone: "",
+            telefone:'',
             nascimento: ""
         });
         setAbrirCadastro(false)
