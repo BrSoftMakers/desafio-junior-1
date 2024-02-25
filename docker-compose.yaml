@@ -1,14 +1,43 @@
 version: '3.8'
 
 services:
-  nextjs-app:
+  front-end:
     container_name: front-end
     user: node
     image: node:20-alpine
-    working_dir: /front
+    working_dir: /front-end
     ports:
       - "3000:3000"
     volumes:
-      - ./front:/front:delegated
+      - ./front-end:/front-end:delegated
+    depends_on:
+      - back-end
     command: sh -c "npm ci && npm run dev"
     restart: always
+
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  back-end:
+    container_name: back-end
+    user: node
+    image: node:20-alpine
+    working_dir: /back-end
+    restart: always
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./back-end:/back-end:delegated
+    command: sh -c "npm ci && npm run dev"
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
