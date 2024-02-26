@@ -6,25 +6,17 @@ import { useState } from "react";
 import CardPet from "./card-pet";
 import afterArrow from "../assets/after-arrow.svg";
 import beforeArrow from "../assets/before-arrow.svg";
-
-
-const meuArray = () => {
-  const array = [];
-  for (let i = 1; i <= 50; i++) {
-    array.push(i);
-  }
-  return array;
-}
+import { useGlobalContext } from "../context/store";
 
 const MainContent = () => {
+  const {dataClients} = useGlobalContext()
   const [page, setPage] = useState(1);
+  const startIndex = (page - 1) * 16;
+  const endIndex = startIndex + 16;
+  const pageInterval = 16
+  const totalPages = Math.ceil(dataClients.length / pageInterval);
 
-  const nextPage = () => {
-    const totalPages = Math.ceil(meuArray().length / 16);
-    if (page < totalPages) {
-      setPage(prevPage => prevPage + 1);
-    }
-  };
+
 
   const beforePage = () => {
     if (page > 1) {
@@ -32,15 +24,18 @@ const MainContent = () => {
     }
   };
 
-  const startIndex = (page - 1) * 16;
-  const endIndex = startIndex + 16;
+  const nextPage = () => {
+    if (page < totalPages) {
+      setPage(prevPage => prevPage + 1);
+    }
+  };
 
   return (
     <div>
       <main className="flex flex-wrap m-3">
         {
-          meuArray().slice(startIndex, endIndex).map((item) => (
-            <CardPet key={item} ownerName="salsinha" petName="doguinho" />
+          dataClients.slice(startIndex, endIndex).map((client) => (
+            <CardPet key={client.id} ownerName={client.owner} petName={client.name} />
           ))
         }
       </main>
@@ -49,7 +44,7 @@ const MainContent = () => {
           <button onClick={beforePage}>
             <Image src={beforeArrow} alt="before-arrow" />
           </button>
-            <p>{page} de {Math.ceil(meuArray().length / 16)}</p>
+            <p>{page} de {totalPages}</p>
           <button onClick={nextPage}>
             <Image src={afterArrow} alt="after-arrow" />
           </button>
