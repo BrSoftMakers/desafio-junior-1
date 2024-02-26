@@ -11,6 +11,7 @@ import { format } from "date-fns";
 import { createPet } from "../../api";
 import { PetData } from "../../models/create-pet";
 import { editPet } from "../../api/edit-pet.service";
+import { deletePet } from "../../api/delete-pet.service";
 
 interface ModalInterface {
     isOpen: boolean;
@@ -23,7 +24,8 @@ interface ModalInterface {
 const PetModal = ({ ...props }: ModalInterface) => {
     const operationFunction: Record<string, (pet: PetData) => Promise<void> > = {
         'Create': createPet,
-        'Edit': editPet
+        'Edit': editPet,
+        'Delete': deletePet
     }
 
     let buttonIcon = <DogTagIcon />
@@ -79,7 +81,6 @@ const PetModal = ({ ...props }: ModalInterface) => {
             const operation = operationFunction[props.modalType]
 
             operation ? operation(pet) : ''
-            // console.log(pet);
         }
     })
 

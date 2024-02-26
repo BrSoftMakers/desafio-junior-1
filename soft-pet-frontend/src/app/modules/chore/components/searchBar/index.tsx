@@ -2,16 +2,22 @@ import { SearchIcon } from "@icons/index"
 import Button from "../button"
 import { InputContainer, InputIcon, StyledInput } from "./style/search-bar-style"
 import theme from "../../theme"
+import { ChangeEvent } from "react"
 
 
 interface SearchBarProps { 
     mg?: string
     ml?: string
     mr?: string
-    onChange?: () => void
+    onChange?: (value: string) => void
 }
 
 const SearchBar = ({ ...props }: SearchBarProps) => {
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+        const { value } = event.target
+        if(props.onChange) { props.onChange(value) }
+    }
+
     return(
         <InputContainer
             style={{
@@ -24,7 +30,7 @@ const SearchBar = ({ ...props }: SearchBarProps) => {
                 <SearchIcon />
             </InputIcon>
 
-            <StyledInput onChange={props.onChange}/>
+            <StyledInput onChange={handleChange}/>
 
             <Button mr="2px" height="40px" />
         </InputContainer>

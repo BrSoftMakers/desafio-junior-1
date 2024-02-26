@@ -10,11 +10,12 @@ export default function PetPage() {
     const [ page, setPage ] = useState(1);
     const [ pageCount, setPageCount ] = useState(1)
     const [ isModalOpen, setIsModalOpen ] = useState(false)
+    const [ query, setQuery ] = useState('')
     const [ modalType, setModalType ] = useState('')
 
     const getAllPetsData = async() => {
         try {
-            const data = await getAllPets(page);
+            const data = await getAllPets(page, query);
             setPets(data.content);
             setPageCount(data.totalPages)
         } catch(error) {
@@ -24,8 +25,12 @@ export default function PetPage() {
 
     useEffect(() => {
         getAllPetsData();
-    }, [page])
+    }, [page, query])
 
+
+    const handleSearch = (value: string) => {
+        setQuery(value)
+    }
 
     const handlePrevPage = () => {
         if(page <= 1) {
@@ -61,7 +66,7 @@ export default function PetPage() {
             <Logo />
 
             <Header>
-                <SearchBar mr="22px"/>
+                <SearchBar mr="22px" onChange={handleSearch}/>
                 <Button variant="PRIMARY" icon={<AddIcon />} text="Cadastrar" onClick={event => handleOpenModal(event)}/>
             </Header>
 
