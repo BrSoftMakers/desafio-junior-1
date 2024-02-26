@@ -9,15 +9,16 @@ import Register from "./register-modal";
 import { useGlobalContext } from "../context/store";
 
 const Header = () => {
-  const {setTextSearch, textSearch, dataFiltered, setClientFiltered} = useGlobalContext()
+  const {setTextSearch, textSearch, dataFiltered, setFiltered} = useGlobalContext()
   const [registerIsOpe, setRegisterIsOpen] = useState<boolean>()
 
   const handleClickModalRegisterOpen = () => {
     setRegisterIsOpen(!registerIsOpe)
   }
+
   const handleClickSearch = () => {
     const newClients = dataFiltered(textSearch)
-    setClientFiltered(newClients)
+    setFiltered(newClients)
   }
 
   return (

@@ -6,6 +6,8 @@ import { ICreatedClient } from '../types/IClients';
 interface ContextProps {
   dataClients: ICreatedClient[];
   setDataClients: Dispatch<SetStateAction<ICreatedClient[]>>;
+  filtered: ICreatedClient[];
+  setFiltered: Dispatch<SetStateAction<ICreatedClient[]>>;
   textSearch: string,
   setTextSearch: Dispatch<SetStateAction<string>>
   dataFiltered: (text:string) => ICreatedClient[]
@@ -13,6 +15,8 @@ interface ContextProps {
 
 const GlobalContext = createContext<ContextProps>({
   dataClients: [],
+  filtered: [],
+  setFiltered: () => {},
   textSearch: '',
   setTextSearch: () => {},
   dataFiltered: (text: string):ICreatedClient[] => [],
@@ -21,6 +25,7 @@ const GlobalContext = createContext<ContextProps>({
 
 export const GlobalContextProvider = ({ children }: { children: ReactNode }) => {
   const [dataClients, setDataClients] = useState<ICreatedClient[]>([]);
+  const [filtered, setFiltered] = useState<ICreatedClient[]>([]);
   const [textSearch, setTextSearch] = useState('');
   
   const dataFiltered = (text: string): ICreatedClient[] => {
@@ -28,7 +33,7 @@ export const GlobalContextProvider = ({ children }: { children: ReactNode }) => 
   };
 
   return (
-    <GlobalContext.Provider value={{ dataClients, textSearch, setTextSearch, dataFiltered, setDataClients}}>
+    <GlobalContext.Provider value={{ dataClients, textSearch, setTextSearch, dataFiltered, setDataClients,filtered, setFiltered}}>
       {children}
     </GlobalContext.Provider>
   );

@@ -9,12 +9,14 @@ import beforeArrow from "../assets/before-arrow.svg";
 import { useGlobalContext } from "../context/store";
 
 const MainContent = () => {
-  const {dataClients} = useGlobalContext()
+  const {dataClients, filtered} = useGlobalContext()
   const [page, setPage] = useState(1);
+  const data = filtered ? filtered : dataClients;
+
   const startIndex = (page - 1) * 16;
   const endIndex = startIndex + 16;
   const pageInterval = 16
-  const totalPages = Math.ceil(dataClients.length / pageInterval);
+  const totalPages = Math.ceil(data.length / pageInterval);
 
 
 
@@ -29,12 +31,12 @@ const MainContent = () => {
       setPage(prevPage => prevPage + 1);
     }
   };
-
+  console.log('data:: ', data)
   return (
     <div>
       <main className="flex flex-wrap m-3">
         {
-          dataClients.slice(startIndex, endIndex).map((client) => (
+          data.slice(startIndex, endIndex).map((client) => (
             <CardPet key={client.id} ownerName={client.owner} petName={client.name} />
           ))
         }
