@@ -2,14 +2,8 @@ import { ReactNode } from "react"
 import theme from "../../theme"
 import { ButtonIcon, GradientText, StyledButton, Text } from "./styles/button-style"
 
-export enum ButtonVariant {
-    'PRIMARY',
-    'SECONDARY',
-    'DANGER',
-}
-
 interface ButtonProps {
-    variant?: string
+    variant?: 'PRIMARY' | 'SECONDARY' | 'DANGER' | string
     width?: string
     height?: string
     text?: string
@@ -18,6 +12,7 @@ interface ButtonProps {
     m?: string
     ml?: string
     mr?: string
+    type?: "button" | "reset" | "submit"
     onClick?: (event: any) => void
 }
 
@@ -57,6 +52,7 @@ const Button = ({ ...props }: ButtonProps) => {
             marginLeft: props.ml,
             marginRight: props.mr,
         }}
+        type={ props.type ? props.type : "button" }
         onClick={props.onClick}
         >
             <ButtonIcon> {props.icon} </ButtonIcon>

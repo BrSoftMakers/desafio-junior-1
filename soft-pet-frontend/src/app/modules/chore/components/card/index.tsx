@@ -31,22 +31,9 @@ const PetCard = ({ ...props }: PetCardProps) => {
         setDropDownStatus(!dropDownStatus)
     }
 
-    const handlePetSelected = () => {
-        console.log(props.data);
+    const handleOpenModal = (type: string) => {
+        setModalType(type)
         setSelectedPet(props.data);
-    }
-
-    const handleOpenModal = (event: any) => {
-        const type = event.target.outerText
-
-        if(type === 'Editar') {
-            setModalType('Edit')
-        }
-
-        if(type === 'Remover') {
-            setModalType('Delete')
-        }
-        handlePetSelected();
         setIsModalOpen(true);
     }
 
@@ -60,7 +47,7 @@ const PetCard = ({ ...props }: PetCardProps) => {
                 <MainCard onClick={toggleDropdown}>
                     <CardSection>
                         <PetType>
-                            { props.data.petTypeId === 1 ? (<CatIcon />) : (<DogIcon />) }
+                            { props.data.petTypeId === 1 ? (<DogIcon />) : (<CatIcon />) }
                         </PetType>
         
                     </CardSection>
@@ -122,13 +109,13 @@ const PetCard = ({ ...props }: PetCardProps) => {
                                     variant="SECONDARY"
                                     text="Editar"
                                     icon={<EditIcon />}
-                                    onClick={handleOpenModal}
+                                    onClick={() => handleOpenModal('Edit')}
                                 />
                                 <Button 
                                     variant="PRIMARY" 
                                     text="Remover" 
                                     icon={<TrashIcon />}
-                                    onClick={handleOpenModal}
+                                    onClick={() => handleOpenModal('Delete')}
                                 />
                             </DropDownButtonsArea>
                         </DropDownSection>

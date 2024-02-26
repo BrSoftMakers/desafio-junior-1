@@ -81,13 +81,14 @@ export const FormArea = styled.div`
 export const WarningText = styled.span`
     font-weight: ${theme.fonts_weight.bold};
     font-size: ${theme.fonts_size.md};
-    margin: 1.5rem 0 1.7rem 0;
+    margin-top: 1.5rem;
 `
 
 export const ButtonArea = styled.div`
     display: flex;
     justify-content: space-around;
-
+    margin-top: 1.7rem;
+    
     &>button {
         margin: 1rem;
     }

@@ -1,24 +1,23 @@
-interface PetInterface {
-    id:       string,
+interface PetDataInterface {
     name:      string,
     breed:     string,
     birth:     Date,
-    PetTypeId:  number,
+    petType: string,
+    
     ownerName:  string,
     ownerPhone: string,
 }
 
-export class Pet {
-    public readonly id: string;
+export class PetData {
     public name: string;
     public breed: string;
-    public petTypeId: number;
+    public petType: string;
     public birth: Date;
     
     public ownerName: string;
     public ownerPhone: string;
 
-    constructor(props: PetInterface) {
+    constructor(props: PetDataInterface) {
         Object.assign(this, props)
     }
 }

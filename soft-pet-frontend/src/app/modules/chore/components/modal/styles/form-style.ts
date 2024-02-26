@@ -78,3 +78,7 @@ export const StyledRadio = styled.div`
     border-radius: 10px;
     width: 100%;
 `
+
+export const ErrorText = styled.div`
+    color: ${theme.colors.red};
+`
