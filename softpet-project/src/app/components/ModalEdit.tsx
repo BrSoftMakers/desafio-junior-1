@@ -1,8 +1,7 @@
 import React from "react";
 import styles from "../../styles/petlist.module.css";
-import CadastroIcon from './icons/CadastroIcon.svg';
 import CloseCadastro from './icons/CloseCadastro.svg'
-
+import PetEdit from './icons/PetEdit.svg';
 
 
 interface EditProps {
@@ -13,11 +12,13 @@ interface EditProps {
 const ModalEdit: React.FC<EditProps> = ({ AbrirModal, setAbrirModal, children }) => {
     return (
         <div className={styles.containerPet} style={{ display: AbrirModal ? 'block' : 'none' }}>
-            <header className={styles.headerCadastrarPet}>
-                <div className={styles.cadastroIcon_Container}>
+            <header className={styles.headerEditPet}>
+                <div className={styles.EditIcon_Container}>
 
-                    <span className={styles.cadastroIcon}>
-                        <CadastroIcon />
+                    <span className={styles.EditIcon}>
+
+                        <PetEdit />
+                    
                     </span>
 
 
@@ -25,11 +26,12 @@ const ModalEdit: React.FC<EditProps> = ({ AbrirModal, setAbrirModal, children })
 
                 </div>
                 <span
+                    
                     onClick={() => setAbrirModal(false)} style={{ cursor: "pointer" }} >
                     <CloseCadastro />
                 </span>
             </header>
-            <div className={styles.infoCadastro}>
+            <div className={styles.EditCadastro}>
                 {children}
               
             </div>

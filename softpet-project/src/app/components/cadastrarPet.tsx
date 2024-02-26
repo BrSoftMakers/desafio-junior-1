@@ -14,29 +14,30 @@ import { addPets } from "../../../api";
 import { useRouter } from "next/navigation";
 
 
-export default function CadastrarPet({ }) {
+export default function CadastrarPet({pet }) {
     const router = useRouter()
+    const [petCadastro, setPetCadastro] = useState<IPets>({ ...pet });
     const [abrirCadastro, setAbrirCadastro] = useState<boolean>(false);
     const [newPetValue, setNewPetValue] = useState<IPets>({
-      
+
         nome: "",
         animal: "",
         dono: "",
         raca: "",
-        telefone:'',
+        telefone: '',
         nascimento: ""
     });
-    
+
 
     const handleSubmitPets: FormEventHandler<HTMLFormElement> = async (e) => {
-        
+
         await addPets(newPetValue);
         setNewPetValue({
             nome: "",
             animal: "",
             dono: "",
             raca: "",
-            telefone:'',
+            telefone: '',
             nascimento: ""
         });
         setAbrirCadastro(false)
@@ -56,7 +57,7 @@ export default function CadastrarPet({ }) {
             </button>
 
             <Modal AbrirModal={abrirCadastro} setAbrirModal={setAbrirCadastro}>
-           
+
                 <form onSubmit={handleSubmitPets} className={styles.PetForm}>
                     <div className={styles.infoCadastro_Nome}>
 
@@ -68,10 +69,14 @@ export default function CadastrarPet({ }) {
 
                     </div>
                     <div className={styles.infoCadastro_Animal}>
-
-                        <span><SelectAnimalIcon /><label>Animal</label></span>
-                        <div className={styles.ContainerSelectAnimal}>
-                            <span className={styles.selectAnimal}>
+                    <span><SelectAnimalIcon /><label>Animal</label></span>
+                        <div className={styles.ContainerSelectAnimal}>                            
+                        
+                        <span onClick={() => {
+                                if (petCadastro.animal !== "cachorro") {
+                                    setPetCadastro({ ...petCadastro, animal: "cachorro" });
+                                }
+                            }} className={`${styles.selectAnimal} ${petCadastro.animal === "cachorro" ? styles.checked : ''}`}>
                                 <input
                                     onChange={handleAnimalChange}
                                     type="radio" id="opcao1"
@@ -80,7 +85,13 @@ export default function CadastrarPet({ }) {
                                     checked={newPetValue.animal === "cachorro"} />
                                 <label htmlFor="opcao1">Cachorro</label>
                             </span>
-                            <span className={styles.selectAnimal}>
+
+                            <span onClick={() => {
+                                if (petCadastro.animal !== "gato") {
+                                    setPetCadastro({ ...petCadastro, animal: "gato" });
+                                }
+                            }} className={`${styles.selectAnimal} ${petCadastro.animal === "gato" ? styles.checked : ''}`}>
+                                {/*  */}
                                 <input
                                     onChange={handleAnimalChange}
                                     type="radio" id="opcao2"
@@ -90,6 +101,8 @@ export default function CadastrarPet({ }) {
                                 <label htmlFor="opcao2">Gato</label>
                             </span>
                         </div>
+                        
+
                     </div>
                     <div className={styles.infoCadastro_Dono}>
                         <span> <PetDonoIcon /><label>Dono</label></span>
@@ -116,12 +129,13 @@ export default function CadastrarPet({ }) {
                         <span><DataIcon /><label>Nascimento</label></span>
                         <input
                             value={newPetValue.nascimento}
-                            onChange={e => setNewPetValue({ ...newPetValue, nascimento: e.target.value })}
-                            placeholder="22/08/2020" type="datetime" name="" id="" />
+                            onChange={(e) => setNewPetValue({ ...newPetValue, nascimento: e.target.value })}
+                            placeholder="22/08/2020" type="date" name="" id=""
+                            maxLength={12} />
                     </div>
                     <footer className={styles.footerCadastroPet}>
                         <button onClick={() => setAbrirCadastro(false)} className={styles.buttonVoltarCadastroPet}>
-                            <span><VoltarCadastroIcon /><span style={{ paddingLeft: 5 }}>Voltar</span></span>
+                            <span><VoltarCadastroIcon /></span>
                         </button>
 
                         <button type="submit" className={styles.buttonCadastrarPet}>

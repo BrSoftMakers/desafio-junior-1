@@ -2,10 +2,11 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(0, 280px));
     grid-gap: 10px;
-    
+
 }
-.PetContainer{
-    
+
+.PetContainer {
+
     position: relative;
 
 }
@@ -29,7 +30,7 @@ span.PetArrowInfo {
 }
 
 .Pet:hover {
-    outline: 2px solid #00CAFC; 
+    outline: 2px solid #00CAFC;
 }
 
 .Pet.clicked {
@@ -46,14 +47,16 @@ span.PetIcon {
     background: linear-gradient(90deg, #00CAFC 0%, #0056E2 100%);
 
 }
-span.PetIcon svg{
+
+span.PetIcon svg {
     font-size: 45px;
 }
 
 .ContainerPetInfo {
     padding-left: 10px;
     max-height: 100%;
-    width: 62%;
+    width: 56%;
+    margin-right: 10px;
 }
 
 .PetInfo {
@@ -62,23 +65,22 @@ span.PetIcon svg{
     font-size: 16px;
     align-items: center;
 }
-span.PetInfo {
 
-}
-.PetInfo p{
-    max-width: 100%;
+.PetInfo p {
+    width: 100%;
     max-height: 80%;
     margin: 0;
-    overflow:hidden;
+    overflow: hidden;
 }
 
 .PetInfo svg {
-   max-width: 20px;
+    width: 20px;
     margin-right: 5px;
 }
-.PetInfo svg path{
+
+.PetInfo svg path {
     width: 20px;
-    
+
 }
 
 /* PARTE DO POPUP ---->> */
@@ -93,7 +95,7 @@ span.PetInfo {
     flex-direction: column;
     justify-content: center;
     width: 100%;
-   
+
     justify-content: center;
     z-index: 1;
 
@@ -153,6 +155,10 @@ span.PetInfo {
     margin-right: 5px;
 }
 
+.petInfoPopup_buttons img {
+    height: 16px;
+}
+
 .PetInfoPopup p {
     padding: 2px;
     margin: 0;
@@ -162,7 +168,8 @@ span.PetInfo {
 .PetInfoPopup button {
     max-width: 100%;
 }
-.containerPet{
+
+.containerPet {
     position: absolute;
     background: linear-gradient(316.01deg, #000814 15.31%, #001E4D 86.58%);
     display: flex;
@@ -172,23 +179,51 @@ span.PetInfo {
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
-    padding: 2%;
+    padding: 3%;
     border-radius: 10px;
     border: 2px solid transparent;
     border-radius: 5px;
     outline: 2px solid #00CAFC;
     width: 430px;
     height: 65%;
-  
+
 }
 
-.headerCadastrarPet{
+.headerCadastrarPet {
     display: flex;
     justify-content: space-between;
     height: 60px;
     align-items: center;
     margin-bottom: 10%;
 }
+
+
+
+.cadastroIcon_Container {
+    display: flex;
+    align-items: center;
+}
+
+.cadastroIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #00CAFC 0%, #0056E2 100%);
+
+}
+
+.cadastroIcon svg {
+    font-size: 20px;
+}
+
+.cadastroIcon_Container h1 {
+    font-size: 22px;
+    margin-left: 10px;
+}
+
 .buttonAbrirCadastro {
     background-image: linear-gradient(to right, #00cafc, #0056e2);
     color: #fff;
@@ -204,16 +239,19 @@ span.PetInfo {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  .buttonAbrirCadastro svg{
+}
+
+.buttonAbrirCadastro svg {
     margin-right: 5px;
     width: 25px;
-  }
-.infoCadastro{
+}
+
+.infoCadastro {
     position: relative;
     height: 75%;
 }
-.infoCadastro form{
+
+.infoCadastro form {
     position: relative;
     display: grid;
     grid-template-columns: repeat(2, minmax(100px, 1fr));
@@ -222,56 +260,53 @@ span.PetInfo {
     column-gap: 15px;
     max-width: 100%;
 }
-.infoCadastro form div{
+
+.infoCadastro form div {
     padding-block: 2px;
 }
+
 .footerCadastroPet:last-child {
     grid-column: span 2;
     display: flex;
     justify-content: space-between;
     height: 38%;
-    margin-block: 10% ;
+    margin-block: 10%;
 }
-.infoCadastro form label{
+
+.infoCadastro form label {
     padding-left: 5px;
 }
-.infoCadastro input{
+
+.infoCadastro input {
     color: #FFFFFF;
-    max-width: 100%;
+    width: 90%;
     background-color: transparent;
-    border: 2px solid #404A5C; 
+    border: 2px solid #404A5C;
     outline-style: none;
     border-radius: 5px;
     padding: 3%;
     margin-top: 5px;
     margin-bottom: 5px;
 }
-.infoCadastro input::placeholder{
-    color: #404A5C; 
+
+.infoCadastro input::placeholder {
+    color: #404A5C;
 }
-.infoCadastro span{
-    font-size:16px;
+
+.infoCadastro span {
+    font-size: 16px;
 }
-.infoCadastro_Animal{
-   
-}
-.infoCadastro_Animal .ContainerSelectAnimal{
+
+.infoCadastro_Animal .ContainerSelectAnimal {
     display: flex;
     justify-content: space-between;
     max-width: 95%;
 
+
 }
-.infoCadastro_Animal .selectAnimal{
-    font-size: 13px;
-    display: flex;
-    align-items: center;
-    justify-content:left;
-    border: 2px solid #404A5C; 
-    border-radius: 5px;
-    margin-top: 5px;
-    width: 90px;
-    padding-block: 1%;
-}
+
+
+
 .infoCadastro_Animal .selectAnimal {
     font-size: 13px;
     display: flex;
@@ -280,7 +315,7 @@ span.PetInfo {
     border: 2px solid #404A5C;
     border-radius: 5px;
     margin-top: 5px;
-    width: 90px;
+    width:90px;
     padding-block: 1%;
     cursor: pointer;
 }
@@ -288,59 +323,152 @@ span.PetInfo {
 .infoCadastro_Animal .selectAnimal.checked {
     border: 2px solid #ffffff;
 }
+.selectAnimal input{
+    cursor: pointer;
+}
+.selectAnimal label {
+    cursor: pointer;
+}
 .selectAnimal input[type="radio"]:checked {
     display: none;
 }
-.radioOn{
+
+.radioOn {
     content: '';
     width: 10px;
     height: 10px;
     background-color: #ffffff;
 }
+
 .selectAnimal input[type="radio"] span.radioOn::after {
     display: none;
     background-color: #000814;
 }
 
-.cadastroIcon_Container{
+.infoCadastro_Animal span {
+    display: block;
+
+}
+
+/* Container de editar  */
+
+.headerEditPet {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    align-items: center;
+    margin-bottom: 10%;
+}
+
+.EditIcon_Container {
     display: flex;
     align-items: center;
 }
-.cadastroIcon{
+
+.EditIcon {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 60px;
     border-radius: 50%;
     background: linear-gradient(90deg, #00CAFC 0%, #0056E2 100%);
-
-}
-.cadastroIcon svg{
-   font-size: 20px;
 }
 
-.cadastroIcon_Container h1{
-    font-size: 22px;
+.EditIcon svg {
+    font-size: 30px;
+}
+
+.EditIcon_Container h1 {
+    font-size: 25px;
     margin-left: 10px;
 }
 
-.infoCadastro_Animal span{
-    display: block;
+.EditCadastro {
+    position: relative;
+    height: 75%;
+}
+
+.EditCadastro form {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+    word-wrap: break-word;
+    gap: 5px;
+    column-gap: 15px;
+    max-width: 100%;
+}
+
+.EditCadastro form div {
+    padding-block: 2px;
+}
+
+.EditCadastro form label {
+    padding-left: 5px;
+}
+
+.EditCadastro input {
+    color: #FFFFFF;
+    width: 90%;
+    background-color: transparent;
+    border: 2px solid #404A5C;
+    outline-style: none;
+    border-radius: 5px;
+    padding: 3%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.EditCadastro input::placeholder {
+    color: #404A5C;
+}
+
+.EditCadastro span {
+    font-size: 16px;
+}
+
+/*Footer edit*/
+.footerEditPet:last-child {
+    grid-column: span 2;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    height: 38%;
+    margin-block: 10%;
+}
+
+button.buttonVoltarEditPet {
+    width: 202px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    color: #0056e2;
+}
+
+.buttonVoltarEditPet span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     
 }
 
+.buttonVoltarEditPet span img {
+    height: 16px;
+}
 
-
-.buttonEditarPet{
+.buttonEditarPet {
+    
     background: linear-gradient(90deg, #00CAFC 0%, #0056E2 100%);
     border: none;
     cursor: pointer;
-    width: 198px;
+    width: 202px;
+    margin-right: 5px;
     border-radius: 5px;
-   
+
 }
-.buttonEditarPet span{
+
+.buttonEditarPet span {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -349,14 +477,135 @@ span.PetInfo {
 
 }
 
-button.buttonVoltarCadastroPet{
+
+.headerEditPet {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    align-items: center;
+    margin-bottom: 10%;
+}
+
+/* REMOVE DIVS */
+.headerRemovePet {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    align-items: center;
+    margin-bottom: 10%;
+}
+
+.RemoveIcon_Container {
+    display: flex;
+    align-items: center;
+}
+
+.RemoveIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #00CAFC 0%, #0056E2 100%);
+}
+
+.RemoveIcon svg {
+    font-size: 30px;
+}
+
+.RemoveIcon_Container h1 {
+    font-size: 25px;
+    margin-left: 10px;
+}
+
+
+.RemoveCadastro {
+    position: relative;
+    height: 75%;
+}
+
+.RemoveCadastro form {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+    word-wrap: break-word;
+    gap: 5px;
+    column-gap: 15px;
+    max-width: 100%;
+}
+
+.RemoveCadastro form div {
+    padding-block: 2px;
+}
+
+.RemoveCadastro form label {
+    padding-left: 5px;
+}
+
+.RemoveCadastro input {
+    color: #FFFFFF;
+    width: 90%;
+    background-color: transparent;
+    border: 2px solid #404A5C;
+    outline-style: none;
+    border-radius: 5px;
+    padding: 3%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.RemoveCadastro input::placeholder {
+    color: #404A5C;
+}
+
+.RemoveCadastro span {
+    font-size: 16px;
+}
+
+/*Footer edit*/
+.footerRemovePet:last-child {
+    grid-column: span 2;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    height: 38%;
+    margin-block: 10%;
+}
+
+button.buttonVoltarRemovePet {
     border: none;
     cursor: pointer;
-    width:198px;
+    width: 202px;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    color: #0056e2;
+}
+
+.buttonVoltarRemovePet span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonVoltarRemovePet span img {
+    height: 16px;
+    
+
+}
+
+/* -----------------------   */
+
+
+button.buttonVoltarCadastroPet {
+    border: none;
+    cursor: pointer;
+    width: 200px;
     border-radius: 5px;
     background-color: #FFFFFF;
 }
-.buttonVoltarCadastroPet span{
+
+.buttonVoltarCadastroPet span {
     color: #00CAFC;
     font-size: 14px;
     font-weight: 700;
@@ -364,21 +613,29 @@ button.buttonVoltarCadastroPet{
     align-items: center;
     justify-content: center;
 }
-.PetInfoPopup_info_remove{
-    background: #ED254E;
+
+.buttonVoltarCadastroPet img {
+    height: 16px;
 }
-.buttonRemoverPet{ 
+
+.buttonRemoverPet {
     background: #ED254E;
     border: none;
     cursor: pointer;
-    width: 198px;
+    width: 200px;
+    margin-right: 5px;
     border-radius: 5px;
 }
-.buttonRemoverPet span{
+
+.buttonRemoverPet span {
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 14px;
     font-weight: 700;
 
+}
+
+.buttonRemoverPet svg {
+    margin-right: 5px;
 }

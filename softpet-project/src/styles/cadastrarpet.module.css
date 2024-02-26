@@ -7,8 +7,8 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1;
-  padding: 2%;
+  z-index: 2;
+  padding: 3%;
   border-radius: 10px;
   border: 2px solid transparent;
   border-radius: 5px;
@@ -23,6 +23,8 @@
   align-items: center;
   margin-bottom: 10%;
 }
+
+
 .buttonAbrirCadastro {
   background-image: linear-gradient(to right, #00cafc, #0056e2);
   color: #fff;
@@ -63,7 +65,6 @@
   grid-column: span 2;
   display: flex;
   justify-content: space-between;
-  height: 38%;
   margin-block: 10% ;
 }
 .infoCadastro form label{
@@ -71,7 +72,7 @@
 }
 .infoCadastro input{
   color: #FFFFFF;
-  max-width: 100%;
+  width: 90%;
   background-color: transparent;
   border: 2px solid #404A5C; 
   outline-style: none;
@@ -106,8 +107,33 @@
   width: 90px;
   padding-block: 1%;
 }
-input#opcao1{
-  background-color: rgb(65, 65, 65);
+.selectAnimal input{
+  width: 12px;
+}
+
+.infoCadastro_Animal .selectAnimal.checked {
+  border: 2px solid #ffffff;
+}
+.selectAnimal input{
+  cursor: pointer;
+}
+.selectAnimal label {
+  cursor: pointer;
+}
+.selectAnimal input[type="radio"]:checked {
+  display: none;
+}
+
+.radioOn {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background-color: #ffffff;
+}
+
+.selectAnimal input[type="radio"] span.radioOn::after {
+  display: none;
+  background-color: #000814;
 }
 .cadastroIcon_Container{
   display: flex;
@@ -117,14 +143,11 @@ input#opcao1{
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50px;
-  width: 50px;
+  height: 60px;
+  width: 60px;
   border-radius: 50%;
   background: linear-gradient(90deg, #00CAFC 0%, #0056E2 100%);
 
-}
-.cadastroIcon svg{
- font-size: 20px;
 }
 
 .cadastroIcon_Container h1{
@@ -136,8 +159,6 @@ input#opcao1{
   display: block;
   
 }
-
-
 
 
 .buttonCadastrarPet{
@@ -154,8 +175,9 @@ input#opcao1{
 .buttonCadastrarPet{
   border: none;
   cursor: pointer;
-  width: 198px;
+  width: 200px;
   border-radius: 5px;
+  margin-right: 5px;
  
 }
 .buttonCadastrarPet span{
@@ -164,12 +186,12 @@ input#opcao1{
   justify-content: center;
   font-size: 14px;
   font-weight: 700;
-
 }
-button.buttonVoltarCadastroPet{
+.buttonVoltarCadastroPet{
   border: none;
   cursor: pointer;
-  width:198px;
+  height:35px;
+  width: 202px;
   border-radius: 5px;
   background-color: #FFFFFF;
 }
@@ -178,6 +200,11 @@ button.buttonVoltarCadastroPet{
   font-size: 14px;
   font-weight: 700;
   display: flex;
+  height: 50%;
+  width: 100%;
   align-items: center;
   justify-content: center;
+}
+.buttonVoltarCadastroPet span svg{
+  font-size: 60px;
 }

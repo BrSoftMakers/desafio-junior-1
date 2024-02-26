@@ -13,10 +13,10 @@ interface RemoveProps {
 const ModalRemove: React.FC<RemoveProps> = ({ AbrirModal, setAbrirModal, children }) => {
     return (
         <div className={styles.containerPet} style={{ display: AbrirModal ? 'block' : 'none' }}>
-            <header className={styles.headerCadastrarPet}>
-                <div className={styles.cadastroIcon_Container}>
+            <header className={styles.headerRemovePet}>
+                <div className={styles.RemoveIcon_Container}>
 
-                    <span className={styles.cadastroIcon}>
+                    <span className={styles.RemoveIcon}>
                         <PetRemove />
                     </span>
 
@@ -32,7 +32,7 @@ const ModalRemove: React.FC<RemoveProps> = ({ AbrirModal, setAbrirModal, childre
            
 
               
-          <div className={styles.infoCadastro}>
+          <div className={styles.RemoveCadastro}>
                 {children}
               
             </div>

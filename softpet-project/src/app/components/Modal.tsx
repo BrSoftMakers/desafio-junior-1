@@ -17,7 +17,7 @@ const Modal: React.FC<CadastroProps> = ({ AbrirModal, setAbrirModal, children })
                 <div className={styles.cadastroIcon_Container}>
                     
                     <span className={styles.cadastroIcon}>
-                        <CadastroIcon style={{ fontSize: 25 }} />
+                        <CadastroIcon style={{ fontSize: 30 }} />
                     </span>
                    
 

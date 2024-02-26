@@ -10,6 +10,9 @@
     "json-server": "json-server --watch src/data/pets.json --port 5000"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@mui/lab": "^5.0.0-alpha.166",
     "@nestjs/core": "^10.3.3",
     "@next/font": "^14.1.0",
     "@vercel/postgres": "^0.7.2",
