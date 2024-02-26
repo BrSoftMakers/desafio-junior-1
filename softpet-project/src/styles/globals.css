@@ -1,14 +1,17 @@
 *{
 font-family:'Ubuntu';
 color:#FFFFFF;
+
 }
 main{
   height: 100%;
+  width: 100%;
+  
 }
 
 body{
     margin: 0;
-    padding-inline: 6%;
+    padding-inline: 5%;
     padding-top:2%;
     box-sizing: border-box;
     background: linear-gradient(
@@ -19,4 +22,6 @@ body{
         #001E4D 90%     /* Ponto de parada direito inferior */
       );
     height: 100vh;
+
+  
 }

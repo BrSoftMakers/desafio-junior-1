@@ -48,7 +48,7 @@ export default function Index({ }) {
           <input onChange={handleInputChange} type="text" name="text" id="text" />
           <button onClick={handleSearch} className={styles.searchButton}>Pesquisar</button>
         </div>
-        <CadastrarPet />
+        <CadastrarPet pets={pets} />
 
       </div>
 

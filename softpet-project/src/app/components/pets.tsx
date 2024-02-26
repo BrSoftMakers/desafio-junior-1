@@ -16,14 +16,8 @@ import { IPets } from '../../../types/pets';
 import ModalEdit from './ModalEdit';
 import ModalRemove from './ModalRemove';
 import DataIcon from './icons/DataIcon.svg';
-import VoltarIcon from './icons/VoltarCadastroIcon.svg';
 import { useRouter } from 'next/navigation';
 import { editPets, removePets } from '../../../api';
-//Data importaçoes
-import DateAdapter from '@mui/lab/AdapterDateFns';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import { DatePicker } from '@mui/lab';
-import TextField from '@mui/material/TextField'
 
 
 interface PetsProps {
@@ -41,30 +35,13 @@ const Pets: React.FC<PetsProps> = ({ pet, onClick, selectedPet, isClicked }) => 
     const [openModalRemove, setModalRemove] = useState<boolean>(false)
     const [petRemove, setPetRemove] = useState<IPets>({ ...pet });
 
-    const DataValida = (dateString) => {
-        const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
-        return dateString.match(dateRegex) !== null;
-    };
-
-    const formatarData = (dateString) => {
-        console.log('Valor recebido:', dateString);
-        console.log('Data válida:', DataValida(dateString));
-
-        if (!DataValida(dateString)) return dateString;
-
-        const date = new Date(dateString);
-        const day = date.getDate().toString().padStart(2, '0');
-        const month = (date.getMonth() + 1).toString().padStart(2, '0');
-        const year = date.getFullYear();
-        return `${day}/${month}/${year}`;
-    };
+   
     const handleSubmitRemovePets = async (id: number) => {
         await removePets(id.toString())
         setModalRemove(false);
     };
 
     const handleSubmitEditPets: FormEventHandler<HTMLFormElement> = async (e) => {
-
         const updatedPet: IPets = {
             ...pet,
             nome: petEdit.nome,
@@ -81,6 +58,20 @@ const Pets: React.FC<PetsProps> = ({ pet, onClick, selectedPet, isClicked }) => 
 
     }
     const animalIcon = pet.animal === 'cachorro' ? <CachorroIcon /> : <GatoIcon />
+
+    const calculoDeIdade = (dataDeNascimento) => {
+        const dataAtual = new Date();
+        const dataDeNasci = new Date(dataDeNascimento);
+        let idade = dataAtual.getFullYear() - dataDeNasci.getFullYear();
+        const mesAtual = dataAtual.getMonth();
+        const mesNasci = dataDeNasci.getMonth();
+    
+        if (mesAtual < mesNasci || (mesAtual === mesNasci && dataAtual.getDate() < dataDeNasci.getDate())) {
+            idade--;
+        }
+    
+        return idade;
+    };
 
     return (
         <div>
@@ -101,7 +92,11 @@ const Pets: React.FC<PetsProps> = ({ pet, onClick, selectedPet, isClicked }) => 
                             <div className={styles.PetInfoPopup_info}>
                                 <span><PetRaca /><p>Raça: {pet.raca}</p></span>
                                 <span><TelefoneIcon /><p>Telefone: {pet.telefone}</p></span>
-                                <span><PetNascimento /><p>Idade: {pet.nascimento}</p></span>
+                                <span><PetNascimento /><p>Idade: {calculoDeIdade(pet.nascimento)}<> Anos</></p>
+                                
+                                <p>{pet.nascimento}</p>
+                                
+                                </span>
                             </div>
 
                             <div className={styles.petInfoPopup_buttons}>
@@ -313,8 +308,11 @@ const Pets: React.FC<PetsProps> = ({ pet, onClick, selectedPet, isClicked }) => 
                                 value={petRemove.nascimento}
                                 placeholder="22/08/2020" type="date" name="" id=""
                                 readOnly  />
-                        </div>
+                        </div>  
+                        <span className={styles.notificationRemove}>Tem certeza que deseja remover esse pet?</span>
                         <footer className={styles.footerRemovePet}>
+                           
+                      
 
                             <button onClick={() => setModalRemove(false)}
                                 className={styles.buttonVoltarRemovePet}>
@@ -332,7 +330,7 @@ const Pets: React.FC<PetsProps> = ({ pet, onClick, selectedPet, isClicked }) => 
                         </footer>
 
                     </form>
-
+                           
                 </div>
 
             </ModalRemove>

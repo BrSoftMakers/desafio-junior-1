@@ -1,9 +1,12 @@
 .header{
     height: 140px;
+    width: 97%;
     margin-bottom: 10px;
 }
 .main{
     height: 90%;
+    width: 100%;
+    
 }
 .logo{
     display: flex;

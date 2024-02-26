@@ -1,14 +1,14 @@
 .ContainerPetList {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(0, 280px));
-    grid-gap: 10px;
+    grid-gap: 20px;
+    width: 100%;
+    
 
 }
 
 .PetContainer {
-
     position: relative;
-
 }
 
 .Pet {
@@ -94,7 +94,7 @@ span.PetIcon svg {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100%;
+    width: 98%;
 
     justify-content: center;
     z-index: 1;
@@ -546,12 +546,12 @@ button.buttonVoltarEditPet {
 .RemoveCadastro input {
     color: #FFFFFF;
     width: 90%;
-    background-color: transparent;
+    background-color: #404A5C;
     border: 2px solid #404A5C;
     outline-style: none;
     border-radius: 5px;
     padding: 3%;
-    margin-top: 5px;
+    margin-top: 7px;
     margin-bottom: 5px;
 }
 
@@ -569,8 +569,8 @@ button.buttonVoltarEditPet {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    height: 38%;
-    margin-block: 10%;
+    height: 35px;
+
 }
 
 button.buttonVoltarRemovePet {
@@ -592,6 +592,13 @@ button.buttonVoltarRemovePet {
     height: 16px;
     
 
+}
+.notificationRemove{
+    font-weight: 700;
+   width: 350px;
+   margin-left: 20%;
+   margin-block: 10%;
+    grid-column: span 1;
 }
 
 /* -----------------------   */
@@ -622,7 +629,7 @@ button.buttonVoltarCadastroPet {
     background: #ED254E;
     border: none;
     cursor: pointer;
-    width: 200px;
+    width: 203px;
     margin-right: 5px;
     border-radius: 5px;
 }
@@ -638,4 +645,18 @@ button.buttonVoltarCadastroPet {
 
 .buttonRemoverPet svg {
     margin-right: 5px;
+}
+/* PASSAR PAGINA*/
+
+.Pagination_Container{
+    margin-top: 10px;
+    display: flex;
+    justify-content: right;
+
+}
+.buttonMudarPage{
+margin-top: 15px;
+}
+.PaginationButton{
+    
 }
