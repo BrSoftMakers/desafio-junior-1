@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "react-datepicker/dist/react-datepicker.css";
+
 import { Toaster } from "react-hot-toast";
-import ContextProvider from "./context/context";
+
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -20,11 +20,9 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className={inter.className}>
-        <ContextProvider>
-          <Toaster position="top-center" reverseOrder={false} />
-          {/* <Header /> */}
-          {children}
-        </ContextProvider>
+        <Toaster position="top-center" reverseOrder={false} />
+        {/* <Header /> */}
+        {children}
       </body>
     </html>
   );
