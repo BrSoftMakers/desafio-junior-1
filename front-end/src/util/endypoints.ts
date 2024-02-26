@@ -1,46 +1,46 @@
-import { error } from 'console';
 import { ICreatedClient } from './../app/types/IClients';
-const URL_API = "http://localhost:3001/client"
+
+const URL_API = "http://localhost:3001/client";
 
 const getAllClients = async () => {
   try {
     const response = await fetch(URL_API);
-    const data = response.json();
+    const data = await response.json();
     return data;
   } catch (err) {
-    console.error('Erro ao obter os dados de:', err)
-    throw Error
+    console.error('Erro ao obter os dados de:', err);
+    throw err;
   }
-}
+};
 
-const createClient = async (dataCLient: ICreatedClient) => {
+const createClient = async (dataClient: ICreatedClient) => {
   try {
     const response = await fetch(URL_API, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(dataCLient)
-    })
-  
+      body: JSON.stringify(dataClient)
+    });
+
     if (!response.ok) {
-      throw new Error("Falha ao ao criar o Cliente")
+      throw new Error("Falha ao criar o Cliente");
     }
-  
+
     const dataCreated = await response.json();
-    return dataCreated
+    return dataCreated;
   } catch (err) {
     console.error("Erro ao criar novos dados:", err);
-    throw error
+    throw err;
   }
-}
+};
 
 const updateClient = async (id: number, ownerId: number, clientData: ICreatedClient) => {
   try {
     const response = await fetch(`${URL_API}/${id}/${ownerId}`, {
       method: 'PUT',
       headers: {
-        'Content-type': 'application/json'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(clientData)
     });
@@ -52,10 +52,10 @@ const updateClient = async (id: number, ownerId: number, clientData: ICreatedCli
     const updatedClient = await response.json();
     return updatedClient;
   } catch (err) {
-    console.error('Error ao atualizar dados:', err);
+    console.error('Erro ao atualizar dados:', err);
     throw err;
   }
-}
+};
 
 const deleteClient = async (id: number, ownerId: number) => {
   try {
@@ -67,11 +67,14 @@ const deleteClient = async (id: number, ownerId: number) => {
       throw new Error('Falha ao excluir dados');
     }
 
-    const deleteClient = await response.json();
-    return deleteClient;
+    const deletedClient = await response.json();
+    return deletedClient;
 
   } catch (err) {
-    console.error('Error ao deletar cliente:', err)
+    console.error('Erro ao deletar cliente:', err);
     throw err;
   }
-}
+};
+
+
+export { getAllClients, createClient, deleteClient, updateClient }
