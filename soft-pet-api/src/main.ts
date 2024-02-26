@@ -9,7 +9,11 @@ const PORT = 3000
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { cors: true });
   app.useGlobalPipes(new ValidationPipe({
-    exceptionFactory: validationFilter
+    exceptionFactory: validationFilter,
+    transform: true,
+    transformOptions: {
+      enableImplicitConversion: true
+    },
 }))
   
   const config = new DocumentBuilder()

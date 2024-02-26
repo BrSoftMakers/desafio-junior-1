@@ -7,7 +7,7 @@ export class QueryPetFilter extends Filter {
 
     get where(): object{
         const where = {}
-        if(this.name) where['name'] = { contains: this.name }
+        if(this.name) where['name'] = { contains: this.name, mode: 'insensitive'}
         return where
     }
 }
