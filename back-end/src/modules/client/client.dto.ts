@@ -3,7 +3,7 @@ export type ClientDTO = {
   ownerId?: number;
   name: string;
   owner: string;
-  nascimento: Date | string;
+  nascimento: string;
   animal: string;
   raca: string;
   ownerPhone: string;

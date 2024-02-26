@@ -8,11 +8,11 @@ datasource db {
 }
 
 model Client {
-  id         Int      @default(autoincrement())
-  ownerId    Int      @default(autoincrement())
+  id         Int    @default(autoincrement())
+  ownerId    Int    @default(autoincrement())
   name       String
   owner      String
-  nascimento DateTime
+  nascimento String
   animal     String
   raca       String
   ownerPhone String

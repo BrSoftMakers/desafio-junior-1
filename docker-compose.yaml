@@ -19,13 +19,13 @@ services:
     image: postgres
     restart: always
     ports:
-      - 5432:5432
+      - "5432:5432"
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
       POSTGRES_DB: postgres
     volumes:
-      - postgres_data:/var/lib/postgres/data
+      - postgres_data:/var/lib/postgresql/data
 
   back-end:
     container_name: back-end
@@ -38,6 +38,8 @@ services:
     volumes:
       - ./back-end:/back-end:delegated
     command: sh -c "npm ci && npm run start:dev"
+    environment:
+      DATABASE_URL: postgres://root:root@postgres:5432/postgres
     depends_on:
       - postgres
 
