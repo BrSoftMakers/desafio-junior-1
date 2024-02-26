@@ -37,7 +37,7 @@ services:
       - "3001:3001"
     volumes:
       - ./back-end:/back-end:delegated
-    command: sh -c "npm ci && npm run start dev"
+    command: sh -c "npm ci && npm run start:dev"
     depends_on:
       - postgres
 
