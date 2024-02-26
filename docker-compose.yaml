@@ -12,7 +12,7 @@ services:
       - ./front-end:/front-end:delegated
     depends_on:
       - back-end
-    command: sh -c "npm ci && npm run dev"
+    command: sh -c "npm ci && npm run start"
     restart: always
 
   postgres:
@@ -37,7 +37,7 @@ services:
       - "3001:3001"
     volumes:
       - ./back-end:/back-end:delegated
-    command: sh -c "npm ci && npm run start:dev"
+    command: sh -c "npm ci && npm run start"
     environment:
       DATABASE_URL: postgres://root:root@postgres:5432/postgres
     depends_on:

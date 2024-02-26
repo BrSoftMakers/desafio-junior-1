@@ -11,7 +11,7 @@ import { useGlobalContext } from "../context/store";
 const MainContent = () => {
   const {dataClients, filtered} = useGlobalContext()
   const [page, setPage] = useState(1);
-  const data = filtered ? filtered : dataClients;
+  const data = filtered.length > 0 ? filtered : dataClients;
 
   const startIndex = (page - 1) * 16;
   const endIndex = startIndex + 16;
