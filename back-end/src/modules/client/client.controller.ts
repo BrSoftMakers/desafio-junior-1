@@ -8,7 +8,6 @@ import {
   Put,
 } from '@nestjs/common';
 import { ClientService } from './client.service';
-import { Prisma } from '@prisma/client';
 import { ClientDTO } from './client.dto';
 
 @Controller('client')
@@ -16,7 +15,7 @@ export class ClientController {
   constructor(private readonly clientService: ClientService) {}
 
   @Post()
-  async create(@Body() data: Prisma.ClientCreateInput) {
+  async create(@Body() data: ClientDTO) {
     const client = await this.clientService.create(data);
     return client;
   }
