@@ -280,7 +280,7 @@ const Pets: React.FC<PetsProps> = ({ pet, onClick, selectedPet, isClicked }) => 
                             <span><VoltarIcon /><span style={{ paddingLeft: 5 }}>Voltar</span></span>
                         </button>
 
-                        <button onClick={() => handleSubmitRemovePets(pet.id)} type="submit" className={styles.buttonEditarPet}>
+                        <button onClick={() => handleSubmitRemovePets(pet.id)} type="submit" className={styles.buttonRemoverPet}>
                             <span>
                                 
                                 Remover

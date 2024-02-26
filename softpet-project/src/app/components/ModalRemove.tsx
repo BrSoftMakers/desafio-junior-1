@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "../../styles/petlist.module.css";
 import CadastroIcon from './icons/CadastroIcon.svg';
 import CloseCadastro from './icons/CloseCadastro.svg'
-
+import PetRemove from './icons/PetRemove.svg'
 
 interface RemoveProps {
   AbrirModal: boolean
@@ -17,7 +17,7 @@ const ModalRemove: React.FC<RemoveProps> = ({ AbrirModal, setAbrirModal, childre
                 <div className={styles.cadastroIcon_Container}>
 
                     <span className={styles.cadastroIcon}>
-                        <CadastroIcon />
+                        <PetRemove />
                     </span>
 
 

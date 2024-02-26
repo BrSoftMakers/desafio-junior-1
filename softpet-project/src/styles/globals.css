@@ -2,6 +2,9 @@
 font-family:'Ubuntu';
 color:#FFFFFF;
 }
+main{
+  height: 100%;
+}
 
 body{
     margin: 0;

@@ -1,8 +1,8 @@
 .ContainerPetList {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(0, 280px));
     grid-gap: 10px;
-    justify-content: space-evenly;
+    
 }
 .PetContainer{
     
@@ -95,7 +95,7 @@ span.PetInfo {
     width: 100%;
    
     justify-content: center;
-    z-index: 2;
+    z-index: 1;
 
 }
 
@@ -363,4 +363,22 @@ button.buttonVoltarCadastroPet{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.PetInfoPopup_info_remove{
+    background: #ED254E;
+}
+.buttonRemoverPet{ 
+    background: #ED254E;
+    border: none;
+    cursor: pointer;
+    width: 198px;
+    border-radius: 5px;
+}
+.buttonRemoverPet span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+
 }

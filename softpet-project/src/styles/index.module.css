@@ -2,7 +2,9 @@
     height: 140px;
     margin-bottom: 10px;
 }
-
+.main{
+    height: 90%;
+}
 .logo{
     display: flex;
     align-items: center;

@@ -26,11 +26,10 @@ export default function CadastrarPet({ }) {
         telefone:'',
         nascimento: ""
     });
+    
 
     const handleSubmitPets: FormEventHandler<HTMLFormElement> = async (e) => {
-        e.preventDefault();
-
-     
+        
         await addPets(newPetValue);
         setNewPetValue({
             nome: "",

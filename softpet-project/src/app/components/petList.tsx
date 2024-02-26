@@ -4,13 +4,15 @@ import PetIcon from './icons/PetIcon';
 import PetArrowInfo from './icons/PetArrowInfo';
 import Pets from './pets';
 import { IPets } from '../../../types/pets';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { getAllPets } from '../../../api';
 
 interface PetListProps {
   pets: IPets[];
+  searchpet:string
 }
 
-const PetList: React.FC<PetListProps> = ({ pets }) => {
+const PetList: React.FC<PetListProps> = ({ pets,searchpet }) => {
   
   const [selectedPet, setSelectedPet] = useState<IPets | null>(null);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -24,10 +26,32 @@ const PetList: React.FC<PetListProps> = ({ pets }) => {
       setIsPopupOpen(true);
     }
   };
+  
+  const [petsFilter, setPetsFilter] = useState<IPets[]>([]);
+  const [searchPet, setSearchPet] = useState<string>('');
+
+  const filteredPets = pets.filter(pet => {
+    return pet.nome.toLowerCase().includes(searchpet.toLowerCase());
+  });
+  
+  useEffect(() => {
+    async function fetchPets() {
+      try {
+        const petsData = await getAllPets();
+        setPetsFilter(petsData);
+      } catch (error) {
+        console.error('Erro ao obter os pets:', error);
+      }
+    }
+
+    fetchPets(); 
+  }, []); 
+
+  
 
   return (
     <div className={styles.ContainerPetList}>
-      {pets.map((pet, index) => (
+      {filteredPets.map((pet, index) => (
         <Pets
           key={index}
           pet={pet}
