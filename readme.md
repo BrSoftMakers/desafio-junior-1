@@ -1,6 +1,9 @@
 Guia para rodar a aplicação
 
 Certifique-se de ter o node.js e o git em sua máquina. Você pode baixar no site: https://nodejs.org/en versão lts,  https://git-scm.com/downloads
+
+
+
 1- PARTE
 Faça um clone do projeto para sua máquina com o seguinte comando através do terminal:
  git clone https://github.com/Tacianojr07/desafio-junior-1.git
