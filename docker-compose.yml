@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:15.4
+    container_name: soft_postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=$DB_NAME
+      - POSTGRES_USER=$DB_USER
+      - POSTGRES_PASSWORD=$DB_PASSWORD
+    env_file:
+      - .env
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+  app:
+    container_name: soft_pet_api
+    build: ./soft-pet-api
+    ports: 
+      - "3000:3000"
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=postgres://$DB_USER:$DB_PASSWORD@soft_postgres:5432/$DB_NAME
+    depends_on:
+      - postgres
+  
+  frontend:
+    container_name: soft_pet_frontend
+    build: ./soft-pet-frontend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - app
+
+volumes:
+  postgres:
+    name: soft_db
