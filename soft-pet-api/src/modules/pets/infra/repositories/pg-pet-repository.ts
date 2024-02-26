@@ -26,6 +26,9 @@ export class pgPetRepository implements PetRepository {
     async getAllPets(filter: Filter): Promise<Page<Pet>> {
         const pets = await this.prismaClient.pet.findMany({
             ...filter.query,
+            orderBy: {
+                name: filter.direction,
+            }
         })
         const count = await this.prismaClient.pet.count({
             where: filter.where
