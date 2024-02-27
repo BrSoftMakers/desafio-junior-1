@@ -33,7 +33,7 @@ export const PetsProvider = ({ children }: PetsProviderInterface) => {
 
     useEffect(() => {
         getAllPetsData(currentPage, '');
-    }, [pets])
+    }, [currentPage, ''])
 
     return (
         <PetsContext.Provider value={{ pets, currentPage, totalPages, getAllPetsData}}>

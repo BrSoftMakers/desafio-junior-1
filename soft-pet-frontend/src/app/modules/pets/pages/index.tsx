@@ -20,6 +20,7 @@ export default function PetPage() {
 
     const handleSearch = (value: string) => {
         setQuery(value)
+        getAllPetsData(page, query)
     }
 
     const handlePrevPage = () => {
