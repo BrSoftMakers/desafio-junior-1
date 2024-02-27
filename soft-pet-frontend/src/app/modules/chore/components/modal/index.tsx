@@ -11,6 +11,7 @@ import Input from "../InputLabel";
 import OperationFunction from "./utils/modalOperations";
 import formatInputValues from "./utils/formatInputValues";
 import modalConfig from "./utils/modaConfig";
+import { Bounce, toast } from "react-toastify";
 
 type ModalType = 'Create' | 'Delete' | 'Edit'
 interface ModalInterface {
@@ -51,6 +52,18 @@ const PetModal = ({ ...props }: ModalInterface) => {
             await operation && operation(pet)
 
             props.onOperationSuccess && props.onOperationSuccess()
+
+            toast.success(config.notifyText, {
+                position: "bottom-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                transition: Bounce,
+            })
         },
         
     })

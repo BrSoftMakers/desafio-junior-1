@@ -2,11 +2,10 @@ import { Button } from ".."
 import { CalendarIcon, CatIcon, ChevronIcon, DnaIcon, DogIcon, DogTagIcon, EditIcon, OwnerIcon, PhoneIcon, TrashIcon } from "@icons/index"
 import { Pet } from "../../models/pet"
 import { Card, CardSection, CardText, DropDown, DropDownButtonsArea, DropDownContent, DropDownMenu, DropDownSection, DropDownText, MainCard, PetType } from "./styles/card-pet-style"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import { differenceInYears, format } from "date-fns"
 import PetModal from "../modal"
 import { ModalType } from "../../models"
-import { getAllPets } from "../../api"
 
 interface PetCardProps {
     data: Pet
