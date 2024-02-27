@@ -4,44 +4,38 @@ Este guia fornece instruções passo a passo sobre como configurar e executar o 
 Obs:Caso o back-end não esteja na pasta padrão deste repositorio, apenas utilizar o front-end e pegar o back end do meu repositorio separado -> (https://github.com/PedroPaulo-Git/backend-softpet)
 
 
-1. Configuração do Backend
+# 1. Configuração do Backend
 Navegue até a pasta do backend:
-
-bash
-Copy code
+```
 cd backend ou cd backend-softpet caso tenha pego o back-end no meu outro repositorio (https://github.com/PedroPaulo-Git/backend-softpet)
+```
 Verifique e atualize os dados do Prisma de acordo com o seu banco de dados:
 
 Abra o arquivo schema.prisma na pasta prisma.
 Verifique e atualize as configurações do seu banco de dados, como URL, usuário e senha.
 
-2. Execução do Backend
+# 2. Execução do Backend
    
 Inicie o servidor backend com o comando:
-bash
-Copy code
+```
 npm run start:dev
-
-3. Instalação das Dependências do Frontend
+```
+# 3. Instalação das Dependências do Frontend
 Antes de executar a aplicação frontend, é necessário instalar todas as dependências. Siga estas etapas para instalar as dependências:
 
 Navegue até a pasta do frontend:
-
-bash
-Copy code
+```
 cd softpet-project
+```
 Instale as dependências necessárias utilizando o npm:
-
-bash
-Copy code
+```
 npm install
-4. Execução do Frontend
+```
+#4. Execução do Frontend
 Após instalar as dependências, você pode iniciar a aplicação frontend com o comando:
-
-bash
-Copy code
+```
 npm run dev
-
+```
 Certifique-se de que todas as dependências estão instaladas corretamente antes de executar os comandos acima. Se encontrar problemas durante a instalação ou execução, consulte a documentação ou entre em contato com a equipe de desenvolvimento para obter assistência.
 
 
