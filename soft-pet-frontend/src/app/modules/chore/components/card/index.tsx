@@ -2,16 +2,19 @@ import { Button } from ".."
 import { CalendarIcon, CatIcon, ChevronIcon, DnaIcon, DogIcon, DogTagIcon, EditIcon, OwnerIcon, PhoneIcon, TrashIcon } from "@icons/index"
 import { Pet } from "../../models/pet"
 import { Card, CardSection, CardText, DropDown, DropDownButtonsArea, DropDownContent, DropDownMenu, DropDownSection, DropDownText, MainCard, PetType } from "./styles/card-pet-style"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { differenceInYears, format } from "date-fns"
 import PetModal from "../modal"
 import { ModalType } from "../../models"
+import { PetsContext } from "../../hooks/petsProvider"
 
 interface PetCardProps {
     data: Pet
 }
 
 const PetCard = ({ ...props }: PetCardProps) => {
+    const { getAllPetsData } = useContext(PetsContext)!
+
     const [ birth, setBirth ] = useState('Idade (DD/MM/AA)');
     const [ dropDownStatus, setDropDownStatus ] = useState(false)
     const [ isModalOpen, setIsModalOpen ] = useState(false)
@@ -44,6 +47,7 @@ const PetCard = ({ ...props }: PetCardProps) => {
 
     const handleOperationSuccess = async () => {
         setIsModalOpen(false);
+        await getAllPetsData(1, '')
     }
 
     return(

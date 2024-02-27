@@ -8,10 +8,11 @@ import { PetsContext } from "../../chore/hooks/petsProvider";
 
 export default function PetPage() {
     const { pets, currentPage, totalPages, getAllPetsData } = useContext(PetsContext)!
-    const [ page, setPage ] = useState(1);
+    const [ page, setPage ] = useState(1)
     const [ isModalOpen, setIsModalOpen ] = useState(false)
     const [ query, setQuery ] = useState('')
     const [ modalType, setModalType ] = useState<ModalType>('Create')
+
 
     useEffect(() => {
         getAllPetsData(page, query);
@@ -20,7 +21,7 @@ export default function PetPage() {
 
     const handleSearch = (value: string) => {
         setQuery(value)
-        getAllPetsData(page, query)
+        getAllPetsData(currentPage, query)
     }
 
     const handlePrevPage = () => {
@@ -28,7 +29,7 @@ export default function PetPage() {
     }
 
     const handleNextPage = () => {
-        setPage(Math.max(currentPage + 1, totalPages))
+        page >= totalPages ? page : setPage(currentPage + 1)
     }
 
     const handleOpenModal = (type: ModalType) => {
@@ -42,7 +43,7 @@ export default function PetPage() {
 
     const handleOperationSuccess = async () => {
         setIsModalOpen(false);
-        getAllPetsData(page, query);
+        getAllPetsData(1, '')
     }
 
     return(

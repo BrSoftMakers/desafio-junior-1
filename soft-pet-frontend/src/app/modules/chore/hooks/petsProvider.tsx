@@ -1,12 +1,13 @@
-import { ReactElement, createContext, useEffect, useState } from "react";
+import { ReactElement, createContext, useState } from "react";
 import { Pet } from "../models"
+import debounce from "debounce";
 import { getAllPets } from "../api";
 
 type PetsContextType = {
     pets: Pet[];
     currentPage: number;
     totalPages: number;
-    getAllPetsData: (page: number, query: string) => Promise<void>;
+    getAllPetsData: (page: number, query: string) => void;
 }
 
 interface PetsProviderInterface {
@@ -20,20 +21,15 @@ export const PetsProvider = ({ children }: PetsProviderInterface) => {
     const [ currentPage, setCurrentPage ] = useState<number>(1);
     const [ totalPages, setTotalPages ] = useState<number>(1);
 
-    const getAllPetsData = async(page: number, query: string) => {     
+    const getAllPetsData = debounce( async(page: number, query: string) => {
         try {
             const data = await getAllPets(page, query);
             setPets(data.content);
             setTotalPages(data.totalPages)
         } catch(error) {
-            console.log('Pets Context', error);
-            
+            console.log(error);
         }
-    }
-
-    useEffect(() => {
-        getAllPetsData(currentPage, '');
-    }, [currentPage, ''])
+    })
 
     return (
         <PetsContext.Provider value={{ pets, currentPage, totalPages, getAllPetsData}}>
