@@ -1,0 +1,3 @@
+[submodule "SoftPet-backend"]
+	path = SoftPet-backend
+	url = https://github.com/HerbertKayky/SoftPet-backend.git
