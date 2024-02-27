@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.header img {
+  padding: 35px 15px 38px 50px;
+}
+
+.header h1 {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 500;
+}

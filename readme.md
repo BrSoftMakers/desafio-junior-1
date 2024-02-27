@@ -1,25 +1,43 @@
- ![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
+Passo a Passo para Rodar a Aplicação - Desafio Softmakers.
+Para rodar a aplicação localmente, siga os passos abaixo:
 
-# Desafio - Desenvolvedor Fullstack - Júnior
-Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato ao cargo proposto.
+Backend
+Instalação de Dependências:
 
-## Instruções
-- Faça um fork deste repositório;
-- O conjunto mínimo de tecnologias a serem utilizadas são: alguma das tecnologias front-end e back-end informadas na proposta desse desafio;
-- Crie um passo a passo de como rodar a sua aplicação;
-- Após finalizar, submeta um pull request com um comentário informando o seu e-mail de contato e aguarde nossa avaliação.
+No diretório do backend, certifique-se de ter todas as dependências instaladas. Se necessário, execute o comando:
 
-## Proposta
-O teste consiste em desenvolver um projeto utilizando NextJS no front-end e Nest.js no back-end, com o objetivo de criar uma aplicação que permita listar, visualizar, criar, editar e excluir animais de estimação em uma petshop. Utilize o Protótipo Figma fornecido como referência (Link para o Protótipo).
-Com base no Protótipo Figma: https://www.figma.com/file/z0zYWFHb7OK6TUXDBBw5my/SoftMakers-Challenges%3A-Dev-Jr.?type=design&node-id=0%3A1&mode=design&t=vAPkbzL97wUL9qma-1
+'npm install'
 
-**Observações:**
-> - Você pode utilizar qualquer banco de dados relacional disponível;
-> - Cada animal de estimação precisa ter um identificador único, nome, idade, tipo (gato ou cachorro) e raça;
-> - Além dos dados do animal, é necessário também salvar os dados pessoais, de contato e de endereço do seu respectivo dono.
+Configuração do Banco de Dados:
 
-## Diferenciais
-Serão considerados diferenciais:
+No diretório do backend, navegue até o arquivo app.module.ts.
+Altere a configuração do banco de dados em TypeOrmModule.forRoot de acordo com o seu banco de dados. O exemplo fornecido utiliza o PostgreSQL.
 
-- Boas práticas de escrita de código (código limpo, padrões de arquitetura, etc.);
-- Conhecimento em infraestruturas em nuvem;
+Executar o Backend:
+Após configurar o banco de dados, execute o backend com o comando:
+
+'npm run start:dev'
+Para saber se foi bem sucedido basta olhar essa url (http://localhost:3000/pets)
+
+Frontend
+Instalação de Dependências:
+
+No diretório do frontend, certifique-se de ter todas as dependências instaladas. Se necessário, execute o comando:
+
+'npm install'
+
+Executar o Frontend:
+
+Após a instalação das dependências, execute o frontend com o comando:
+
+'npm run dev'
+
+Funcionamento da Aplicação
+Após seguir os passos acima, a aplicação deverá funcionar corretamente.
+
+Para mais informações ou dúvidas, entre em contato:
+
+Nome: Herbert Kayky
+Email: herbertkayky9@gmail.com
+Telefone: (81) 9 9329-6809
+Se precisar de mais alguma coisa, estou à disposição.
