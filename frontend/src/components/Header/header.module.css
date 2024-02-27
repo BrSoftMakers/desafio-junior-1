@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+}
+
+.header img {
+  padding: 50px 20px 50px 50px;
+}
+
+.header h1 {
+  color: #fff;
+  font-size: 35px;
+  font-weight: 500;
+  padding-top: 50px;
+}
