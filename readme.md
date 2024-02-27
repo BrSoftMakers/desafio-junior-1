@@ -1,25 +1,84 @@
- ![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
 
-# Desafio - Desenvolvedor Fullstack - Júnior
-Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato ao cargo proposto.
+# Soft-Pet
 
-## Instruções
-- Faça um fork deste repositório;
-- O conjunto mínimo de tecnologias a serem utilizadas são: alguma das tecnologias front-end e back-end informadas na proposta desse desafio;
-- Crie um passo a passo de como rodar a sua aplicação;
-- Após finalizar, submeta um pull request com um comentário informando o seu e-mail de contato e aguarde nossa avaliação.
+Solução para o [desafio jr 1](https://github.com/BrSoftMakers/desafio-junior-1) da SoftMakers
 
-## Proposta
-O teste consiste em desenvolver um projeto utilizando NextJS no front-end e Nest.js no back-end, com o objetivo de criar uma aplicação que permita listar, visualizar, criar, editar e excluir animais de estimação em uma petshop. Utilize o Protótipo Figma fornecido como referência (Link para o Protótipo).
-Com base no Protótipo Figma: https://www.figma.com/file/z0zYWFHb7OK6TUXDBBw5my/SoftMakers-Challenges%3A-Dev-Jr.?type=design&node-id=0%3A1&mode=design&t=vAPkbzL97wUL9qma-1
+A aplicação consiste em um CRUD simples para um PetShop, podendo Editar, Cadastrar, Listas e Excluir um Pet. Além de listar por pesquisa de nome.
+## 🚀 Começando
 
-**Observações:**
-> - Você pode utilizar qualquer banco de dados relacional disponível;
-> - Cada animal de estimação precisa ter um identificador único, nome, idade, tipo (gato ou cachorro) e raça;
-> - Além dos dados do animal, é necessário também salvar os dados pessoais, de contato e de endereço do seu respectivo dono.
+Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
 
-## Diferenciais
-Serão considerados diferenciais:
+#### 📋 Pré-requisitos
 
-- Boas práticas de escrita de código (código limpo, padrões de arquitetura, etc.);
-- Conhecimento em infraestruturas em nuvem;
+Antes de iniciarmos verdadeiramento o projeto, é necessario que você tenha algumas coisas intaldas em sua maquina:
+
+- 🐋 Docker: [Windows](https://docs.docker.com/desktop/install/windows-install/) | [Linux](https://docs.docker.com/desktop/install/linux-install/) | [MacOs](https://docs.docker.com/desktop/install/mac-install/)
+
+- 🍀 NodeJs(18.18 ou superior): [Instalação](https://nodejs.org/en/download/)
+
+- ♦️ Git: [Windows](https://git-scm.com/download/win) | [Linux](https://git-scm.com/download/linux) | [MacOs](https://git-scm.com/download/mac)
+
+#### 🔧 Instalação
+
+Para usar o projeto em sua maquina basta apenas seguir o passo-a-passo a baixo:
+
+#1 Clonagem do repositorio
+
+- Abra o Git Bash na pasta onde deseja clonar o repositorio
+- Digite o seguinte comando e execute:
+
+```
+git clone https://github.com/GeyzonErik/desafio-junior-1.git
+```
+
+#### 🏠 Variáveis de Ambiente
+
+Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de ambiente no seu .env da pasta raiz:
+
+`DB_USER=[db_user]`
+
+`DB_PASSWORD=[db_password]`
+
+`DB_NAME=[db_name]`
+
+`DATABASE_URL="postgresql://[db_user]:[db_password]@localhost:5432/[db_name]"`
+
+> Lembre de substituir os valores para os desejados
+## 💾 Executando o projeto
+
+Agora que o projeto está devidamente instalado em sua maquina basta seguir as seguintes instruções:
+
+#0 Passo exclusivo pra Windows e Mac:
+
+- Certifique de que o Docker Desktop está instalado e aberto em sua maquina
+
+#1 Executando projeto
+
+Abra a pasta raiz do projeto em um terminal de sua preferencia
+
+> Recomendo o [Powershell](https://github.com/PowerShell/PowerShell/releases/) no Windows
+
+Com a pasta aberta no terminal, execute o seguinte comando:
+
+```
+docker compose up --build
+```
+
+O projeto deve criar um container no Docker, e logo estará disponivel para visualização em:
+
+- Frontend: localhost:8080
+- Backend: localhost:3030/docs/api
+
+
+## 🛠️ Construído com
+
+Principais ferramentas utilizadas no projeto:
+
+- [TypeScript](https://www.typescriptlang.org/): Principal linguage da aplicação
+- [npm](https://www.npmjs.com/): Gerenciador de dependência
+- [NextJs](https://nextjs.org/): Construção do FrontEnd
+- [Styled-Components](https://styled-components.com/): Estilização do FrontEnd
+- [Docker](https://www.docker.com/): Conteinerização de toda aplicação
+- [NestJs](https://docs.nestjs.com/): Construção da API
+- [Swagger](https://swagger.io/): Documentação da API
+- [PrimsaORM](https://www.prisma.io/): Mediador entre API e o Banco de Dados
