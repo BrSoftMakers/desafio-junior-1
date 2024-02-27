@@ -6,9 +6,13 @@ Obs:Caso o back-end não esteja na pasta padrão deste repositorio, apenas utili
 
 # 1. Configuração do Backend
 Navegue até a pasta do backend:
+
 ```
-cd backend ou cd backend-softpet caso tenha pego o back-end no meu outro repositorio (https://github.com/PedroPaulo-Git/backend-softpet)
+cd backend ou cd backend-softpet caso tenha pego o back-end no meu outro repositorio
+(https://github.com/PedroPaulo-Git/backend-softpet)
 ```
+
+
 Verifique e atualize os dados do Prisma de acordo com o seu banco de dados:
 
 Abra o arquivo schema.prisma na pasta prisma.
@@ -31,7 +35,7 @@ Instale as dependências necessárias utilizando o npm:
 ```
 npm install
 ```
-#4. Execução do Frontend
+# 4. Execução do Frontend
 Após instalar as dependências, você pode iniciar a aplicação frontend com o comando:
 ```
 npm run dev
