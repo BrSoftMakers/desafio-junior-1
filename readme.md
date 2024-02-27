@@ -1,4 +1,4 @@
-Passo a Passo para Rodar a Aplicação - Desafio Softmakers
+Passo a Passo para Rodar a Aplicação - Desafio Softmakers.
 Para rodar a aplicação localmente, siga os passos abaixo:
 
 Backend
@@ -6,28 +6,32 @@ Instalação de Dependências:
 
 No diretório do backend, certifique-se de ter todas as dependências instaladas. Se necessário, execute o comando:
 
-npm install
+'npm install'
+
 Configuração do Banco de Dados:
 
 No diretório do backend, navegue até o arquivo app.module.ts.
 Altere a configuração do banco de dados em TypeOrmModule.forRoot de acordo com o seu banco de dados. O exemplo fornecido utiliza o PostgreSQL.
-Executar o Backend:
 
+Executar o Backend:
 Após configurar o banco de dados, execute o backend com o comando:
 
-npm run start:dev
+'npm run start:dev'
+Para saber se foi bem sucedido basta olhar essa url (http://localhost:3000/pets)
+
 Frontend
 Instalação de Dependências:
 
 No diretório do frontend, certifique-se de ter todas as dependências instaladas. Se necessário, execute o comando:
 
-npm install
+'npm install'
+
 Executar o Frontend:
 
 Após a instalação das dependências, execute o frontend com o comando:
 
+'npm run dev'
 
-npm run dev
 Funcionamento da Aplicação
 Após seguir os passos acima, a aplicação deverá funcionar corretamente.
 
