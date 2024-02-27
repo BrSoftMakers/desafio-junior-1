@@ -52,7 +52,7 @@ A aplicação roda no Docker, então não se faz necessário ter nada, além dis
 rodando na primeira vez em sua máquina será necessário rodar a migrante e em seguida a seed, entenda como:
  uma vez com os contêineres no ar abra o terminal e digite o comando `docker ps` para lista todos os contêiner ligados, pegue o id do contêiner back-end e execute o comando a baixo 
  
-    docker exec -it <id ou nome do contêiner> <commado>
+    docker exec -it <id ou nome do contêiner> <commando>
 O comando necessário é `/bin/sh`  caso não funcione tente `/bin/bash`
 após isso estaremos dentro do contêiner de back-end:
 execute os comandos `npx prisma migrate dev` de um nome a migrate e logo depois digite `npx prisma db seed` pronto agora a aplicação está funcionando corretamente.
