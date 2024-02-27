@@ -46,7 +46,13 @@ A aplicação roda no Docker, então não se faz necessário ter nada, além dis
 
  1. Utilizado Docker: `docker compose up -d` isso fara o Docker baixar as imagens necessárias "caso não possua na máquina" e subir os contêiner já baindados em seguida. O início pode demorar visto que são três contêineres com ordens de dependências definidas para evitar erros.
  2. rodando localmente: será necessário que você tenha os requisitos citados acima, inicie seu servidor com as variáveis de ambiente definidas e lembre-se de colocá-las também na conexão do prisma dentro da conexão em `back-end/.env`.
-## Uso
+ 
+### Importante
 
-caso inicie o projeto com o banco vazio notara que o front ira quebrar, uma abordagem rápida e fácil para ambiente de desenvolvimento:
-entre na pasta `back-end/prisma` exclua a pasta `migrations` e execute o comando o terminal: `npx prisma migrate dev` aceite os termos e defina o nome da migrante e pronto isso ira gerar novamente a migrate e em seguida aplicara os seeds existentes
+rodando na primeira vez em sua máquina será necessário rodar a migrante e em seguida a seed, entenda como:
+ uma vez com os contêineres no ar abra o terminal e digite o comando `docker ps` para lista todos os contêiner ligados, pegue o id do contêiner back-end e execute o comando a baixo 
+ 
+    docker exec -it <id ou nome do contêiner> <commado>
+O comando necessário é `/bin/sh`  caso não funcione tente `/bin/bash`
+após isso estaremos dentro do contêiner de back-end:
+execute os comandos `npx prisma migrate dev` de um nome a migrate e logo depois digite `npx prisma db seed` pronto agora a aplicação está funcionando corretamente.
