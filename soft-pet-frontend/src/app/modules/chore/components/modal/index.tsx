@@ -1,63 +1,33 @@
-import { AddIcon, CalendarIcon, CloseIcon, DnaIcon, DogTagIcon, EditIcon, OwnerIcon, PhoneIcon, RoundArrowIcon, TrashIcon } from "@icons/index"
+import { CalendarIcon, CloseIcon, DnaIcon, DogTagIcon, OwnerIcon, PhoneIcon, RoundArrowIcon } from "@icons/index"
 import { ButtonArea, CloseButton, FormArea, HeaderIcon, Modal, ModalContainer, ModalContent, ModalHeader, ModalTitle, TitleArea, WarningText } from "./styles/modal-styles"
 import { AnimalType, ErrorText, FormSection, InputLabel, RadioLabel, StyledInput, StyledRadio } from "./styles/form-style"
 import { Button } from "@components/index"
 import { Pet } from "../../models/pet";
 import { useFormik } from "formik";
-import formSchema from "../card/validation/form-validation";
+import formSchema from "../../validation/form-validation";
 import { numberMask } from "../../utils/numberMask";
 import React from "react";
-import { format } from "date-fns";
-import { createPet } from "../../api";
-import { PetData } from "../../models/create-pet";
-import { editPet } from "../../api/edit-pet.service";
-import { deletePet } from "../../api/delete-pet.service";
+import Input from "../InputLabel";
+import OperationFunction from "./utils/modalOperations";
+import formatInputValues from "./utils/formatInputValues";
+import modalConfig from "./utils/modaConfig";
 
+type ModalType = 'Create' | 'Delete' | 'Edit'
 interface ModalInterface {
     isOpen: boolean;
-    modalType: string;
+    modalType: ModalType;
     petData?: Pet | null
 
     onClose?: () => void;
+    onOperationSuccess?: () => void;
 }
 
 const PetModal = ({ ...props }: ModalInterface) => {
-    const operationFunction: Record<string, (pet: PetData) => Promise<void> > = {
-        'Create': createPet,
-        'Edit': editPet,
-        'Delete': deletePet
-    }
+    const operation = OperationFunction[props.modalType];
+    const petId = props.petData?.id || null;
+    const config = modalConfig[props.modalType]
 
-    let buttonIcon = <DogTagIcon />
-    let modalTitle = 'Modal'
-    let modalIcon = <DogTagIcon />
-    let actionButtonVariant = 'PRIMARY'
-    let disableButton = false
-    let petId: string | null = null
-
-    switch(props.modalType) {
-        case('Create'):
-            modalTitle = 'Cadastrar';
-            modalIcon = <AddIcon w="40" />;
-            buttonIcon = <AddIcon />;
-            break; 
-        case('Delete'):
-            modalTitle = 'Remover';
-            modalIcon = <TrashIcon w='42' h="40"/>;
-            buttonIcon = <TrashIcon />;
-            actionButtonVariant = 'DANGER'
-            disableButton = true
-            petId = props.petData?.id ?? null
-            break;
-        case('Edit'):
-            modalTitle = "Editar";
-            modalIcon = <EditIcon w='39' variant/>;
-            buttonIcon = <EditIcon variant/>;
-            petId = props.petData?.id ?? null
-            break;
-        default:
-            modalTitle
-    }
+    if(!config) {return null}
 
     const ValidPet = useFormik({
         initialValues: {
@@ -69,35 +39,28 @@ const PetModal = ({ ...props }: ModalInterface) => {
             birth: '',
         },
         validationSchema: formSchema,
-        onSubmit: (values) => {
+        onSubmit: async (values) => {
             const date = new Date(values.birth)
-
+            
             const pet = {
                 ...values,
                 birth: date,
                 id: petId
             }
 
-            const operation = operationFunction[props.modalType]
+            await operation && operation(pet)
 
-            operation ? operation(pet) : ''
-        }
+            props.onOperationSuccess && props.onOperationSuccess()
+        },
+        
     })
 
     React.useEffect(() => {
-        if((props.modalType === 'Edit' || props.modalType === 'Delete') && props.petData) {
-            const petType = props.petData.petTypeId === 1 ? 'DOG' : 'CAT';
-            const formatedBirth = format(props.petData.birth, "yyyy-MM-dd");
-
-            ValidPet.setValues({
-                name: props.petData.name,
-                ownerName: props.petData.ownerName,
-                ownerPhone: props.petData.ownerPhone,
-                petType: petType,
-                breed: props.petData.breed,
-                birth: formatedBirth
-            })
+        if(config.title !== 'Cadastrar' && props.petData) {
+            const formatedValues = formatInputValues(props.petData) 
+            ValidPet.setValues(formatedValues)
         }
+
     }, [props.modalType, props.petData])
 
     return (
@@ -106,11 +69,11 @@ const PetModal = ({ ...props }: ModalInterface) => {
                 <ModalHeader>
                     <TitleArea>
                         <HeaderIcon>
-                            {modalIcon}
+                            {config.icon}
                         </HeaderIcon>
         
                         <ModalTitle>
-                            {modalTitle}
+                            {config.title}
                         </ModalTitle>
                     </TitleArea>
                     
@@ -122,59 +85,53 @@ const PetModal = ({ ...props }: ModalInterface) => {
                 <ModalContent onSubmit={ValidPet.handleSubmit}>
                     <FormArea>
                         <FormSection>
-                            <InputLabel>
-                                <DogTagIcon />
-                                <span>Nome</span>
-                            </InputLabel>
-                            <StyledInput 
-                                type="text" 
-                                placeholder="Nome Sobrenome"
+                            <Input 
+                                icon={<DogTagIcon />}
+                                type="text"
+                                label="Name"
                                 name="name"
+                                placeholder="Nome Sobrenome"
                                 onChange={ValidPet.handleChange}
                                 onBlur={ValidPet.handleBlur}
                                 value={ValidPet.values.name}
-                                disabled={disableButton}
+                                disable={config.disableButton}
                             />
                             {ValidPet.touched.name && ValidPet.errors.name ? (
                                 <ErrorText>{ ValidPet.errors.name }</ErrorText>
                             ): null}
         
-                            <InputLabel>
-                                <OwnerIcon />
-                                <span>Dono</span>
-                            </InputLabel>
-                            <StyledInput 
-                                type="text" 
-                                placeholder="Nome Sobrenome"
+                            <Input 
+                                icon={<OwnerIcon />}
+                                type="text"
+                                label="Dono"
                                 name="ownerName"
+                                placeholder="Nome Sobrenome"
                                 onChange={ValidPet.handleChange}
                                 onBlur={ValidPet.handleBlur}
                                 value={ValidPet.values.ownerName}
-                                disabled={disableButton}
+                                disable={config.disableButton}
                             />
                             {ValidPet.touched.ownerName && ValidPet.errors.ownerName ? (
                                 <ErrorText>{ ValidPet.errors.ownerName }</ErrorText>
                             ): null}
         
-                            <InputLabel>
-                                <PhoneIcon />
-                                <span>Telefone</span>
-                            </InputLabel>
-                            <StyledInput 
+                            <Input 
+                                icon={<PhoneIcon />}
+                                type="text"
+                                label="Telefone"
                                 name="ownerPhone"
-                                type="text" 
-                                placeholder="(00) 0 0000-0000"
+                                placeholder="(00) 00000-0000"
                                 maxLength={15}
-                                onBlur={ValidPet.handleBlur}
-                                value={ValidPet.values.ownerPhone}
-                                onChange={e => {
+                                onChange={(e) => {
                                     const numberMasked = numberMask(e.target.value)
                                     ValidPet.setFieldValue(
                                         "ownerPhone",
                                         numberMasked
-                                    );
+                                    )
                                 }}
-                                disabled={disableButton}
+                                onBlur={ValidPet.handleBlur}
+                                value={ValidPet.values.ownerPhone}
+                                disable={config.disableButton}
                             />
                             {ValidPet.touched.ownerPhone && ValidPet.errors.ownerPhone ? (
                                 <ErrorText>{ ValidPet.errors.ownerPhone }</ErrorText>
@@ -197,7 +154,7 @@ const PetModal = ({ ...props }: ModalInterface) => {
                                             onChange={() => ValidPet.setFieldValue('petType', 'DOG')}
                                             onBlur={ValidPet.handleBlur}
                                             checked={ValidPet.values.petType === "DOG"}
-                                            disabled={disableButton}
+                                            disabled={config.disableButton}
                                         />
                                         <span>Cachorro</span>
                                     </RadioLabel>
@@ -212,7 +169,7 @@ const PetModal = ({ ...props }: ModalInterface) => {
                                             onChange={() => ValidPet.setFieldValue('petType', 'CAT')}
                                             onBlur={ValidPet.handleBlur}
                                             checked={ValidPet.values.petType === "CAT"}
-                                            disabled={disableButton}
+                                            disabled={config.disableButton}
                                         />
                                         <span>Gato</span>
                                     </RadioLabel>
@@ -221,34 +178,31 @@ const PetModal = ({ ...props }: ModalInterface) => {
                             {ValidPet.touched.petType && ValidPet.errors.petType ? (
                                 <ErrorText>{ ValidPet.errors.petType }</ErrorText>
                             ): null}
-        
-                            <InputLabel>
-                                <DnaIcon />
-                                <span>Raça</span>
-                            </InputLabel>
-                            <StyledInput 
-                                type="text" 
-                                placeholder="Raça"
+
+                            <Input 
+                                icon={<DnaIcon />}
+                                type="text"
+                                label="Raça"
                                 name="breed"
+                                placeholder="Raça"
                                 onChange={ValidPet.handleChange}
                                 onBlur={ValidPet.handleBlur}
                                 value={ValidPet.values.breed}
-                                disabled={disableButton}
+                                disable={config.disableButton}
                             />
                             {ValidPet.touched.breed && ValidPet.errors.breed ? (
                                 <ErrorText>{ ValidPet.errors.breed }</ErrorText>
                             ): null}
-        
-                            <InputLabel>
-                                <CalendarIcon />
-                                <span>Nascimento <span>(Aproximado)</span> </span>
-                            </InputLabel>
-                            <StyledInput 
+
+                            <Input 
+                                icon={<CalendarIcon />}
                                 type="date"
+                                label='Nascimento'
                                 name="birth"
                                 onChange={ValidPet.handleChange}
+                                onBlur={ValidPet.handleBlur}
                                 value={ValidPet.values.birth}
-                                disabled={disableButton}
+                                disable={config.disableButton}
                             />
                             {ValidPet.touched.birth && ValidPet.errors.birth ? (
                                 <ErrorText>{ ValidPet.errors.birth }</ErrorText>
@@ -256,11 +210,11 @@ const PetModal = ({ ...props }: ModalInterface) => {
                         </FormSection>  
                     </FormArea>
 
-                    {modalTitle === 'Remover' ? <WarningText>Tem certeza que deseja remover esse pet?</WarningText> : ''}
+                    {config.title === 'Remover' ? <WarningText>Tem certeza que deseja remover esse pet?</WarningText> : ''}
                 
                     <ButtonArea>
                         <Button type='button' onClick={props.onClose} variant="SECONDARY" icon={ <RoundArrowIcon/> } text="Voltar" height="40px" />
-                        <Button type="submit" variant={actionButtonVariant} icon={buttonIcon} text={modalTitle} height="40px" />
+                        <Button type="submit" variant={config.actionButtonVariant} icon={config.buttonIcon} text={config.title} height="40px" />
                     </ButtonArea>
                 </ModalContent>
             </ModalContainer>

@@ -7,6 +7,6 @@ export const editPet = async (pet: PetData) => {
     try {
         await axios.patch(`${base_Url}/${pet.id}`, pet)
     } catch(error) {
-        console.log('Create Pet Fail:', error);
+        console.log('Edit Pet Fail:', error);
     }
 }

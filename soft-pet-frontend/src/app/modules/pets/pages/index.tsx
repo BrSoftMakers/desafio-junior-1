@@ -1,30 +1,20 @@
 import { AddIcon, Logo, RoundArrowIcon } from "@icons/index"
 import { Button, PetCard, SearchBar } from "@components/index"
 import { Main, CardContainer, Header, PageContent, PageSelector } from "../styles/pet-page"
-import { useEffect, useState } from "react"
-import { getAllPets } from "../../chore/api/get-all-pets.service";
+import { useContext, useEffect, useState } from "react"
 import PetModal from "../../chore/components/modal";
+import { ModalType } from "../../chore/models";
+import { PetsContext } from "../../chore/hooks/petsProvider";
 
 export default function PetPage() {
-    const [ pets, setPets ] = useState([]);
+    const { pets, currentPage, totalPages, getAllPetsData } = useContext(PetsContext)!
     const [ page, setPage ] = useState(1);
-    const [ pageCount, setPageCount ] = useState(1)
     const [ isModalOpen, setIsModalOpen ] = useState(false)
     const [ query, setQuery ] = useState('')
-    const [ modalType, setModalType ] = useState('')
-
-    const getAllPetsData = async() => {
-        try {
-            const data = await getAllPets(page, query);
-            setPets(data.content);
-            setPageCount(data.totalPages)
-        } catch(error) {
-            console.log('Pets Page:', error);
-        }
-    }
+    const [ modalType, setModalType ] = useState<ModalType>('Create')
 
     useEffect(() => {
-        getAllPetsData();
+        getAllPetsData(page, query);
     }, [page, query])
 
 
@@ -33,32 +23,25 @@ export default function PetPage() {
     }
 
     const handlePrevPage = () => {
-        if(page <= 1) {
-            setPage(1)
-            return
-        }
-        setPage(page - 1)
+        setPage(Math.max(currentPage - 1, 1))
     }
 
     const handleNextPage = () => {
-        setPage(page + 1)
-        if(page >= pageCount) {
-            setPage(pageCount)
-        }
+        setPage(Math.max(currentPage + 1, totalPages))
     }
 
-    const handleOpenModal = (event: any) => {
-        const type = event.target.outerText
-
-        if(type === 'Cadastrar') {
-            setModalType('Create')
-        }
-        
+    const handleOpenModal = (type: ModalType) => {
+        setModalType(type)
         setIsModalOpen(true);
     }
 
     const handleCloseModal = () => {
         setIsModalOpen(false)
+    }
+
+    const handleOperationSuccess = async () => {
+        setIsModalOpen(false);
+        getAllPetsData(page, query);
     }
 
     return(
@@ -67,7 +50,7 @@ export default function PetPage() {
 
             <Header>
                 <SearchBar mr="22px" onChange={handleSearch}/>
-                <Button variant="PRIMARY" icon={<AddIcon />} text="Cadastrar" onClick={event => handleOpenModal(event)}/>
+                <Button variant="PRIMARY" icon={<AddIcon />} text="Cadastrar" onClick={() => handleOpenModal('Create')}/>
             </Header>
 
             <Main>
@@ -78,7 +61,7 @@ export default function PetPage() {
                 <PageSelector>
                     <RoundArrowIcon variant w="22" onClick={handlePrevPage} />
                     <p>
-                        {page} de {pageCount}
+                        {page} de {totalPages}
                     </p>
                     <RoundArrowIcon variant w="22" onClick={handleNextPage} direction="right"/>
                 </PageSelector>
@@ -87,6 +70,7 @@ export default function PetPage() {
                     isOpen={isModalOpen}
                     modalType={modalType}
                     onClose={handleCloseModal}
+                    onOperationSuccess={handleOperationSuccess}
                 />
             </Main>
         </PageContent>

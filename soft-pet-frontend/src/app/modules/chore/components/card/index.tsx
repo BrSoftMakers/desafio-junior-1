@@ -2,9 +2,11 @@ import { Button } from ".."
 import { CalendarIcon, CatIcon, ChevronIcon, DnaIcon, DogIcon, DogTagIcon, EditIcon, OwnerIcon, PhoneIcon, TrashIcon } from "@icons/index"
 import { Pet } from "../../models/pet"
 import { Card, CardSection, CardText, DropDown, DropDownButtonsArea, DropDownContent, DropDownMenu, DropDownSection, DropDownText, MainCard, PetType } from "./styles/card-pet-style"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { differenceInYears, format } from "date-fns"
 import PetModal from "../modal"
+import { ModalType } from "../../models"
+import { getAllPets } from "../../api"
 
 interface PetCardProps {
     data: Pet
@@ -14,7 +16,7 @@ const PetCard = ({ ...props }: PetCardProps) => {
     const [ birth, setBirth ] = useState('Idade (DD/MM/AA)');
     const [ dropDownStatus, setDropDownStatus ] = useState(false)
     const [ isModalOpen, setIsModalOpen ] = useState(false)
-    const [ modalType, setModalType ] = useState('')
+    const [ modalType, setModalType ] = useState<ModalType>('Create')
     const [ selectedPet, setSelectedPet ] = useState<Pet | null>(null)
 
     const formatBirth = () => {
@@ -31,7 +33,7 @@ const PetCard = ({ ...props }: PetCardProps) => {
         setDropDownStatus(!dropDownStatus)
     }
 
-    const handleOpenModal = (type: string) => {
+    const handleOpenModal = (type: ModalType) => {
         setModalType(type)
         setSelectedPet(props.data);
         setIsModalOpen(true);
@@ -39,6 +41,10 @@ const PetCard = ({ ...props }: PetCardProps) => {
 
     const handleCloseModal = () => {
         setIsModalOpen(false)
+    }
+
+    const handleOperationSuccess = async () => {
+        setIsModalOpen(false);
     }
 
     return(
@@ -101,6 +107,7 @@ const PetCard = ({ ...props }: PetCardProps) => {
                             modalType={modalType}
                             onClose={handleCloseModal}
                             petData={selectedPet}
+                            onOperationSuccess={handleOperationSuccess}
                         />
 
                         <DropDownSection>

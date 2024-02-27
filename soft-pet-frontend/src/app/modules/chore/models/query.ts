@@ -3,7 +3,7 @@ interface QueryInterface {
     page?: number
 }
 
-class Query {
+export class Query {
     public name?: string
     public page?: number
 
