@@ -13,14 +13,14 @@ const getAllClients = async () => {
   }
 };
 
-const createClient = async (dataClient: ICreatedClient) => {
+const createClient = async (data: ICreatedClient) => {
   try {
     const response = await fetch(URL_API, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(dataClient)
+      body: JSON.stringify(data)
     });
 
     if (!response.ok) {

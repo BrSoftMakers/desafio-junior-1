@@ -27,8 +27,8 @@ export class ClientService {
     const clientExists = await this.prisma.client.findUnique({
       where: {
         id_ownerId: {
-          id,
-          ownerId,
+          id: Number(id),
+          ownerId: Number(ownerId),
         },
       },
     });
@@ -41,8 +41,8 @@ export class ClientService {
       data,
       where: {
         id_ownerId: {
-          id,
-          ownerId,
+          id: Number(id),
+          ownerId: Number(ownerId),
         },
       },
     });
@@ -52,8 +52,8 @@ export class ClientService {
     const clientExists = await this.prisma.client.findUnique({
       where: {
         id_ownerId: {
-          id,
-          ownerId,
+          id: Number(id),
+          ownerId: Number(ownerId),
         },
       },
     });
@@ -61,11 +61,12 @@ export class ClientService {
     if (!clientExists) {
       throw new Error('Client does not exists!');
     }
+
     return await this.prisma.client.delete({
       where: {
         id_ownerId: {
-          id,
-          ownerId,
+          id: Number(id),
+          ownerId: Number(ownerId),
         },
       },
     });

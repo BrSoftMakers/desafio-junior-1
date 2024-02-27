@@ -12,15 +12,25 @@ import removeIcon from "@/app/assets/removeIcon.svg"
 import backIcon from "@/app/assets/backIcon.svg"
 
 import { useState } from "react";
+import { toast } from 'sonner';
+import { IDeleteClient } from "../types/IClients";
+import { deleteClient } from "@/util/endypoints";
 
 type StyleRadio = "dog" | "cat"
 
 interface IProps {
-  openClosed: () => void
+  openClosed: () => void;
+  client: IDeleteClient;
 }
 
-const RemoveModal = ({ openClosed }: IProps) => {
+const RemoveModal = ({ openClosed, client }: IProps) => {
   const [selectedOption, setSelectedOption] = useState<StyleRadio>();
+
+  const handleClickDelete = async () => {
+    deleteClient(client.id, client.ownerId)
+    toast.success('Cliente removido com sucesso.')
+    openClosed()
+  }
 
   return (
     <dialog
@@ -49,7 +59,7 @@ const RemoveModal = ({ openClosed }: IProps) => {
                   <Image src={namePet} alt="name-pet" className="w-5 h-5 md:w-6 md:h-6" />
                   Nome
                 </span>
-                <p className="w-full md:w-64 h-10 border-2 rounded-md p-2 border-slate-500 bg-slate-600">Antonio ferreira</p>
+                <p className="w-full md:w-64 h-10 border-2 rounded-md p-2 border-slate-500 bg-slate-600">{client.name}</p>
               </label>
 
               <div className="flex flex-col gap-2">
@@ -76,13 +86,13 @@ const RemoveModal = ({ openClosed }: IProps) => {
               <label htmlFor="dono" className="flex flex-col items-start gap-2 text-base text-slate-50">
                 <div className="flex gap-2 "><Image src={nameDono} alt="name-pet" className="w-5 h-5 md:w-6 md:h-6" />
                 Dono</div>
-                <p className="w-full md:w-64 h-10 border-2 rounded-md p-2 border-slate-500 bg-slate-600">Tony Ferreira</p>
+                <p className="w-full md:w-64 h-10 border-2 rounded-md p-2 border-slate-500 bg-slate-600">{client.owner}</p>
               </label>
 
               <label htmlFor="Raca" className="flex flex-col items-start gap-2 text-base text-slate-50">
                 <div className="flex gap-2 "><Image src={ageIcon} alt="name-pet" className="w-5 h-5 md:w-6 md:h-6" />
                 Raça</div>
-                <p className="w-full md:w-64 h-10 border-2 rounded-md p-2 border-slate-500 bg-slate-600">Antonio ferreira</p>
+                <p className="w-full md:w-64 h-10 border-2 rounded-md p-2 border-slate-500 bg-slate-600">{client.animal}</p>
               </label>
             </div>
 
@@ -92,7 +102,7 @@ const RemoveModal = ({ openClosed }: IProps) => {
                   <Image src={phoneIcon} alt="name-pet" className="w-5 h-5 md:w-6 md:h-6" />
                   Telefone
                 </div>
-                <p className="w-full md:w-64 h-10 border-2 rounded-md p-2 border-slate-500 bg-slate-600" >81 9 89703434</p>
+                <p className="w-full md:w-64 h-10 border-2 rounded-md p-2 border-slate-500 bg-slate-600" >{client.ownerPhone}</p>
               </label>
 
               <label htmlFor="phone" className="flex flex-col items-start gap-2 text-base text-slate-50">
@@ -101,18 +111,22 @@ const RemoveModal = ({ openClosed }: IProps) => {
                     Nascimento
                     <span className="font-bold text-slate-500">(Aproximado)</span>
                 </div>
-                <p className="w-full md:w-64 h-10 border-2 rounded-md p-2 border-slate-500 bg-slate-600" >18/12/2020</p>
+                <p className="w-full md:w-64 h-10 border-2 rounded-md p-2 border-slate-500 bg-slate-600" >{client.nascimento}</p>
               </label>
             </div>
 
             <p className="text-slate-50 font-bold my-2">Tem certeza que deseja remover esse pet?</p>
 
             <div className="mt-5 flex md:flex-row gap-2">
-              <button className="flex w-auto h-10 justify-center p-3 gap-1 rounded-md items-center bg-white">
+              <button
+                onClick={openClosed}
+                className="flex w-auto h-10 justify-center p-3 gap-1 rounded-md items-center bg-white">
                 <Image src={backIcon} alt="backIcon" className="w-5 h-5 md:w-6 md:h-6"/>
                 <p className=" bg-gradient-to-r from-cyan-500 to-blue-500 text-transparent bg-clip-text font-bold">Voltar</p>
               </button>
-              <button className="flex items-center text-slate-50 h-10 w-auto justify-center p-3 gap-1 bg-[#ED254E] rounded-md">
+              <button
+                onClick={handleClickDelete}
+                className="flex items-center text-slate-50 h-10 w-auto justify-center p-3 gap-1 bg-[#ED254E] rounded-md">
                 <Image src={removeIcon} alt="cadastrar" />
                 <p className="font-bold">Remover</p>
               </button>

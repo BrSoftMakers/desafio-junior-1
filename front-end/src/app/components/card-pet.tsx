@@ -13,14 +13,15 @@ import dateIcon from "@/app/assets/dateIcon.svg";
 import phoneIcon from "@/app/assets/phoneIcon.svg";
 import RemoveModal from "./remove-modal";
 import EditeModal from "./edite-modal";
+import { IDeleteClient } from "../types/IClients";
 
-interface CardPetProps {
-  petName: string;
-  ownerName: string;
-}
 type StyleOptionModal = "remove" | "update" | 'closed' 
 
-const CardPet: React.FC<CardPetProps> = ({ petName, ownerName }) => {
+interface IProps {
+  client: IDeleteClient;
+}
+
+const CardPet = ({client}: IProps) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalWidth, setModalWidth] = useState<number | null>(null);
   const modalRef = useRef<HTMLDivElement>(null);
@@ -85,11 +86,11 @@ const CardPet: React.FC<CardPetProps> = ({ petName, ownerName }) => {
         <div>
           <p className="flex gap-2">
             <Image src={namePet} alt="name-pet" />
-            {petName}
+            {client.name}
           </p>
           <p className="flex gap-2">
             <Image src={nameDono} alt="name-dono" />
-            {ownerName}
+            {client.owner}
           </p>
         </div>
         <button onClick={handleClickModal}>
@@ -108,9 +109,9 @@ const CardPet: React.FC<CardPetProps> = ({ petName, ownerName }) => {
           }
           className="absolute p-5 my-1 bg-gradient-to-r from-blue-950 to-slate-900 border-blue-500 border-2 rounded-md"
         >
-          <p className="flex gap-2 truncate"><Image src={dateIcon} alt="pet-name"/> Raça: dog</p>
-          <p className="flex gap-2 truncate"><Image src={phoneIcon} alt="phone-number"/> telefone: 129192912</p>
-          <p className="flex gap-2 truncate"><Image src={ageIcon} alt="age"/> idade: 2 anos (19/12/1998)</p>
+          <p className="flex gap-2 truncate"><Image src={dateIcon} alt="pet-name"/> Raça: {client.animal}</p>
+          <p className="flex gap-2 truncate"><Image src={phoneIcon} alt="phone-number"/> telefone: {client.ownerPhone}</p>
+          <p className="flex gap-2 truncate"><Image src={ageIcon} alt="age"/> idade: {2024 - Number(client.nascimento.split('-')[0])} anos ({client.nascimento})</p>
           <div className="flex flex-col gap-3 mt-4 w-auto">
             <button
               onClick={handleClickUpdate}
@@ -128,10 +129,10 @@ const CardPet: React.FC<CardPetProps> = ({ petName, ownerName }) => {
         </div>
       )}
       {
-        HowModal === 'update' && <EditeModal openClosed={handleClickModalRegisterOpen} /> 
+        HowModal === 'update' && <EditeModal client={client} openClosed={handleClickModalRegisterOpen} /> 
       }
       {
-        HowModal === "remove" && <RemoveModal openClosed={handleClickModalRegisterOpen} />
+        HowModal === "remove" && <RemoveModal client={client} openClosed={handleClickModalRegisterOpen} />
       }
     </span>
   );

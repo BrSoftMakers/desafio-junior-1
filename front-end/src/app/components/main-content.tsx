@@ -31,13 +31,13 @@ const MainContent = () => {
       setPage(prevPage => prevPage + 1);
     }
   };
-  console.log('data:: ', data)
+
   return (
     <div>
       <main className="flex flex-wrap m-3">
         {
           data.slice(startIndex, endIndex).map((client) => (
-            <CardPet key={client.id} ownerName={client.owner} petName={client.name} />
+            <CardPet key={client.id} client={client} />
           ))
         }
       </main>

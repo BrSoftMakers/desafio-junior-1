@@ -26,7 +26,7 @@ export class ClientController {
     return clients;
   }
 
-  @Put(':id:ownerId')
+  @Put(':id/:ownerId')
   async update(
     @Param('id') id: number,
     @Param('ownerId') ownerId: number,
@@ -35,7 +35,7 @@ export class ClientController {
     return await this.clientService.update(id, ownerId, data);
   }
 
-  @Delete(':id:ownerId')
+  @Delete(':id/:ownerId')
   async delete(@Param('id') id: number, @Param('ownerId') ownerId: number) {
     return await this.clientService.delete(id, ownerId);
   }

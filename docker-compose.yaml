@@ -12,7 +12,7 @@ services:
       - ./front-end:/front-end:delegated
     depends_on:
       - back-end
-    command: sh -c "npm ci && npm run start"
+    command: sh -c "npm ci && npm run dev"
     restart: always
 
   postgres:

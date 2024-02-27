@@ -1,13 +1,13 @@
 "use client"
 
 import React, { createContext, useContext, useState, ReactNode, Dispatch, SetStateAction } from 'react';
-import { ICreatedClient } from '../types/IClients';
+import { ICreatedClient, IDeleteClient } from '../types/IClients';
 
 interface ContextProps {
-  dataClients: ICreatedClient[];
-  setDataClients: Dispatch<SetStateAction<ICreatedClient[]>>;
-  filtered: ICreatedClient[];
-  setFiltered: Dispatch<SetStateAction<ICreatedClient[]>>;
+  dataClients: IDeleteClient[];
+  setDataClients: Dispatch<SetStateAction<IDeleteClient[]>>;
+  filtered: IDeleteClient[];
+  setFiltered: Dispatch<SetStateAction<IDeleteClient[]>>;
   textSearch: string,
   setTextSearch: Dispatch<SetStateAction<string>>
   dataFiltered: (text:string) => ICreatedClient[]
@@ -24,8 +24,8 @@ const GlobalContext = createContext<ContextProps>({
 });
 
 export const GlobalContextProvider = ({ children }: { children: ReactNode }) => {
-  const [dataClients, setDataClients] = useState<ICreatedClient[]>([]);
-  const [filtered, setFiltered] = useState<ICreatedClient[]>([]);
+  const [dataClients, setDataClients] = useState<IDeleteClient[]>([]);
+  const [filtered, setFiltered] = useState<IDeleteClient[]>([]);
   const [textSearch, setTextSearch] = useState('');
   
   const dataFiltered = (text: string): ICreatedClient[] => {

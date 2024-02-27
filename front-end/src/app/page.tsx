@@ -6,6 +6,7 @@ import MainContent from "./components/main-content";
 
 import { useGlobalContext } from "./context/store"
 import { getAllClients } from "@/util/endypoints";
+import { Toaster } from "sonner";
 
 export default function Home() {
   const { setDataClients } = useGlobalContext();
@@ -22,6 +23,7 @@ export default function Home() {
     <>
       <Header/>
       <MainContent/>
+      <Toaster richColors/>
     </>
   );
 }
