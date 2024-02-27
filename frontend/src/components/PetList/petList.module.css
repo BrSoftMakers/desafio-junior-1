@@ -5,7 +5,7 @@
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 25px;
   color: #fff;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 .circle {
@@ -30,7 +30,7 @@
   padding: 12px;
   border-radius: 10px;
   justify-content: space-between;
-  height: 115px;
+  height: 105px;
   outline: none;
 }
 
@@ -66,9 +66,10 @@
   flex-direction: column;
   background-image: linear-gradient(to top left, #000814, #001e4d);
   border-radius: 10px;
-  padding: 16px;
+  padding: 14px;
   outline: solid 3px #00cafc;
   z-index: 1;
+  padding-bottom: 20px;
 }
 
 .activeItem {
