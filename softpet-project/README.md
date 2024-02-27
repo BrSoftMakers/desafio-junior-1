@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Guia de Configuração e Execução do Aplicativo
+Este guia fornece instruções passo a passo sobre como configurar e executar o aplicativo. Certifique-se de seguir estas etapas para garantir uma execução suave do aplicativo.
 
-## Getting Started
+Obs:Caso o back-end não esteja na pasta padrão deste repositorio, apenas utilizar o front-end e pegar o back end do meu repositorio separado -> (https://github.com/PedroPaulo-Git/backend-softpet)
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# 1. Configuração do Backend
+Navegue até a pasta do backend:
+
+```
+cd backend ou cd backend-softpet caso tenha pego o back-end no meu outro repositorio
+(https://github.com/PedroPaulo-Git/backend-softpet)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Verifique e atualize os dados do Prisma de acordo com o seu banco de dados:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Abra o arquivo schema.prisma na pasta prisma.
+Verifique e atualize as configurações do seu banco de dados, como URL, usuário e senha.
 
-## Learn More
+# 2. Execução do Backend
+   
+Inicie o servidor backend com o comando:
+```
+npm run start:dev
+```
+# 3. Instalação das Dependências do Frontend
+Antes de executar a aplicação frontend, é necessário instalar todas as dependências. Siga estas etapas para instalar as dependências:
 
-To learn more about Next.js, take a look at the following resources:
+Navegue até a pasta do frontend:
+```
+cd softpet-project
+```
+Instale as dependências necessárias utilizando o npm:
+```
+npm install
+```
+# 4. Execução do Frontend
+Após instalar as dependências, você pode iniciar a aplicação frontend com o comando:
+```
+npm run dev
+```
+Certifique-se de que todas as dependências estão instaladas corretamente antes de executar os comandos acima. Se encontrar problemas durante a instalação ou execução, consulte a documentação ou entre em contato com a equipe de desenvolvimento para obter assistência.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Email para contato : pedropaulopyter6@gmail.com
+Número: 81 99904-9803
+Repositório: https://pedropaulo-git.github.io/MyRepository-in-React/
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+espero resposta ! 😝 
