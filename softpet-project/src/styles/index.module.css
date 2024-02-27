@@ -1,6 +1,6 @@
 .header{
     height: 140px;
-    width: 97%;
+    width: 98%;
     margin-bottom: 10px;
 }
 .main{
@@ -63,7 +63,7 @@
     right: 0;
     margin-right: 5px;
     background-color: #404A5C;
-    border-radius: 4px;
+    border-radius: 2px;
     border: none;
     font-weight: 700;
     height: 90%;

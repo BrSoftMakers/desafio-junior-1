@@ -25,9 +25,10 @@ interface PetsProps {
     onClick: () => void;
     selectedPet?: IPets;
     isClicked: boolean;
+    className?: string; 
 }
 
-const Pets: React.FC<PetsProps> = ({ pet, onClick, selectedPet, isClicked }) => {
+const Pets: React.FC<PetsProps> = ({ pet, onClick, selectedPet, isClicked,className }) => {
 
     const router = useRouter()
     const [openModalEdit, setModalEdit] = useState<boolean>(false)

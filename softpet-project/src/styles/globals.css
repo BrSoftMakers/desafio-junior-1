@@ -3,8 +3,11 @@ font-family:'Ubuntu';
 color:#FFFFFF;
 
 }
+html{
+  position:relative
+}
 main{
-  height: 100%;
+
   width: 100%;
   
 }
@@ -12,16 +15,22 @@ main{
 body{
     margin: 0;
     padding-inline: 5%;
-    padding-top:2%;
+    padding-top:1%;
+    padding-left: 6%;
     box-sizing: border-box;
     background: linear-gradient(
         316.01deg,
-        #001E4D 10%,    /* Ponto de parada esquerdo superior */
-        #000814 30%,    /* Início do gradiente preto */
-        #000814 70%,    /* Fim do gradiente preto */
-        #001E4D 90%     /* Ponto de parada direito inferior */
+        #001E4D 10%,    
+        #000814 30%,   
+        #000814 70%,   
+        #001E4D 90%    
       );
     height: 100vh;
 
   
 }
+.PetsWithSelectUp{
+  position: absolute;
+  background-color: #000814;
+}
+

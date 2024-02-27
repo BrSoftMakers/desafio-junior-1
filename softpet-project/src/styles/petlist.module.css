@@ -1,8 +1,12 @@
+.container{
+    height: 100%;
+}
 .ContainerPetList {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(0, 280px));
     grid-gap: 20px;
     width: 100%;
+    height: 100%;
     
 
 }
@@ -120,6 +124,8 @@ span.PetIcon svg {
     margin-block: 2px;
     align-items: center;
 }
+
+
 
 .PetInfoPopup_info_edit {
     cursor: pointer;
@@ -646,17 +652,28 @@ button.buttonVoltarCadastroPet {
 .buttonRemoverPet svg {
     margin-right: 5px;
 }
+
 /* PASSAR PAGINA*/
 
 .Pagination_Container{
     margin-top: 10px;
+    position: absolute;
     display: flex;
-    justify-content: right;
+    right: 0;
+    margin-right: 6%;
 
 }
-.buttonMudarPage{
-margin-top: 15px;
+.Pagination{
+    display: flex;
+    align-items: center;
 }
 .PaginationButton{
-    
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+.Pagination_info{
+    margin-bottom: 5px;
+    margin-inline: 10px;
+    font-weight: 700;
 }
