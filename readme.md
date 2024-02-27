@@ -1,25 +1,52 @@
- ![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
+Guia de Configuração e Execução do Aplicativo
+Este guia fornece instruções passo a passo sobre como configurar e executar o aplicativo. Certifique-se de seguir estas etapas para garantir uma execução suave do aplicativo.
 
-# Desafio - Desenvolvedor Fullstack - Júnior
-Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato ao cargo proposto.
+Obs:Caso o back-end não esteja na pasta padrão deste repositorio, apenas utilizar o front-end e pegar o back end do meu repositorio separado -> (https://github.com/PedroPaulo-Git/backend-softpet)
 
-## Instruções
-- Faça um fork deste repositório;
-- O conjunto mínimo de tecnologias a serem utilizadas são: alguma das tecnologias front-end e back-end informadas na proposta desse desafio;
-- Crie um passo a passo de como rodar a sua aplicação;
-- Após finalizar, submeta um pull request com um comentário informando o seu e-mail de contato e aguarde nossa avaliação.
 
-## Proposta
-O teste consiste em desenvolver um projeto utilizando NextJS no front-end e Nest.js no back-end, com o objetivo de criar uma aplicação que permita listar, visualizar, criar, editar e excluir animais de estimação em uma petshop. Utilize o Protótipo Figma fornecido como referência (Link para o Protótipo).
-Com base no Protótipo Figma: https://www.figma.com/file/z0zYWFHb7OK6TUXDBBw5my/SoftMakers-Challenges%3A-Dev-Jr.?type=design&node-id=0%3A1&mode=design&t=vAPkbzL97wUL9qma-1
+1. Configuração do Backend
+Navegue até a pasta do backend:
 
-**Observações:**
-> - Você pode utilizar qualquer banco de dados relacional disponível;
-> - Cada animal de estimação precisa ter um identificador único, nome, idade, tipo (gato ou cachorro) e raça;
-> - Além dos dados do animal, é necessário também salvar os dados pessoais, de contato e de endereço do seu respectivo dono.
+bash
+Copy code
+cd backend ou cd backend-softpet caso tenha pego o back-end no meu outro repositorio (https://github.com/PedroPaulo-Git/backend-softpet)
+Verifique e atualize os dados do Prisma de acordo com o seu banco de dados:
 
-## Diferenciais
-Serão considerados diferenciais:
+Abra o arquivo schema.prisma na pasta prisma.
+Verifique e atualize as configurações do seu banco de dados, como URL, usuário e senha.
 
-- Boas práticas de escrita de código (código limpo, padrões de arquitetura, etc.);
-- Conhecimento em infraestruturas em nuvem;
+2. Execução do Backend
+   
+Inicie o servidor backend com o comando:
+bash
+Copy code
+npm run start:dev
+
+3. Instalação das Dependências do Frontend
+Antes de executar a aplicação frontend, é necessário instalar todas as dependências. Siga estas etapas para instalar as dependências:
+
+Navegue até a pasta do frontend:
+
+bash
+Copy code
+cd softpet-project
+Instale as dependências necessárias utilizando o npm:
+
+bash
+Copy code
+npm install
+4. Execução do Frontend
+Após instalar as dependências, você pode iniciar a aplicação frontend com o comando:
+
+bash
+Copy code
+npm run dev
+
+Certifique-se de que todas as dependências estão instaladas corretamente antes de executar os comandos acima. Se encontrar problemas durante a instalação ou execução, consulte a documentação ou entre em contato com a equipe de desenvolvimento para obter assistência.
+
+
+Email para contato : pedropaulopyter6@gmail.com
+Número: 81 99904-9803
+Repositório: https://pedropaulo-git.github.io/MyRepository-in-React/
+
+espero resposta ! 😝 
