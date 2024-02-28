@@ -1,0 +1,214 @@
+
+.main
+
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+
+    .container
+        height: 80%
+        width: 100%
+        max-width: 1420px
+
+        padding: 15px
+
+    .nav
+        margin-top: 35px
+
+    .searchAndCreatBox
+        width: 100%
+
+        display: flex
+        flex-direction: row
+        align-items: center
+        justify-content: center
+        gap: 1rem
+
+        margin-top: 53px
+
+        .searchInput
+            border: 5px solid #404A5C
+            border-radius: 10px
+
+            display: flex
+            flex-direction: row
+            align-items: center
+            justify-content: center
+
+            width: 100%
+
+            input
+                height: 40px
+                width: 100%
+                cursor: pointer
+                background: #00000000
+                border: none
+                color: #fff
+                font-size: 1rem
+                font-weight: bold
+
+                padding-left: 1rem
+
+            button
+                padding: 9px
+                margin-right: 3px
+                height: 100%
+                width: 106px
+
+                background: #404A5C
+                color: #fff
+                font-size: 1rem
+                font-weight: bold
+
+                border: none
+                border-radius: 6px
+
+    .cadastrarButton
+        width: 156px
+        height: 50px
+
+        display: flex
+        align-items: center
+        justify-content: center
+        text-align: center
+        gap: 8px
+
+        background: rgb(0,202,255)
+        background: linear-gradient(144deg, rgba(0,202,255,0.01) 0%, rgba(0,86,226,1) 0%, rgba(0,212,255,1) 100%)
+
+        border: none
+        border-radius: 10px
+        cursor: pointer
+
+        p
+            color: #fff
+            font-size: 1rem
+            font-weight: bold
+
+    /* MODAL CREATE */
+    .headerModal
+        color: #fff
+        font-size: 1rem
+        font-weight: bold
+
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        width: 100%
+        padding: 1rem
+
+        .headerModalText
+            display: flex
+            flex-direction: row
+            justify-content: space-between
+            align-items: center
+            gap: 1rem
+
+        .headerModalImage
+            display: flex
+            flex-direction: center
+            align-items: center
+            justify-content: center
+            text-align: center
+            background: rgb(0,9,19)
+            background: radial-gradient(circle, rgba(0,9,19,1) 0%, rgba(0,33,77,0.9708216050091911) 74%, rgba(0,70,163,0.9035947142528886) 91%)
+
+            border-radius: 50px
+
+            img
+                padding: 10px
+
+        .modalClosseButton
+            background: none
+            border: none
+            font-size: 2rem
+            color: #fff
+            cursor: pointer
+            font-family: Arial, Helvetica, sans-serif
+
+    .data
+
+        display: flex
+        justify-content: space-evenly
+        flex-direction: row
+        flex-wrap: wrap
+        margin-top: 2rem
+        height: 100%
+
+        .petContainer
+            display: flex
+            align-items: center
+            gap: 8px
+
+            background: rgb(0,8,20)
+            background: linear-gradient(0deg, rgba(0,8,20,1) 0%, rgba(0,30,77,1) 62%)
+
+            width: 300px
+            height: 85px
+            padding: 10px
+            margin: 10px
+            border-radius: 10px
+
+            cursor: pointer
+
+        .petTextOrganizer
+            display: flex
+            color: #fff
+            gap: 4px
+            font-weight: 400
+            margin: 4px
+
+        .pataImgContainer
+            padding: .3rem
+            border-radius: 50px
+
+            display: flex
+            flex-direction: column
+            align-items: center
+            justify-content: center
+
+            background: rgb(0,202,252)
+            background: linear-gradient(137deg, rgba(0,202,252,1) 28%, rgba(0,86,226,1) 69%)
+            .pataImg
+                width: 3rem
+
+        .dataPetsContainer
+            width: 100%
+            display: flex
+            justify-content: space-between
+
+            .buttonsContainer
+                height: 100%
+                display: flex
+                align-items: center
+
+                gap: 6px
+                margin-right: 6px
+
+                .buttonDelete
+                    width: 30px
+                    height: 30px
+                    border: none
+                    border-radius: 8px
+
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    background: red
+                    cursor: pointer
+
+                .buttonEdit
+                    width: 30px
+                    height: 30px
+                    border: none
+                    border-radius: 8px
+
+                    display: flex
+                    align-items: center
+                    justify-content: center
+
+                    cursor: pointer
+
+                .buttonPetImg
+                    width: 20px
