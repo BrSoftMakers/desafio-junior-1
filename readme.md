@@ -5,9 +5,9 @@
 
 ## Como instalar
 
-- Primeiro faça um git clone do repositório
+- Primeiro faça um `git clone` do repositório
 - Em seguida será necessário instalar as dependencias utilizadas tanto no backend quanto no frontend.
-    - Entre nos repositórios onde estão os arquivos softpet. exmplo: `cd frontend/softpet` e `cd backend/softpet`
+    - Entre nos repositórios onde estão os arquivos softpet. exmplo: `cd frontend` e `cd backend`
     - Para isso poderá repetir o mesmo comando de inslatação no dois repositórios `npm install`
 
 - Após a instalação das dependências você deve alterar o arquivo de configuranção do banco de dados que você encontra no arquivo `backend/softpet/src/App.module.ts`
