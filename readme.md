@@ -1,25 +1,57 @@
- ![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
+# Olá, seja bem vindo ao Softpet🐶
 
-# Desafio - Desenvolvedor Fullstack - Júnior
-Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato ao cargo proposto.
+## Sobre o projeto📔
+<p>O projeto se trata de um sistema para cadastro de pets onde são capiturados caracteristicas e dados inerentes a um campeonato de animais de estimação.</p>
 
-## Instruções
-- Faça um fork deste repositório;
-- O conjunto mínimo de tecnologias a serem utilizadas são: alguma das tecnologias front-end e back-end informadas na proposta desse desafio;
-- Crie um passo a passo de como rodar a sua aplicação;
-- Após finalizar, submeta um pull request com um comentário informando o seu e-mail de contato e aguarde nossa avaliação.
+## Como instalar
 
-## Proposta
-O teste consiste em desenvolver um projeto utilizando NextJS no front-end e Nest.js no back-end, com o objetivo de criar uma aplicação que permita listar, visualizar, criar, editar e excluir animais de estimação em uma petshop. Utilize o Protótipo Figma fornecido como referência (Link para o Protótipo).
-Com base no Protótipo Figma: https://www.figma.com/file/z0zYWFHb7OK6TUXDBBw5my/SoftMakers-Challenges%3A-Dev-Jr.?type=design&node-id=0%3A1&mode=design&t=vAPkbzL97wUL9qma-1
+- Primeiro faça um `git clone` do repositório
+- Em seguida será necessário instalar as dependencias utilizadas tanto no backend quanto no frontend.
+    - Entre nos repositórios onde estão os arquivos softpet. exmplo: `cd frontend` e `cd backend`
+    - Para isso poderá repetir o mesmo comando de inslatação no dois repositórios `npm install`
 
-**Observações:**
-> - Você pode utilizar qualquer banco de dados relacional disponível;
-> - Cada animal de estimação precisa ter um identificador único, nome, idade, tipo (gato ou cachorro) e raça;
-> - Além dos dados do animal, é necessário também salvar os dados pessoais, de contato e de endereço do seu respectivo dono.
+- Após a instalação das dependências você deve alterar o arquivo de configuranção do banco de dados que você encontra no arquivo `backend/softpet/src/App.module.ts`
+    - Neste aquivo você encontrará um configuração com o seguinte padrão:
+    `@Module({
+        imports: [PetsModule, TypeOrmModule.forRoot({
+            type: 'mysql',
+            host: 'localhost',
+            port: 3306,
+            username: 'root',
+            password: 'root',
+            database: 'pets',
+            entities: [Pet],
+            synchronize: true
+    })],
+    controllers: [],
+    providers: []
+    })`.
+    
+    - Verifique se seu banco de dados SQL atual e o mesmo que o utilizado no projeto(Mysql), se for outro basta alterar o `type: mysql` para o banco de dados que tem disponível em sua máquina.
+    - Se atente ao username e password do seu banco de dados para realizar alteração. Atualmente o projeto utiliza `username: 'root'` e `password: 'root'`. Caso se esqueça de alterar esses dados será impossível o projeto acessar o seu banco de dados.
 
-## Diferenciais
-Serão considerados diferenciais:
 
-- Boas práticas de escrita de código (código limpo, padrões de arquitetura, etc.);
-- Conhecimento em infraestruturas em nuvem;
+## Como rodar o projeto🪐
+
+- Primeiro identifique os repositórios do frontend e do backend.
+    - exemplos: `backend/softpet` e `frontend/softpet`
+- Agora com o seu terminal apontando para estes repositórios replique os seguintes comandos.
+    - frontend: `npm run dev`
+    - backend: `npm run start:dev`
+
+- Agora o projeto está rodando e disponível para ser utilizado.
+
+## Tecnologias Utilizadas🧑‍💻
+- Frontend:
+    - Next - Typescript
+    - styled-modal-components
+    - SASS
+    - CSS
+    - Axios
+
+- Backend:
+    - NestJS - Typescript
+    - Mysql
+    - TypeORM
+
+

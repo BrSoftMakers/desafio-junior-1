@@ -1,0 +1,191 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* MODAL CREATE */
+}
+.main .container {
+  height: 80%;
+  width: 100%;
+  max-width: 1420px;
+  padding: 15px;
+}
+.main .nav {
+  margin-top: 35px;
+}
+.main .searchAndCreatBox {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 53px;
+}
+.main .searchAndCreatBox .searchInput {
+  border: 5px solid #404A5C;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.main .searchAndCreatBox .searchInput input {
+  height: 40px;
+  width: 100%;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0);
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  padding-left: 1rem;
+}
+.main .searchAndCreatBox .searchInput button {
+  padding: 9px;
+  margin-right: 3px;
+  height: 100%;
+  width: 106px;
+  background: #404A5C;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+}
+.main .cadastrarButton {
+  width: 156px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 8px;
+  background: rgb(0, 202, 255);
+  background: linear-gradient(144deg, rgba(0, 202, 255, 0.01) 0%, rgb(0, 86, 226) 0%, rgb(0, 212, 255) 100%);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.main .cadastrarButton p {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.main .headerModal {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem;
+}
+.main .headerModal .headerModalText {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.main .headerModal .headerModalImage {
+  display: flex;
+  flex-direction: center;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: rgb(0, 9, 19);
+  background: radial-gradient(circle, rgb(0, 9, 19) 0%, rgba(0, 33, 77, 0.970821605) 74%, rgba(0, 70, 163, 0.9035947143) 91%);
+  border-radius: 50px;
+}
+.main .headerModal .headerModalImage img {
+  padding: 10px;
+}
+.main .headerModal .modalClosseButton {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.main .data {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  height: 100%;
+}
+.main .data .petContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgb(0, 8, 20);
+  background: linear-gradient(0deg, rgb(0, 8, 20) 0%, rgb(0, 30, 77) 62%);
+  width: 300px;
+  height: 85px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.main .data .petTextOrganizer {
+  display: flex;
+  color: #fff;
+  gap: 4px;
+  font-weight: 400;
+  margin: 4px;
+}
+.main .data .pataImgContainer {
+  padding: 0.3rem;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgb(0, 202, 252);
+  background: linear-gradient(137deg, rgb(0, 202, 252) 28%, rgb(0, 86, 226) 69%);
+}
+.main .data .pataImgContainer .pataImg {
+  width: 3rem;
+}
+.main .data .dataPetsContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.main .data .dataPetsContainer .buttonsContainer {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: 6px;
+}
+.main .data .dataPetsContainer .buttonsContainer .buttonDelete {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: red;
+  cursor: pointer;
+}
+.main .data .dataPetsContainer .buttonsContainer .buttonEdit {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.main .data .dataPetsContainer .buttonsContainer .buttonPetImg {
+  width: 20px;
+}/*# sourceMappingURL=page.module.css.map */
