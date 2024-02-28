@@ -52,5 +52,6 @@
 - Backend:
     - NestJS - Typescript
     - Mysql
+    - TypeORM
 
 
