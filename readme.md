@@ -36,8 +36,8 @@
 - Primeiro identifique os repositórios do frontend e do backend.
     - exemplos: `backend/softpet` e `frontend/softpet`
 - Agora com o seu terminal apontando para estes repositórios replique os seguintes comandos.
-    - frontend: `npm run start:dev`
-    - backend: `npm run dev`
+    - frontend: `npm run dev`
+    - backend: `npm run start:dev`
 
 - Agora o projeto está rodando e disponível para ser utilizado.
 
