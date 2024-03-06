@@ -47,4 +47,3 @@ Email para contato : pedropaulopyter6@gmail.com
 Número: 81 99904-9803
 Repositório: https://pedropaulo-git.github.io/MyRepository-in-React/
 
-espero resposta ! 😝 
