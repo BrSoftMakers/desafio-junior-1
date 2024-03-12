@@ -1,0 +1,679 @@
+.container{
+    height: 100%;
+}
+.ContainerPetList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, 280px));
+    grid-gap: 20px;
+    width: 100%;
+    height: 100%;
+    
+
+}
+
+.PetContainer {
+    position: relative;
+}
+
+.Pet {
+    cursor: pointer;
+    position: relative;
+    height: 80px;
+    padding-inline: 10px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(316.01deg, #000814 10.31%, #001E4D 90.58%);
+    border-radius: 10px;
+}
+
+span.PetArrowInfo {
+    display: flex;
+    width: 10%;
+    justify-content: right;
+
+}
+
+.Pet:hover {
+    outline: 2px solid #00CAFC;
+}
+
+.Pet.clicked {
+    outline: 2px solid #00CAFC !important;
+}
+
+span.PetIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    min-width: 60px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #00CAFC 0%, #0056E2 100%);
+
+}
+
+span.PetIcon svg {
+    font-size: 45px;
+}
+
+.ContainerPetInfo {
+    padding-left: 10px;
+    max-height: 100%;
+    width: 56%;
+    margin-right: 10px;
+}
+
+.PetInfo {
+    display: flex;
+    height: 25px;
+    font-size: 16px;
+    align-items: center;
+}
+
+.PetInfo p {
+    width: 100%;
+    max-height: 80%;
+    margin: 0;
+    overflow: hidden;
+}
+
+.PetInfo svg {
+    width: 20px;
+    margin-right: 5px;
+}
+
+.PetInfo svg path {
+    width: 20px;
+
+}
+
+/* PARTE DO POPUP ---->> */
+
+.PetInfoPopup {
+    position: absolute;
+    border-radius: 10px;
+    border: 2px solid #00CAFC;
+    background: linear-gradient(316.01deg, #000814 10.31%, #001E4D 90.58%);
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 98%;
+
+    justify-content: center;
+    z-index: 1;
+
+}
+
+.PetInfoPopup_info_container {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    margin-block: 15px;
+    margin-inline: 15px;
+}
+
+.PetInfoPopup_info {
+    display: flex;
+    flex-direction: column;
+}
+
+.PetInfoPopup_info span {
+    display: flex;
+    margin-block: 2px;
+    align-items: center;
+}
+
+
+
+.PetInfoPopup_info_edit {
+    cursor: pointer;
+    background-color: #FFFFFF;
+    color: #00CAFC;
+    font-weight: 700;
+    border: none;
+    height: 35px;
+    padding-inline: 30px;
+    margin-block: 8px;
+    border-radius: 5px;
+
+}
+
+.PetInfoPopup_info_remove {
+    cursor: pointer;
+    background: linear-gradient(90deg, #00CAFC 0%, #0056E2 100%);
+    border-radius: 5px;
+    font-weight: 700;
+    height: 35px;
+    border: none;
+    padding-inline: 15px;
+    border-radius: 5px;
+}
+
+.petInfoPopup_buttons {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.petInfoPopup_buttons svg {
+    margin-right: 5px;
+}
+
+.petInfoPopup_buttons img {
+    height: 16px;
+}
+
+.PetInfoPopup p {
+    padding: 2px;
+    margin: 0;
+    margin-left: 2px;
+}
+
+.PetInfoPopup button {
+    max-width: 100%;
+}
+
+.containerPet {
+    position: absolute;
+    background: linear-gradient(316.01deg, #000814 15.31%, #001E4D 86.58%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    padding: 3%;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    outline: 2px solid #00CAFC;
+    width: 430px;
+    height: 65%;
+
+}
+
+.headerCadastrarPet {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    align-items: center;
+    margin-bottom: 10%;
+}
+
+
+
+.cadastroIcon_Container {
+    display: flex;
+    align-items: center;
+}
+
+.cadastroIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #00CAFC 0%, #0056E2 100%);
+
+}
+
+.cadastroIcon svg {
+    font-size: 20px;
+}
+
+.cadastroIcon_Container h1 {
+    font-size: 22px;
+    margin-left: 10px;
+}
+
+.buttonAbrirCadastro {
+    background-image: linear-gradient(to right, #00cafc, #0056e2);
+    color: #fff;
+    border: none;
+    padding: 12px 6px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    padding-inline: 20px;
+    margin-left: 5px;
+    width: 90%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonAbrirCadastro svg {
+    margin-right: 5px;
+    width: 25px;
+}
+
+.infoCadastro {
+    position: relative;
+    height: 75%;
+}
+
+.infoCadastro form {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+    word-wrap: break-word;
+    gap: 5px;
+    column-gap: 15px;
+    max-width: 100%;
+}
+
+.infoCadastro form div {
+    padding-block: 2px;
+}
+
+.footerCadastroPet:last-child {
+    grid-column: span 2;
+    display: flex;
+    justify-content: space-between;
+    height: 38%;
+    margin-block: 10%;
+}
+
+.infoCadastro form label {
+    padding-left: 5px;
+}
+
+.infoCadastro input {
+    color: #FFFFFF;
+    width: 90%;
+    background-color: transparent;
+    border: 2px solid #404A5C;
+    outline-style: none;
+    border-radius: 5px;
+    padding: 3%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.infoCadastro input::placeholder {
+    color: #404A5C;
+}
+
+.infoCadastro span {
+    font-size: 16px;
+}
+
+.infoCadastro_Animal .ContainerSelectAnimal {
+    display: flex;
+    justify-content: space-between;
+    max-width: 95%;
+
+
+}
+
+
+
+.infoCadastro_Animal .selectAnimal {
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    border: 2px solid #404A5C;
+    border-radius: 5px;
+    margin-top: 5px;
+    width:90px;
+    padding-block: 1%;
+    cursor: pointer;
+}
+
+.infoCadastro_Animal .selectAnimal.checked {
+    border: 2px solid #ffffff;
+}
+.selectAnimal input{
+    cursor: pointer;
+}
+.selectAnimal label {
+    cursor: pointer;
+}
+.selectAnimal input[type="radio"]:checked {
+    display: none;
+}
+
+.radioOn {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: #ffffff;
+}
+
+.selectAnimal input[type="radio"] span.radioOn::after {
+    display: none;
+    background-color: #000814;
+}
+
+.infoCadastro_Animal span {
+    display: block;
+
+}
+
+/* Container de editar  */
+
+.headerEditPet {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    align-items: center;
+    margin-bottom: 10%;
+}
+
+.EditIcon_Container {
+    display: flex;
+    align-items: center;
+}
+
+.EditIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #00CAFC 0%, #0056E2 100%);
+}
+
+.EditIcon svg {
+    font-size: 30px;
+}
+
+.EditIcon_Container h1 {
+    font-size: 25px;
+    margin-left: 10px;
+}
+
+.EditCadastro {
+    position: relative;
+    height: 75%;
+}
+
+.EditCadastro form {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+    word-wrap: break-word;
+    gap: 5px;
+    column-gap: 15px;
+    max-width: 100%;
+}
+
+.EditCadastro form div {
+    padding-block: 2px;
+}
+
+.EditCadastro form label {
+    padding-left: 5px;
+}
+
+.EditCadastro input {
+    color: #FFFFFF;
+    width: 90%;
+    background-color: transparent;
+    border: 2px solid #404A5C;
+    outline-style: none;
+    border-radius: 5px;
+    padding: 3%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.EditCadastro input::placeholder {
+    color: #404A5C;
+}
+
+.EditCadastro span {
+    font-size: 16px;
+}
+
+/*Footer edit*/
+.footerEditPet:last-child {
+    grid-column: span 2;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    height: 38%;
+    margin-block: 10%;
+}
+
+button.buttonVoltarEditPet {
+    width: 202px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    color: #0056e2;
+}
+
+.buttonVoltarEditPet span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.buttonVoltarEditPet span img {
+    height: 16px;
+}
+
+.buttonEditarPet {
+    
+    background: linear-gradient(90deg, #00CAFC 0%, #0056E2 100%);
+    border: none;
+    cursor: pointer;
+    width: 202px;
+    margin-right: 5px;
+    border-radius: 5px;
+
+}
+
+.buttonEditarPet span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+
+}
+
+
+.headerEditPet {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    align-items: center;
+    margin-bottom: 10%;
+}
+
+/* REMOVE DIVS */
+.headerRemovePet {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    align-items: center;
+    margin-bottom: 10%;
+}
+
+.RemoveIcon_Container {
+    display: flex;
+    align-items: center;
+}
+
+.RemoveIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #00CAFC 0%, #0056E2 100%);
+}
+
+.RemoveIcon svg {
+    font-size: 30px;
+}
+
+.RemoveIcon_Container h1 {
+    font-size: 25px;
+    margin-left: 10px;
+}
+
+
+.RemoveCadastro {
+    position: relative;
+    height: 75%;
+}
+
+.RemoveCadastro form {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+    word-wrap: break-word;
+    gap: 5px;
+    column-gap: 15px;
+    max-width: 100%;
+}
+
+.RemoveCadastro form div {
+    padding-block: 2px;
+}
+
+.RemoveCadastro form label {
+    padding-left: 5px;
+}
+
+.RemoveCadastro input {
+    color: #FFFFFF;
+    width: 90%;
+    background-color: #404A5C;
+    border: 2px solid #404A5C;
+    outline-style: none;
+    border-radius: 5px;
+    padding: 3%;
+    margin-top: 7px;
+    margin-bottom: 5px;
+}
+
+.RemoveCadastro input::placeholder {
+    color: #404A5C;
+}
+
+.RemoveCadastro span {
+    font-size: 16px;
+}
+
+/*Footer edit*/
+.footerRemovePet:last-child {
+    grid-column: span 2;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    height: 35px;
+
+}
+
+button.buttonVoltarRemovePet {
+    border: none;
+    cursor: pointer;
+    width: 202px;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    color: #0056e2;
+}
+
+.buttonVoltarRemovePet span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonVoltarRemovePet span img {
+    height: 16px;
+    
+
+}
+.notificationRemove{
+    font-weight: 700;
+   width: 350px;
+   margin-left: 20%;
+   margin-block: 10%;
+    grid-column: span 1;
+}
+
+/* -----------------------   */
+
+
+button.buttonVoltarCadastroPet {
+    border: none;
+    cursor: pointer;
+    width: 200px;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+}
+
+.buttonVoltarCadastroPet span {
+    color: #00CAFC;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonVoltarCadastroPet img {
+    height: 16px;
+}
+
+.buttonRemoverPet {
+    background: #ED254E;
+    border: none;
+    cursor: pointer;
+    width: 203px;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
+.buttonRemoverPet span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+
+}
+
+.buttonRemoverPet svg {
+    margin-right: 5px;
+}
+
+/* PASSAR PAGINA*/
+
+.Pagination_Container{
+    margin-top: 10px;
+    position: absolute;
+    display: flex;
+    right: 0;
+    margin-right: 6%;
+
+}
+.Pagination{
+    display: flex;
+    align-items: center;
+}
+.PaginationButton{
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+.Pagination_info{
+    margin-bottom: 5px;
+    margin-inline: 10px;
+    font-weight: 700;
+}

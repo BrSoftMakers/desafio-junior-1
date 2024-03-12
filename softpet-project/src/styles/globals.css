@@ -1,0 +1,36 @@
+*{
+font-family:'Ubuntu';
+color:#FFFFFF;
+
+}
+html{
+  position:relative
+}
+main{
+
+  width: 100%;
+  
+}
+
+body{
+    margin: 0;
+    padding-inline: 5%;
+    padding-top:1%;
+    padding-left: 6%;
+    box-sizing: border-box;
+    background: linear-gradient(
+        316.01deg,
+        #001E4D 10%,    
+        #000814 30%,   
+        #000814 70%,   
+        #001E4D 90%    
+      );
+    height: 100vh;
+
+  
+}
+.PetsWithSelectUp{
+  position: absolute;
+  background-color: #000814;
+}
+
