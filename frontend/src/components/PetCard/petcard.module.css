@@ -1,0 +1,78 @@
+.card,
+.cardActived {
+    position: relative;
+    background: linear-gradient(to bottom right, #001E4D, #000814);
+    width: 300px;
+    height: 95px;
+    gap: 17px;
+    font-size: 12px !important;
+    border-radius: 10px !important;
+}
+
+.cardActived {
+    background: linear-gradient(to bottom right, #001E4D, #000814) padding-box,
+        linear-gradient(to bottom right, #00CAFC, #0056E2) border-box;
+    border: 3px solid transparent !important;
+    border-radius: 10px;
+}
+
+.menu {
+    position: absolute !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 300px;
+    height: 216px;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 2;
+    transform: translateY(10px);
+    background: linear-gradient(to bottom right, #001E4D, #000814) padding-box,
+                linear-gradient(to bottom right, #00CAFC, #0056E2) border-box;
+    border: 3px solid transparent !important;
+    border-radius: 10px;
+}
+
+.editButton {
+    background: #FFF !important;
+    width: 270px;
+    height: 40px;
+    margin-top: 20px !important;
+}
+
+.textGradiente {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    background-image: linear-gradient(to right, #00CAFC, #0056E2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    gap: 7px;
+}
+
+.removeButton {
+    background: linear-gradient(to right, #00CAFC, #0056E2) !important;
+    width: 270px;
+    height: 40px;
+    color: #FFF !important;
+    gap: 7px;
+    margin-top: 12px !important;
+}
+
+.data {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    gap: 9px;
+}
+
+.card:hover {
+    background: linear-gradient(to bottom right, #001E4D, #000814) padding-box,
+                linear-gradient(to bottom right, #00CAFC, #0056E2) border-box;
+    border: 3px solid transparent !important;
+    border-radius: 10px;
+}

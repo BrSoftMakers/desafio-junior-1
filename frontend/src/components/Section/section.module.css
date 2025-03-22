@@ -1,0 +1,22 @@
+.box {
+    justify-self: start;
+    align-items: start;
+    width: 100vw;
+    max-width: 90vw;
+    overflow: hidden;
+}
+
+.grid {
+    display: flex !important;
+    gap: 24px;
+    min-height: 50vh;
+}
+
+.pagination {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    right: 5vw;
+    z-index: 1;
+    transform: translateY(10px);
+}

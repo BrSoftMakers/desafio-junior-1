@@ -1,0 +1,138 @@
+.modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 618px;
+    height: 583px;
+    background: linear-gradient(to bottom right, #001E4D, #000814) padding-box,
+                linear-gradient(to bottom right, #00CAFC, #0056E2) border-box;
+    border: 3px solid transparent !important;
+    border-radius: 10px;
+
+}
+
+
+.modalHeader {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    width: 80%;
+    height: 20%;
+    gap: 24px;
+}
+
+.modalHeader button {
+    left: 9vw;
+    color: #FFF;
+    width: 16px;
+    height: 16px;
+    padding: 20px;
+    border-radius: 50%;
+}
+
+.registerButtom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    background: linear-gradient(to right, #00CAFC, #0056E2);
+    width: 223px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.backButtom {
+    background: #FFF !important;
+    width: 223px;
+    height: 40px;
+    gap: 8px;
+}
+
+.textGradient {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    background-image: linear-gradient(to right, #00CAFC, #0056E2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    gap: 7px;
+}
+
+.modal ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: stretch;
+    gap: 20px;
+    margin: 40px;
+
+    width: 80%;
+    max-height: auto;
+    overflow-y: 1;
+
+    list-style: none;
+}
+
+.textfield {
+    width: 231px;
+    height: 39px;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 10px;
+
+}
+
+.formLabel {
+    display: flex;
+    align-items: center;
+    color: #FFF !important;
+    gap: 8px;
+}
+
+.datePicker {
+    margin-top: 8px !important;
+    width: 223px;
+}
+
+.animalRadio {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-top: 15px !important;
+
+    width: 223px;
+    height: 40px;
+    gap: 2px;
+}
+
+.radioOptions {
+    border: 2px solid #404A5C;
+    border-radius: 10px;
+    width: 45%;
+    height: 100%;
+}
+
+.buttons {
+    display: flex;
+    gap: 7%;
+    width: 80%;
+}
+
+.pRemove {
+    position: fixed;
+    top: 84%;
+}
