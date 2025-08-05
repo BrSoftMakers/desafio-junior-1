@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Dono {
+  id       Int    @id @default(autoincrement())
+  nome     String
+  telefone String
+  endereco String
+  pets     Pet[]
+
+  @@map("donos")
+}
+
+model Pet {
+  id     Int    @id @default(autoincrement())
+  nome   String
+  tipo   String
+  raca   String
+  idade  Int
+  donoId Int
+  dono   Dono   @relation(fields: [donoId], references: [id])
+
+  @@map("pets")
+}

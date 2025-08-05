@@ -1,0 +1,36 @@
+{
+  "name": "petshop-fullstack",
+  "version": "1.0.0",
+  "description": "Aplicação fullstack para petshop - Desafio SoftMakers",
+  "scripts": {
+    "dev": "concurrently \"npm run backend:dev\" \"npm run frontend:dev\"",
+    "backend:dev": "cd backend && npm run start:dev",
+    "frontend:dev": "cd test-app && npm run dev -- --port 3000",
+    "build": "npm run backend:build && npm run frontend:build",
+    "backend:build": "cd backend && npm run build",
+    "frontend:build": "cd test-app && npm run build",
+    "start": "concurrently \"npm run backend:start\" \"npm run frontend:start\"",
+    "backend:start": "cd backend && npm start",
+    "frontend:start": "cd test-app && npm start"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.2.1",
+    "@prisma/client": "^6.13.0",
+    "next": "^14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.61.1",
+    "yup": "^1.6.1",
+    "tailwindcss": "^3.3.0"
+  },
+  "devDependencies": {
+    "prisma": "^6.13.0",
+    "@types/node": "^20.3.1",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "typescript": "^5.1.3",
+    "concurrently": "^8.0.1",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31"
+  }
+}

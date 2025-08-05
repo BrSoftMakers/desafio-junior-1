@@ -1,0 +1,11 @@
+﻿import PetList from '../../components/PetList'
+
+export default function Home() {
+  return (
+    <main className="min-h-screen bg-gradient-to-br from-[#000814] via-[#001E4D] to-[#000814]">
+      <div className="container mx-auto px-6 py-8">
+        <PetList />
+      </div>
+    </main>
+  )
+}

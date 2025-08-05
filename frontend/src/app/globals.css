@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-[#000814] via-[#001E4D] to-[#000814] text-white min-h-screen;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-[#00CAFC] to-[#0056E2] hover:from-[#0056E2] hover:to-[#00CAFC] text-white font-medium py-2 px-4 rounded-full transition-all duration-300 shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium py-2 px-4 rounded-full transition-colors duration-200 backdrop-blur-sm;
+  }
+  
+  .card {
+    @apply bg-gradient-to-br from-[#00CAFC]/10 to-[#0056E2]/10 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/10;
+  }
+  
+  .card-circular {
+    @apply bg-gradient-to-br from-[#00CAFC] to-[#0056E2] rounded-full p-1 shadow-lg;
+  }
+  
+  .input-field {
+    @apply bg-white/10 border border-white/20 text-white rounded-full px-4 py-3 placeholder-white/60 focus:ring-2 focus:ring-[#00CAFC] focus:border-transparent backdrop-blur-sm transition-all duration-200;
+  }
+  
+  .modal-overlay {
+    @apply fixed inset-0 bg-[#000814]/80 backdrop-blur-sm z-50 flex items-center justify-center p-4;
+  }
+  
+  .modal-content {
+    @apply bg-gradient-to-br from-[#001E4D] to-[#000814] rounded-xl p-6 max-w-md w-full mx-4 border border-[#00CAFC]/30 shadow-2xl;
+  }
+}

@@ -1,0 +1,14 @@
+﻿export interface Pet {
+  id: number;
+  nome: string;
+  tipo: string;
+  raca: string;
+  idade: number;
+  donoId: number;
+  dono: {
+    id: number;
+    nome: string;
+    telefone: string;
+    endereco: string;
+  };
+}

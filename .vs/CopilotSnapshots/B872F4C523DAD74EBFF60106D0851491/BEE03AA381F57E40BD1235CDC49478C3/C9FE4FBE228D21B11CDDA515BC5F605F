@@ -1,0 +1,33 @@
+﻿'use client';
+
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import { Pet } from '../types/pet';
+import PetCard from './PetCard';
+import Modal from './Modal';
+import PetForm from './PetForm';
+
+// Dados mockados para demonstração
+const mockPets: Pet[] = [
+  // ... rest of the mock data ...
+];
+
+const PetList = () => {
+  const [pets, setPets] = useState<Pet[]>(mockPets);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalType, setModalType] = useState<'create' | 'edit'>('create');
+  const [selectedPet, setSelectedPet] = useState<Pet | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 16;
+
+  // ... rest of the component code ...
+
+  return (
+    <div className="min-h-screen p-8">
+      {/* ... rest of the JSX ... */}
+    </div>
+  );
+};
+
+export default PetList;
