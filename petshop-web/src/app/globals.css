@@ -1,0 +1,193 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Gradientes do Figma */
+  --background-gradient:
+    radial-gradient(circle at 0% 0%, #001e4d 0%, transparent 35%),
+    radial-gradient(circle at 100% 100%, #001e4d 0%, transparent 15%), #00060f;
+  --gradient-background: linear-gradient(135deg, #000814 0%, #001e4d 100%);
+  --gradient-border: linear-gradient(90deg, #00cafc 0%, #0056e2 100%);
+
+  /* Tokens do shadcn mapeados para a paleta */
+  --background: #00060f;
+  --foreground: #ffffff;
+  --card: #001e4c;
+  --card-foreground: #ffffff;
+  --popover: #001e4c;
+  --popover-foreground: #ffffff;
+  --primary: #0056e2;
+  --primary-foreground: #ffffff;
+  --secondary: #404a5c;
+  --secondary-foreground: #ffffff;
+  --muted: #404a5c;
+  --muted-foreground: #b8c0cc;
+  --accent: #0a2c63;
+  --accent-foreground: #ffffff;
+  --destructive: #ed254e;
+  --border: #404a5c;
+  --input: #404a5c;
+  --ring: #00cafc;
+  --chart-1: #00cafc;
+  --chart-2: #0056e2;
+  --chart-3: #f9dc5c;
+  --chart-4: #ed254e;
+  --chart-5: #404a5c;
+  --radius: 0.625rem;
+  --sidebar: #001e4c;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #0056e2;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #0a2c63;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #404a5c;
+  --sidebar-ring: #00cafc;
+}
+
+/* Valores fixos do Figma: viram classes (bg-cyan, text-danger, text-title...) */
+@theme {
+  --color-dark-blue: #001e4c;
+  --color-brand-blue: #0056e2;
+  --color-cyan: #00cafc;
+  --color-danger: #ed254e;
+  --color-yellow: #f9dc5c;
+  --color-gray: #404a5c;
+  --color-light: #ffffff;
+
+  --text-title: 30px;
+  --text-subtitle: 18px;
+  --text-body: 16px;
+}
+
+/* Valores que referenciam outras variáveis */
+@theme inline {
+  --font-sans: var(--font-ubuntu);
+  --font-heading: var(--font-ubuntu);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+  }
+  body {
+    min-height: 100vh;
+    background: var(--background-gradient);
+    background-attachment: fixed;
+    color: var(--foreground);
+  }
+}
+
+/* Utilitários do projeto */
+@utility bg-card-gradient {
+  background-image: var(--gradient-background);
+}
+
+@utility bg-brand-gradient {
+  background-image: var(--gradient-border);
+}
+
+@utility search-frame {
+  border: 2px solid transparent;
+  background:
+    linear-gradient(#00060f, #00060f) padding-box,
+    linear-gradient(90deg, #404a5c, #00cafc55) border-box;
+}
+
+/* Borda gradiente ciano -> azul (item hover/ativo e modal) */
+@utility border-gradient {
+  border: 2px solid transparent;
+  background:
+    linear-gradient(135deg, #001a40 0%, #00060f 100%) padding-box,
+    var(--gradient-border) border-box;
+}
+
+/* Brilho azul externo */
+@utility glow {
+  box-shadow: 0 0 28px rgb(0 138 255 / 0.3);
+}
+
+/* Borda cinza dos inputs (usaremos nos modais) */
+@utility input-frame {
+  border: 2px solid #404a5c;
+  border-radius: 0.5rem;
+  background: transparent;
+  transition: border-color 200ms ease;
+
+  &:focus-visible {
+    border-color: #00cafc;
+    outline: none;
+  }
+}
+
+@utility ring-gradient {
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    border-radius: inherit;
+    background: var(--gradient-border);
+    /* recorta o miolo e deixa só a faixa da borda */
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#000 0 0) content-box exclude,
+      linear-gradient(#000 0 0);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 300ms ease;
+  }
+
+  &:hover::before,
+  &[aria-expanded='true']::before {
+    opacity: 1;
+  }
+}
